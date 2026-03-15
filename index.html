@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eddie Appelberg — Cycling & Adventure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --green:         #1E3D2F;
+      --green-mid:     #3A6B4A;
+      --green-light:   #6da874;
+      --stone:         #C4B49A;
+      --stone-dark:    #8C7B65;
+      --soil:          #7A5C3E;
+      --red:           #a0503b;
+      --red-warm:      #cc7451;
+      --yellow:        #D4A94A;
+      --yellow-soft:   #E8CC7A;
+      --sky:           #7AAFC4;
+      --sky-deep:      #4A7A96;
+      --gray:          #8A8E8C;
+      --gray-light:    #C8CBC9;
+      --text:          #1A1A18;
+      --text-muted:    #7A7260;
+      --white:         #FDFAF4;
+      --black:         #111110;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--stone);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 3rem;
+      background: rgba(30, 61, 47, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(196,180,154,0.15);
+    }
+
+    /* Flag container on the left */
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+      
+    /* Each flag button — emoji only, no styling */
+    .lang-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.1rem 0.15rem;
+      border-radius: 3px;
+      opacity: 0.45;
+      transition: opacity 0.2s, transform 0.15s;
+      line-height: 0;   /* removes extra space around the image */
+    }
+
+    .lang-btn:hover {
+      opacity: 0.85;
+      transform: scale(1.1);
+    }
+
+    /* Hide the currently active language flag */
+    .lang-btn.active {
+      display: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--stone-dark);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--stone); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-left {
+      background: var(--green);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 4rem 4rem 4rem;
+      position: relative;
+    }
+
+    .hero-left::after {
+      content: '';
+      position: absolute;
+      top: 0; right: -60px;
+      width: 120px; height: 100%;
+      background: var(--green);
+      clip-path: polygon(0 0, 0% 100%, 100% 100%);
+      z-index: 2;
+    }
+
+    .hero-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--green-light);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      line-height: 1.1;
+      color: var(--stone);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--red-warm);
+    }
+
+    .hero-title bo {
+      font-style: normal;
+      color: var(--yellow);
+      -webkit-text-stroke: 0.5px var(--soil);
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--stone-dark);
+      line-height: 1.7;
+      max-width: 380px;
+      margin-bottom: 3rem;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--red);
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.9rem 2rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: background 0.2s, transform 0.2s;
+      width: fit-content;
+    }
+
+    .hero-cta:hover {
+      background: var(--red-warm);
+      transform: translateX(4px);
+    }
+
+    .hero-right {
+      background: var(--green-mid);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-right svg {
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 100%;
+      opacity: 0.12;
+    }
+
+    .hero-stats {
+      position: absolute;
+      bottom: 3rem; right: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      z-index: 2;
+    }
+
+    .stat { text-align: right; }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: var(--stone);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--green-light);
+    }
+
+    .hero-photo {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 500px;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    /* ── SHARED SECTIONS ── */
+    section {
+      padding: 6rem 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--green);
+      margin-bottom: 1rem;
+    }
+
+    .section-divider {
+      width: 160px;
+      height: 2px;
+      background: var(--red);
+      margin-bottom: 3rem;
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-text p {
+      font-size: 1.05rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .about-text p strong { color: var(--green); font-weight: 500; }
+    .about-text p em     { color: var(--red-warm); }
+
+    .about-image {
+      width: 400px;
+      height: 600px;
+      object-fit: cover;
+      position: relative;
+      display: block;
+    }
+
+    /* ── ITALY BANNER ── */
+    .italy-banner {
+      background: var(--red);
+      padding: 4rem 3rem;
+      text-align: center;
+    }
+
+    .italy-banner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .italy-banner p {
+      color: rgba(253,250,244,0.8);
+      font-weight: 300;
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+    }
+
+    .italy-banner a {
+      display: inline-block;
+      border: 1px solid var(--white);
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.8rem 2rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+
+    .italy-banner a:hover { background: rgba(253,250,244,0.1); }
+
+    /* ── ACTIVITIES ── */
+    .activities-section {
+      background: var(--red);
+      padding: 4rem 0;
+    }
+
+    .activities-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+
+    .activities-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 0.75rem;
+    }
+
+    .activities-section .section-tag {
+      color: rgba(253,250,244,0.6);
+      margin-bottom: 0;
+    }
+
+    .strava-profile-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--white);
+      text-decoration: none;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    .strava-profile-link:hover { opacity: 1; }
+
+    .activities-section .section-title {
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+
+    .activities-section .section-divider {
+      background: rgba(253,250,244,0.25);
+      margin-bottom: 2rem;
+    }
+
+    .activities-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .activity-card {
+      background: rgba(0,0,0,0.18);
+      border: 1px solid rgba(253,250,244,0.12);
+      border-top: 2px solid var(--yellow);
+      padding: 1.5rem 1.25rem;
+    }
+
+    .activity-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .activity-date {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(253,250,244,0.45);
+    }
+
+    .activity-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--white);
+      line-height: 1.4;
+      margin-bottom: 1.25rem;
+      min-height: 2.8rem;
+    }
+
+    .activity-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .activity-stat {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px solid rgba(253,250,244,0.08);
+      padding-bottom: 0.5rem;
+    }
+
+    .activity-stat:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .activity-stat-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--yellow);
+    }
+
+    .activity-stat-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(253,250,244,0.4);
+    }
+
+    /* ── BLOG ── */
+    .blog-section {
+      background: var(--green);
+      max-width: 100%;
+      padding: 6rem 0;
+    }
+
+    .blog-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+
+    .blog-inner .section-title { color: var(--stone); }
+    .blog-inner .section-tag   { color: var(--green-light); }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .blog-card {
+      background: var(--green-mid);
+      padding: 2rem;
+      border-left: 3px solid var(--red);
+      transition: transform 0.2s, border-color 0.2s;
+      text-decoration: none;
+      display: block;
+    }
+
+    .blog-card:hover { transform: translateY(-8px); border-color: var(--red-warm); }
+
+    .blog-card-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--green-light);
+      margin-bottom: 0.75rem;
+    }
+
+    .blog-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--stone);
+      line-height: 1.4;
+      margin-bottom: 1rem;
+    }
+
+    .blog-card-excerpt {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--stone-dark);
+      line-height: 1.6;
+    }
+
+    /* ── LINKS ── */
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .link-card {
+      background: var(--white);
+      border: 1px solid var(--stone);
+      padding: 1.75rem;
+      text-decoration: none;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .link-card:hover { border-color: var(--green-light); transform: translateY(-2px); }
+
+    .link-icon {
+      width: 40px; height: 40px;
+      background: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--stone);
+      font-size: 1rem;
+    }
+
+    .link-card-title {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--green);
+      margin-bottom: 0.3rem;
+    }
+
+    .link-card-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--green);
+      padding: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer .logo {
+      font-family: 'Playfair Display', serif;
+      color: var(--stone);
+      font-size: 1.1rem;
+    }
+
+    footer p {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      color: var(--green-light);
+      text-transform: uppercase;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-tag, .hero-title, .hero-sub, .hero-cta {
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards;
+    }
+    .hero-tag   { animation-delay: 0.1s; }
+    .hero-title { animation-delay: 0.25s; }
+    .hero-sub   { animation-delay: 0.4s; }
+    .hero-cta   { animation-delay: 0.8s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-left { padding: 7rem 2rem 3rem; }
+      .hero-left::after { display: none; }
+      .hero-right { min-height: 300px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .blog-grid  { grid-template-columns: 1fr; }
+      .activities-grid { grid-template-columns: 1fr; }
+      .activities-inner { padding: 0 1.5rem; }
+      .activities-header-row { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+      section { padding: 4rem 1.5rem; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+      .hero-photo { width: 180px; height: 180px; }
+      .about-image { width: 200px; height: 300px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══ NAV ══ -->
+  <nav>
+    <div class="lang-switcher">
+      <!-- BUG FIX: <button> must be INSIDE <body>, and font-family set for emoji rendering -->
+        <div class="lang-switcher">
+    <button class="lang-btn active" data-lang="en" title="English">
+      <img src="assets/images/flaguk.png" alt="English" width="50" height="50">
+    </button>
+    <button class="lang-btn" data-lang="sv" title="Svenska">
+      <img src="assets/images/flagse.png" alt="Svenska" width="50" height="50">
+    </button>
+    <button class="lang-btn" data-lang="it" title="Italiano">
+      <img src="assets/images/flagit.png" alt="Italiano" width="50" height="50">
+    </button>
+  </div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about"    data-en="About me"  data-sv="Om mig"   data-it="Chi sono">About me</a></li>
+      <li><a href="#blog"     data-en="Blog"      data-sv="Blogg"    data-it="Blog">Blog</a></li>
+      <li><a href="#links"    data-en="Links"     data-sv="Länkar"   data-it="Link">Links</a></li>
+      <li><a href="dashboard" data-en="Routes"    data-sv="Rutter"   data-it="Percorsi">Routes</a></li>
+    </ul>
+  </nav>
+
+  <!-- ══ HERO ══ -->
+  <div class="hero">
+    <div class="hero-left">
+      <p class="hero-tag"
+         data-en="// Bikepacking Journal"
+         data-sv="// Bikepacking Dagbok"
+         data-it="// Diario di Bikepacking">
+        // Bikepacking Journal
+      </p>
+      <h1 class="hero-title"
+          data-en="Exploring the regions of<br><em>Italy</em><br>For a good cause<br><bo>Starting May 10th 2026</bo>"
+          data-sv="Utforskar regionerna i<br><em>Italien</em><br>För ett gott syfte<br><bo>Startar 10 maj 2026</bo>"
+          data-it="Esplorando le regioni<br><em>d'Italia</em><br>Per una buona causa<br><bo>Partenza 10 maggio 2026</bo>">
+        Exploring the regions of<br><em>Italy</em><br>For a good cause<br><bo>Starting May 10th 2026</bo>
+      </h1>
+      <p class="hero-sub"
+         data-en="My mission is to explore the Italian nature, people, food and all the cultural gems along the way."
+         data-sv="Mitt uppdrag är att utforska den italienska naturen, människorna, maten och alla kulturella pärlor längs vägen."
+         data-it="La mia missione è esplorare la natura italiana, le persone, il cibo e tutte le gemme culturali lungo il percorso.">
+        My mission is to explore the Italian nature, people, food and all the cultural gems along the way.
+      </p>
+      <a href="#blog" class="hero-cta"
+         data-en="Read the journal →"
+         data-sv="Läs dagboken →"
+         data-it="Leggi il diario →">
+        Read the journal →
+      </a>
+    </div>
+
+    <div class="hero-right">
+      <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,400 Q100,300 200,350 Q300,400 400,250 Q500,100 600,200 L600,600 L0,600 Z" fill="none" stroke="#C4B49A" stroke-width="1.5"/>
+        <path d="M0,450 Q150,350 250,380 Q350,410 450,280 Q550,150 600,250 L600,600 L0,600 Z" fill="none" stroke="#C4B49A" stroke-width="1"/>
+        <path d="M0,500 Q100,420 200,440 Q300,460 420,340 Q520,220 600,300 L600,600 L0,600 Z" fill="none" stroke="#C4B49A" stroke-width="0.5"/>
+      </svg>
+      <img src="assets/images/profilepic.jpg" alt="Profile photo" class="hero-photo" />
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-number">~45</div>
+          <div class="stat-label"
+               data-en="days on the road"
+               data-sv="dagar på vägen"
+               data-it="giorni in viaggio">
+            days on the road
+          </div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">~5000</div>
+          <div class="stat-label"
+               data-en="km"
+               data-sv="km"
+               data-it="km">
+            km
+          </div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">Millions</div>
+          <div class="stat-label"
+               data-en="of pedal strokes"
+               data-sv="pedaltramp"
+               data-it="colpi di pedale">
+            of pedal strokes
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ABOUT ══ -->
+  <section id="about">
+    <p class="section-tag"
+       data-en="// About me"
+       data-sv="// Om mig"
+       data-it="// Chi sono">
+      // About me
+    </p>
+    <h2 class="section-title"
+        data-en="Curious. Analytic. Adventurous."
+        data-sv="Nyfiken. Analytisk. Äventyrslysten."
+        data-it="Curioso. Analitico. Avventuroso.">
+      Curious. Analytic. Adventurous.
+    </h2>
+    <div class="section-divider"></div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p data-en="Currently based in <strong>Skellefteå, Sweden</strong>, I spend my days analysing electricity markets and my spare time planning this passion project: Bikepacking across Italy 2026.<br>I enjoy working out, learning new languages and cooking something new."
+           data-sv="För närvarande baserad i <strong>Skellefteå, Sverige</strong>, tillbringar jag mina dagar med att analysera elmarknader och min fritid med att planera detta passionsprojekt: Bikepacking genom Italien 2026.<br>Jag gillar att träna, lära mig nya språk och laga ny mat."
+           data-it="Attualmente basato a <strong>Skellefteå, Svezia</strong>, trascorro le mie giornate analizzando i mercati elettrici e il tempo libero pianificando questo progetto: Bikepacking attraverso l'Italia 2026.<br>Mi piace allenarmi, imparare nuove lingue e cucinare qualcosa di nuovo.">
+          Currently based in <strong>Skellefteå, Sweden</strong>, I spend my days analysing electricity markets and my spare time planning this passion project: Bikepacking across Italy 2026.<br>I enjoy working out, learning new languages and cooking something new.
+        </p>
+        <p data-en="The project <em>Italy 2026</em> will cover <strong>5,000km through Italy</strong> covering Sardinia, Sicily and the mainland.<br>My objective is to combine challenging efforts with profound encounters with Italian people and the Italian culture."
+           data-sv="Projektet <em>Italien 2026</em> täcker <strong>5 000 km genom Italien</strong> med Sardinien, Sicilien och fastlandet.<br>Mitt mål är att kombinera utmanande ansträngningar med djupa möten med det italienska folket och den italienska kulturen."
+           data-it="Il progetto <em>Italia 2026</em> coprirà <strong>5.000 km attraverso l'Italia</strong> tra Sardegna, Sicilia e la penisola.<br>Il mio obiettivo è combinare sforzi impegnativi con incontri profondi con il popolo e la cultura italiana.">
+          The project <em>Italy 2026</em> will cover <strong>5,000km through Italy</strong> covering Sardinia, Sicily and the mainland.<br>My objective is to combine challenging efforts with profound encounters with Italian people and the Italian culture.
+        </p>
+        <p data-en="This site is still under construction but I aim to share the ride in a convenient way here. Expect route notes, gear lists, maps pulled from Strava, and much more!"
+           data-sv="Den här sidan är fortfarande under uppbyggnad men jag siktar på att dela resan på ett smidigt sätt här. Förvänta dig ruttanteckningar, utrustningslistor, kartor från Strava och mycket mer!"
+           data-it="Questo sito è ancora in costruzione ma intendo condividere il viaggio in modo conveniente qui. Aspettatevi note sui percorsi, liste di equipaggiamento, mappe da Strava e molto altro!">
+          This site is still under construction but I aim to share the ride in a convenient way here. Expect route notes, gear lists, maps pulled from Strava, and much more!
+        </p>
+      </div>
+      <img src="assets/images/profile2.jpg" alt="Profile photo" class="about-image"/>
+    </div>
+  </section>
+
+  <!-- ══ ITALY BANNER ══ -->
+  <div class="italy-banner">
+    <h2 data-en="Italia 2026 — 5,000 km"
+        data-sv="Italien 2026 — 5 000 km"
+        data-it="Italia 2026 — 5.000 km">
+      Italia 2026 — 5,000 km
+    </h2>
+    <p data-en="Along the Ligurian coast to Genoa, then island-hopping through Sardinia and Sicily before snaking my way north via Calabria, Apulia, Campania, Abruzzo, Marche to Veneto and Lombardy. Starting May 2026."
+       data-sv="Längs den liguriska kusten till Genua, sedan öhopping genom Sardinien och Sicilien innan jag slingrar mig norrut via Kalabrien, Apulien, Kampanien, Abruzzo, Marche till Veneto och Lombardiet. Startar maj 2026."
+       data-it="Lungo la costa ligure fino a Genova, poi saltando tra Sardegna e Sicilia prima di risalire verso nord attraverso Calabria, Puglia, Campania, Abruzzo, Marche fino a Veneto e Lombardia. Partenza maggio 2026.">
+      Along the Ligurian coast to Genoa, then island-hopping through Sardinia and Sicily before snaking my way north via Calabria, Apulia, Campania, Abruzzo, Marche to Veneto and Lombardy. Starting May 2026.
+    </p>
+    <a href="dashboard"
+       data-en="See the route →"
+       data-sv="Se rutten →"
+       data-it="Vedi il percorso →">
+      See the route →
+    </a>
+  </div>
+
+  <!-- ══ WHY ITALY ══ -->
+  <section id="why">
+    <p class="section-tag"
+       data-en="// Why Italy?"
+       data-sv="// Varför Italien?"
+       data-it="// Perché l'Italia?">
+      // Why Italy?
+    </p>
+    <h2 class="section-title"
+        data-en="Diverse.<br>Authentic.<br>Historical.<br>Challenging.<br>Tasty."
+        data-sv="Mångsidig.<br>Äkta.<br>Historisk.<br>Utmanande.<br>Välsmakande."
+        data-it="Diversa.<br>Autentica.<br>Storica.<br>Impegnativa.<br>Deliziosa.">
+      Diverse.<br>Authentic.<br>Historical.<br>Challenging.<br>Tasty.
+    </h2>
+    <div class="section-divider"></div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p data-en="This project is the result of several passions coming together as one.<br><br><strong>The language:</strong> Ever since I started learning Italian on my own I've been dreaming of visiting different regions and speaking with locals.<br><strong>The challenge:</strong> A challenge like this feeds me motivation and a sense of accomplishment.<br><strong>The variation:</strong> Italian nature and culture is quite diverse, and I am curious to get a feel of the similarities and differences across the regions.<br><strong>The hospitality:</strong> Italians are delighted when a foreigner speaks Italian, and can open up in a way that feels authentic."
+           data-sv="Det här projektet är resultatet av flera passioner som möts.<br><br><strong>Språket:</strong> Sedan jag började lära mig italienska på egen hand har jag drömt om att besöka olika regioner och prata med lokalbefolkningen.<br><strong>Utmaningen:</strong> En utmaning som denna ger mig motivation och känsla av prestation.<br><strong>Variationen:</strong> Italiensk natur och kultur är ganska mångsidig, och jag är nyfiken på att känna på likheter och skillnader mellan regionerna.<br><strong>Gästfriheten:</strong> Italienare är förtjusta när en utlänning talar italienska och kan öppna sig på ett sätt som känns äkta."
+           data-it="Questo progetto è il risultato di diverse passioni che si uniscono.<br><br><strong>La lingua:</strong> Da quando ho iniziato a imparare l'italiano da solo, ho sognato di visitare diverse regioni e parlare con i locali.<br><strong>La sfida:</strong> Una sfida come questa mi dà motivazione e senso di realizzazione.<br><strong>La varietà:</strong> La natura e la cultura italiana sono piuttosto diverse, e sono curioso di percepire le somiglianze e le differenze tra le regioni.<br><strong>L'ospitalità:</strong> Gli italiani sono felici quando uno straniero parla italiano e possono aprirsi in modo autentico.">
+          This project is the result of several passions coming together as one.<br><br>
+          <strong>The language:</strong> Ever since I started learning Italian on my own I've been dreaming of visiting different regions and speaking with locals.<br>
+          <strong>The challenge:</strong> A challenge like this feeds me motivation and a sense of accomplishment.<br>
+          <strong>The variation:</strong> Italian nature and culture is quite diverse, and I am curious to get a feel of the similarities and differences across the regions.<br>
+          <strong>The hospitality:</strong> Italians are delighted when a foreigner speaks Italian, and can open up in a way that feels authentic.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ STRAVA ACTIVITIES ══ -->
+  <div class="activities-section">
+    <div class="activities-inner">
+      <div class="activities-header-row">
+        <p class="section-tag"
+           data-en="// Latest rides"
+           data-sv="// Senaste turerna"
+           data-it="// Ultime uscite">
+          // Latest rides
+        </p>
+        <a href="https://www.strava.com/athletes/33737566" target="_blank" class="strava-profile-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10.6 16.3l-2.3-4.6H5.5l5.1 9.3 5.1-9.3h-2.8l-2.3 4.6zM15.7 7l-2.1 4.2h2.8L19.5 4 15.7 7z"/>
+            <path d="M10.6 4L6.8 11.2h2.8L10.6 9l1 2.2h2.8L10.6 4z"/>
+          </svg>
+          <span data-en="View profile on Strava →"
+                data-sv="Se profil på Strava →"
+                data-it="Vedi profilo su Strava →">
+            View profile on Strava →
+          </span>
+        </a>
+      </div>
+      <h2 class="section-title"
+          data-en="My three recent activities:"
+          data-sv="Mina tre senaste aktiviteter:"
+          data-it="Le mie tre ultime attività:">
+        My three recent activities:
+      </h2>
+      <div class="section-divider"></div>
+      <div class="activities-grid">
+
+        <div class="activity-card">
+          <div class="activity-header">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--yellow)" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10.6 16.3l-2.3-4.6H5.5l5.1 9.3 5.1-9.3h-2.8l-2.3 4.6zM15.7 7l-2.1 4.2h2.8L19.5 4 15.7 7z"/>
+              <path d="M10.6 4L6.8 11.2h2.8L10.6 9l1 2.2h2.8L10.6 4z"/>
+            </svg>
+            <span class="activity-date">14 Mar 2026</span>
+          </div>
+          <h3 class="activity-title">My latest ride title</h3>
+          <div class="activity-stats">
+            <div class="activity-stat">
+              <span class="activity-stat-value">-- km</span>
+              <span class="activity-stat-label"
+                    data-en="Distance" data-sv="Distans" data-it="Distanza">Distance</span>
+            </div>
+            <div class="activity-stat">
+              <span class="activity-stat-value">--:--</span>
+              <span class="activity-stat-label"
+                    data-en="Moving time" data-sv="Rörlig tid" data-it="Tempo in movimento">Moving time</span>
+            </div>
+            <div class="activity-stat">
+              <span class="activity-stat-value">-- m</span>
+              <span class="activity-stat-label"
+                    data-en="Elevation" data-sv="Höjdmeter" data-it="Dislivello">Elevation</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-header">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--yellow)" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10.6 16.3l-2.3-4.6H5.5l5.1 9.3 5.1-9.3h-2.8l-2.3 4.6zM15.7 7l-2.1 4.2h2.8L19.5 4 15.7 7z"/>
+              <path d="M10.6 4L6.8 11.2h2.8L10.6 9l1 2.2h2.8L10.6 4z"/>
+            </svg>
+            <span class="activity-date">12 Mar 2026</span>
+          </div>
+          <h3 class="activity-title">Your second latest ride</h3>
+          <div class="activity-stats">
+            <div class="activity-stat">
+              <span class="activity-stat-value">-- km</span>
+              <span class="activity-stat-label"
+                    data-en="Distance" data-sv="Distans" data-it="Distanza">Distance</span>
+            </div>
+            <div class="activity-stat">
+              <span class="activity-stat-value">--:--</span>
+              <span class="activity-stat-label"
+                    data-en="Moving time" data-sv="Rörlig tid" data-it="Tempo in movimento">Moving time</span>
+            </div>
+            <div class="activity-stat">
+              <span class="activity-stat-value">-- m</span>
+              <span class="activity-stat-label"
+                    data-en="Elevation" data-sv="Höjdmeter" data-it="Dislivello">Elevation</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-header">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--yellow)" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10.6 16.3l-2.3-4.6H5.5l5.1 9.3 5.1-9.3h-2.8l-2.3 4.6zM15.7 7l-2.1 4.2h2.8L19.5 4 15.7 7z"/>
+              <path d="M10.6 4L6.8 11.2h2.8L10.6 9l1 2.2h2.8L10.6 4z"/>
+            </svg>
+            <span class="activity-date">10 Mar 2026</span>
+          </div>
+          <h3 class="activity-title">Your third latest ride</h3>
+          <div class="activity-stats">
+            <div class="activity-stat">
+              <span class="activity-stat-value">-- km</span>
+              <span class="activity-stat-label"
+                    data-en="Distance" data-sv="Distans" data-it="Distanza">Distance</span>
+            </div>
+            <div class="activity-stat">
+              <span class="activity-stat-value">--:--</span>
+              <span class="activity-stat-label"
+                    data-en="Moving time" data-sv="Rörlig tid" data-it="Tempo in movimento">Moving time</span>
+            </div>
+            <div class="activity-stat">
+              <span class="activity-stat-value">-- m</span>
+              <span class="activity-stat-label"
+                    data-en="Elevation" data-sv="Höjdmeter" data-it="Dislivello">Elevation</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ BLOG ══ -->
+  <div class="blog-section" id="blog">
+    <div class="blog-inner">
+      <p class="section-tag"
+         data-en="// Latest posts"
+         data-sv="// Senaste inlägg"
+         data-it="// Ultimi articoli">
+        // Latest posts
+      </p>
+      <h2 class="section-title"
+          data-en="From the journal"
+          data-sv="Från dagboken"
+          data-it="Dal diario">
+        From the journal
+      </h2>
+      <div class="section-divider" style="background: var(--red);"></div>
+      <div class="blog-grid">
+
+        <a href="blog" class="blog-card">
+          <p class="blog-card-tag"
+             data-en="Italy 2026" data-sv="Italien 2026" data-it="Italia 2026">Italy 2026</p>
+          <h3 class="blog-card-title"
+              data-en="Planning a 4,500km loop through Italy"
+              data-sv="Planera en 4 500 km loop genom Italien"
+              data-it="Pianificando un giro di 4.500 km attraverso l'Italia">
+            Planning a 4,500km loop through Italy
+          </h3>
+          <p class="blog-card-excerpt"
+             data-en="Route planning notes for a May–June expedition through Sardinia, Sicily and the Italian mainland."
+             data-sv="Ruttplaneringsanteckningar för en maj–juniexpedition genom Sardinien, Sicilien och det italienska fastlandet."
+             data-it="Note di pianificazione del percorso per una spedizione maggio–giugno attraverso Sardegna, Sicilia e la penisola italiana.">
+            Route planning notes for a May–June expedition through Sardinia, Sicily and the Italian mainland.
+          </p>
+        </a>
+
+        <a href="blog" class="blog-card">
+          <p class="blog-card-tag"
+             data-en="Gear" data-sv="Utrustning" data-it="Attrezzatura">Gear</p>
+          <h3 class="blog-card-title"
+              data-en="What goes in the bags for a 40-day trip"
+              data-sv="Vad packar man för en 40-dagarsresa"
+              data-it="Cosa si mette nelle borse per un viaggio di 40 giorni">
+            What goes in the bags for a 40-day trip
+          </h3>
+          <p class="blog-card-excerpt"
+             data-en="A practical breakdown of bikepacking kit optimised for heat, distance, and rough roads."
+             data-sv="En praktisk genomgång av bikepacking-utrustning optimerad för värme, distans och ojämna vägar."
+             data-it="Una guida pratica all'attrezzatura da bikepacking ottimizzata per il caldo, le distanze e le strade sconnesse.">
+            A practical breakdown of bikepacking kit optimised for heat, distance, and rough roads.
+          </p>
+        </a>
+
+        <a href="blog" class="blog-card">
+          <p class="blog-card-tag"
+             data-en="Training" data-sv="Träning" data-it="Allenamento">Training</p>
+          <h3 class="blog-card-title"
+              data-en="Building base fitness on Zwift"
+              data-sv="Bygga grundkondition på Zwift"
+              data-it="Costruire la forma base su Zwift">
+            Building base fitness on Zwift
+          </h3>
+          <p class="blog-card-excerpt"
+             data-en="How indoor training through a Swedish winter translates to long days in the saddle."
+             data-sv="Hur inomhusträning under en svensk vinter översätts till långa dagar i sadeln."
+             data-it="Come l'allenamento indoor durante un inverno svedese si traduce in lunghe giornate in sella.">
+            How indoor training through a Swedish winter translates to long days in the saddle.
+          </p>
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ LINKS ══ -->
+  <section id="links">
+    <p class="section-tag"
+       data-en="// Around the web"
+       data-sv="// Runt om på nätet"
+       data-it="// In giro per il web">
+      // Around the web
+    </p>
+    <h2 class="section-title"
+        data-en="Places I read"
+        data-sv="Ställen jag läser"
+        data-it="Posti che leggo">
+      Places I read
+    </h2>
+    <div class="section-divider"></div>
+    <div class="links-grid">
+
+      <a href="https://www.instagram.com/biketoured/" target="_blank" class="link-card">
+        <div class="link-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2"/>
+            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+          </svg>
+        </div>
+        <div>
+          <p class="link-card-title">Instagram</p>
+          <p class="link-card-desc"
+             data-en="Follow me on Instagram"
+             data-sv="Följ mig på Instagram"
+             data-it="Seguimi su Instagram">
+            Follow me on Instagram
+          </p>
+        </div>
+      </a>
+
+      <a href="https://www.strava.com/athletes/33737566" target="_blank" class="link-card">
+        <div class="link-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10.6 16.3l-2.3-4.6H5.5l5.1 9.3 5.1-9.3h-2.8l-2.3 4.6zM15.7 7l-2.1 4.2h2.8L19.5 4 15.7 7z"/>
+            <path d="M10.6 4L6.8 11.2h2.8L10.6 9l1 2.2h2.8L10.6 4z"/>
+          </svg>
+        </div>
+        <div>
+          <p class="link-card-title">Strava</p>
+          <p class="link-card-desc"
+             data-en="Take a look at my activity feed and route archive"
+             data-sv="Ta en titt på mitt aktivitetsflöde och ruttarkiv"
+             data-it="Dai un'occhiata al mio feed di attività e all'archivio percorsi">
+            Take a look at my activity feed and route archive
+          </p>
+        </div>
+      </a>
+
+      <a href="https://www.bikepacking.com" target="_blank" class="link-card">
+        <div class="link-icon">↗</div>
+        <div>
+          <p class="link-card-title">Bikepacking.com</p>
+          <p class="link-card-desc"
+             data-en="Routes, gear reviews and inspiration"
+             data-sv="Rutter, utrustningsrecensioner och inspiration"
+             data-it="Percorsi, recensioni di attrezzatura e ispirazione">
+            Routes, gear reviews and inspiration
+          </p>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <span class="logo">Edvard Appelberg<br>edvardappelberg20@gmail.com</span>
+    <p data-en="Skellefteå, Sweden — Built with HTML &amp; CSS"
+       data-sv="Skellefteå, Sverige — Byggd med HTML &amp; CSS"
+       data-it="Skellefteå, Svezia — Costruito con HTML &amp; CSS">
+      Skellefteå, Sweden — Built with HTML &amp; CSS
+    </p>
+  </footer>
+
+  <!-- ══ LANGUAGE SWITCHER SCRIPT ══
+       Placed at the end of <body> so all elements exist before the script runs.
+       This was a key bug — the script was in <head> before, where no HTML elements
+       exist yet, so querySelectorAll found nothing.
+  ══ -->
+  <script>
+    let currentLang = 'en';
+    const langBtns = document.querySelectorAll('.lang-btn');
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+
+      // Swap text on every element that has a data-en attribute
+      document.querySelectorAll('[data-en]').forEach(el => {
+        const translation = el.getAttribute('data-' + lang);
+        if (translation) el.innerHTML = translation;
+      });
+
+      // Hide the active flag, show the others
+      langBtns.forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+
+      // Remember choice across page reloads
+      localStorage.setItem('preferred-lang', lang);
+    }
+
+    // Wire up each flag button
+    langBtns.forEach(btn => {
+      btn.addEventListener('click', () => applyLanguage(btn.getAttribute('data-lang')));
+    });
+
+    // Restore saved language on load
+    const saved = localStorage.getItem('preferred-lang');
+    if (saved) applyLanguage(saved);
+  </script>
+
+</body>
+</html>
