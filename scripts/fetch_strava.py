@@ -3,18 +3,15 @@ import json
 import requests
 from datetime import datetime
 
-# ── CONFIGURATION ──────────────────────────────────────────────
-# All values come from GitHub Secrets — never hardcoded here
 CLIENT_ID     = os.environ['STRAVA_CLIENT_ID']
 CLIENT_SECRET = os.environ['STRAVA_CLIENT_SECRET']
 REFRESH_TOKEN = os.environ['STRAVA_REFRESH_TOKEN']
 
-# Only fetch activities after this date (start of Italy trip)
-# INSERT STARTDATE
 TRIP_START_TIMESTAMP = int(datetime(2026, 3, 10).timestamp())
 
-# Output file — saved into the repo so the site can read it
-OUTPUT_FILE = 'strava/activities.json'
+# Absolute path — works regardless of where script is called from
+REPO_ROOT   = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+OUTPUT_FILE = os.path.join(REPO_ROOT, 'strava', 'activities.json')
 
 # ── STEP 1: Get a fresh access token ───────────────────────────
 # Strava access tokens expire after 6 hours.
