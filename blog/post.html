@@ -147,10 +147,15 @@
     function getSlug() { return new URLSearchParams(window.location.search).get('slug'); }
 
     function parseFrontmatter(raw) {
-      const match = raw.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
-      if (!match) return { meta: {}, body: raw };
-      try { return { meta: jsyaml.load(match[1]), body: match[2].trim() }; }
-      catch { return { meta: {}, body: raw }; }
+    // Normalise line endings — Windows uses \r\n, we need \n
+    const normalised = raw.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+    const match = normalised.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+    if (!match) return { meta: {}, body: normalised };
+    try {
+      return { meta: jsyaml.load(match[1]), body: match[2].trim() };
+    } catch(e) {
+      return { meta: {}, body: normalised };
+    }
     }
 
     function formatDate(dateStr, lang) {
