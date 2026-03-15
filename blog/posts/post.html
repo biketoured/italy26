@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Post — Eddie Appelberg</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Marked.js — converts Markdown text into HTML -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+  <!-- js-yaml — parses the frontmatter metadata block at the top of each .md file -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+
+  <style>
+    /* ── Colour palette ── */
+    :root {
+      --green:       #1E3D2F;
+      --green-mid:   #3A6B4A;
+      --green-light: #6da874;
+      --stone:       #C4B49A;
+      --stone-dark:  #8C7B65;
+      --red:         #a0503b;
+      --red-warm:    #cc7451;
+      --yellow:      #D4A94A;
+      --text:        #1A1A18;
+      --text-muted:  #7A7260;
+      --white:       #FDFAF4;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--stone);   /* sandstone throughout */
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── NAV — identical to homepage ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 3rem;
+      background: rgba(30, 61, 47, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(196,180,154,0.15);
+    }
+
+    .lang-switcher { display: flex; align-items: center; gap: 0.4rem; }
+
+    .lang-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      line-height: 0;
+      padding: 0.1rem 0.15rem;
+      border-radius: 3px;
+      opacity: 0.45;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+
+    .lang-btn img { display: block; border-radius: 2px; }
+    .lang-btn:hover { opacity: 0.85; transform: scale(1.1); }
+    .lang-btn.active { display: none; }
+
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+
+    .nav-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--stone-dark);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--stone); }
+
+    /* ── POST WRAPPER ── */
+    .post-wrapper {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 7rem 2rem 6rem;
+    }
+
+    /* ── BACK LINK ── */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--red);
+      text-decoration: none;
+      margin-bottom: 2.5rem;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: var(--red-warm); }
+
+    /* ── POST HEADER ── */
+    .post-header {
+      border-bottom: 2px solid var(--stone-dark);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .post-badge {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      margin-bottom: 0.75rem;
+    }
+
+    .post-badge.journal { background: var(--green); color: var(--green-light); }
+    .post-badge.blog    { background: var(--red);   color: var(--white); }
+
+    .post-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--green);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Meta line: date · km · elevation · read time */
+    .post-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--stone-dark);
+    }
+
+    /* ── JOURNAL SECTIONS ──
+       Each ## heading in the .md becomes a styled section block
+       with a left border and small uppercase label
+    ── */
+    .journal-section {
+      margin-bottom: 2rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--stone-dark);
+    }
+
+    /* The question label e.g. "HOW DID MY BODY FEEL?" */
+    .journal-section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--stone-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    /* The answer text */
+    .journal-section-body {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--text);
+    }
+
+    /* ── BLOG PROSE ──
+       Free-form text rendered from Markdown
+    ── */
+    .blog-prose { font-size: 1.05rem; line-height: 1.8; color: var(--text); }
+    .blog-prose p          { margin-bottom: 1.2rem; }
+    .blog-prose h2         { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--green); margin: 2rem 0 0.75rem; font-weight: 400; }
+    .blog-prose h3         { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--green); margin: 1.5rem 0 0.5rem; font-weight: 400; }
+    .blog-prose strong     { color: var(--green); font-weight: 500; }
+    .blog-prose em         { color: var(--red-warm); }
+    .blog-prose ul, .blog-prose ol { margin: 0.75rem 0 1.2rem 1.5rem; }
+    .blog-prose li         { margin-bottom: 0.4rem; line-height: 1.7; }
+    .blog-prose blockquote { border-left: 3px solid var(--red); padding-left: 1rem; color: var(--text-muted); font-style: italic; margin: 1.5rem 0; }
+
+    /* ── INLINE PHOTO BLOCK ──
+       Appears between sections/paragraphs
+    ── */
+    .post-photo {
+      margin: 2rem 0;
+    }
+
+    .post-photo img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      max-height: 500px;
+    }
+
+    /* Caption below the photo — italic, muted */
+    .post-photo-caption {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-top: 0.5rem;
+      line-height: 1.5;
+    }
+
+    /* ── LOADING / ERROR STATES ── */
+    .loading-state, .error-state {
+      text-align: center;
+      padding: 4rem 2rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--green);
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer .logo { font-family: 'Playfair Display', serif; color: var(--stone); font-size: 1rem; }
+    footer p     { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; color: var(--green-light); text-transform: uppercase; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.2rem; }
+      .post-wrapper { padding: 6rem 1.25rem 4rem; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══ NAV ══ -->
+  <nav>
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang="en" title="English">
+        <img src="../assets/images/flag-en.png" alt="English" width="24" height="16">
+      </button>
+      <button class="lang-btn" data-lang="sv" title="Svenska">
+        <img src="../assets/images/flag-sv.png" alt="Svenska" width="24" height="16">
+      </button>
+      <button class="lang-btn" data-lang="it" title="Italiano">
+        <img src="../assets/images/flag-it.png" alt="Italiano" width="24" height="16">
+      </button>
+    </div>
+    <ul class="nav-links">
+      <li><a href="../index.html#about" data-en="About me" data-sv="Om mig"   data-it="Chi sono">About me</a></li>
+      <li><a href="index.html" class="active" data-en="Blog" data-sv="Blogg" data-it="Blog">Blog</a></li>
+      <li><a href="../index.html#links" data-en="Links"    data-sv="Länkar"   data-it="Link">Links</a></li>
+      <li><a href="../dashboard"        data-en="Routes"   data-sv="Rutter"   data-it="Percorsi">Routes</a></li>
+    </ul>
+  </nav>
+
+  <!-- ══ POST CONTENT — injected by JS ══ -->
+  <div class="post-wrapper" id="post-wrapper">
+    <div class="loading-state" id="loading">Loading post...</div>
+  </div>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <span class="logo">Edvard Appelberg</span>
+    <p data-en="Skellefteå, Sweden — Built with HTML &amp; CSS"
+       data-sv="Skellefteå, Sverige — Byggd med HTML &amp; CSS"
+       data-it="Skellefteå, Svezia — Costruito con HTML &amp; CSS">
+      Skellefteå, Sweden — Built with HTML &amp; CSS
+    </p>
+  </footer>
+
+  <script>
+    // ── LANGUAGE SWITCHER ──
+    let currentLang = localStorage.getItem('preferred-lang') || 'en';
+    const langBtns = document.querySelectorAll('.lang-btn');
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+      document.querySelectorAll('[data-en]').forEach(el => {
+        const t = el.getAttribute('data-' + lang);
+        if (t) el.innerHTML = t;
+      });
+      langBtns.forEach(btn =>
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang)
+      );
+      localStorage.setItem('preferred-lang', lang);
+      // Reload the post content in the new language
+      loadPost();
+    }
+
+    langBtns.forEach(btn =>
+      btn.addEventListener('click', () => applyLanguage(btn.getAttribute('data-lang')))
+    );
+
+    // ── GET SLUG FROM URL ──
+    // e.g. blog/post.html?slug=day-01-genova → slug = "day-01-genova"
+    function getSlug() {
+      return new URLSearchParams(window.location.search).get('slug');
+    }
+
+    // ── PARSE FRONTMATTER ──
+    // Splits the .md file into { meta: {...}, body: "..." }
+    function parseFrontmatter(raw) {
+      const match = raw.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+      if (!match) return { meta: {}, body: raw };
+      try {
+        return { meta: jsyaml.load(match[1]), body: match[2].trim() };
+      } catch {
+        return { meta: {}, body: raw };
+      }
+    }
+
+    // ── FORMAT DATE ──
+    function formatDate(dateStr, lang) {
+      const d = new Date(dateStr);
+      const locales = { en: 'en-GB', sv: 'sv-SE', it: 'it-IT' };
+      return d.toLocaleDateString(locales[lang] || 'en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+    }
+
+    // ── RENDER JOURNAL POST ──
+    // Splits the markdown body on ## headings.
+    // Each heading becomes a section label, the text below it is the answer.
+    // Photos from frontmatter are distributed between sections.
+    function renderJournal(meta, body, photos) {
+      // Split on ## headings
+      const parts = body.split(/^## /m).filter(Boolean);
+
+      // Interleave photo blocks between sections
+      let photoIndex = 0;
+      let html = '';
+
+      parts.forEach((part, i) => {
+        const lines   = part.trim().split('\n');
+        const heading = lines[0].trim();
+        const content = lines.slice(1).join('\n').trim();
+
+        html += `
+          <div class="journal-section">
+            <p class="journal-section-label">${heading}</p>
+            <div class="journal-section-body">${marked.parse(content)}</div>
+          </div>`;
+
+        // Insert a photo after every other section if available
+        if (i % 2 === 1 && photoIndex < photos.length) {
+          const photo = photos[photoIndex++];
+          html += photoBlock(photo, meta.slug);
+        }
+      });
+
+      // Append any remaining photos at the end
+      while (photoIndex < photos.length) {
+        html += photoBlock(photos[photoIndex++], meta.slug);
+      }
+
+      return html;
+    }
+
+    // ── RENDER BLOG POST ──
+    // Splits the markdown body on image markers [photo:N] and renders
+    // photos inline at those positions.
+    function renderBlog(meta, body, photos) {
+      // Replace [photo:1], [photo:2] etc. with actual photo blocks
+      // This lets you control exactly where photos appear in a blog post
+      let html = body.replace(/\[photo:(\d+)\]/g, (match, num) => {
+        const idx = parseInt(num) - 1;
+        if (photos[idx]) return photoBlock(photos[idx], meta.slug);
+        return '';
+      });
+
+      // Render the remaining markdown as prose
+      return `<div class="blog-prose">${marked.parse(html)}</div>`;
+    }
+
+    // ── PHOTO BLOCK ──
+    // Renders a single photo with optional caption
+    function photoBlock(photo, slug) {
+      const src     = `posts/${slug}/${photo.src}`;
+      const caption = photo.caption
+        ? `<p class="post-photo-caption">${photo.caption}</p>`
+        : '';
+      return `
+        <div class="post-photo">
+          <img src="${src}" alt="${photo.caption || ''}" loading="lazy">
+          ${caption}
+        </div>`;
+    }
+
+    // ── BACK LINK LABELS ──
+    const backLabels = {
+      journal: { en: '← Back to Journal', sv: '← Tillbaka till dagboken', it: '← Torna al diario' },
+      blog:    { en: '← Back to Blog',    sv: '← Tillbaka till bloggen',  it: '← Torna al blog'  }
+    };
+
+    // ── LOAD AND RENDER POST ──
+    function loadPost() {
+      const slug = getSlug();
+      if (!slug) {
+        document.getElementById('post-wrapper').innerHTML =
+          '<div class="error-state">No post specified.</div>';
+        return;
+      }
+
+      // Fetch the markdown file for the current language
+      // Falls back to English if the translation doesn't exist yet
+      const tryFetch = (lang) =>
+        fetch(`posts/${slug}/${lang}.md`).then(r => {
+          if (!r.ok) throw new Error('not found');
+          return r.text();
+        });
+
+      tryFetch(currentLang)
+        .catch(() => tryFetch('en'))   // fallback to English
+        .then(raw => {
+          const { meta, body } = parseFrontmatter(raw);
+          const photos = meta.photos || [];
+          const type   = meta.type || 'blog';
+          const title  = meta.title ? (meta.title[currentLang] || meta.title.en || slug) : slug;
+
+          // Update page title
+          document.title = `${title} — Eddie Appelberg`;
+
+          // Back link
+          const backLabel = backLabels[type][currentLang];
+          const backHref  = type === 'journal'
+            ? 'index.html?tab=journal'
+            : 'index.html?tab=blog';
+
+          // Badge
+          const badgeText = type === 'journal'
+            ? ({ en: 'Day', sv: 'Dag', it: 'Giorno' }[currentLang] + ' ' + meta.day)
+            : meta.tag;
+
+          // Meta line
+          const dateFmt  = formatDate(meta.date, currentLang);
+          const metaParts = [dateFmt];
+          if (type === 'journal') {
+            if (meta.km)        metaParts.push(meta.km + ' km');
+            if (meta.elevation) metaParts.push(meta.elevation + ' m ↑');
+          }
+          const metaLine = metaParts.join(' · ');
+
+          // Render content based on post type
+          const content = type === 'journal'
+            ? renderJournal(meta, body, photos)
+            : renderBlog(meta, body, photos);
+
+          // Inject into page
+          document.getElementById('post-wrapper').innerHTML = `
+            <a href="${backHref}" class="back-link">${backLabel}</a>
+            <div class="post-header">
+              <span class="post-badge ${type}">${badgeText}</span>
+              <h1 class="post-title">${title}</h1>
+              <p class="post-meta">${metaLine}</p>
+            </div>
+            ${content}
+          `;
+        })
+        .catch(() => {
+          document.getElementById('post-wrapper').innerHTML =
+            '<div class="error-state">Post not found.</div>';
+        });
+    }
+
+    // ── INIT ──
+    applyLanguage(currentLang);
+  </script>
+
+</body>
+</html>
