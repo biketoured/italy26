@@ -552,6 +552,254 @@
       line-height: 1.5;
     }
 
+
+    /* ── LIVE TRACKING BANNER ──
+      Red/orange pulsing banner shown when LIVE_TRACKING = true
+      Hidden completely when false — no layout impact
+    ── */
+    .live-banner {
+      background: var(--red);
+      padding: 0.9rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    
+    /* Hide the banner when not tracking */
+    .live-banner.hidden { display: none; }
+    
+    .live-banner-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    /* Pulsing red dot — indicates live */
+    .live-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--yellow);
+      animation: pulse 1.5s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(1.3); }
+    }
+    
+    .live-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+    
+    /* The actual tracking link */
+    .live-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+      border: 1px solid rgba(253,250,244,0.4);
+      padding: 0.4rem 1rem;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    
+    .live-link:hover { background: rgba(253,250,244,0.15); }
+    
+    /* ── STRAVA SECTION ──
+      Full-width dark green band containing:
+      1. Map with route traces
+      2. Three activity cards
+      3. See more link
+    ── */
+    .strava-section {
+      background: var(--green);
+      padding: 5rem 0;
+    }
+    
+    .strava-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+    
+    /* Section header row */
+    .strava-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 0.75rem;
+    }
+    
+    .strava-section .section-tag {
+      color: rgba(196,180,154,0.6);
+      margin-bottom: 0;
+    }
+    
+    .strava-section .section-title {
+      color: var(--stone);
+      margin-bottom: 1.5rem;
+    }
+    
+    .strava-section .section-divider {
+      background: rgba(196,180,154,0.2);
+      margin-bottom: 2rem;
+    }
+    
+    /* ── MAP ──
+      Terrain map with Leaflet.js
+      Route traces drawn from activities.json polylines
+    ── */
+    .strava-map {
+      width: 100%;
+      height: 500px;
+      margin-bottom: 3rem;
+      border: 1px solid rgba(196,180,154,0.15);
+      position: relative;
+    }
+    
+    /* Loading overlay shown while activities.json fetches */
+    .map-loading {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: var(--stone-dark);
+      text-transform: uppercase;
+      z-index: 10;
+      pointer-events: none;
+    }
+    
+    /* ── ACTIVITY CARDS ── */
+    .strava-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .activity-card {
+      background: rgba(0,0,0,0.18);
+      border: 1px solid rgba(196,180,154,0.12);
+      border-top: 2px solid var(--yellow);
+      padding: 1.5rem 1.25rem;
+    }
+    
+    .activity-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    .activity-date {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(196,180,154,0.45);
+    }
+    
+    /* Colour dot matching the route colour on the map */
+    .activity-color-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    
+    .activity-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--stone);
+      line-height: 1.4;
+      margin-bottom: 1.25rem;
+      min-height: 2.8rem;
+    }
+    
+    .activity-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    
+    .activity-stat {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px solid rgba(196,180,154,0.08);
+      padding-bottom: 0.5rem;
+    }
+    
+    .activity-stat:last-child { border-bottom: none; padding-bottom: 0; }
+    
+    .activity-stat-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--yellow);
+    }
+    
+    .activity-stat-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(196,180,154,0.4);
+    }
+    
+    /* "No activities yet" placeholder */
+    .activity-card.placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 180px;
+      opacity: 0.4;
+    }
+    
+    .activity-card.placeholder p {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--stone-dark);
+      text-transform: uppercase;
+      text-align: center;
+    }
+    
+    /* "See more on Strava" link */
+    .strava-more-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--yellow);
+      text-decoration: none;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(212,169,74,0.3);
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+    
+    .strava-more-link:hover { border-color: var(--yellow); }
+    
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .strava-grid { grid-template-columns: 1fr; }
+      .strava-inner { padding: 0 1.5rem; }
+      .strava-map { height: 300px; }
+      .live-banner { padding: 0.9rem 1.5rem; flex-direction: column; align-items: flex-start; }
+      .strava-header-row { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+    }
+
     /* ── FOOTER ── */
     footer {
       background: var(--green);
@@ -792,124 +1040,80 @@
     </div>
   </section>
 
-  <!-- ══ STRAVA ACTIVITIES ══ -->
-  <div class="activities-section">
-    <div class="activities-inner">
-      <div class="activities-header-row">
+
+    
+  <!-- ══ LIVE TRACKING BANNER ══
+      Set LIVE_TRACKING to true/false in the script below.
+      When true: shows the pulsing banner with your live link.
+      When false: banner is completely hidden.
+  ══ -->
+  <div class="live-banner" id="live-banner">
+    <div class="live-banner-left">
+      <div class="live-dot"></div>
+      <span class="live-label"
+            data-en="Live tracking active"
+            data-sv="Livetracking aktiv"
+            data-it="Tracciamento live attivo">
+        Live tracking active
+      </span>
+    </div>
+    <a href="#" id="live-link" class="live-link" target="_blank"
+      data-en="Follow me live →"
+      data-sv="Följ mig live →"
+      data-it="Seguimi in diretta →">
+      Follow me live →
+    </a>
+  </div>
+  
+  <!-- ══ STRAVA SECTION ══ -->
+  <div class="strava-section" id="routes">
+    <div class="strava-inner">
+  
+      <!-- Header -->
+      <div class="strava-header-row">
         <p class="section-tag"
-           data-en="// Latest rides"
-           data-sv="// Senaste turerna"
-           data-it="// Ultime uscite">
-          // Latest rides
+          data-en="// On the road"
+          data-sv="// På vägen"
+          data-it="// In viaggio">
+          // On the road
         </p>
-        <a href="https://www.strava.com/athletes/33737566" target="_blank" class="strava-profile-link">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10.6 16.3l-2.3-4.6H5.5l5.1 9.3 5.1-9.3h-2.8l-2.3 4.6zM15.7 7l-2.1 4.2h2.8L19.5 4 15.7 7z"/>
-            <path d="M10.6 4L6.8 11.2h2.8L10.6 9l1 2.2h2.8L10.6 4z"/>
-          </svg>
-          <span data-en="View profile on Strava →"
-                data-sv="Se profil på Strava →"
-                data-it="Vedi profilo su Strava →">
-            View profile on Strava →
-          </span>
-        </a>
       </div>
       <h2 class="section-title"
-          data-en="My three recent activities:"
-          data-sv="Mina tre senaste aktiviteter:"
-          data-it="Le mie tre ultime attività:">
-        My three recent activities:
+          data-en="The Italy 2026 route"
+          data-sv="Italien 2026-rutten"
+          data-it="Il percorso Italia 2026">
+        The Italy 2026 route
       </h2>
       <div class="section-divider"></div>
-      <div class="activities-grid">
-
-        <div class="activity-card">
-          <div class="activity-header">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--yellow)" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10.6 16.3l-2.3-4.6H5.5l5.1 9.3 5.1-9.3h-2.8l-2.3 4.6zM15.7 7l-2.1 4.2h2.8L19.5 4 15.7 7z"/>
-              <path d="M10.6 4L6.8 11.2h2.8L10.6 9l1 2.2h2.8L10.6 4z"/>
-            </svg>
-            <span class="activity-date">14 Mar 2026</span>
-          </div>
-          <h3 class="activity-title">My latest ride title</h3>
-          <div class="activity-stats">
-            <div class="activity-stat">
-              <span class="activity-stat-value">-- km</span>
-              <span class="activity-stat-label"
-                    data-en="Distance" data-sv="Distans" data-it="Distanza">Distance</span>
-            </div>
-            <div class="activity-stat">
-              <span class="activity-stat-value">--:--</span>
-              <span class="activity-stat-label"
-                    data-en="Moving time" data-sv="Rörlig tid" data-it="Tempo in movimento">Moving time</span>
-            </div>
-            <div class="activity-stat">
-              <span class="activity-stat-value">-- m</span>
-              <span class="activity-stat-label"
-                    data-en="Elevation" data-sv="Höjdmeter" data-it="Dislivello">Elevation</span>
-            </div>
-          </div>
+  
+      <!-- Terrain map — Leaflet draws routes from activities.json -->
+      <div class="strava-map" id="strava-map">
+        <div class="map-loading" id="map-loading"
+            data-en="Loading routes..."
+            data-sv="Laddar rutter..."
+            data-it="Caricamento percorsi...">
+          Loading routes...
         </div>
-
-        <div class="activity-card">
-          <div class="activity-header">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--yellow)" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10.6 16.3l-2.3-4.6H5.5l5.1 9.3 5.1-9.3h-2.8l-2.3 4.6zM15.7 7l-2.1 4.2h2.8L19.5 4 15.7 7z"/>
-              <path d="M10.6 4L6.8 11.2h2.8L10.6 9l1 2.2h2.8L10.6 4z"/>
-            </svg>
-            <span class="activity-date">12 Mar 2026</span>
-          </div>
-          <h3 class="activity-title">Your second latest ride</h3>
-          <div class="activity-stats">
-            <div class="activity-stat">
-              <span class="activity-stat-value">-- km</span>
-              <span class="activity-stat-label"
-                    data-en="Distance" data-sv="Distans" data-it="Distanza">Distance</span>
-            </div>
-            <div class="activity-stat">
-              <span class="activity-stat-value">--:--</span>
-              <span class="activity-stat-label"
-                    data-en="Moving time" data-sv="Rörlig tid" data-it="Tempo in movimento">Moving time</span>
-            </div>
-            <div class="activity-stat">
-              <span class="activity-stat-value">-- m</span>
-              <span class="activity-stat-label"
-                    data-en="Elevation" data-sv="Höjdmeter" data-it="Dislivello">Elevation</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="activity-card">
-          <div class="activity-header">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--yellow)" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10.6 16.3l-2.3-4.6H5.5l5.1 9.3 5.1-9.3h-2.8l-2.3 4.6zM15.7 7l-2.1 4.2h2.8L19.5 4 15.7 7z"/>
-              <path d="M10.6 4L6.8 11.2h2.8L10.6 9l1 2.2h2.8L10.6 4z"/>
-            </svg>
-            <span class="activity-date">10 Mar 2026</span>
-          </div>
-          <h3 class="activity-title">Your third latest ride</h3>
-          <div class="activity-stats">
-            <div class="activity-stat">
-              <span class="activity-stat-value">-- km</span>
-              <span class="activity-stat-label"
-                    data-en="Distance" data-sv="Distans" data-it="Distanza">Distance</span>
-            </div>
-            <div class="activity-stat">
-              <span class="activity-stat-value">--:--</span>
-              <span class="activity-stat-label"
-                    data-en="Moving time" data-sv="Rörlig tid" data-it="Tempo in movimento">Moving time</span>
-            </div>
-            <div class="activity-stat">
-              <span class="activity-stat-value">-- m</span>
-              <span class="activity-stat-label"
-                    data-en="Elevation" data-sv="Höjdmeter" data-it="Dislivello">Elevation</span>
-            </div>
-          </div>
-        </div>
-
       </div>
+  
+      <!-- Three latest activity cards — filled by JS -->
+      <div class="strava-grid" id="strava-grid">
+        <!-- Injected by JavaScript -->
+      </div>
+  
+      <!-- See more link -->
+      <a href="https://www.strava.com/athletes/33737566"
+        target="_blank"
+        class="strava-more-link"
+        data-en="See all activities on Strava →"
+        data-sv="Se alla aktiviteter på Strava →"
+        data-it="Vedi tutte le attività su Strava →">
+        See all activities on Strava →
+      </a>
+  
     </div>
   </div>
+  
 
   <!-- ══ BLOG ══ -->
   <div class="blog-section" id="blog">
@@ -1100,6 +1304,238 @@
     const saved = localStorage.getItem('preferred-lang');
     if (saved) applyLanguage(saved);
   </script>
+
+  <script>
+  
+  // ══════════════════════════════════════════
+  // CONFIGURATION — edit these two values
+  // ══════════════════════════════════════════
+  
+  // Set to true when you're riding and want to show the live banner
+  const LIVE_TRACKING = false;
+  
+  // Your live tracking URL — update this each day when riding
+  // e.g. Strava Beacon, Komoot, or any live GPS share link
+  const LIVE_URL = 'https://www.strava.com/athletes/33737566';
+  
+  // ══════════════════════════════════════════
+  // LIVE BANNER
+  // ══════════════════════════════════════════
+  const liveBanner = document.getElementById('live-banner');
+  const liveLink   = document.getElementById('live-link');
+  
+  if (LIVE_TRACKING) {
+    liveBanner.classList.remove('hidden');
+    liveLink.href = LIVE_URL;
+  } else {
+    liveBanner.classList.add('hidden');
+  }
+  
+  // ══════════════════════════════════════════
+  // ROUTE COLOURS — rotate white / red / green
+  // ══════════════════════════════════════════
+  const ROUTE_COLOURS = ['#F0E8D8', '#A0442E', '#3A6B4A'];
+  
+  function routeColour(index) {
+    return ROUTE_COLOURS[index % 3];
+  }
+  
+  // ══════════════════════════════════════════
+  // FORMAT HELPERS
+  // ══════════════════════════════════════════
+  function formatMovingTime(seconds) {
+    const h = Math.floor(seconds / 3600);
+    const m = Math.floor((seconds % 3600) / 60);
+    return h > 0 ? `${h}h ${m}m` : `${m}m`;
+  }
+  
+  function formatDate(dateStr) {
+    const d = new Date(dateStr);
+    const lang = localStorage.getItem('preferred-lang') || 'en';
+    const locales = { en: 'en-GB', sv: 'sv-SE', it: 'it-IT' };
+    return d.toLocaleDateString(locales[lang] || 'en-GB', { day: 'numeric', month: 'short' });
+  }
+  
+  // ══════════════════════════════════════════
+  // DECODE STRAVA POLYLINE
+  // Strava encodes GPS routes as a compact string.
+  // This function decodes it into lat/lng pairs for Leaflet.
+  // ══════════════════════════════════════════
+  function decodePolyline(encoded) {
+    if (!encoded) return [];
+    const coords = [];
+    let index = 0, lat = 0, lng = 0;
+  
+    while (index < encoded.length) {
+      let shift = 0, result = 0, byte;
+      do {
+        byte = encoded.charCodeAt(index++) - 63;
+        result |= (byte & 0x1f) << shift;
+        shift += 5;
+      } while (byte >= 0x20);
+      lat += (result & 1) ? ~(result >> 1) : result >> 1;
+  
+      shift = 0; result = 0;
+      do {
+        byte = encoded.charCodeAt(index++) - 63;
+        result |= (byte & 0x1f) << shift;
+        shift += 5;
+      } while (byte >= 0x20);
+      lng += (result & 1) ? ~(result >> 1) : result >> 1;
+  
+      coords.push([lat / 1e5, lng / 1e5]);
+    }
+    return coords;
+  }
+  
+  // ══════════════════════════════════════════
+  // RENDER ACTIVITY CARDS
+  // Shows the 3 most recent activities
+  // ══════════════════════════════════════════
+  function renderCards(activities) {
+    const grid = document.getElementById('strava-grid');
+    const latest = activities.slice(0, 3);
+  
+    if (latest.length === 0) {
+      grid.innerHTML = `
+        <div class="activity-card placeholder">
+          <p data-en="No activities yet — check back after May 10"
+            data-sv="Inga aktiviteter ännu — kom tillbaka efter 10 maj"
+            data-it="Nessuna attività ancora — torna dopo il 10 maggio">
+            No activities yet — check back after May 10
+          </p>
+        </div>`;
+      return;
+    }
+  
+    // Pad to 3 cards if fewer than 3 activities
+    while (latest.length < 3) {
+      latest.push(null);
+    }
+  
+    grid.innerHTML = latest.map((activity, i) => {
+      if (!activity) {
+        return `<div class="activity-card placeholder"><p>—</p></div>`;
+      }
+  
+      const colour  = routeColour(i);
+      const date    = formatDate(activity.date);
+      const time    = formatMovingTime(activity.moving_time);
+  
+      const distLabel = { en: 'Distance', sv: 'Distans',    it: 'Distanza' };
+      const timeLabel = { en: 'Moving time', sv: 'Rörlig tid', it: 'Tempo' };
+      const elevLabel = { en: 'Elevation', sv: 'Höjdmeter', it: 'Dislivello' };
+      const lang = localStorage.getItem('preferred-lang') || 'en';
+  
+      return `
+        <div class="activity-card">
+          <div class="activity-header">
+            <div class="activity-color-dot" style="background: ${colour};"></div>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="${colour}" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10.6 16.3l-2.3-4.6H5.5l5.1 9.3 5.1-9.3h-2.8l-2.3 4.6zM15.7 7l-2.1 4.2h2.8L19.5 4 15.7 7z"/>
+              <path d="M10.6 4L6.8 11.2h2.8L10.6 9l1 2.2h2.8L10.6 4z"/>
+            </svg>
+            <span class="activity-date">${date}</span>
+          </div>
+          <h3 class="activity-title">${activity.name}</h3>
+          <div class="activity-stats">
+            <div class="activity-stat">
+              <span class="activity-stat-value">${activity.distance} km</span>
+              <span class="activity-stat-label">${distLabel[lang] || distLabel.en}</span>
+            </div>
+            <div class="activity-stat">
+              <span class="activity-stat-value">${time}</span>
+              <span class="activity-stat-label">${timeLabel[lang] || timeLabel.en}</span>
+            </div>
+            <div class="activity-stat">
+              <span class="activity-stat-value">${activity.elevation} m</span>
+              <span class="activity-stat-label">${elevLabel[lang] || elevLabel.en}</span>
+            </div>
+          </div>
+        </div>`;
+    }).join('');
+  }
+  
+  // ══════════════════════════════════════════
+  // INITIALISE MAP AND DRAW ROUTES
+  // Uses Leaflet.js with OpenTopoMap (terrain tiles)
+  // ══════════════════════════════════════════
+  function initMap(activities) {
+    // Remove loading text
+    const loadingEl = document.getElementById('map-loading');
+    if (loadingEl) loadingEl.remove();
+  
+  // Define the bounding box — [south, west] and [north, east]
+const ITALY_BOUNDS = L.latLngBounds(
+  [35.5, 6.5],   // southwest corner — tip of Sicily / Sardinia west coast
+  [47.1, 18.5]   // northeast corner — Alps / Trieste
+);
+
+  const map = L.map('strava-map', {
+    zoomControl: true,
+    scrollWheelZoom: false,
+    maxBounds: ITALY_BOUNDS,        // prevents panning outside Italy
+    maxBoundsViscosity: 0.8         // how strongly it snaps back (0-1)
+  });
+
+  // Fit the initial view to Italy
+  map.fitBounds(ITALY_BOUNDS);
+  
+    // OpenTopoMap — terrain tiles, shows hills and landscape
+    L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenTopoMap contributors',
+      maxZoom: 17,
+      opacity: 0.85
+    }).addTo(map);
+  
+    // Draw each activity's route as a coloured polyline
+    const allCoords = [];
+  
+    activities.forEach((activity, index) => {
+      if (!activity.polyline) return;
+  
+      const coords = decodePolyline(activity.polyline);
+      if (coords.length === 0) return;
+  
+      const colour = routeColour(index);
+  
+      L.polyline(coords, {
+        color:   colour,
+        weight:  3,
+        opacity: 0.85
+      }).addTo(map);
+  
+      allCoords.push(...coords);
+    });
+  
+    // Auto-fit map to show all routes if we have any
+    if (allCoords.length > 0) {
+      map.fitBounds(L.latLngBounds(allCoords), { padding: [40, 40] });
+    }
+  }
+  
+  // ══════════════════════════════════════════
+  // FETCH ACTIVITIES AND INITIALISE EVERYTHING
+  // ══════════════════════════════════════════
+  fetch('/ITALY26/strava/activities.json')
+    .then(r => r.json())
+    .then(activities => {
+      renderCards(activities);
+      // Only init map if Leaflet is loaded
+      if (typeof L !== 'undefined') {
+        initMap(activities);
+      } else {
+        document.getElementById('map-loading').textContent = 'Map unavailable';
+      }
+    })
+    .catch(() => {
+      document.getElementById('strava-grid').innerHTML =
+        '<div class="activity-card placeholder"><p>Could not load activities.</p></div>';
+    });
+  
+  </script>
+
+
 
 </body>
 </html>
