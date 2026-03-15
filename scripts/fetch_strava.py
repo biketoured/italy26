@@ -10,7 +10,8 @@ CLIENT_SECRET = os.environ['STRAVA_CLIENT_SECRET']
 REFRESH_TOKEN = os.environ['STRAVA_REFRESH_TOKEN']
 
 # Only fetch activities after this date (start of Italy trip)
-TRIP_START_TIMESTAMP = int(datetime(2026, 5, 10).timestamp())
+# INSERT STARTDATE
+TRIP_START_TIMESTAMP = int(datetime(2026, 3, 10).timestamp())
 
 # Output file — saved into the repo so the site can read it
 OUTPUT_FILE = 'strava/activities.json'
