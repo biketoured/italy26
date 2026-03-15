@@ -8,6 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+
   <style>
     :root {
       --green:         #1E3D2F;
@@ -1456,63 +1459,6 @@
     }).join('');
   }
   
-  // ══════════════════════════════════════════
-  // INITIALISE MAP AND DRAW ROUTES
-  // Uses Leaflet.js with OpenTopoMap (terrain tiles)
-  // ══════════════════════════════════════════
-  function initMap(activities) {
-    // Remove loading text
-    const loadingEl = document.getElementById('map-loading');
-    if (loadingEl) loadingEl.remove();
-      
-      // Define the bounding box — [south, west] and [north, east]
-    const ITALY_BOUNDS = L.latLngBounds(
-      [35.5, 6.5],   // southwest corner — tip of Sicily / Sardinia west coast
-      [47.1, 18.5]   // northeast corner — Alps / Trieste
-    );
-
-    const map = L.map('strava-map', {
-      zoomControl: true,
-      scrollWheelZoom: false,
-      maxBounds: ITALY_BOUNDS,        // prevents panning outside Italy
-      maxBoundsViscosity: 0.8         // how strongly it snaps back (0-1)
-    });
-
-    // Fit the initial view to Italy
-    map.fitBounds(ITALY_BOUNDS);
-  
-    // OpenTopoMap — terrain tiles, shows hills and landscape
-    L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenTopoMap contributors',
-      maxZoom: 17,
-      opacity: 0.85
-    }).addTo(map);
-  
-    // Draw each activity's route as a coloured polyline
-    const allCoords = [];
-  
-    activities.forEach((activity, index) => {
-      if (!activity.polyline) return;
-  
-      const coords = decodePolyline(activity.polyline);
-      if (coords.length === 0) return;
-  
-      const colour = routeColour(index);
-  
-      L.polyline(coords, {
-        color:   colour,
-        weight:  3,
-        opacity: 0.85
-      }).addTo(map);
-  
-      allCoords.push(...coords);
-    });
-  
-    // Auto-fit map to show all routes if we have any
-    if (allCoords.length > 0) {
-      map.fitBounds(L.latLngBounds(allCoords), { padding: [40, 40] });
-    }
-      }
       // ── Init map immediately — independent of activities ──
     if (typeof L !== 'undefined') {
       const ITALY_BOUNDS = L.latLngBounds([35.5, 6.5], [47.1, 18.5]);
