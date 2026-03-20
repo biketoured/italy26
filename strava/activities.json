@@ -1,5 +1,25 @@
 [
   {
+    "id": 17789900309,
+    "name": "Zwift - Climb Portal - Mont Saint-Michel in France",
+    "type": "VirtualRide",
+    "date": "2026-03-20T12:38:45Z",
+    "distance": 4.5,
+    "elevation": 69,
+    "moving_time": 497,
+    "polyline": "fkscCo{bu^gAq@iAi@eA[}@Om@Dk@P[PIJUj@KJOF]D{@?cAGi@OkAi@e@IS@g@La@RmBpAqAfA}@b@wBv@{BZg@Le@NaBt@_AVqAXw@La@Aa@Ka@AmE`@a@HOFk@^_@Ls@DQ?s@IQ@OBMHgJvNc@j@yA|A[^eAxBQXSTUP{Ap@[R[\\Q`@Kd@A`Ar@~PKF]HSTMVEj@Jf@T\\\\R`@D`@G^UTc@Dg@Gg@Wa@UOMAY?EKs@kP?w@@[H_@NYRWVSZQz@_@\\SVYT[t@cBT_@dBkBl@w@pHmLl@aAHQ@SCSGOa@e@]e@UUq@a@KMk@oAKMs@i@u@y@Q[_@qAQ]c@c@y@g@m@Ua@Gs@Ao@@o@Fm@L_Bp@i@Di@C"
+  },
+  {
+    "id": 17789799213,
+    "name": "Zwift - Climb Portal: Poggio at 100% Elevation in France",
+    "type": "VirtualRide",
+    "date": "2026-03-20T12:20:26Z",
+    "distance": 9.5,
+    "elevation": 147,
+    "moving_time": 1031,
+    "polyline": "plscCqzbu^WMoA{@m@YwAi@aAS[AY@YDWJ_@TMRUd@IHMDYBaA?aAGk@OqAk@QCUAQBg@Pa@TmBpAeA|@{@b@wBv@oCb@g@LwB~@oA\\cATw@JQ@QCa@MQAs@D_Eb@]Nk@^a@Ju@DeAKOBOFMJqGbK]Ze@JS?QG]Yo@{@[Q_@A_@F[HWNOVEZAjBE^ENKFM@UQOYE[Bm@Tq@b@s@PO`@SNULg@TyATi@TS`@]~@c@bA[xBe@ZQ`@g@p@oA`ByBf@g@~@c@JIP[F]@]?aCT{BDi@Ag@OaAe@oBi@}AUi@GISM_@Gc@@WHKDIJ?NFJLD|@ALFHJTj@Pp@J`@Ht@BfAEvAQfB_@vBKJGMHeA\\mDBe@Ag@Kc@_@u@YUU?IBQPm@lAQRULaAHKBURaAvAuB`Eq@jAyBbDq@v@e@f@w@j@gAh@qBv@qATWJg@^m@f@qAtAmC~C{@lAs@zAeBtE[n@g@j@WNYHgALy@@[AKGSQKGMC{@Ga@?_@DSFa@ZUXq@bBY`@_@XmAj@WTQXg@nAeAzDuBjGS?OCQ?QD]PS\\ENCb@Fb@HNVX\\LNBNA^GLITUL_@@O?_@I]IMYQ?OjBkFxAmF`@_ARYZShAg@XU\\m@j@uAXa@PMPIVEn@Ar@DVFTPVJv@Bt@Gt@KXITO`@g@\\k@b@eArAwDd@_Az@mAfDyDhAiA|@q@VKlAUn@UpB{@j@[d@]nAuAdBcCzAgClBsDv@mAZ[PEx@GPG\\]h@gALQPGRFNPLRTn@BX?t@g@dF?ZTJNWf@mDJ}AAyAI_AQ{@Wy@Uc@QISAi@BQIDSPGRETCRBTFPL^`Aj@bBXnAJt@BZAv@YlC@rBA\\EZKVUPUL"
+  },
+  {
     "id": 17777670138,
     "name": "Lunch Run",
     "type": "Run",
