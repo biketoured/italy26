@@ -1492,7 +1492,7 @@
       if (loadingEl) loadingEl.remove();
 
       // Then fetch activities and draw routes on top
-      fetch('/ITALY26/strava/activities.json')
+      fetch('/italy26/strava/activities.json')
         .then(r => r.json())
         .then(activities => {
           renderCards(activities);
@@ -1514,15 +1514,6 @@
     } else {
       document.getElementById('map-loading').textContent = 'Map could not load — Leaflet missing';
     }
-
-    // Fetch activities for cards regardless of map
-    fetch('/ITALY26/strava/activities.json')
-      .then(r => r.json())
-      .then(activities => renderCards(activities))
-      .catch(() => {});
   </script>
-
-
-
 </body>
 </html>
