@@ -1473,13 +1473,11 @@
     if (typeof L !== 'undefined') {
       const ITALY_BOUNDS = L.latLngBounds([35.5, 6.5], [47.1, 18.5]);
       const EUROPE_BOUNDS = L.latLngBounds([34.0, -12.0], [72.0, 45.0]);      
-      const SWEDEN_BOUNDS = L.latLngBounds([60.0, 14.0], [66.0, 20.0]);
+      const SWEDEN_BOUNDS = L.latLngBounds([60.0, 16.0], [66.0, 24.0]);
       const map = L.map('strava-map', {
         zoomControl: true,
         scrollWheelZoom: false,
         gestureHandling: true,
-        maxBounds: EUROPE_BOUNDS,
-        maxBoundsViscosity: 0.9
       });
       map.fitBounds(SWEDEN_BOUNDS);
 
