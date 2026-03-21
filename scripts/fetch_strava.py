@@ -69,12 +69,28 @@ def load_existing():
 
 # ── STEP 4: Merge new activities with existing ones ────────────
 # Only adds activities we haven't saved yet — avoids duplicates
+# Only keeps cycling activities (road, gravel, virtual, etc.)
+BIKE_TYPES = {
+    'Ride',
+    'GravelRide',
+    'MountainBikeRide',
+    'VirtualRide',
+    'EBikeRide',
+    'EMountainBikeRide',
+    'Handcycle',
+    'Velomobile',
+}
+
 def merge_activities(existing, new_activities):
     existing_ids = {a['id'] for a in existing}
     added = 0
 
     for activity in new_activities:
         if activity['id'] not in existing_ids:
+            # Skip non-cycling activities
+            sport_type = activity.get('sport_type', activity.get('type', ''))
+            if sport_type not in BIKE_TYPES:
+                continue
             # Extract only the fields we need — keeps file small
             existing.append({
                 'id':         activity['id'],
