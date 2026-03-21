@@ -1500,10 +1500,21 @@
             const coords = decodePolyline(activity.polyline);
             if (coords.length === 0) return;
             L.polyline(coords, {
-              color:   routeColour(index),
-              weight:  3,
-              opacity: 0.85
-            }).addTo(map);
+            color:   '#111',
+            weight:  5,
+            opacity: 0.7
+          }).addTo(map);
+          L.polyline(coords, {
+            color:   routeColour(index),
+            weight:  3,
+            opacity: 0.9
+          }).addTo(map);
+
+          line.on('click', () => {
+            window.open(`https://www.strava.com/activities/${activity.id}`, '_blank');
+          });
+
+          line.getElement()?.style.setProperty('cursor', 'pointer');
           });
         })
         .catch(() => {
