@@ -1,5 +1,15 @@
 [
   {
+    "id": 17804917235,
+    "name": "Afternoon Ride",
+    "type": "Ride",
+    "date": "2026-03-21T13:38:01Z",
+    "distance": 59.2,
+    "elevation": 641,
+    "moving_time": 9094,
+    "polyline": "wmziKqaq`Cc@fEXpKvGrHzAyF`BzATpA}Gfj@}I|e@u@bRZnOs@dFqAd_@i@bEkK`QyBlGgDbPyJvQy@p@{BgEc@DaB|GmJbReHnW}FbP{Vzh@qEvGwSj`A{D~TeGfUaEjW}@hKuCb_AwB{@kEeMoBwBkJu@oF_CcDmFuFcEuHHmSiHqOcUiIkDmFwJqGyPmEkC_Ef@cBwAcU_\\mC{H{AtAoHfXqFfHsFtC_FsBqJ{PkHK}GsImKPePsF_Pk\\_JiKeDxAeB|Bu@jC_AtJwDlAuHY}EzByCpDk@jBkBd[aC~ByC~GeEs@eBxBpAxGv@fLPnM_CdO[dGQpNf@|`@{Bnp@y@pG_E|NqAvOx@tQ_@`PyEvOwLpTgSrr@oAdJ|C|lAtJpq@xIrtAd@b|DbAbf@Y~LyBhNwDpIuI`FeYcC}MwMmM}AsrAofAqDkAoUxJgJtAuHzCySzQ_H`DaKpB{DgCwAfB}NxEwKzJuNb]{IbOm@~B[tDNfF~BhHXvJo@zFiCfHw@nEkPnsBPxBm@tAh@~Cj@c@UtEtEmFdDqAvL`@lCxAfCbExFhWpH`RxGpGfMlS`GbCxEjGrE|DlH`MxSpM~HdInH|OtJx`@|CvCfHrA|GzTrFvIrFhN~`@ba@pLlVvP`StG`TzAjCrBhBhIfCdCjCrD`HxHhTdChBlHZpB|ArHjKfCa@|GkE`CFhCdBzMxWxMlQxJ|m@bG|OtAbBhH{@jG}FnIcQlIgW\\sHtAwOtF}c@aCuEKsRx@wA|@tCn@Z`C_ExBu@r@eCjIkn@`D{p@`@_Cx@oAtCh@dB}]xFa@LiIx@_DN{Eg@Y@_CtRxEl@wK@rMb@Bt@yh@rAwG\\}Hw@{WmAeLgC_q@g@wUmJ@Uw@fIgs@dAce@nCwf@t@yFCiCpAuGlG_OfGyVZuFMsOhCyOxBqGnE_GfBmPjAyClB}KtAqEjDeE`F{VrKa]xLqg@|AmKhDcK`BuLh@gJhFcKbFkSpTkkApEeRdCzFrDzOX_A^cD]fDe@PsDePD}@dOil@zJke@lMss@zHuXpOir@rFwNn@uJrEwCzA{GnA}PZ{i@kFkv@qBeImI}FgCkDqBcIi@eIfCaHfMgfAvHmu@dF}Ue@qCd@x@x@w@nDcNrAmA|DiNJmOx@mDt@cBnHqGdIgVvAaA~DlAlCoAfB}HpTiWlAgCnEyVfGqP|B{J|Bw[zBaNFiRhA_KbWkk@jAeOt@w]{AwCGyBrSumAyEeGy@MmBwEeQmT_ChBkHjk@iCyBUjC"
+  },
+  {
     "id": 17789900309,
     "name": "Zwift - Climb Portal - Mont Saint-Michel in France",
     "type": "VirtualRide",
