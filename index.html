@@ -10,7 +10,8 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css">
+  <script src="https://unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.js"></script>
   <style>
     :root {
       --green:         #1E3D2F;
@@ -666,6 +667,15 @@
       margin-bottom: 3rem;
       border: 1px solid rgba(196,180,154,0.15);
       position: relative;
+    }
+
+    .leaflet-gesture-handling-touch-warning,
+    .leaflet-gesture-handling-scroll-warning {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      background: rgba(30, 61, 47, 0.88);
+      color: var(--stone);
     }
     
     /* Loading overlay shown while activities.json fetches */
@@ -1465,6 +1475,7 @@
       const map = L.map('strava-map', {
         zoomControl: true,
         scrollWheelZoom: false,
+        gestureHandling: true,
         maxBounds: ITALY_BOUNDS,
         maxBoundsViscosity: 0.8
       });
