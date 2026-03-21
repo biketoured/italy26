@@ -1,5 +1,65 @@
 [
   {
+    "id": 17804917235,
+    "name": "Afternoon Ride",
+    "type": "Ride",
+    "date": "2026-03-21T13:38:01Z",
+    "distance": 59.2,
+    "elevation": 641,
+    "moving_time": 9094,
+    "polyline": "wmziKqaq`Cc@fEXpKvGrHzAyF`BzATpA}Gfj@}I|e@u@bRZnOs@dFqAd_@i@bEkK`QyBlGgDbPyJvQy@p@{BgEc@DaB|GmJbReHnW}FbP{Vzh@qEvGwSj`A{D~TeGfUaEjW}@hKuCb_AwB{@kEeMoBwBkJu@oF_CcDmFuFcEuHHmSiHqOcUiIkDmFwJqGyPmEkC_Ef@cBwAcU_\\mC{H{AtAoHfXqFfHsFtC_FsBqJ{PkHK}GsImKPePsF_Pk\\_JiKeDxAeB|Bu@jC_AtJwDlAuHY}EzByCpDk@jBkBd[aC~ByC~GeEs@eBxBpAxGv@fLPnM_CdO[dGQpNf@|`@{Bnp@y@pG_E|NqAvOx@tQ_@`PyEvOwLpTgSrr@oAdJ|C|lAtJpq@xIrtAd@b|DbAbf@Y~LyBhNwDpIuI`FeYcC}MwMmM}AsrAofAqDkAoUxJgJtAuHzCySzQ_H`DaKpB{DgCwAfB}NxEwKzJuNb]{IbOm@~B[tDNfF~BhHXvJo@zFiCfHw@nEkPnsBPxBm@tAh@~Cj@c@UtEtEmFdDqAvL`@lCxAfCbExFhWpH`RxGpGfMlS`GbCxEjGrE|DlH`MxSpM~HdInH|OtJx`@|CvCfHrA|GzTrFvIrFhN~`@ba@pLlVvP`StG`TzAjCrBhBhIfCdCjCrD`HxHhTdChBlHZpB|ArHjKfCa@|GkE`CFhCdBzMxWxMlQxJ|m@bG|OtAbBhH{@jG}FnIcQlIgW\\sHtAwOtF}c@aCuEKsRx@wA|@tCn@Z`C_ExBu@r@eCjIkn@`D{p@`@_Cx@oAtCh@dB}]xFa@LiIx@_DN{Eg@Y@_CtRxEl@wK@rMb@Bt@yh@rAwG\\}Hw@{WmAeLgC_q@g@wUmJ@Uw@fIgs@dAce@nCwf@t@yFCiCpAuGlG_OfGyVZuFMsOhCyOxBqGnE_GfBmPjAyClB}KtAqEjDeE`F{VrKa]xLqg@|AmKhDcK`BuLh@gJhFcKbFkSpTkkApEeRdCzFrDzOX_A^cD]fDe@PsDePD}@dOil@zJke@lMss@zHuXpOir@rFwNn@uJrEwCzA{GnA}PZ{i@kFkv@qBeImI}FgCkDqBcIi@eIfCaHfMgfAvHmu@dF}Ue@qCd@x@x@w@nDcNrAmA|DiNJmOx@mDt@cBnHqGdIgVvAaA~DlAlCoAfB}HpTiWlAgCnEyVfGqP|B{J|Bw[zBaNFiRhA_KbWkk@jAeOt@w]{AwCGyBrSumAyEeGy@MmBwEeQmT_ChBkHjk@iCyBUjC"
+  },
+  {
+    "id": 17789900309,
+    "name": "Zwift - Climb Portal - Mont Saint-Michel in France",
+    "type": "VirtualRide",
+    "date": "2026-03-20T12:38:45Z",
+    "distance": 4.5,
+    "elevation": 69,
+    "moving_time": 497,
+    "polyline": "fkscCo{bu^gAq@iAi@eA[}@Om@Dk@P[PIJUj@KJOF]D{@?cAGi@OkAi@e@IS@g@La@RmBpAqAfA}@b@wBv@{BZg@Le@NaBt@_AVqAXw@La@Aa@Ka@AmE`@a@HOFk@^_@Ls@DQ?s@IQ@OBMHgJvNc@j@yA|A[^eAxBQXSTUP{Ap@[R[\\Q`@Kd@A`Ar@~PKF]HSTMVEj@Jf@T\\\\R`@D`@G^UTc@Dg@Gg@Wa@UOMAY?EKs@kP?w@@[H_@NYRWVSZQz@_@\\SVYT[t@cBT_@dBkBl@w@pHmLl@aAHQ@SCSGOa@e@]e@UUq@a@KMk@oAKMs@i@u@y@Q[_@qAQ]c@c@y@g@m@Ua@Gs@Ao@@o@Fm@L_Bp@i@Di@C"
+  },
+  {
+    "id": 17789799213,
+    "name": "Zwift - Climb Portal: Poggio at 100% Elevation in France",
+    "type": "VirtualRide",
+    "date": "2026-03-20T12:20:26Z",
+    "distance": 9.5,
+    "elevation": 147,
+    "moving_time": 1031,
+    "polyline": "plscCqzbu^WMoA{@m@YwAi@aAS[AY@YDWJ_@TMRUd@IHMDYBaA?aAGk@OqAk@QCUAQBg@Pa@TmBpAeA|@{@b@wBv@oCb@g@LwB~@oA\\cATw@JQ@QCa@MQAs@D_Eb@]Nk@^a@Ju@DeAKOBOFMJqGbK]Ze@JS?QG]Yo@{@[Q_@A_@F[HWNOVEZAjBE^ENKFM@UQOYE[Bm@Tq@b@s@PO`@SNULg@TyATi@TS`@]~@c@bA[xBe@ZQ`@g@p@oA`ByBf@g@~@c@JIP[F]@]?aCT{BDi@Ag@OaAe@oBi@}AUi@GISM_@Gc@@WHKDIJ?NFJLD|@ALFHJTj@Pp@J`@Ht@BfAEvAQfB_@vBKJGMHeA\\mDBe@Ag@Kc@_@u@YUU?IBQPm@lAQRULaAHKBURaAvAuB`Eq@jAyBbDq@v@e@f@w@j@gAh@qBv@qATWJg@^m@f@qAtAmC~C{@lAs@zAeBtE[n@g@j@WNYHgALy@@[AKGSQKGMC{@Ga@?_@DSFa@ZUXq@bBY`@_@XmAj@WTQXg@nAeAzDuBjGS?OCQ?QD]PS\\ENCb@Fb@HNVX\\LNBNA^GLITUL_@@O?_@I]IMYQ?OjBkFxAmF`@_ARYZShAg@XU\\m@j@uAXa@PMPIVEn@Ar@DVFTPVJv@Bt@Gt@KXITO`@g@\\k@b@eArAwDd@_Az@mAfDyDhAiA|@q@VKlAUn@UpB{@j@[d@]nAuAdBcCzAgClBsDv@mAZ[PEx@GPG\\]h@gALQPGRFNPLRTn@BX?t@g@dF?ZTJNWf@mDJ}AAyAI_AQ{@Wy@Uc@QISAi@BQIDSPGRETCRBTFPL^`Aj@bBXnAJt@BZAv@YlC@rBA\\EZKVUPUL"
+  },
+  {
+    "id": 17777670138,
+    "name": "Lunch Run",
+    "type": "Run",
+    "date": "2026-03-19T11:44:20Z",
+    "distance": 5.2,
+    "elevation": 64,
+    "moving_time": 1521,
+    "polyline": "kdejK{d`_C^FNFn@JdA^XFVLvAZH^?dAB~AGvENdDAf@IbB?jAZrGRrFXvFJjAL~@p@vDB`BJrB@|@CpBD|BBxGBx@TpC@\\Cl@YbBk@hEYbBQfB@h@OfMAtBBjBLfBFn@X|@Fd@ZbIBXNn@VbF?vAQpADtA?v@DrADXLn@Ad@ILEB}A_@_@MkAW_@MuAWcAYaAOa@Kc@EMG[EWQE[A{@FQLC`@DD?DDH?FG?I@oAN}FN}HNmFAo@GWCc@?s@J{E@sDF}DFyCLqB?gAWqBAkBSQMCo@IQ@k@M]O]EEC_AkCKQE?CDo@hAQJc@A]EaAa@eAUSI]EKQGc@?iBH_CAy@KcBGGa@RiAdAIFQ@k@CIGKKPi@FDNRZLVDPIdAmADCF@HHDVFf@FjAPXf@PD@RINADDZpA`@x@r@dDd@NBAf@q@N[FGFCFDNRh@lALd@B@LCJBPAlAJ`AXNLDNFl@PxDAl@DzAOvCKzCE`FQlHDlAHd@?~AO|DQpJ@EADAKA}@FsBJ{FLwDAm@MYA_@P}H?eCFaFH}BJuBA_AOgAAyBGOsAs@SEq@Wi@EQGy@wBKQE?k@`AWVc@Ci@GKEIMUIa@SQDO?QGSM[OOSGOEa@@e@JwAB}@CmCC]CGg@Lo@j@Y^MHAA"
+  },
+  {
+    "id": 17759538494,
+    "name": "West Coast Swing",
+    "type": "Workout",
+    "date": "2026-03-17T21:11:25Z",
+    "distance": 0.0,
+    "elevation": 0,
+    "moving_time": 3600,
+    "polyline": ""
+  },
+  {
+    "id": 17746024236,
+    "name": "Zwift - Elevation Evaluation",
+    "type": "VirtualRide",
+    "date": "2026-03-16T19:33:33Z",
+    "distance": 30.1,
+    "elevation": 443,
+    "moving_time": 3767,
+    "polyline": "plnfAicdz^vGnBnHcAnDfE`F`Dx@jEe@nFpAhA`@`CMv@}A~@{BBm@h@VvOtCP\\ZD~IVb@zGBTc@BaDd@UjHpGPx@Qn@wG|AgAn@gBaA}B`AinAD_LImDiCeAWo@Ra@n@s@nFiAb@i@KYg@QmFqAm@w@PYb@CfEYx@y@Hg@W]aGWe@m@Mq@NWh@UpFiAL]aAO}EWa@o@Kw@d@H~Es@f@{B}AsJOk@Wg@_Aa@{BaDiEOu@TkDyCuEaEiAI{B]u@kEaCsGwF{Bs@aIvCoBbE}@lGkDx@wBhAqAMyAs@Wo@CkD[s@u@[mOGaBd@e@dCfAbOStGbApFoAhEwARwAa@kAkCw@oMuA[q@Xo@`BZ|CYjAyBpBgC^}@aBFkFSsBgCwA{EsH}JuG{EqAyEk@aFAsFh@aGdAsGjC{CBi@`@MtAfA`BJxChBtBWxA_ABsBwB}@SyA~AcB|@gFdBaA@m@oBNuHuEgFsBmHf@wIdEuAzAeANg@]k@aBFQQDe@tBc@`@wB{@aBQuBsAg@i@eA[qAJ}@fAqArB{@^uCh@s@fLqGh@}ACgD`@]hBUrA}@`@aBMsDjEuExAUfCVvFnCfFc@jAp@tDtDbAi@jAsDz@mAbFi@nDwCbCJvEiApHfDrDB~@k@h@aA~@yJrA}BtBqAxB]hAXfClBvA@x@iAnAyFvAgAl@}AlDyBnIUj@a@d@cBb@]rDlAr@Ab@g@\\eC`@a@lAEHpB`CpAhEa@zDqC`ABj@f@pBb@t@g@RwA|A{@hC\\bDaBjAXD|CrAVlAo@`DyDlAc@lAh@xBfEfC^~ClBD|@eB|@eAnB|@tH|Ah@`GLVXRhCn@TfCChB~BhDiBnE`A`@p@b@hDnCZv@l@fElL`B`Gx@lAhAGl@uAwA}CLwAsBiACcA|@cA~As@pAMhAZRvAyAlEOdD|@`BvG`HvBbDT|AArEf@nApBn@bIEzGtBvFgAz@DtCvDpFnDv@lEg@dFpAlAb@~BWfA_Bz@gBEs@d@PrOTVzCTHfJRb@`HDT]BiD`@UpHvGLfAc@j@_GlAkAp@oBaAsB`AcQBhQDxBbA~@cAQs@o@WqB`AmSDdSBvBbAp@YPs@Wm@m@So@JYh@Dn@^`@z@@rA{@hAr@|FxAVr@a@`BZdFY~A}@`@gEFiFnC"
+  },
+  {
     "id": 17728544260,
     "name": "Zwift med Emil Bergkvist",
     "type": "VirtualRide",
