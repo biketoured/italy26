@@ -1113,7 +1113,27 @@
       <div class="strava-grid" id="strava-grid">
         <!-- Injected by JavaScript -->
       </div>
-  
+      <div id="strava-grid-more" class="activities-grid" style="display:none; margin-top:1rem;"></div>
+    <div style="text-align:center; margin-top:1.5rem;">
+      <button id="toggle-more" onclick="
+        const g = document.getElementById('strava-grid-more');
+        const open = g.style.display !== 'none';
+        g.style.display = open ? 'none' : 'grid';
+        this.textContent = open ? 'Show more' : 'Show less';
+      " style="
+        background: none;
+        border: 1px solid rgba(253,250,244,0.3);
+        color: var(--white);
+        font-family: 'DM Mono', monospace;
+        font-size: 0.75rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 0.7rem 1.8rem;
+        cursor: pointer;
+        transition: border-color 0.2s;
+      ">Show more</button>
+    </div>
+      
       <!-- See more link -->
       <a href="https://www.strava.com/athletes/33737566"
         target="_blank"
@@ -1408,6 +1428,7 @@
   function renderCards(activities) {
     const grid = document.getElementById('strava-grid');
     const latest = activities.slice(0, 3);
+    const more = activities.slice(3, 15);
   
     if (latest.length === 0) {
       grid.innerHTML = `
@@ -1441,7 +1462,8 @@
       const lang = localStorage.getItem('preferred-lang') || 'en';
   
       return `
-        <div class="activity-card">
+        <a href="https://www.strava.com/activities/${activity.id}" target="_blank" style="text-decoration:none; display:block;">
+        <div class="activity-card" style="cursor:pointer;">
           <div class="activity-header">
             <div class="activity-color-dot" style="background: ${colour};"></div>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="${colour}" xmlns="http://www.w3.org/2000/svg">
@@ -1465,9 +1487,46 @@
               <span class="activity-stat-label">${elevLabel[lang] || elevLabel.en}</span>
             </div>
           </div>
-        </div>`;
+        </div>
+     </a>`;
     }).join('');
-  }
+  if (more.length === 0) return;
+
+      const moreGrid = document.getElementById('strava-grid-more');
+      moreGrid.innerHTML = more.map((activity, i) => {
+        if (!activity) return '';
+        const colour = routeColour(i + 3);
+        const date   = formatDate(activity.date);
+        const time   = formatMovingTime(activity.moving_time);
+        const lang   = localStorage.getItem('preferred-lang') || 'en';
+        const distLabel = { en: 'Distance', sv: 'Distans',   it: 'Distanza' };
+        const timeLabel = { en: 'Moving time', sv: 'Rörlig tid', it: 'Tempo' };
+        const elevLabel = { en: 'Elevation', sv: 'Höjdmeter', it: 'Dislivello' };
+        return `
+          <a href="https://www.strava.com/activities/${activity.id}" target="_blank" style="text-decoration:none; display:block;">
+          <div class="activity-card" style="cursor:pointer;">
+            <div class="activity-header">
+              <div class="activity-color-dot" style="background:${colour}"></div>
+              <span class="activity-date">${date}</span>
+            </div>
+            <h3 class="activity-title">${activity.name}</h3>
+            <div class="activity-stats">
+              <div class="activity-stat">
+                <span class="activity-stat-value">${activity.distance} km</span>
+                <span class="activity-stat-label">${distLabel[lang]}</span>
+              </div>
+              <div class="activity-stat">
+                <span class="activity-stat-value">${time}</span>
+                <span class="activity-stat-label">${timeLabel[lang]}</span>
+              </div>
+              <div class="activity-stat">
+                <span class="activity-stat-value">${activity.elevation} m</span>
+                <span class="activity-stat-label">${elevLabel[lang]}</span>
+              </div>
+            </div>
+          </div>
+       </a>`;
+      }).join('');}
   
       // ── Init map immediately — independent of activities ──
     if (typeof L !== 'undefined') {
