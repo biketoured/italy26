@@ -2,7 +2,8 @@
 // MANUAL VALUES — edit these while on the road
 // ══════════════════════════════════════════
 
-SEK = 50433
-EUR = 5422
-const DONATION_TOTAL  = int(SEK + EUR*11);       // current total in SEK — update this each evening
-const DONATION_GOAL   = 100000;  // your goal in SEK
+const SEK = 50433;
+const EUR = 5422;
+const DONATION_TOTAL = Math.round((SEK / 11) + EUR);  // current total in SEK
+const DONATION_GOAL  = 100000;                       // goal in SEK
+const DONATION_CURRENCY = '€';
