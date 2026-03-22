@@ -1613,19 +1613,21 @@
     if (saved) applyLanguage(saved);
   </script>
   </script>
+
   <script>
   // ── DONATION METER ──
   (function() {
     const fill    = document.getElementById('meter-fill');
     const current = document.getElementById('meter-current');
     const goal    = document.getElementById('meter-goal');
-    if (!fill) return;
+    if (!fill || typeof DONATION_TOTAL === 'undefined') return;
     const pct = Math.min((DONATION_TOTAL / DONATION_GOAL) * 100, 100);
     fill.style.width = pct + '%';
     current.textContent = DONATION_TOTAL.toLocaleString('sv-SE') + ' kr';
-    goal.textContent    = DONATION_GOAL.toLocaleString('sv-SE') + ' kr';
+    goal.textContent    = 'Goal: ' + DONATION_GOAL.toLocaleString('sv-SE') + ' kr';
   })();
   </script>
+
   <script>
   
   // ══════════════════════════════════════════
@@ -1912,21 +1914,6 @@
   </script>
 
   <script>
-  // ── DONATION METER ──
-  (function() {
-    const fill    = document.getElementById('meter-fill');
-    const current = document.getElementById('meter-current');
-    const goal    = document.getElementById('meter-goal');
-    if (!fill) return;
-    const pct = Math.min((DONATION_TOTAL / DONATION_GOAL) * 100, 100);
-    fill.style.width = pct + '%';
-    current.textContent = DONATION_TOTAL.toLocaleString('sv-SE') + ' kr';
-    goal.textContent    = 'Goal: ' + DONATION_GOAL.toLocaleString('sv-SE') + ' kr';
-  })();
-  </script>
-
-
-  <script>
   // ══════════════════════════════════════════
   // BLOG GRID — loads from /blog/posts.json
   // Shows the 3 most recently dated posts
@@ -1989,20 +1976,6 @@
       .catch(() => {
         grid.innerHTML = '<div class="blog-card" style="opacity:0.4;"><p class="blog-card-tag">Could not load posts</p></div>';
       });
-  })();
-  </script>
-
-  <script>
-  // ── DONATION METER ──
-  (function() {
-    const fill    = document.getElementById('meter-fill');
-    const current = document.getElementById('meter-current');
-    const goal    = document.getElementById('meter-goal');
-    if (!fill || typeof DONATION_TOTAL === 'undefined') return;
-    const pct = Math.min((DONATION_TOTAL / DONATION_GOAL) * 100, 100);
-    fill.style.width = pct + '%';
-    current.textContent = DONATION_TOTAL.toLocaleString('sv-SE') + ' kr';
-    goal.textContent    = 'Goal: ' + DONATION_GOAL.toLocaleString('sv-SE') + ' kr';
   })();
   </script>
 
