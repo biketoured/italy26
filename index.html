@@ -240,6 +240,56 @@
       border-radius: 50%;
     }
 
+    /* ── DONATE BUTTON ── */
+    .hero-donate {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--sky-deep);
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.9rem 2rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: background 0.2s, transform 0.2s;
+      width: fit-content;
+      margin-top: 1rem;
+    }
+    .hero-donate:hover {
+      background: var(--sky);
+      transform: translateX(4px);
+    }
+
+    /* ── DONATION METER ── */
+    .donation-meter {
+      margin-top: 1.5rem;
+      max-width: 380px;
+    }
+    .donation-meter-labels {
+      display: flex;
+      justify-content: space-between;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      color: var(--stone-dark);
+      margin-bottom: 0.5rem;
+    }
+    .donation-meter-bar {
+      width: 100%;
+      height: 8px;
+      background: rgba(196,180,154,0.25);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .donation-meter-fill {
+      height: 100%;
+      background: var(--green-light);
+      border-radius: 4px;
+      transition: width 0.8s ease;
+    }
+
     /* ── SHARED SECTIONS ── */
     section {
       padding: 6rem 3rem;
@@ -811,6 +861,8 @@
       .strava-map { height: 300px; }
       .live-banner { padding: 0.9rem 1.5rem; flex-direction: column; align-items: flex-start; }
       .strava-header-row { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+      .donation-meter { max-width: 100%; }
+      .hero-donate { width: 100%; justify-content: center; }
     }
 
     /* ── FOOTER ── */
@@ -893,6 +945,7 @@
     <ul class="nav-links">
       <li><a href="#about"    data-en="About messy"  data-sv="Om mig"   data-it="Chi sono">About me</a></li>
       <li><a href="#blog"     data-en="Blog"      data-sv="Blogg"    data-it="Blog">Blog</a></li>
+      <li><a href="#donate" data-en="Donate" data-sv="Donera" data-it="Dona">Donate</a></li>
       <li><a href="#links"    data-en="Links"     data-sv="Länkar"   data-it="Link">Links</a></li>
       <li><a href="dashboard" data-en="Routes"    data-sv="Rutter"   data-it="Percorsi">Routes</a></li>
     </ul>
@@ -919,12 +972,30 @@
          data-it="La mia missione è esplorare la natura italiana, le persone, il cibo e tutte le gemme culturali lungo il percorso.">
         My mission is to explore the Italian nature, people, food and all the cultural gems along the way.
       </p>
-      <a href="#blog" class="hero-cta"
-         data-en="Read the journal →"
-         data-sv="Läs dagboken →"
-         data-it="Leggi il diario →">
-        Read the journal →
-      </a>
+  <div style="display:flex; flex-wrap:wrap; gap:1rem; align-items:center;">
+        <a href="#blog" class="hero-cta"
+           data-en="Read the journal →"
+           data-sv="Läs dagboken →"
+           data-it="Leggi il diario →">
+          Read the journal →
+        </a>
+        <a href="#donate" class="hero-donate"
+           data-en="Donate ♥"
+           data-sv="Donera ♥"
+           data-it="Dona ♥">
+          Donate ♥
+        </a>
+      </div>
+
+      <div class="donation-meter">
+        <div class="donation-meter-labels">
+          <span id="meter-current">0 kr</span>
+          <span id="meter-goal">100 000 kr</span>
+        </div>
+        <div class="donation-meter-bar">
+          <div class="donation-meter-fill" id="meter-fill" style="width:0%"></div>
+        </div>
+      </div>
     </div>
 
     <div class="hero-right">
@@ -1337,7 +1408,20 @@
     const saved = localStorage.getItem('preferred-lang');
     if (saved) applyLanguage(saved);
   </script>
-
+  </script>
+  <script>
+  // ── DONATION METER ──
+  (function() {
+    const fill    = document.getElementById('meter-fill');
+    const current = document.getElementById('meter-current');
+    const goal    = document.getElementById('meter-goal');
+    if (!fill) return;
+    const pct = Math.min((DONATION_TOTAL / DONATION_GOAL) * 100, 100);
+    fill.style.width = pct + '%';
+    current.textContent = DONATION_TOTAL.toLocaleString('sv-SE') + ' kr';
+    goal.textContent    = DONATION_GOAL.toLocaleString('sv-SE') + ' kr';
+  })();
+  </script>
   <script>
   
   // ══════════════════════════════════════════
