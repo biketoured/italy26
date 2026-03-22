@@ -346,7 +346,7 @@
 
     /* Placeholder style for values not yet filled in */
     .payment-detail.placeholder {
-      color: rgba(196,180,154,0.3);
+      color: rgba(196, 180, 154, 0.719);
       font-style: italic;
       font-size: 0.72rem;
     }
@@ -566,7 +566,8 @@
           <div class="payment-method-name" data-en="Swish number" data-sv="Swish-nummer" data-it="Numero Swish">Swish number</div>
           <!-- INSERT: replace the placeholder below with your Swish number -->
           <div class="payment-detail placeholder" id="swish-number">
-            <span>INSERT SWISH NUMBER</span>
+            <span>0725532011</span>
+             <button class="copy-btn" onclick="copyText('bic-number')" title="Copy BIC">⧉</button>
           </div>
           <p class="payment-note" data-en="Use your message field to write your name or nickname — it will appear in the donor list on this site." data-sv="Skriv ditt namn eller smeknamn i meddelandefältet — det visas i givarlistan på den här sidan." data-it="Usa il campo messaggio per scrivere il tuo nome o soprannome — apparirà nell'elenco dei donatori su questo sito.">Use your message field to write your name or nickname — it will appear in the donor list on this site.</p>
         </div>
@@ -591,6 +592,7 @@
           <!-- INSERT: replace with your Satispay username or link -->
           <div class="payment-detail placeholder" id="satispay-handle">
             <span>INSERT SATISPAY HANDLE</span>
+             <button class="copy-btn" onclick="copyText('bic-number')" title="Copy BIC">⧉</button>
           </div>
           <p class="payment-note" data-en="Search for this name in your Satispay app. Free for personal accounts." data-sv="Sök efter det här namnet i din Satispay-app. Gratis för privatkonton." data-it="Cerca questo nome nella tua app Satispay. Gratuito per account personali.">Search for this name in your Satispay app. Free for personal accounts.</p>
         </div>
@@ -605,6 +607,7 @@
           <!-- INSERT: replace with your bank's BIC/SWIFT code -->
           <div class="payment-detail placeholder" style="margin-top:0.4rem;">
             <span>BIC/SWIFT: INSERT BIC</span>
+             <button class="copy-btn" onclick="copyText('bic-number')" title="Copy BIC">⧉</button>
           </div>
           <p class="payment-note" data-en="Include your name in the payment description — it will appear in the donor list." data-sv="Ange ditt namn i betalningsbeskrivningen — det visas i givarlistan." data-it="Includi il tuo nome nella descrizione del pagamento — apparirà nell'elenco dei donatori.">Include your name in the payment description — it will appear in the donor list.</p>
         </div>
