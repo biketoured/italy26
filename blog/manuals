@@ -2,5 +2,5 @@
 // MANUAL VALUES — edit these while on the road
 // ══════════════════════════════════════════
 
-const DONATION_TOTAL  = 0;       // current total in SEK — update this each evening
+const DONATION_TOTAL  = 45620;       // current total in SEK — update this each evening
 const DONATION_GOAL   = 100000;  // your goal in SEK
