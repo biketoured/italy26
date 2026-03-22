@@ -300,6 +300,44 @@
       transition: width 0.8s ease;
     }
 
+
+    /* ── DONATE INFO LINK ── */
+    .donate-info-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 0.75rem;
+      padding: 0.65rem 0.9rem;
+      background: rgba(74,122,150,0.08);
+      border: 1px solid rgba(74,122,150,0.2);
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+      max-width: 380px;
+    }
+    .donate-info-link:hover {
+      background: rgba(74,122,150,0.18);
+      border-color: rgba(74,122,150,0.45);
+    }
+    .donate-info-link span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sky);
+    }
+    .donate-info-link svg { flex-shrink: 0; color: var(--sky-deep); }
+
+    /* ── BLOG CARD COVER ── */
+    .blog-card-cover {
+      width: 100%;
+      height: 120px;
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 1rem;
+      opacity: 0.75;
+    }
+
     /* ── SHARED SECTIONS ── */
     section {
       padding: 6rem 3rem;
@@ -514,7 +552,7 @@
 
     /* ── BLOG ── */
     .blog-section {
-      background: var(--green);
+      background: var(--soil);
       max-width: 100%;
       padding: 6rem 0;
     }
@@ -912,8 +950,8 @@
     .hero-title     { animation-delay: 0.25s; }
     .hero-sub       { animation-delay: 0.4s; }
     .hero-cta       { animation-delay: 0.8s; }
-    .hero-donate    { animation-delay: 0.95s; }
-    .donation-meter { animation-delay: 1.1s; }
+    .hero-donate    { animation-delay: 0.8s; }
+    .donation-meter { animation-delay: 1.5s; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
@@ -957,11 +995,10 @@
   </div>
     </div>
     <ul class="nav-links">
-      <li><a href="#about"    data-en="About messy"  data-sv="Om mig"   data-it="Chi sono">About me</a></li>
+      <li><a href="#about"    data-en="About me"  data-sv="Om mig"   data-it="Chi sono">About me</a></li>
       <li><a href="#blog"     data-en="Blog"      data-sv="Blogg"    data-it="Blog">Blog</a></li>
       <li><a href="donate.html" data-en="Donate" data-sv="Donera" data-it="Dona">Donate</a></li>
       <li><a href="#links"    data-en="Links"     data-sv="Länkar"   data-it="Link">Links</a></li>
-      <li><a href="donate.html" data-en="Donate" data-sv="Donera" data-it="Dona">Donate</a></li>
       <li><a href="dashboard" data-en="Routes"    data-sv="Rutter"   data-it="Percorsi">Routes</a></li>
     </ul>
   </nav>
@@ -976,21 +1013,21 @@
         // Bikepacking Journal
       </p>
       <h1 class="hero-title"
-          data-en="Exploring the regions of<br><em>Italy</em><br>For a good cause<br><bo>Starting May 10th 2026</bo>"
-          data-sv="Utforskar regionerna i<br><em>Italien</em><br>För ett gott syfte<br><bo>Startar 10 maj 2026</bo>"
-          data-it="Esplorando le regioni<br><em>d'Italia</em><br>Per una buona causa<br><bo>Partenza 10 maggio 2026</bo>">
+          data-en="Exploring the regions of<br><em>Italy</em><br>For a good cause.<br><bo>Starting May 10th 2026</bo>"
+          data-sv="Utforskar regionerna i<br><em>Italien</em><br>För välgörenhet.<br><bo>Startar 10 maj 2026</bo>"
+          data-it="Esplorando le regioni<br><em>d'Italia</em><br>Per una buona causa.<br><bo>Partenza 10 maggio 2026</bo>">
         Exploring the regions of<br><em>Italy</em><br>For a good cause<br><bo>Starting May 10th 2026</bo>
       </h1>
       <p class="hero-sub"
-         data-en="My mission is to explore the Italian nature, people, food and all the cultural gems along the way."
-         data-sv="Mitt uppdrag är att utforska den italienska naturen, människorna, maten och alla kulturella pärlor längs vägen."
-         data-it="La mia missione è esplorare la natura italiana, le persone, il cibo e tutte le gemme culturali lungo il percorso.">
-        My mission is to explore the Italian nature, people, food and all the cultural gems along the way.
+         data-en="My mission is to explore the Italian culture, nature, and people, while also spreading awareness of cancer research."
+         data-sv="Min passion är att utforska den italienska kulturen, naturen och människorna och samtidigt samla in pengar för cancerforskning."
+         data-it="La mia missione è esplorare la natura italiana, le persone, e le persone mentre raccolgo donazioni per la ricerca sul cancro al cervello.">
+        My mission is to explore the Italian culture, nature, and people, while also spreading awareness of cancer research.
       </p>
   <div style="display:flex; flex-wrap:wrap; gap:1rem; align-items:center;">
         <a href="#blog" class="hero-cta"
            data-en="Read the journal →"
-           data-sv="Läs dagboken →"
+           data-sv="Läs min blogg →"
            data-it="Leggi il diario →">
           Read the journal →
         </a>
@@ -1011,6 +1048,12 @@
           <div class="donation-meter-fill" id="meter-fill" style="width:0%"></div>
         </div>
       </div>
+      <a href="donate.html" class="donate-info-link">
+        <span data-en="Where does the money go?"
+              data-sv="Vart går pengarna?"
+              data-it="Dove vanno i soldi?">Where does the money go?</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
     </div>
 
     <div class="hero-right">
@@ -1022,7 +1065,7 @@
       <img src="assets/images/profilepic.jpg" alt="Profile photo" class="hero-photo" />
       <div class="hero-stats">
         <div class="stat">
-          <div class="stat-number">~45</div>
+          <div class="stat-number">~40</div>
           <div class="stat-label"
                data-en="days on the road"
                data-sv="dagar på vägen"
@@ -1031,7 +1074,7 @@
           </div>
         </div>
         <div class="stat">
-          <div class="stat-number">~5000</div>
+          <div class="stat-number">~4000</div>
           <div class="stat-label"
                data-en="km"
                data-sv="km"
@@ -1061,22 +1104,22 @@
       // About me
     </p>
     <h2 class="section-title"
-        data-en="Curious. Analytic. Adventurous."
-        data-sv="Nyfiken. Analytisk. Äventyrslysten."
-        data-it="Curioso. Analitico. Avventuroso.">
+        data-en="Curious. Determined. Adventurous."
+        data-sv="Nyfiken. Målinriktad. Äventyrslysten."
+        data-it="Curioso. Determinato. Avventuroso.">
       Curious. Analytic. Adventurous.
     </h2>
     <div class="section-divider"></div>
     <div class="about-grid">
       <div class="about-text">
         <p data-en="Currently based in <strong>Skellefteå, Sweden</strong>, I spend my days analysing electricity markets and my spare time planning this passion project: Bikepacking across Italy 2026.<br>I enjoy working out, learning new languages and cooking something new."
-           data-sv="För närvarande baserad i <strong>Skellefteå, Sverige</strong>, tillbringar jag mina dagar med att analysera elmarknader och min fritid med att planera detta passionsprojekt: Bikepacking genom Italien 2026.<br>Jag gillar att träna, lära mig nya språk och laga ny mat."
+           data-sv="För närvarande boende i <strong>Skellefteå, Sverige</strong>, tillbringar jag mina dagar med att analysera elmarknader och min fritid med att planera detta passionsprojekt: Bikepacking genom Italien 2026.<br>Jag gillar att träna, lära mig nya språk och laga ny mat."
            data-it="Attualmente basato a <strong>Skellefteå, Svezia</strong>, trascorro le mie giornate analizzando i mercati elettrici e il tempo libero pianificando questo progetto: Bikepacking attraverso l'Italia 2026.<br>Mi piace allenarmi, imparare nuove lingue e cucinare qualcosa di nuovo.">
           Currently based in <strong>Skellefteå, Sweden</strong>, I spend my days analysing electricity markets and my spare time planning this passion project: Bikepacking across Italy 2026.<br>I enjoy working out, learning new languages and cooking something new.
         </p>
-        <p data-en="The project <em>Italy 2026</em> will cover <strong>5,000km through Italy</strong> covering Sardinia, Sicily and the mainland.<br>My objective is to combine challenging efforts with profound encounters with Italian people and the Italian culture."
-           data-sv="Projektet <em>Italien 2026</em> täcker <strong>5 000 km genom Italien</strong> med Sardinien, Sicilien och fastlandet.<br>Mitt mål är att kombinera utmanande ansträngningar med djupa möten med det italienska folket och den italienska kulturen."
-           data-it="Il progetto <em>Italia 2026</em> coprirà <strong>5.000 km attraverso l'Italia</strong> tra Sardegna, Sicilia e la penisola.<br>Il mio obiettivo è combinare sforzi impegnativi con incontri profondi con il popolo e la cultura italiana.">
+        <p data-en="The project <em>Italy 2026</em> will cover <strong>4,000km through Italy</strong> covering Sardinia, Sicily and the mainland.<br>My objective is to combine challenging efforts with profound encounters with Italian people and the Italian culture."
+           data-sv="Projektet <em>Italien 2026</em> täcker <strong>4 000 km genom Italien</strong> med Sardinien, Sicilien och fastlandet.<br>Mitt mål är att kombinera utmanande ansträngningar med djupa möten med det italienska folket och den italienska kulturen."
+           data-it="Il progetto <em>Italia 2026</em> coprirà <strong>4.000 km attraverso l'Italia</strong> tra Sardegna, Sicilia e la penisola.<br>Il mio obiettivo è combinare sforzi impegnativi con incontri profondi con il popolo e la cultura italiana.">
           The project <em>Italy 2026</em> will cover <strong>5,000km through Italy</strong> covering Sardinia, Sicily and the mainland.<br>My objective is to combine challenging efforts with profound encounters with Italian people and the Italian culture.
         </p>
         <p data-en="This site is still under construction but I aim to share the ride in a convenient way here. Expect route notes, gear lists, maps pulled from Strava, and much more!"
@@ -1091,20 +1134,20 @@
 
   <!-- ══ ITALY BANNER ══ -->
   <div class="italy-banner">
-    <h2 data-en="Italia 2026 — 5,000 km"
-        data-sv="Italien 2026 — 5 000 km"
-        data-it="Italia 2026 — 5.000 km">
-      Italia 2026 — 5,000 km
+    <h2 data-en="Italia 2026 — 4,000 km"
+        data-sv="Italien 2026 — 4 000 km"
+        data-it="Italia 2026 — 4.000 km">
+      Italia 2026 — 4,000 km
     </h2>
-    <p data-en="Along the Ligurian coast to Genoa, then island-hopping through Sardinia and Sicily before snaking my way north via Calabria, Apulia, Campania, Abruzzo, Marche to Veneto and Lombardy. Starting May 2026."
-       data-sv="Längs den liguriska kusten till Genua, sedan öhopping genom Sardinien och Sicilien innan jag slingrar mig norrut via Kalabrien, Apulien, Kampanien, Abruzzo, Marche till Veneto och Lombardiet. Startar maj 2026."
-       data-it="Lungo la costa ligure fino a Genova, poi saltando tra Sardegna e Sicilia prima di risalire verso nord attraverso Calabria, Puglia, Campania, Abruzzo, Marche fino a Veneto e Lombardia. Partenza maggio 2026.">
-      Along the Ligurian coast to Genoa, then island-hopping through Sardinia and Sicily before snaking my way north via Calabria, Apulia, Campania, Abruzzo, Marche to Veneto and Lombardy. Starting May 2026.
+    <p data-en="Starting in Nice, France, I'll ride along the Ligurian coast to Genoa, then island-hop through Sardinia and Sicily before snaking my way north via Calabria, Apulia, Campania, Abruzzo, Marche to Veneto and Lombardy."
+       data-sv="Resan startar i Nice, Frankrike, vidare längs den liguriska kusten till Genoa, där jag tar fäjor för att korsa Sardinien och Sicilien innan jag sick-sackar mig norrut via Kalabrien, Apulien, Kampanien, Abruzzo, och Marche till Veneto och Lombardiet."
+       data-it="Lungo la costa ligure fino a Genova, poi saltando tra Sardegna e Sicilia prima di risalire verso nord attraverso Calabria, Puglia, Campania, Abruzzo, Marche fino a Veneto e Lombardia.">
+      Starting in Nice, France, I'll ride along the Ligurian coast to Genoa, then island-hop through Sardinia and Sicily before snaking my way north via Calabria, Apulia, Campania, Abruzzo, Marche to Veneto and Lombardy.
     </p>
     <a href="dashboard"
-       data-en="See the route →"
-       data-sv="Se rutten →"
-       data-it="Vedi il percorso →">
+       data-en="See the preliminary route →"
+       data-sv="Se preliminära rutten →"
+       data-it="Vedi il percorso preliminario →">
       See the route →
     </a>
   </div>
@@ -1119,21 +1162,37 @@
     </p>
     <h2 class="section-title"
         data-en="Diverse.<br>Authentic.<br>Historical.<br>Challenging.<br>Tasty."
-        data-sv="Mångsidig.<br>Äkta.<br>Historisk.<br>Utmanande.<br>Välsmakande."
+        data-sv="Mångsidigt.<br>Äkta.<br>Historisk.<br>Utmanande.<br>Välsmakande."
         data-it="Diversa.<br>Autentica.<br>Storica.<br>Impegnativa.<br>Deliziosa.">
       Diverse.<br>Authentic.<br>Historical.<br>Challenging.<br>Tasty.
     </h2>
     <div class="section-divider"></div>
     <div class="about-grid">
       <div class="about-text">
-        <p data-en="This project is the result of several passions coming together as one.<br><br><strong>The language:</strong> Ever since I started learning Italian on my own I've been dreaming of visiting different regions and speaking with locals.<br><strong>The challenge:</strong> A challenge like this feeds me motivation and a sense of accomplishment.<br><strong>The variation:</strong> Italian nature and culture is quite diverse, and I am curious to get a feel of the similarities and differences across the regions.<br><strong>The hospitality:</strong> Italians are delighted when a foreigner speaks Italian, and can open up in a way that feels authentic."
-           data-sv="Det här projektet är resultatet av flera passioner som möts.<br><br><strong>Språket:</strong> Sedan jag började lära mig italienska på egen hand har jag drömt om att besöka olika regioner och prata med lokalbefolkningen.<br><strong>Utmaningen:</strong> En utmaning som denna ger mig motivation och känsla av prestation.<br><strong>Variationen:</strong> Italiensk natur och kultur är ganska mångsidig, och jag är nyfiken på att känna på likheter och skillnader mellan regionerna.<br><strong>Gästfriheten:</strong> Italienare är förtjusta när en utlänning talar italienska och kan öppna sig på ett sätt som känns äkta."
-           data-it="Questo progetto è il risultato di diverse passioni che si uniscono.<br><br><strong>La lingua:</strong> Da quando ho iniziato a imparare l'italiano da solo, ho sognato di visitare diverse regioni e parlare con i locali.<br><strong>La sfida:</strong> Una sfida come questa mi dà motivazione e senso di realizzazione.<br><strong>La varietà:</strong> La natura e la cultura italiana sono piuttosto diverse, e sono curioso di percepire le somiglianze e le differenze tra le regioni.<br><strong>L'ospitalità:</strong> Gli italiani sono felici quando uno straniero parla italiano e possono aprirsi in modo autentico.">
+        <p data-en="This project is the result of several passions coming together as one.<br><br>
+          <strong>The language:</strong> Ever since I started learning Italian on my own I've been dreaming of visiting different regions and speaking with locals.<br>
+          <strong>The challenge:</strong> A challenge like this feeds me motivation and a sense of accomplishment.<br>
+          <strong>The variation:</strong> Italian nature and culture is quite diverse, and I am curious to get a feel of the similarities and differences across the regions.<br>
+          <strong>The hospitality:</strong> Italians are delighted when a foreigner speaks Italian, and can open up in a way that feels authentic.
+          <strong>The memories:</strong> Experiences like this creates memories that I am sure I will keep close to my heart for the rest of my life."
+           data-sv="Det här projektet är resultatet av flera passioner som möts.<br><br>
+           <strong>Språket:</strong> Sedan jag började lära mig italienska på egen hand har jag drömt om att besöka olika regioner och prata med lokalbefolkningen.<br>
+           <strong>Utmaningen:</strong> En utmaning som denna ger mig motivation och känsla av prestation.<br>
+           <strong>Variationen:</strong> Italiensk natur och kultur är ganska mångsidig, och jag är nyfiken på att känna på likheter och skillnader mellan regionerna.<br>
+           <strong>Gästfriheten:</strong> Italienare är förtjusta när en utlänning talar italienska och kan öppna sig på ett sätt som känns äkta.
+           <strong>Gästfriheten:</strong> En resa som denna skapar minnen som jag kommer uppskatta resten av livet."
+           data-it="Questo progetto è il risultato di diverse passioni che si uniscono.<br><br>
+           <strong>La lingua:</strong> Da quando ho iniziato a imparare l'italiano da solo, ho sognato di visitare diverse regioni e parlare con i locali.<br>
+           <strong>La sfida:</strong> Una sfida come questa mi dà motivazione e senso di realizzazione.<br>
+           <strong>La varietà:</strong> La natura e la cultura italiana sono piuttosto diverse, e sono curioso di percepire le somiglianze e le differenze tra le regioni.<br>
+           <strong>L'ospitalità:</strong> Gli italiani sono felici quando uno straniero parla italiano e possono aprirsi in modo autentico.
+           <strong>I ricordi:</strong> Fare un viaggio come questo mi dá dei ricordi che staranno per sempre vicino al cuore">
           This project is the result of several passions coming together as one.<br><br>
           <strong>The language:</strong> Ever since I started learning Italian on my own I've been dreaming of visiting different regions and speaking with locals.<br>
           <strong>The challenge:</strong> A challenge like this feeds me motivation and a sense of accomplishment.<br>
           <strong>The variation:</strong> Italian nature and culture is quite diverse, and I am curious to get a feel of the similarities and differences across the regions.<br>
           <strong>The hospitality:</strong> Italians are delighted when a foreigner speaks Italian, and can open up in a way that feels authentic.
+          <strong>The memories:</strong> Experiences like this creates memories that I am sure I will keep close to my heart for the rest of my life.
         </p>
       </div>
     </div>
@@ -1172,14 +1231,14 @@
       <div class="strava-header-row">
         <p class="section-tag"
           data-en="// On the road"
-          data-sv="// På vägen"
+          data-sv="// Resan"
           data-it="// In viaggio">
           // On the road
         </p>
       </div>
       <h2 class="section-title"
           data-en="The Italy 2026 route"
-          data-sv="Italien 2026-rutten"
+          data-sv="Rutten för Italien 2026"
           data-it="Il percorso Italia 2026">
         The Italy 2026 route
       </h2>
@@ -1250,75 +1309,27 @@
         From the journal
       </h2>
       <div class="section-divider" style="background: var(--red);"></div>
-      <div class="blog-grid">
-
-        <a href="blog" class="blog-card">
-          <p class="blog-card-tag"
-             data-en="Italy 2026" data-sv="Italien 2026" data-it="Italia 2026">Italy 2026</p>
-          <h3 class="blog-card-title"
-              data-en="Planning a 4,500km loop through Italy"
-              data-sv="Planera en 4 500 km loop genom Italien"
-              data-it="Pianificando un giro di 4.500 km attraverso l'Italia">
-            Planning a 4,500km loop through Italy
-          </h3>
-          <p class="blog-card-excerpt"
-             data-en="Route planning notes for a May–June expedition through Sardinia, Sicily and the Italian mainland."
-             data-sv="Ruttplaneringsanteckningar för en maj–juniexpedition genom Sardinien, Sicilien och det italienska fastlandet."
-             data-it="Note di pianificazione del percorso per una spedizione maggio–giugno attraverso Sardegna, Sicilia e la penisola italiana.">
-            Route planning notes for a May–June expedition through Sardinia, Sicily and the Italian mainland.
-          </p>
-        </a>
-
-        <a href="blog" class="blog-card">
-          <p class="blog-card-tag"
-             data-en="Gear" data-sv="Utrustning" data-it="Attrezzatura">Gear</p>
-          <h3 class="blog-card-title"
-              data-en="What goes in the bags for a 40-day trip"
-              data-sv="Vad packar man för en 40-dagarsresa"
-              data-it="Cosa si mette nelle borse per un viaggio di 40 giorni">
-            What goes in the bags for a 40-day trip
-          </h3>
-          <p class="blog-card-excerpt"
-             data-en="A practical breakdown of bikepacking kit optimised for heat, distance, and rough roads."
-             data-sv="En praktisk genomgång av bikepacking-utrustning optimerad för värme, distans och ojämna vägar."
-             data-it="Una guida pratica all'attrezzatura da bikepacking ottimizzata per il caldo, le distanze e le strade sconnesse.">
-            A practical breakdown of bikepacking kit optimised for heat, distance, and rough roads.
-          </p>
-        </a>
-
-        <a href="blog" class="blog-card">
-          <p class="blog-card-tag"
-             data-en="Training" data-sv="Träning" data-it="Allenamento">Training</p>
-          <h3 class="blog-card-title"
-              data-en="Building base fitness on Zwift"
-              data-sv="Bygga grundkondition på Zwift"
-              data-it="Costruire la forma base su Zwift">
-            Building base fitness on Zwift
-          </h3>
-          <p class="blog-card-excerpt"
-             data-en="How indoor training through a Swedish winter translates to long days in the saddle."
-             data-sv="Hur inomhusträning under en svensk vinter översätts till långa dagar i sadeln."
-             data-it="Come l'allenamento indoor durante un inverno svedese si traduce in lunghe giornate in sella.">
-            How indoor training through a Swedish winter translates to long days in the saddle.
-          </p>
-        </a>
-
+            <!-- Filled dynamically from /blog/posts.json -->
+      <div class="blog-grid" id="blog-grid">
+        <div class="blog-card" style="opacity:0.35; pointer-events:none;">
+          <p class="blog-card-tag">Loading…</p>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- ══ LINKS ══ -->
+    <!-- ══ LINKS ══ -->
   <section id="links">
     <p class="section-tag"
        data-en="// Around the web"
-       data-sv="// Runt om på nätet"
+       data-sv="// En runda på nätet"
        data-it="// In giro per il web">
       // Around the web
     </p>
     <h2 class="section-title"
-        data-en="Places I read"
-        data-sv="Ställen jag läser"
-        data-it="Posti che leggo">
+        data-en="Places I'd like to share"
+        data-sv="Webbplatser jag vill dela"
+        data-it="Posti che vorrei condividere">
       Places I read
     </h2>
     <div class="section-divider"></div>
@@ -1353,8 +1364,8 @@
         <div>
           <p class="link-card-title">Strava</p>
           <p class="link-card-desc"
-             data-en="Take a look at my activity feed and route archive"
-             data-sv="Ta en titt på mitt aktivitetsflöde och ruttarkiv"
+             data-en="Take a look at my activity feed and routes"
+             data-sv="Ta en titt på mitt aktivitetsflöde och mina rutter"
              data-it="Dai un'occhiata al mio feed di attività e all'archivio percorsi">
             Take a look at my activity feed and route archive
           </p>
@@ -1366,10 +1377,10 @@
         <div>
           <p class="link-card-title">Bikepacking.com</p>
           <p class="link-card-desc"
-             data-en="Routes, gear reviews and inspiration"
-             data-sv="Rutter, utrustningsrecensioner och inspiration"
-             data-it="Percorsi, recensioni di attrezzatura e ispirazione">
-            Routes, gear reviews and inspiration
+             data-en="Read more about Bikepacking"
+             data-sv="Vill du veta mer om Bikepacking? Kolla gärna den officiella hemsidan."
+             data-it="Leggi di píu su Bikepacking">
+            Read more about Bikepacking
           </p>
         </div>
       </a>
@@ -1699,6 +1710,73 @@
   </script>
 
   <script src="manuals.js"></script>
+
+  <script>
+  // ══════════════════════════════════════════
+  // BLOG GRID — loads from /blog/posts.json
+  // Shows the 3 most recently dated posts
+  // ══════════════════════════════════════════
+  (function() {
+    const grid = document.getElementById('blog-grid');
+    if (!grid) return;
+
+    fetch('/italy26/blog/posts.json')
+      .then(r => r.json())
+      .then(posts => {
+        const lang = localStorage.getItem('preferred-lang') || 'en';
+
+        const latest = posts
+          .slice()
+          .sort((a, b) => new Date(b.date) - new Date(a.date))
+          .slice(0, 3);
+
+        if (latest.length === 0) {
+          grid.innerHTML = '<div class="blog-card" style="opacity:0.4;"><p class="blog-card-tag">No posts yet</p></div>';
+          return;
+        }
+
+        grid.innerHTML = latest.map(post => {
+          const title = post.title[lang] || post.title.en;
+
+          let tag = '';
+          if (post.type === 'journal') {
+            tag = post.location || ('Day ' + post.day);
+          } else {
+            tag = post.tag || 'Blog';
+          }
+
+          let excerpt = '';
+          if (post.type === 'journal' && post.km) {
+            const labels = {
+              en: post.km + ' km · ' + post.elevation + ' m elevation',
+              sv: post.km + ' km · ' + post.elevation + ' m höjdmeter',
+              it: post.km + ' km · ' + post.elevation + ' m dislivello'
+            };
+            excerpt = '<p class="blog-card-excerpt">' + (labels[lang] || labels.en) + '</p>';
+          }
+
+          const href = post.type === 'journal'
+            ? 'journal/' + post.slug + '/'
+            : 'blog/posts/' + post.slug + '/';
+
+          const cover = post.cover
+            ? '<div class="blog-card-cover" style="background-image:url(\'' + post.cover + '\')"></div>'
+            : '';
+
+          return '<a href="' + href + '" class="blog-card">' +
+            cover +
+            '<p class="blog-card-tag">' + tag + '</p>' +
+            '<h3 class="blog-card-title">' + title + '</h3>' +
+            excerpt +
+            '</a>';
+        }).join('');
+      })
+      .catch(() => {
+        grid.innerHTML = '<div class="blog-card" style="opacity:0.4;"><p class="blog-card-tag">Could not load posts</p></div>';
+      });
+  })();
+  </script>
+
   <script>
   // ── DONATION METER ──
   (function() {
