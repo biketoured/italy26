@@ -12,7 +12,7 @@ TRIP_END_TIMESTAMP = int(datetime(2024,7,29).timestamp())
 
 # Absolute path — works regardless of where script is called from
 REPO_ROOT   = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-OUTPUT_FILE = os.path.join(REPO_ROOT, 'strava', 'activities.json')
+OUTPUT_FILE = os.path.join(REPO_ROOT, 'strava', 'activitiesswe.json')
 
 # ── STEP 1: Get a fresh access token ───────────────────────────
 # Strava access tokens expire after 6 hours.
@@ -87,6 +87,9 @@ def merge_activities(existing, new_activities):
             # Skip non-cycling activities
             sport_type = activity.get('sport_type', activity.get('type', ''))
             if sport_type not in BIKE_TYPES:
+                continue
+            # Skip activities with no GPS/polyline data (e.g. indoor rides without location)
+            if not activity.get('map', {}).get('summary_polyline', ''):
                 continue
             # Extract only the fields we need — keeps file small
             existing.append({

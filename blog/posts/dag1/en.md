@@ -11,9 +11,9 @@ title:
   sv: Dag 1 — Genova, Ligurien
   it: Giorno 1 — Genova, Liguria
 photos:
-  - src: placehold.jpg
+  - src: ../assets/images/placehold.png
     caption: Descending into Genova as the sun hit the sea
-  - src: placehold.jpg
+  - src: ../assets/images/placehold.png
     caption: ""
 ---
 
