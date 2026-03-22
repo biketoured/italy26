@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Donate — Edvard A</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --green:         #1E3D2F;
+      --green-mid:     #3A6B4A;
+      --green-light:   #6da874;
+      --stone:         #C4B49A;
+      --stone-dark:    #8C7B65;
+      --soil:          #7A5C3E;
+      --red:           #a0503b;
+      --red-warm:      #cc7451;
+      --yellow:        #D4A94A;
+      --sky:           #7AAFC4;
+      --sky-deep:      #4A7A96;
+      --sky-pale:      #B8D4E0;
+      --text:          #1A1A18;
+      --text-muted:    #7A7260;
+      --white:         #FDFAF4;
+      --black:         #111110;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--green);
+      color: var(--stone);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 3rem;
+      background: rgba(30, 61, 47, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(196,180,154,0.12);
+    }
+
+    .nav-back {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--stone-dark);
+      text-decoration: none;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .nav-back:hover { color: var(--sky); }
+
+    .nav-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--stone);
+      font-style: italic;
+    }
+
+    /* ── PAGE WRAPPER ── */
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 7rem 2rem 5rem;
+    }
+
+    /* ── STORY SECTION ── */
+    .story {
+      border-left: 3px solid var(--sky-deep);
+      padding-left: 2rem;
+      margin-bottom: 4rem;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.1s forwards;
+    }
+
+    .story-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 1rem;
+    }
+
+    .story h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.15;
+      color: var(--stone);
+      margin-bottom: 1.5rem;
+    }
+
+    .story h1 em {
+      font-style: italic;
+      color: var(--sky);
+    }
+
+    .story p {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--stone-dark);
+      max-width: 600px;
+      margin-bottom: 1rem;
+    }
+
+    .story p strong { color: var(--stone); font-weight: 500; }
+
+    /* ── GOAL METER ── */
+    .goal-block {
+      background: rgba(74,122,150,0.08);
+      border: 1px solid rgba(74,122,150,0.2);
+      border-top: 3px solid var(--sky-deep);
+      padding: 2rem;
+      margin-bottom: 4rem;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.25s forwards;
+    }
+
+    .goal-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .goal-current {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--green-light);
+      line-height: 1;
+    }
+
+    .goal-target {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--stone-dark);
+    }
+
+    .goal-bar {
+      width: 100%;
+      height: 10px;
+      background: rgba(196,180,154,0.15);
+      border-radius: 5px;
+      overflow: hidden;
+      margin-bottom: 0.6rem;
+    }
+
+    .goal-fill {
+      height: 100%;
+      background: var(--green-light);
+      border-radius: 5px;
+      transition: width 1s ease;
+    }
+
+    .goal-note {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      color: rgba(196,180,154,0.4);
+      text-transform: uppercase;
+    }
+
+    /* ── ORG CARDS ── */
+    .orgs-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.35s forwards;
+    }
+
+    .orgs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .org-card {
+      background: rgba(74,122,150,0.07);
+      border: 1px solid rgba(74,122,150,0.18);
+      border-top: 3px solid var(--sky-deep);
+      padding: 1.75rem;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards;
+    }
+
+    .org-card:nth-child(1) { animation-delay: 0.45s; }
+    .org-card:nth-child(2) { animation-delay: 0.55s; }
+
+    .org-flag {
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .org-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--stone);
+      margin-bottom: 0.3rem;
+    }
+
+    .org-country {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 1rem;
+    }
+
+    .org-desc {
+      font-size: 0.88rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--stone-dark);
+      margin-bottom: 1.5rem;
+    }
+
+    .org-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sky);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(122,175,196,0.3);
+      padding-bottom: 2px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .org-link:hover { color: var(--sky-pale); border-color: var(--sky); }
+
+    /* ── PAYMENT SECTIONS ── */
+    .payment-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.6s forwards;
+    }
+
+    .payment-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .payment-card {
+      background: rgba(30,61,47,0.6);
+      border: 1px solid rgba(196,180,154,0.12);
+      padding: 1.75rem;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards;
+    }
+
+    .payment-card:nth-child(1) { animation-delay: 0.7s; }
+    .payment-card:nth-child(2) { animation-delay: 0.8s; }
+
+    .payment-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--stone);
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .payment-card-sub {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 1.25rem;
+    }
+
+    .payment-method {
+      margin-bottom: 1.25rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid rgba(196,180,154,0.08);
+    }
+
+    .payment-method:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    .payment-method-name {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--stone-dark);
+      margin-bottom: 0.4rem;
+    }
+
+    .payment-detail {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--sky-pale);
+      background: rgba(74,122,150,0.12);
+      border: 1px solid rgba(74,122,150,0.2);
+      padding: 0.5rem 0.75rem;
+      letter-spacing: 0.05em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      word-break: break-all;
+    }
+
+    /* Placeholder style for values not yet filled in */
+    .payment-detail.placeholder {
+      color: rgba(196,180,154,0.3);
+      font-style: italic;
+      font-size: 0.72rem;
+    }
+
+    .copy-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--sky-deep);
+      font-size: 0.9rem;
+      padding: 0.1rem;
+      transition: color 0.2s;
+      flex-shrink: 0;
+    }
+    .copy-btn:hover { color: var(--sky); }
+
+    .payment-note {
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: var(--stone-dark);
+      line-height: 1.6;
+      margin-top: 0.6rem;
+    }
+
+    /* QR placeholder */
+    .qr-placeholder {
+      width: 100%;
+      aspect-ratio: 1;
+      max-width: 140px;
+      background: rgba(196,180,154,0.08);
+      border: 2px dashed rgba(196,180,154,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      color: rgba(196,180,154,0.3);
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 0.75rem;
+    }
+
+    /* ── TRANSPARENCY NOTE ── */
+    .transparency {
+      border-top: 1px solid rgba(196,180,154,0.1);
+      padding-top: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.9s forwards;
+    }
+
+    .transparency p {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--stone-dark);
+      line-height: 1.8;
+      max-width: 600px;
+    }
+
+    .transparency strong { color: var(--stone); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: rgba(0,0,0,0.2);
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(196,180,154,0.08);
+      margin-top: 4rem;
+    }
+
+    footer .logo {
+      font-family: 'Playfair Display', serif;
+      color: var(--stone);
+      font-size: 1rem;
+    }
+
+    footer p {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      color: var(--stone-dark);
+      text-transform: uppercase;
+    }
+
+    /* ── ANIMATION ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      nav { padding: 1rem 1.5rem; }
+      .page { padding: 6rem 1.25rem 4rem; }
+      .orgs-grid { grid-template-columns: 1fr; }
+      .payment-grid { grid-template-columns: 1fr; }
+      .story { padding-left: 1.25rem; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; padding: 1.5rem; }
+      .goal-current { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══ NAV ══ -->
+  <nav>
+    <a href="index.html" class="nav-back">← Back to journal</a>
+    <span class="nav-title">Donate</span>
+  </nav>
+
+  <div class="page">
+
+    <!-- ══ STORY ══ -->
+    <div class="story">
+      <p class="story-tag">// Why this matters</p>
+      <h1>Riding for <em>research</em><br>that changes lives</h1>
+      <p>
+        This journey through Italy — 30 days, roughly 3 000 km, from Sardinia to the Veneto — is about more than cycling. Every kilometre is ridden in memory of someone I lost to a brain tumour, and in hope for those who are fighting one today.
+      </p>
+      <p>
+        <strong>100% of every donation goes directly to the organisations below.</strong> No platform fees, no middlemen. I cover all costs of the trip myself. You can follow every kilometre on this site in real time, and after the trip I will publish the donation receipts here.
+      </p>
+    </div>
+
+    <!-- ══ GOAL METER ══ -->
+    <div class="goal-block">
+      <div class="goal-row">
+        <span class="goal-current" id="donate-current">0 kr</span>
+        <span class="goal-target" id="donate-goal">Goal: 100 000 kr</span>
+      </div>
+      <div class="goal-bar">
+        <div class="goal-fill" id="donate-fill" style="width:0%"></div>
+      </div>
+      <p class="goal-note">Updated manually each evening from the road</p>
+    </div>
+
+    <!-- ══ ORGANISATIONS ══ -->
+    <p class="orgs-label">// Where your money goes</p>
+    <div class="orgs-grid">
+
+      <div class="org-card">
+        <div class="org-flag">🇸🇪</div>
+        <div class="org-name">Hjärnfonden</div>
+        <div class="org-country">Sweden — Brain Research</div>
+        <p class="org-desc">
+          Sweden's leading foundation funding research into brain diseases — including early diagnostics, tumour biology, and the development of new treatments. All donations go directly to Swedish research projects.
+        </p>
+        <!-- INSERT: replace # with Hjärnfonden's official website URL -->
+        <a href="#" class="org-link" target="_blank">hjarnfonden.se →</a>
+      </div>
+
+      <div class="org-card">
+        <div class="org-flag">🇮🇹</div>
+        <div class="org-name">AITC</div>
+        <div class="org-country">Italy — Brain Tumour Research</div>
+        <p class="org-desc">
+          Associazione Italiana Tumori Cerebrali — an Italian non-profit dedicated exclusively to brain tumour research, funding studies into earlier diagnostics and improved therapies. Donations also accepted in memory of loved ones.
+        </p>
+        <!-- INSERT: replace # with AITC's official website URL -->
+        <a href="#" class="org-link" target="_blank">aitc.it →</a>
+      </div>
+
+    </div>
+
+    <!-- ══ PAYMENT ══ -->
+    <p class="payment-label">// How to donate</p>
+    <div class="payment-grid">
+
+      <!-- SWEDISH DONORS -->
+      <div class="payment-card">
+        <div class="payment-card-title">🇸🇪 Swedish donors</div>
+        <div class="payment-card-sub">Swish — zero fees</div>
+
+        <div class="payment-method">
+          <div class="payment-method-name">Swish number</div>
+          <!-- INSERT: replace the placeholder below with your Swish number -->
+          <div class="payment-detail placeholder" id="swish-number">
+            <span>INSERT SWISH NUMBER</span>
+          </div>
+          <p class="payment-note">Use your message field to write your name or nickname — it will appear in the donor list on this site.</p>
+        </div>
+
+        <div class="payment-method">
+          <div class="payment-method-name">Swish QR code</div>
+          <!-- INSERT: replace this div with an <img> tag pointing to your Swish QR code image -->
+          <!-- Example: <img src="assets/images/swish-qr.png" alt="Swish QR" style="width:140px;"> -->
+          <div class="qr-placeholder">Add QR<br>image here</div>
+          <p class="payment-note">Scan with your Swish app to pay instantly.</p>
+        </div>
+
+      </div>
+
+      <!-- ITALIAN DONORS -->
+      <div class="payment-card">
+        <div class="payment-card-title">🇮🇹 Italian donors</div>
+        <div class="payment-card-sub">Satispay or Bonifico</div>
+
+        <div class="payment-method">
+          <div class="payment-method-name">Satispay</div>
+          <!-- INSERT: replace with your Satispay username or link -->
+          <div class="payment-detail placeholder" id="satispay-handle">
+            <span>INSERT SATISPAY HANDLE</span>
+          </div>
+          <p class="payment-note">Search for this name in your Satispay app. Free for personal accounts.</p>
+        </div>
+
+        <div class="payment-method">
+          <div class="payment-method-name">Bonifico bancario — IBAN</div>
+          <!-- INSERT: replace with your IBAN -->
+          <div class="payment-detail placeholder" id="iban-number">
+            <span>INSERT IBAN</span>
+            <button class="copy-btn" onclick="copyText('iban-number')" title="Copy IBAN">⧉</button>
+          </div>
+          <!-- INSERT: replace with your bank's BIC/SWIFT code -->
+          <div class="payment-detail placeholder" style="margin-top:0.4rem;">
+            <span>BIC/SWIFT: INSERT BIC</span>
+          </div>
+          <p class="payment-note">Include your name in the payment description — it will appear in the donor list.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ══ TRANSPARENCY ══ -->
+    <div class="transparency">
+      <p>
+        <strong>Transparency commitment:</strong> I personally cover all costs of the trip — equipment, transport, food, accommodation. No donation money is used for my expenses. After the trip, donation receipts to both organisations will be published on this page. Questions? Write to me at <strong><!-- INSERT email --></strong>.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <span class="logo">Edvard Appelberg</span>
+    <p>Skellefteå, Sweden — Italy 2026</p>
+  </footer>
+
+  <script src="manuals.js"></script>
+  <script>
+    // ── DONATION METER ──
+    (function() {
+      const fill    = document.getElementById('donate-fill');
+      const current = document.getElementById('donate-current');
+      const goal    = document.getElementById('donate-goal');
+      if (!fill || typeof DONATION_TOTAL === 'undefined') return;
+      const pct = Math.min((DONATION_TOTAL / DONATION_GOAL) * 100, 100);
+      fill.style.width = pct + '%';
+      current.textContent = DONATION_TOTAL.toLocaleString('sv-SE') + ' kr';
+      goal.textContent    = 'Goal: ' + DONATION_GOAL.toLocaleString('sv-SE') + ' kr';
+    })();
+
+    // ── COPY TO CLIPBOARD ──
+    function copyText(elementId) {
+      const el = document.getElementById(elementId);
+      const text = el.querySelector('span').textContent.trim();
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = el.querySelector('.copy-btn');
+        if (btn) { btn.textContent = '✓'; setTimeout(() => btn.textContent = '⧉', 1500); }
+      });
+    }
+  </script>
+
+</body>
+</html>
