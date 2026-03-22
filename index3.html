@@ -167,8 +167,8 @@
       font-weight: 300;
       color: var(--stone-dark);
       line-height: 1.7;
-      max-width: 600px;
-      margin-bottom: 2rem;
+      max-width: 380px;
+      margin-bottom: 3rem;
     }
 
     .hero-cta {
@@ -337,6 +337,103 @@
       background-position: center;
       margin-bottom: 1rem;
       opacity: 0.75;
+    }
+
+
+    /* ── TRIP STATS BAR ── */
+    .trip-stats {
+      display: flex;
+      gap: 0;
+      margin-bottom: 2rem;
+      border-radius: 12px 12px 0 0;
+      overflow: hidden;
+      border: 1px solid rgba(196,180,154,0.15);
+      border-bottom: none;
+    }
+
+    .trip-stat-tab {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 1.25rem;
+      background: rgba(0,0,0,0.25);
+      border-right: 1px solid rgba(196,180,154,0.1);
+      position: relative;
+      transition: background 0.2s;
+    }
+
+    .trip-stat-tab:last-child { border-right: none; }
+
+    .trip-stat-tab::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--sky-deep);
+      border-radius: 0;
+    }
+
+    .trip-stat-tab:nth-child(1)::after { background: var(--sky-deep); }
+    .trip-stat-tab:nth-child(2)::after { background: var(--green-light); }
+    .trip-stat-tab:nth-child(3)::after { background: var(--yellow); }
+    .trip-stat-tab:nth-child(4)::after { background: var(--red-warm); }
+
+    .trip-stat-icon {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      opacity: 0.75;
+      flex-shrink: 0;
+    }
+
+    .trip-stat-icon-placeholder {
+      width: 28px;
+      height: 28px;
+      background: rgba(196,180,154,0.15);
+      border-radius: 4px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.5rem;
+      color: rgba(196,180,154,0.3);
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .trip-stat-text { min-width: 0; }
+
+    .trip-stat-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--stone);
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .trip-stat-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(196,180,154,0.45);
+      margin-top: 0.2rem;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 768px) {
+      .trip-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border-radius: 8px 8px 0 0;
+      }
+      .trip-stat-tab { border-right: 1px solid rgba(196,180,154,0.1); border-bottom: 1px solid rgba(196,180,154,0.1); }
+      .trip-stat-tab:nth-child(2) { border-right: none; }
+      .trip-stat-value { font-size: 1.1rem; }
     }
 
     /* ── SHARED SECTIONS ── */
@@ -605,7 +702,7 @@
     .blog-card-excerpt {
       font-size: 0.9rem;
       font-weight: 300;
-      color: var(--text);
+      color: var(--white);
       line-height: 1.6;
     }
 
@@ -1009,7 +1106,6 @@
       <li><a href="donate.html" data-en="Donate" data-sv="Donera" data-it="Dona">Donate</a></li>
       <li><a href="#links"    data-en="Links"     data-sv="Länkar"   data-it="Link">Links</a></li>
       <li><a href="dashboard" data-en="Routes"    data-sv="Rutter"   data-it="Percorsi">Routes</a></li>
-      <li><a href="sweden2024.html" data-en="Sweden 2024" data-sv="Sverige 2024" data-it="Svezia 2024">Sweden 2024</a></li>
     </ul>
   </nav>
 
@@ -1174,7 +1270,7 @@
       // Why Italy?
     </p>
     <h2 class="section-title"
-        data-en="When several passions come together as one"
+        data-en="When several passions come together <strong>as one</strong>"
         data-sv="När flera passioner går samman i ett"
         data-it="Quando i passioni uniscono in una">
       When several passions come together as one
@@ -1273,6 +1369,59 @@
       </h2>
       <div class="section-divider"></div>
   
+      <!-- ── TRIP STATS BAR ── -->
+      <div class="trip-stats" id="trip-stats">
+        <div class="trip-stat-tab">
+          <img src="assets/images/road.png" alt="Distance"
+               class="trip-stat-icon"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="trip-stat-icon-placeholder" style="display:none;">road</div>
+          <div class="trip-stat-text">
+            <div class="trip-stat-value" id="stat-distance">—</div>
+            <div class="trip-stat-label"
+                 data-en="Total distance"
+                 data-sv="Total distans"
+                 data-it="Distanza totale">Total distance</div>
+          </div>
+        </div>
+        <div class="trip-stat-tab">
+          <img src="assets/images/mountain.png" alt="Elevation"
+               class="trip-stat-icon"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="trip-stat-icon-placeholder" style="display:none;">elev</div>
+          <div class="trip-stat-text">
+            <div class="trip-stat-value" id="stat-elevation">—</div>
+            <div class="trip-stat-label"
+                 data-en="Elevation gain"
+                 data-sv="Höjdmeter"
+                 data-it="Dislivello">Elevation gain</div>
+          </div>
+        </div>
+        <div class="trip-stat-tab">
+          <img src="assets/images/time.png" alt="Moving time"
+               class="trip-stat-icon"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="trip-stat-icon-placeholder" style="display:none;">time</div>
+          <div class="trip-stat-text">
+            <div class="trip-stat-value" id="stat-time">—</div>
+            <div class="trip-stat-label"
+                 data-en="Moving time"
+                 data-sv="Rörlig tid"
+                 data-it="Tempo in movimento">Moving time</div>
+          </div>
+        </div>
+        <div class="trip-stat-tab">
+          <div class="trip-stat-icon-placeholder">+</div>
+          <div class="trip-stat-text">
+            <div class="trip-stat-value" id="stat-extra">—</div>
+            <div class="trip-stat-label"
+                 data-en="Placeholder"
+                 data-sv="Platshållare"
+                 data-it="Segnaposto">Placeholder</div>
+          </div>
+        </div>
+      </div>
+
       <!-- Terrain map — Leaflet draws routes from activities.json -->
       <div class="strava-map" id="strava-map">
         <div class="map-loading" id="map-loading"
@@ -1464,19 +1613,21 @@
     if (saved) applyLanguage(saved);
   </script>
   </script>
+
   <script>
   // ── DONATION METER ──
   (function() {
     const fill    = document.getElementById('meter-fill');
     const current = document.getElementById('meter-current');
     const goal    = document.getElementById('meter-goal');
-    if (!fill) return;
+    if (!fill || typeof DONATION_TOTAL === 'undefined') return;
     const pct = Math.min((DONATION_TOTAL / DONATION_GOAL) * 100, 100);
     fill.style.width = pct + '%';
     current.textContent = DONATION_TOTAL.toLocaleString('sv-SE') + ' kr';
-    goal.textContent    = DONATION_GOAL.toLocaleString('sv-SE') + ' kr';
+    goal.textContent    = 'Goal: ' + DONATION_GOAL.toLocaleString('sv-SE') + ' kr';
   })();
   </script>
+
   <script>
   
   // ══════════════════════════════════════════
@@ -1700,6 +1851,21 @@
         .then(activities => {
           console.log('[Map] Loaded', activities.length, 'activities');
           renderCards(activities);
+
+          // ── Compute trip totals ──
+          const totalDist = activities.reduce((s, a) => s + (a.distance || 0), 0);
+          const totalElev = activities.reduce((s, a) => s + (a.elevation || 0), 0);
+          const totalSecs = activities.reduce((s, a) => s + (a.moving_time || 0), 0);
+          const totalH    = Math.floor(totalSecs / 3600);
+          const totalM    = Math.floor((totalSecs % 3600) / 60);
+
+          const dEl = document.getElementById('stat-distance');
+          const eEl = document.getElementById('stat-elevation');
+          const tEl = document.getElementById('stat-time');
+          if (dEl) dEl.textContent = totalDist.toFixed(0) + ' km';
+          if (eEl) eEl.textContent = totalElev.toLocaleString('sv-SE') + ' m';
+          if (tEl) tEl.textContent = totalH + 'h ' + totalM + 'm';
+
           const allCoords = [];
           let drawn = 0;
           activities.forEach((activity, index) => {
@@ -1746,21 +1912,6 @@
       document.getElementById('map-loading').textContent = 'Map could not load — Leaflet missing';
     }
   </script>
-
-  <script>
-  // ── DONATION METER ──
-  (function() {
-    const fill    = document.getElementById('meter-fill');
-    const current = document.getElementById('meter-current');
-    const goal    = document.getElementById('meter-goal');
-    if (!fill) return;
-    const pct = Math.min((DONATION_TOTAL / DONATION_GOAL) * 100, 100);
-    fill.style.width = pct + '%';
-    current.textContent = DONATION_TOTAL.toLocaleString('sv-SE') + ' kr';
-    goal.textContent    = 'Goal: ' + DONATION_GOAL.toLocaleString('sv-SE') + ' kr';
-  })();
-  </script>
-
 
   <script>
   // ══════════════════════════════════════════
@@ -1825,20 +1976,6 @@
       .catch(() => {
         grid.innerHTML = '<div class="blog-card" style="opacity:0.4;"><p class="blog-card-tag">Could not load posts</p></div>';
       });
-  })();
-  </script>
-
-  <script>
-  // ── DONATION METER ──
-  (function() {
-    const fill    = document.getElementById('meter-fill');
-    const current = document.getElementById('meter-current');
-    const goal    = document.getElementById('meter-goal');
-    if (!fill || typeof DONATION_TOTAL === 'undefined') return;
-    const pct = Math.min((DONATION_TOTAL / DONATION_GOAL) * 100, 100);
-    fill.style.width = pct + '%';
-    current.textContent = DONATION_TOTAL.toLocaleString('sv-SE') + ' kr';
-    goal.textContent    = 'Goal: ' + DONATION_GOAL.toLocaleString('sv-SE') + ' kr';
   })();
   </script>
 
