@@ -262,6 +262,28 @@
       transform: translateX(4px);
     }
 
+    
+    /* ── MAP BUTTON ── */
+    .hero-map {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--yellow);
+      color: var(--text);
+      text-decoration: none;
+      padding: 0.9rem 2rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: background 0.2s, transform 0.2s;
+      width: fit-content;
+    }
+    .hero-map:hover {
+      background: var(--yellow-soft);
+      transform: translateX(4px);
+    }
+
     /* ── DONATION METER ── */
     .donation-meter {
       margin-top: 1.5rem;
@@ -943,7 +965,7 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    .hero-tag, .hero-title, .hero-sub, .hero-cta, .hero-donate, .donation-meter {
+    .hero-tag, .hero-title, .hero-sub, .hero-cta, .hero-map, .hero-donate, .donation-meter {
       opacity: 0;
       animation: fadeUp 0.7s ease forwards;
     }
@@ -951,7 +973,8 @@
     .hero-title     { animation-delay: 0.25s; }
     .hero-sub       { animation-delay: 0.4s; }
     .hero-cta       { animation-delay: 0.8s; }
-    .hero-donate    { animation-delay: 0.8s; }
+    .hero-donate    { animation-delay: 0.8s; }    
+    .hero-map       { animation-delay: 0.8s; }
     .donation-meter { animation-delay: 1.5s; }
 
     /* ── RESPONSIVE ── */
@@ -1040,6 +1063,12 @@
            data-sv="Läs min blogg →"
            data-it="Leggi il diario →">
           Read the journal →
+        </a>
+        <a href="#routes" class="hero-map"
+           data-en="See the roadmap"
+           data-sv="Se kartan"
+           data-it="Vedi la mappa">
+          Donate ♥
         </a>
         <a href="donate.html" class="hero-donate"
            data-en="Donate ♥"
@@ -1186,7 +1215,7 @@
           <strong>The language:</strong> Ever since I started learning Italian on my own I've been motivated to visit different parts of Italy and speak with locals.<br>
           <strong>The challenge:</strong> A challenge like this feeds me motivation and a sense of accomplishment.<br>
           <strong>The variation:</strong> Italian nature and culture is quite diverse, and I am curious to get a feel of the similarities and differences across the regions.<br>
-          <strong>The mode of transport:</strong> Italian nature and culture is quite diverse across the country, and I am curious to learn the similarities and differences across the regions first-hand.<br>
+          <strong>The bikepacking:</strong> Bikepacking is an incredibly rewarding way to travel which I can talk about for hours. No other way of travelling gives time for processing the surroundings with all senses activated, all while being sound for the body and mind.<br>
           <strong>The hospitality:</strong> Italians are delighted when a foreigner speaks Italian, and can open up in a way that feels authentic.<br>
           <strong>The memories:</strong> An experience like this creates memories that I am sure I will keep close to my heart forever.<br>
           <strong>The food:</strong> Do I really need to tell you why? :)<br>
@@ -1197,7 +1226,7 @@
           <strong>Språket:</strong> Ända sedan jag började lära mig italienska på egen hand har jag känt mig motiverad att besöka olika delar av Italien och prata med lokalbefolkningen.<br>
           <strong>Utmaningen:</strong> En utmaning som den här ger mig motivation och en känsla av att ha åstadkommit något.<br>
           <strong>Variationen:</strong> Italiensk natur och kultur är ganska varierad, och jag är nyfiken på att känna på likheterna och skillnaderna mellan regionerna.<br>
-          <strong>Transportmedlet:</strong> Italiensk natur och kultur är ganska varierad över landet, och jag är nyfiken på att lära mig likheterna och skillnaderna mellan regionerna på nära håll.<br>
+          <strong>Transportmedlet:</strong> Att ta sig fram långa sträckor helt på egen kraft, och ändå ha tid för att känna in omgivningen och stanna precis när man vill. Bikepacking är otroligt belönande och gör gott för kropp och sinne<br>
           <strong>Gästfriheten:</strong> Italienare blir glada när en utlänning talar italienska, och kan öppna sig på ett sätt som känns äkta.<br>
           <strong>Minnena:</strong> En upplevelse som den här skapar minnen som jag är säker på att jag alltid kommer att bära nära hjärtat.<br>
           <strong>Maten:</strong> Behöver jag verkligen berätta varför? :)<br>
@@ -1208,7 +1237,7 @@
           <strong>La lingua:</strong> Da quando ho iniziato a imparare l'italiano da solo, mi sono sempre sentito motivato a visitare diverse parti d'Italia e parlare con i locali.<br>
           <strong>La sfida:</strong> Una sfida come questa mi alimenta di motivazione e senso di realizzazione.<br>
           <strong>La varietà:</strong> La natura e la cultura italiana sono piuttosto diverse, e sono curioso di percepire le somiglianze e le differenze tra le regioni.<br>
-          <strong>Il mezzo di trasporto:</strong> La natura e la cultura italiana sono piuttosto varie in tutto il paese, e sono curioso di scoprire in prima persona le somiglianze e le differenze tra le regioni.<br>
+          <strong>Il mezzo di trasporto:</strong> Il bikepacking è un modo incredibilmente gratificante di viaggiare di cui potrei parlare per ore. Nessun altro modo di viaggiare dà tempo per elaborare l'ambiente circostante con tutti i sensi attivati, il tutto mantenendo il corpo e la mente in salute.<br>
           <strong>L'ospitalità:</strong> Gli italiani sono felici quando uno straniero parla italiano, e possono aprirsi in modo che sembra autentico.<br>
           <strong>I ricordi:</strong> Un'esperienza come questa crea ricordi che sono sicuro di custodire per sempre nel cuore.<br>
           <strong>Il cibo:</strong> Devo davvero spiegare perché? :)<br>
@@ -1266,10 +1295,10 @@
         </p>
       </div>
       <h2 class="section-title"
-          data-en="Progress so far..."
-          data-sv="Resan hittills..."
-          data-it="Progresso finora...">
-        The Italy 2026 route
+          data-en="The roadmap"
+          data-sv="Resekartan"
+          data-it="La mappa">
+        The Italy 2026 map
       </h2>
       <div class="section-divider"></div>
   
