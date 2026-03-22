@@ -217,17 +217,17 @@
 
     .stat-number {
       font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
+      font-size: 2.7rem;
       color: var(--stone);
       line-height: 1;
     }
 
     .stat-label {
       font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
+      font-size: 0.9rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--green-light);
+      color: var(--yellow-soft);
     }
 
     .hero-photo {
@@ -968,10 +968,16 @@
       .activities-header-row { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
       section { padding: 4rem 1.5rem; }
       footer { flex-direction: column; gap: 1rem; text-align: center; }
-      .hero-photo { width: 180px; height: 180px; }
+      .hero-photo { width: 160px; height: 160px; top: 50%; left: 2rem; transform: translateY(-50%); }
       .about-image { width: 200px; height: 300px; }
       .donation-meter { max-width: 100%; }
       .hero-donate { width: 100%; justify-content: center; }
+      body { font-size: 0.9rem; }
+      .hero-title { font-size: clamp(1.8rem, 6vw, 2.8rem); }
+      .section-title { font-size: clamp(1.4rem, 5vw, 2rem); }
+      .nav-links a { font-size: 0.65rem; }
+      .activity-stat-value { font-size: 0.9rem; }
+      .blog-card-title { font-size: 1rem; }
     }
   </style>
 </head>
@@ -1021,7 +1027,7 @@
       <p class="hero-sub"
          data-en="My mission is to explore the Italian culture, nature, and people, while also spreading awareness of cancer research."
          data-sv="Min passion är att utforska den italienska kulturen, naturen och människorna och samtidigt samla in pengar för cancerforskning."
-         data-it="La mia missione è esplorare la natura italiana, le persone, e le persone mentre raccolgo donazioni per la ricerca sul cancro al cervello.">
+         data-it="La mia missione è esplorare la natura, la cultura, e la gente italiana mentre raccolgo donazioni per la ricerca sul cancro al cervello.">
         My mission is to explore the Italian culture, nature, and people, while also spreading awareness of cancer research.
       </p>
   <div style="display:flex; flex-wrap:wrap; gap:1rem; align-items:center;">
@@ -1537,8 +1543,9 @@
   // ══════════════════════════════════════════
   function renderCards(activities) {
     const grid = document.getElementById('strava-grid');
-    const latest = activities.slice(0, 3);
-    const more = activities.slice(3, 15);
+    const isMobile = window.innerWidth < 768;
+    const latest = activities.slice(0, isMobile ? 1 : 3);
+    const more = activities.slice(isMobile ? 1 : 3, isMobile ? 6 : 15);
   
     if (latest.length === 0) {
       grid.innerHTML = `
@@ -1551,10 +1558,11 @@
         </div>`;
       return;
     }
-  
-    // Pad to 3 cards if fewer than 3 activities
-    while (latest.length < 3) {
-      latest.push(null);
+
+    // Pad to fill the row (3 on desktop, 1 on mobile)
+    const padTo = isMobile ? 1 : 3;
+    while (latest.length < padTo) {
+    latest.push(null);
     }
   
     grid.innerHTML = latest.map((activity, i) => {
@@ -1569,7 +1577,6 @@
       const distLabel = { en: 'Distance', sv: 'Distans',    it: 'Distanza' };
       const timeLabel = { en: 'Moving time', sv: 'Rörlig tid', it: 'Tempo' };
       const elevLabel = { en: 'Elevation', sv: 'Höjdmeter', it: 'Dislivello' };
-      const lang = localStorage.getItem('preferred-lang') || 'en';
   
       return `
         <a href="https://www.strava.com/activities/${activity.id}" target="_blank" style="text-decoration:none; display:block;">

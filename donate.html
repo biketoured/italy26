@@ -22,9 +22,13 @@
       --sky-deep:      #4A7A96;
       --sky-pale:      #B8D4E0;
       --text:          #1A1A18;
-      --text-muted:    #7A7260;
+      --text-muted:    #99915d;
       --white:         #FDFAF4;
       --black:         #111110;
+      --lavender:      #9B8AB4;
+      --sage:          #7A8C6E;
+      --cream:         #F5EDD6;
+      --text-light:    #E8DCC8;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -115,7 +119,7 @@
       font-size: 1rem;
       font-weight: 300;
       line-height: 1.85;
-      color: var(--stone-dark);
+      color: var(--text-muted);
       max-width: 600px;
       margin-bottom: 1rem;
     }
@@ -150,11 +154,10 @@
     }
 
     .goal-target {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--stone-dark);
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--green-light);
+      line-height: 1;
     }
 
     .goal-bar {
@@ -486,25 +489,29 @@
     <div class="orgs-grid">
 
       <div class="org-card">
-        <div class="org-flag">🇸🇪</div>
+        <div class="org-flag">
+          <img src="assets/images/flagse.png" alt="Swedish" width="30" height="30">
+        </div>
         <div class="org-name">Hjärnfonden</div>
         <div class="org-country">Sweden — Brain Research</div>
         <p class="org-desc">
           Sweden's leading foundation funding research into brain diseases — including early diagnostics, tumour biology, and the development of new treatments. All donations go directly to Swedish research projects.
         </p>
         <!-- INSERT: replace # with Hjärnfonden's official website URL -->
-        <a href="#" class="org-link" target="_blank">hjarnfonden.se →</a>
+        <a href="https://www.hjarnfonden.se/" class="org-link" target="_blank">hjarnfonden.se →</a>
       </div>
 
       <div class="org-card">
-        <div class="org-flag">🇮🇹</div>
+        <div class="org-flag">
+                    <img src="assets/images/flagit.png" alt="Italian" width="30" height="30">
+        </div>
         <div class="org-name">AITC</div>
         <div class="org-country">Italy — Brain Tumour Research</div>
         <p class="org-desc">
           Associazione Italiana Tumori Cerebrali — an Italian non-profit dedicated exclusively to brain tumour research, funding studies into earlier diagnostics and improved therapies. Donations also accepted in memory of loved ones.
         </p>
         <!-- INSERT: replace # with AITC's official website URL -->
-        <a href="#" class="org-link" target="_blank">aitc.it →</a>
+        <a href="https://www.aitc.it/" class="org-link" target="_blank">aitc.it →</a>
       </div>
 
     </div>
