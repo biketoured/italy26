@@ -2,15 +2,15 @@
 type: blog
 date: 2026-03-01
 tag: Gear
-cover: ../../../assets/images/pizza.png
+cover: italy26/assets/images/pizza.png
 title:
   en: What goes in the bags for a 40-day trip
   sv: Vad packar man för en 40-dagarsresa
   it: Cosa si mette nelle borse per un viaggio di 40 giorni
 photos:
-  - src: ../../../assets/images/placehold.png
+  - src: italy26/assets/images/placehold.png
     caption: The full kit laid out the night before departure
-  - src: ../../../assets/images/placehold.png
+  - src: italy26/assets/images/placehold.png
     caption: Frame bag takes the heaviest items closest to the centre of gravity
 ---
 

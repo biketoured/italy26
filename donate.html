@@ -7,7 +7,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 
+  <script src="manuals.js"></script>
   <style>
+    /* ── LANG SWITCHER ── */
+    .lang-switcher { display: flex; align-items: center; gap: 0.4rem; }
+    .lang-btn {
+      background: none; border: none; cursor: pointer;
+      padding: 0.1rem 0.15rem; border-radius: 3px;
+      opacity: 0.45; transition: opacity 0.2s, transform 0.15s; line-height: 0;
+    }
+    .lang-btn:hover { opacity: 0.85; transform: scale(1.1); }
+    .lang-btn.active { display: none; }
+
     :root {
       --green:         #1E3D2F;
       --green-mid:     #3A6B4A;
@@ -382,20 +393,26 @@
     /* ── TRANSPARENCY NOTE ── */
     .transparency {
       border-top: 1px solid rgba(196,180,154,0.1);
-      padding-top: 2rem;
+      padding: 2rem;
+      background: rgba(74,122,150,0.1);
+      border: 1px solid var(--sky);
+      border-left: 3px solid var(--sky-deep);
       opacity: 0;
       animation: fadeUp 0.7s ease 0.9s forwards;
-    }
+      }
 
     .transparency p {
-      font-size: 0.88rem;
+      font-size: 1rem;
       font-weight: 300;
-      color: var(--stone-dark);
-      line-height: 1.8;
+      color: var(--stone);
+      line-height: 1.9;
       max-width: 600px;
-    }
+      }
 
-    .transparency strong { color: var(--stone); }
+    .transparency strong { 
+      color: var(--stone); 
+      font-size: larger;
+    }
 
     /* ── FOOTER ── */
     footer {
@@ -443,24 +460,48 @@
 
 <body>
 
-  <script src="manuals.js"></script>
   <!-- ══ NAV ══ -->
   <nav>
-    <a href="index.html" class="nav-back">← Back to journal</a>
-    <span class="nav-title">Donate</span>
+    <a href="https://biketoured.github.io/italy26" class="nav-back"
+       data-en="← Home"
+       data-sv="← Hem"
+       data-it="← Home">← Home</a>
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang="en" title="English">
+        <img src="assets/images/flaguk.png" alt="English" width="50" height="50">
+      </button>
+      <button class="lang-btn" data-lang="sv" title="Svenska">
+        <img src="assets/images/flagse.png" alt="Svenska" width="36" height="36">
+      </button>
+      <button class="lang-btn" data-lang="it" title="Italiano">
+        <img src="assets/images/flagit.png" alt="Italiano" width="36" height="36">
+      </button>
+    </div>
+    <span class="nav-title"
+          data-en="Donate"
+          data-sv="Donera"
+          data-it="Dona">Donate</span>
   </nav>
 
   <div class="page">
 
     <!-- ══ STORY ══ -->
     <div class="story">
-      <p class="story-tag">// Why this matters</p>
-      <h1>Riding for <em>research</em><br>that changes lives</h1>
+      <p class="story-tag" data-en="// Why this matters" data-sv="// Varför det spelar roll" data-it="// Perché è importante">// Why this matters</p>
+      <h1 data-en="Riding for <em>research</em><br>that changes lives"
+          data-sv="Cyklar för <em>forskning</em><br>som förändrar liv"
+          data-it="Pedalando per la <em>ricerca</em><br>che cambia le vite">Riding for <em>research</em><br>that changes lives</h1>
       <p>
-        This journey through Italy — 40 days, roughly 4 000 km, from Sardinia to the Veneto — is about more than cycling. Every kilometre is ridden in memory of someone I lost to a brain tumour, and in hope for those who are fighting one today.
+        <span data-en="This journey through Italy — 40 days, roughly 4 000 km, from Sardinia to the Veneto — is about more than cycling. Every kilometre is ridden in memory of someone I lost to a brain tumour, and in hope for those who are fighting one today."
+              data-sv="Den här resan genom Italien — 40 dagar, ungefär 4 000 km, från Sardinien till Veneto — handlar om mer än cykling. Varje kilometer cyklas i minnet av någon jag förlorade till en hjärntumör, och i hopp för dem som kämpar idag."
+              data-it="Questo viaggio attraverso l'Italia — 40 giorni, circa 4 000 km, dalla Sardegna al Veneto — è molto più che ciclismo. Ogni chilometro viene percorso in memoria di qualcuno che ho perso a causa di un tumore al cervello, e nella speranza per chi sta combattendo oggi.">
+              This journey through Italy — 40 days, roughly 4 000 km, from Sardinia to the Veneto — is about more than cycling. Every kilometre is ridden in memory of someone I lost to a brain tumour, and in hope for those who are fighting one today.</span>
       </p>
       <p>
-        <strong>100% of every donation goes directly to the organisations below.</strong> No platform fees, no middlemen. I cover all costs of the trip myself. You can follow every kilometre on this site in real time, and after the trip I will publish the donation receipts here.
+        <span data-en="<strong>100% of every donation goes directly to the organisations below.</strong> No platform fees, no middlemen. I cover all costs of the trip myself. You can follow every kilometre on this site in real time, and after the trip I will publish the donation receipts here."
+              data-sv="<strong>100% av varje donation går direkt till organisationerna nedan.</strong> Inga plattformsavgifter, inga mellanhänder. Jag betalar alla resekostnader själv. Du kan följa varje kilometer på den här sidan i realtid, och efter resan publicerar jag kvittona här."
+              data-it="<strong>Il 100% di ogni donazione va direttamente alle organizzazioni qui sotto.</strong> Nessuna commissione, nessun intermediario. Copro personalmente tutti i costi del viaggio. Puoi seguire ogni chilometro su questo sito in tempo reale, e dopo il viaggio pubblicherò le ricevute delle donazioni qui.">
+              <strong>100% of every donation goes directly to the organisations below.</strong> No platform fees, no middlemen. I cover all costs of the trip myself. You can follow every kilometre on this site in real time, and after the trip I will publish the donation receipts here.</span>
       </p>
     </div>
 
@@ -473,11 +514,11 @@
       <div class="goal-bar">
         <div class="goal-fill" id="donate-fill" style="width:0%"></div>
       </div>
-      <p class="goal-note">Updated manually each evening from the road</p>
+      <p class="goal-note" data-en="Updated manually each evening from the road" data-sv="Uppdateras manuellt varje kväll från vägen" data-it="Aggiornato manualmente ogni sera dalla strada">Updated manually each evening from the road</p>
     </div>
 
     <!-- ══ ORGANISATIONS ══ -->
-    <p class="orgs-label">// Where your money goes</p>
+    <p class="orgs-label" data-en="// Where your money goes" data-sv="// Vart pengarna går" data-it="// Dove vanno i tuoi soldi">// Where your money goes</p>
     <div class="orgs-grid">
 
       <div class="org-card">
@@ -487,7 +528,9 @@
         </div>
         <div class="org-country">Sweden — Brain Research</div>
         <p class="org-desc">
-          Sweden's leading foundation funding research into brain diseases — including early diagnostics, tumour biology, and the development of new treatments. All donations go directly to Swedish research projects.
+          <span data-en="Sweden's leading foundation funding research into brain diseases — including early diagnostics, tumour biology, and the development of new treatments. All donations go directly to Swedish research projects."
+                data-sv="Sveriges ledande stiftelse för forskning om hjärnsjukdomar — inklusive tidig diagnostik, tumörbiologi och utveckling av nya behandlingar. Alla donationer går direkt till svenska forskningsprojekt."
+                data-it="La principale fondazione svedese che finanzia la ricerca sulle malattie cerebrali — inclusa la diagnostica precoce, la biologia tumorale e lo sviluppo di nuovi trattamenti. Tutte le donazioni vanno direttamente a progetti di ricerca svedesi.">Sweden's leading foundation funding research into brain diseases — including early diagnostics, tumour biology, and the development of new treatments. All donations go directly to Swedish research projects.</span>
         </p>
         <!-- INSERT: replace # with Hjärnfonden's official website URL -->
         <a href="https://www.hjarnfonden.se/" class="org-link" target="_blank">hjarnfonden.se →</a>
@@ -499,7 +542,9 @@
           AITC</div>
         <div class="org-country">Italy — Brain Tumour Research</div>
         <p class="org-desc">
-          Associazione Italiana Tumori Cerebrali — an Italian non-profit dedicated exclusively to brain tumour research, funding studies into earlier diagnostics and improved therapies. Donations also accepted in memory of loved ones.
+          <span data-en="Associazione Italiana Tumori Cerebrali — an Italian non-profit dedicated exclusively to brain tumour research, funding studies into earlier diagnostics and improved therapies. Donations also accepted in memory of loved ones."
+                data-sv="Associazione Italiana Tumori Cerebrali — en italiensk ideell organisation uteslutande ägnad åt hjärntumörforskning, som finansierar studier om tidigare diagnostik och förbättrade terapier. Donationer accepteras även till minne av nära och kära."
+                data-it="Associazione Italiana Tumori Cerebrali — un'organizzazione non profit italiana dedicata esclusivamente alla ricerca sui tumori cerebrali, che finanzia studi sulla diagnosi precoce e terapie migliorate. Donazioni accettate anche in memoria di persone care.">Associazione Italiana Tumori Cerebrali — an Italian non-profit dedicated exclusively to brain tumour research, funding studies into earlier diagnostics and improved therapies. Donations also accepted in memory of loved ones.</span>
         </p>
         <!-- INSERT: replace # with AITC's official website URL -->
         <a href="https://www.aitc.it/" class="org-link" target="_blank">aitc.it →</a>
@@ -508,30 +553,30 @@
     </div>
 
     <!-- ══ PAYMENT ══ -->
-    <p class="payment-label">// How to donate</p>
+    <p class="payment-label" data-en="// How to donate" data-sv="// Hur du donerar" data-it="// Come donare">// How to donate</p>
     <div class="payment-grid">
 
       <!-- SWEDISH DONORS -->
       <div class="payment-card">
         <div class="payment-card-title">
           <img src="assets/images/flagse.png" alt="Swedish" width="30" height="30">
-          Swedish donors</div>
+          <span data-en="Swedish donors" data-sv="Svenska donationer" data-it="Donatori svedesi">Swedish donors</span></div>
 
         <div class="payment-method">
-          <div class="payment-method-name">Swish number</div>
+          <div class="payment-method-name" data-en="Swish number" data-sv="Swish-nummer" data-it="Numero Swish">Swish number</div>
           <!-- INSERT: replace the placeholder below with your Swish number -->
           <div class="payment-detail placeholder" id="swish-number">
             <span>INSERT SWISH NUMBER</span>
           </div>
-          <p class="payment-note">Use your message field to write your name or nickname — it will appear in the donor list on this site.</p>
+          <p class="payment-note" data-en="Use your message field to write your name or nickname — it will appear in the donor list on this site." data-sv="Skriv ditt namn eller smeknamn i meddelandefältet — det visas i givarlistan på den här sidan." data-it="Usa il campo messaggio per scrivere il tuo nome o soprannome — apparirà nell'elenco dei donatori su questo sito.">Use your message field to write your name or nickname — it will appear in the donor list on this site.</p>
         </div>
 
         <div class="payment-method">
-          <div class="payment-method-name">Swish QR code</div>
+          <div class="payment-method-name" data-en="Swish QR code" data-sv="Swish QR-kod" data-it="Codice QR Swish">Swish QR code</div>
           <!-- INSERT: replace this div with an <img> tag pointing to your Swish QR code image -->
           <!-- Example: <img src="assets/images/swish-qr.png" alt="Swish QR" style="width:140px;"> -->
           <div class="qr-placeholder">Add QR<br>image here</div>
-          <p class="payment-note">Scan with your Swish app to pay instantly.</p>
+          <p class="payment-note" data-en="Scan with your Swish app to pay instantly." data-sv="Skanna med din Swish-app för att betala direkt." data-it="Scansiona con la tua app Swish per pagare istantaneamente.">Scan with your Swish app to pay instantly.</p>
         </div>
 
       </div>
@@ -540,18 +585,18 @@
       <div class="payment-card">
         <div class="payment-card-title">
             <img src="assets/images/flagit.png" alt="Swedish" width="30" height="30">
-           Italian donors</div>
+           <span data-en="Italian donors" data-sv="Italienska givare" data-it="Donatori italiani">Italian donors</span></div>
         <div class="payment-method">
           <div class="payment-method-name">Satispay</div>
           <!-- INSERT: replace with your Satispay username or link -->
           <div class="payment-detail placeholder" id="satispay-handle">
             <span>INSERT SATISPAY HANDLE</span>
           </div>
-          <p class="payment-note">Search for this name in your Satispay app. Free for personal accounts.</p>
+          <p class="payment-note" data-en="Search for this name in your Satispay app. Free for personal accounts." data-sv="Sök efter det här namnet i din Satispay-app. Gratis för privatkonton." data-it="Cerca questo nome nella tua app Satispay. Gratuito per account personali.">Search for this name in your Satispay app. Free for personal accounts.</p>
         </div>
 
         <div class="payment-method">
-          <div class="payment-method-name">Bonifico bancario — IBAN</div>
+          <div class="payment-method-name" data-en="Bank transfer — IBAN" data-sv="Banköverföring — IBAN" data-it="Bonifico bancario — IBAN">Bonifico bancario — IBAN</div>
           <!-- INSERT: replace with your IBAN -->
           <div class="payment-detail placeholder" id="iban-number">
             <span>INSERT IBAN</span>
@@ -561,7 +606,7 @@
           <div class="payment-detail placeholder" style="margin-top:0.4rem;">
             <span>BIC/SWIFT: INSERT BIC</span>
           </div>
-          <p class="payment-note">Include your name in the payment description — it will appear in the donor list.</p>
+          <p class="payment-note" data-en="Include your name in the payment description — it will appear in the donor list." data-sv="Ange ditt namn i betalningsbeskrivningen — det visas i givarlistan." data-it="Includi il tuo nome nella descrizione del pagamento — apparirà nell'elenco dei donatori.">Include your name in the payment description — it will appear in the donor list.</p>
         </div>
 
       </div>
@@ -571,7 +616,10 @@
     <!-- ══ TRANSPARENCY ══ -->
     <div class="transparency">
       <p>
-        <strong>Transparency commitment:</strong> I personally cover all costs of the trip — equipment, transport, food, accommodation. No donation money is used for my expenses. After the trip, donation receipts to both organisations will be published on this page. Questions? Write to me at <strong><!-- INSERT email --></strong>.
+        <span data-en="<strong>Transparency commitment:<br></strong> I personally cover all costs of the trip — equipment, transport, food, accommodation. No donation money is used for my expenses. After the trip, donation receipts to both organisations will be published on this page. Questions? Write to me at <strong><!-- INSERT email --></strong>."
+              data-sv="<strong>Transparenslöfte:</strong> Jag betalar personligen alla resekostnader — utrustning, transport, mat, boende. Inga donationspengar används för mina utgifter. Efter resan publiceras donationskvitton till båda organisationerna på den här sidan. Frågor? Skriv till mig på <strong><!-- INSERT email --></strong>."
+              data-it="<strong>Impegno per la trasparenza:</strong> Copro personalmente tutti i costi del viaggio — attrezzatura, trasporto, cibo, alloggio. Nessun denaro donato viene utilizzato per le mie spese. Dopo il viaggio, le ricevute delle donazioni a entrambe le organizzazioni saranno pubblicate su questa pagina. Domande? Scrivimi a <strong><!-- INSERT email --></strong>.">
+              <strong>Transparency commitment:</strong> I personally cover all costs of the trip — equipment, transport, food, accommodation. No donation money is used for my expenses. After the trip, donation receipts to both organisations will be published on this page. Questions? Write to me at <strong><!-- INSERT email --></strong>.</span>
       </p>
     </div>
 
@@ -580,7 +628,7 @@
   <!-- ══ FOOTER ══ -->
   <footer>
     <span class="logo">Edvard Appelberg</span>
-    <p>Skellefteå, Sweden — Italy 2026</p>
+    <p data-en="Skellefteå, Sweden — Italy 2026" data-sv="Skellefteå, Sverige — Italien 2026" data-it="Skellefteå, Svezia — Italia 2026">Skellefteå, Sweden — Italy 2026</p>
   </footer>
 
   <script>
@@ -605,6 +653,29 @@
         if (btn) { btn.textContent = '✓'; setTimeout(() => btn.textContent = '⧉', 1500); }
       });
     }
+  </script>
+
+  <script>
+    // ── LANGUAGE SWITCHER ──
+    const langBtns = document.querySelectorAll('.lang-btn');
+
+    function applyLanguage(lang) {
+      document.querySelectorAll('[data-en]').forEach(el => {
+        const translation = el.getAttribute('data-' + lang);
+        if (translation) el.innerHTML = translation;
+      });
+      langBtns.forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+      localStorage.setItem('preferred-lang', lang);
+    }
+
+    langBtns.forEach(btn => {
+      btn.addEventListener('click', () => applyLanguage(btn.getAttribute('data-lang')));
+    });
+
+    const saved = localStorage.getItem('preferred-lang');
+    if (saved) applyLanguage(saved);
   </script>
 
 </body>

@@ -5,15 +5,15 @@ day: 1
 location: Genova, Liguria
 km: 87
 elevation: 1240
-cover: ../assets/images/placehold.png
+cover: italy26/assets/images/placehold.png
 title:
   en: Day 1 — Genova, Liguria
   sv: Dag 1 — Genova, Ligurien
   it: Giorno 1 — Genova, Liguria
 photos:
-  - src: ../assets/images/placehold.png
+  - src: italy26/assets/images/placehold.png
     caption: Descending into Genova as the sun hit the sea
-  - src: ../assets/images/placehold.png
+  - src: italy26/assets/images/placehold.png
     caption: ""
 ---
 

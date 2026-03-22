@@ -22,6 +22,7 @@
       --soil:          #7A5C3E;
       --red:           #a0503b;
       --red-warm:      #cc7451;
+      --orange:        #eea66b;
       --yellow:        #D4A94A;
       --yellow-soft:   #E8CC7A;
       --sky:           #7AAFC4;
@@ -552,7 +553,7 @@
 
     /* ── BLOG ── */
     .blog-section {
-      background: var(--soil);
+      background: var(--red);
       max-width: 100%;
       padding: 6rem 0;
     }
@@ -563,8 +564,8 @@
       padding: 0 3rem;
     }
 
-    .blog-inner .section-title { color: var(--stone); }
-    .blog-inner .section-tag   { color: var(--green-light); }
+    .blog-inner .section-title { color: var(--white); }
+    .blog-inner .section-tag   { color: var(--white); }
 
     .blog-grid {
       display: grid;
@@ -574,15 +575,15 @@
     }
 
     .blog-card {
-      background: var(--green-mid);
+      background: var(--green);
       padding: 2rem;
-      border-left: 3px solid var(--red);
+      border-left: 3px solid var(--black);
       transition: transform 0.2s, border-color 0.2s;
       text-decoration: none;
       display: block;
     }
 
-    .blog-card:hover { transform: translateY(-8px); border-color: var(--red-warm); }
+    .blog-card:hover { transform: translateY(-8px); border-color: var(--soil); }
 
     .blog-card-tag {
       font-family: 'DM Mono', monospace;
@@ -604,7 +605,7 @@
     .blog-card-excerpt {
       font-size: 0.9rem;
       font-weight: 300;
-      color: var(--stone-dark);
+      color: var(--text);
       line-height: 1.6;
     }
 
