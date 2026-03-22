@@ -97,7 +97,7 @@ def merge_activities(existing, new_activities):
                 'distance':   round(activity['distance'] / 1000, 1),      # metres → km
                 'elevation':  round(activity['total_elevation_gain']),     # metres
                 'moving_time': activity['moving_time'],                    # seconds
-                'calories':   round((activity.get('calories') / 1500),1),                    #pizzas burned
+                'calories':   round((activity.get('calories')) / 1500,1),                    #pizzas burned
                 'polyline':   activity.get('map', {}).get('summary_polyline', ''),
             })
             existing_ids.add(activity['id'])
