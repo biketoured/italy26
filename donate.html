@@ -289,21 +289,12 @@
 
     .payment-card-title {
       font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
+      font-size: 1.3rem;
       color: var(--stone);
       margin-bottom: 0.25rem;
       display: flex;
       align-items: center;
       gap: 0.5rem;
-    }
-
-    .payment-card-sub {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--sky);
-      margin-bottom: 1.25rem;
     }
 
     .payment-method {
@@ -323,7 +314,7 @@
       font-size: 0.7rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--stone-dark);
+      color: var(--sky);
       margin-bottom: 0.4rem;
     }
 
@@ -489,10 +480,10 @@
     <div class="orgs-grid">
 
       <div class="org-card">
-        <div class="org-flag">
+        <div class="org-name">
           <img src="assets/images/flagse.png" alt="Swedish" width="30" height="30">
+          Hjärnfonden
         </div>
-        <div class="org-name">Hjärnfonden</div>
         <div class="org-country">Sweden — Brain Research</div>
         <p class="org-desc">
           Sweden's leading foundation funding research into brain diseases — including early diagnostics, tumour biology, and the development of new treatments. All donations go directly to Swedish research projects.
@@ -502,10 +493,9 @@
       </div>
 
       <div class="org-card">
-        <div class="org-flag">
-                    <img src="assets/images/flagit.png" alt="Italian" width="30" height="30">
-        </div>
-        <div class="org-name">AITC</div>
+        <div class="org-name">
+          <img src="assets/images/flagit.png" alt="Italian" width="30" height="30">
+          AITC</div>
         <div class="org-country">Italy — Brain Tumour Research</div>
         <p class="org-desc">
           Associazione Italiana Tumori Cerebrali — an Italian non-profit dedicated exclusively to brain tumour research, funding studies into earlier diagnostics and improved therapies. Donations also accepted in memory of loved ones.
@@ -522,8 +512,9 @@
 
       <!-- SWEDISH DONORS -->
       <div class="payment-card">
-        <div class="payment-card-title">🇸🇪 Swedish donors</div>
-        <div class="payment-card-sub">Swish — zero fees</div>
+        <div class="payment-card-title">
+          <img src="assets/images/flagse.png" alt="Swedish" width="30" height="30">
+          Swedish donors</div>
 
         <div class="payment-method">
           <div class="payment-method-name">Swish number</div>
@@ -546,9 +537,9 @@
 
       <!-- ITALIAN DONORS -->
       <div class="payment-card">
-        <div class="payment-card-title">🇮🇹 Italian donors</div>
-        <div class="payment-card-sub">Satispay or Bonifico</div>
-
+        <div class="payment-card-title">
+            <img src="assets/images/flagit.png" alt="Swedish" width="30" height="30">
+           Italian donors</div>
         <div class="payment-method">
           <div class="payment-method-name">Satispay</div>
           <!-- INSERT: replace with your Satispay username or link -->
