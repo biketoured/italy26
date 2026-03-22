@@ -1550,7 +1550,7 @@
       if (loadingEl) loadingEl.remove();
 
       // Then fetch activities and draw routes on top
-      fetch('/italy26/strava/activities.json')
+      fetch('/italy26/strava/activitiesswe.json') //Byt ut på resans start
         .then(r => r.json())
         .then(activities => {
           renderCards(activities);

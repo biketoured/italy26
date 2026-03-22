@@ -7,11 +7,12 @@ CLIENT_ID     = os.environ['STRAVA_CLIENT_ID']
 CLIENT_SECRET = os.environ['STRAVA_CLIENT_SECRET']
 REFRESH_TOKEN = os.environ['STRAVA_REFRESH_TOKEN']
 
-TRIP_START_TIMESTAMP = int(datetime(2026, 3, 10).timestamp())
+TRIP_START_TIMESTAMP = int(datetime(2024, 6, 1).timestamp())
+TRIP_END_TIMESTAMP = int(datetime(2024,7,20).timestamp())
 
 # Absolute path — works regardless of where script is called from
 REPO_ROOT   = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-OUTPUT_FILE = os.path.join(REPO_ROOT, 'strava', 'activities.json')
+OUTPUT_FILE = os.path.join(REPO_ROOT, 'strava', 'activitiesswe.json')
 
 # ── STEP 1: Get a fresh access token ───────────────────────────
 # Strava access tokens expire after 6 hours.
@@ -43,6 +44,7 @@ def fetch_activities(access_token):
             headers=headers,
             params={
                 'after':    TRIP_START_TIMESTAMP,  # only after May 10
+                'before':   TRIP_END_TIMESTAMP,
                 'per_page': 100,                    # max per page
                 'page':     page
             }
@@ -74,11 +76,6 @@ BIKE_TYPES = {
     'Ride',
     'GravelRide',
     'MountainBikeRide',
-    'VirtualRide',
-    'EBikeRide',
-    'EMountainBikeRide',
-    'Handcycle',
-    'Velomobile',
 }
 
 def merge_activities(existing, new_activities):
@@ -100,6 +97,7 @@ def merge_activities(existing, new_activities):
                 'distance':   round(activity['distance'] / 1000, 1),      # metres → km
                 'elevation':  round(activity['total_elevation_gain']),     # metres
                 'moving_time': activity['moving_time'],                    # seconds
+                'calories':   activity['calroies']/1500,                    #pizzas burned
                 'polyline':   activity.get('map', {}).get('summary_polyline', ''),
             })
             existing_ids.add(activity['id'])
