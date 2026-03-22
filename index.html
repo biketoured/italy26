@@ -1665,7 +1665,7 @@
 
       const loadingEl = document.getElementById('map-loading');
       if (loadingEl) loadingEl.remove();
-        fetch('/italy26/strava/activitiesswe.json')
+        fetch('/italy26/strava/activities.json')
         .then(r => r.json())
         .then(activities => {
           renderCards(activities);
@@ -1700,7 +1700,7 @@
       document.getElementById('map-loading').textContent = 'Map could not load — Leaflet missing';
     }
   </script>
-  
+
   <script>
   // ── DONATION METER ──
   (function() {
