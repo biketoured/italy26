@@ -1576,6 +1576,7 @@
       const date    = formatDate(activity.date);
       const time    = formatMovingTime(activity.moving_time);
   
+      const lang = localStorage.getItem('preferred-lang') || 'en';
       const distLabel = { en: 'Distance', sv: 'Distans',    it: 'Distanza' };
       const timeLabel = { en: 'Moving time', sv: 'Rörlig tid', it: 'Tempo' };
       const elevLabel = { en: 'Elevation', sv: 'Höjdmeter', it: 'Dislivello' };
