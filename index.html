@@ -1648,7 +1648,8 @@
       // ── Init map immediately — independent of activities ──
     if (typeof L !== 'undefined') {
       const ITALY_BOUNDS = L.latLngBounds([35.5, 6.5], [47.1, 18.5]);
-      const EUROPE_BOUNDS = L.latLngBounds([34.0, -12.0], [72.0, 45.0]);
+      const EUROPE_BOUNDS = L.latLngBounds([34.0, -12.0], [72.0, 45.0]);      
+      const SWEDEN_BOUNDS = L.latLngBounds([40.0, 5.0], [75.0, 40.0]);
       const map = L.map('strava-map', {
         zoomControl: true,
         scrollWheelZoom: false,
@@ -1664,33 +1665,32 @@
 
       const loadingEl = document.getElementById('map-loading');
       if (loadingEl) loadingEl.remove();
-
-      // Then fetch activities and draw routes on top
-      fetch('/italy26/strava/activitiesswe.json') //Byt ut på resans start
+        fetch('/italy26/strava/activitiesswe.json')
         .then(r => r.json())
         .then(activities => {
           renderCards(activities);
+          const allCoords = [];
           activities.forEach((activity, index) => {
             if (!activity.polyline) return;
             const coords = decodePolyline(activity.polyline);
             if (coords.length === 0) return;
+            coords.forEach(c => allCoords.push(c));
             L.polyline(coords, {
-            color:   '#111',
-            weight:  5,
-            opacity: 0.7
-          }).addTo(map);
-          const line = L.polyline(coords, {
-            color:   routeColour(index),
-            weight:  3,
-            opacity: 0.9
-          }).addTo(map);
-
-          line.on('click', () => {
-            window.open(`https://www.strava.com/activities/${activity.id}`, '_blank');
+              color:   '#111',
+              weight:  5,
+              opacity: 0.7
+            }).addTo(map);
+            const line = L.polyline(coords, {
+              color:   routeColour(index),
+              weight:  3,
+              opacity: 0.9
+            }).addTo(map);
+            line.on('click', () => {
+              window.open(`https://www.strava.com/activities/${activity.id}`, '_blank');
+            });
+            line.getElement()?.style.setProperty('cursor', 'pointer');
           });
-
-          line.getElement()?.style.setProperty('cursor', 'pointer');
-          });
+          if (allCoords.length > 0) map.fitBounds(allCoords, { padding: [20, 20] });
         })
         .catch(() => {
           document.getElementById('strava-grid').innerHTML =
@@ -1700,7 +1700,7 @@
       document.getElementById('map-loading').textContent = 'Map could not load — Leaflet missing';
     }
   </script>
-
+  
   <script>
   // ── DONATION METER ──
   (function() {
