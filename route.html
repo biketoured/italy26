@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Routes — Edvard A</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css">
+  <script src="https://unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.js"></script>
+
+  <link rel="stylesheet" href="/italy26/static/css/style.css">
+  <script src="/italy26/static/js/main.js" defer></script>
+  <script src="manuals.js"></script>
+
+  <style>
+    /* ── PAGE BASE ── */
+    body { background: var(--green); }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 8rem 3rem 2rem;
+    }
+
+    .page-header .section-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(196,180,154,0.6);
+      margin-bottom: 0.75rem;
+    }
+
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--stone);
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+
+    .page-header p {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--stone-dark);
+      line-height: 1.7;
+      max-width: 560px;
+    }
+
+    .section-divider {
+      width: 160px;
+      height: 2px;
+      background: rgba(196,180,154,0.2);
+      margin: 1.5rem 0 2.5rem;
+    }
+
+    /* ── MAP + PANEL LAYOUT ── */
+    .route-layout {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 3rem 6rem;
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    /* ── MAP ── */
+    .route-map-wrap { position: relative; }
+
+    .route-map {
+      width: 100%;
+      height: 600px;
+      border: 1px solid rgba(196,180,154,0.15);
+      position: relative;
+    }
+
+    .map-loading {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: var(--stone-dark);
+      text-transform: uppercase;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .leaflet-gesture-handling-touch-warning,
+    .leaflet-gesture-handling-scroll-warning {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      background: rgba(30, 61, 47, 0.88);
+      color: var(--stone);
+    }
+
+    /* ── SIDE PANEL ── */
+    .route-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      max-height: 600px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: var(--stone-dark) transparent;
+    }
+
+    .route-panel::-webkit-scrollbar       { width: 4px; }
+    .route-panel::-webkit-scrollbar-thumb { background: var(--stone-dark); border-radius: 2px; }
+
+    .route-card {
+      background: rgba(0,0,0,0.18);
+      border: 1px solid rgba(196,180,154,0.1);
+      border-left: 3px solid var(--stone-dark);
+      padding: 1.25rem 1rem;
+      cursor: pointer;
+      transition: border-left-color 0.2s, background 0.2s;
+      margin-bottom: 0.5rem;
+    }
+
+    .route-card:hover {
+      background: rgba(0,0,0,0.28);
+      border-left-color: var(--yellow);
+    }
+
+    .route-card.active {
+      border-left-color: var(--yellow);
+      background: rgba(0,0,0,0.3);
+    }
+
+    .route-card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      color: var(--stone);
+      line-height: 1.3;
+      margin-bottom: 0.75rem;
+    }
+
+    .route-card-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .route-stat { display: flex; flex-direction: column; }
+
+    .route-stat-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--yellow);
+      line-height: 1;
+    }
+
+    .route-stat-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(196,180,154,0.4);
+      margin-top: 0.2rem;
+    }
+
+    /* Extra fields — only shown if present in JSON */
+    .route-card-extras {
+      border-top: 1px solid rgba(196,180,154,0.08);
+      padding-top: 0.6rem;
+      margin-top: 0.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .route-extra-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .route-extra-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(196,180,154,0.4);
+    }
+
+    .route-extra-value {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--stone-dark);
+    }
+
+    .route-strava-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sky);
+      text-decoration: none;
+      margin-top: 0.6rem;
+      transition: color 0.2s;
+    }
+    .route-strava-link:hover { color: var(--sky-pale); }
+
+    .route-panel-empty {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: rgba(196,180,154,0.3);
+      text-transform: uppercase;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .route-layout {
+        grid-template-columns: 1fr;
+        padding: 0 1.5rem 4rem;
+      }
+      .route-panel { max-height: none; }
+      .route-map   { height: 400px; }
+      .page-header { padding: 7rem 1.5rem 1.5rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══ NAV ══ -->
+  <nav id="shared-nav"></nav>
+
+  <!-- ══ PAGE HEADER ══ -->
+  <div class="page-header">
+    <p class="section-tag"
+       data-en="// The plan"
+       data-sv="// Planen"
+       data-it="// Il piano">// The plan</p>
+    <h1 data-en="Italy 2026 — Route overview"
+        data-sv="Italien 2026 — Rutöversikt"
+        data-it="Italia 2026 — Panoramica percorso">Italy 2026 — Route overview</h1>
+    <div class="section-divider"></div>
+    <p data-en="The planned route broken into stages. Click a stage to highlight it on the map."
+       data-sv="Den planerade rutten uppdelad i etapper. Klicka på en etapp för att markera den på kartan."
+       data-it="Il percorso pianificato suddiviso in tappe. Clicca su una tappa per evidenziarla sulla mappa.">
+      The planned route broken into stages. Click a stage to highlight it on the map.
+    </p>
+  </div>
+
+  <!-- ══ MAP + PANEL ══ -->
+  <div class="route-layout">
+
+    <!-- Map -->
+    <div class="route-map-wrap">
+      <div class="route-map" id="route-map">
+        <div class="map-loading" id="map-loading"
+             data-en="Loading routes..."
+             data-sv="Laddar rutter..."
+             data-it="Caricamento percorsi...">
+          Loading routes...
+        </div>
+      </div>
+    </div>
+
+    <!-- Side panel -->
+    <div class="route-panel" id="route-panel">
+      <div class="route-panel-empty"
+           data-en="Loading routes..."
+           data-sv="Laddar rutter..."
+           data-it="Caricamento...">Loading routes...</div>
+    </div>
+
+  </div>
+
+  <!-- ══ FOOTER ══ -->
+  <footer id="shared-footer"></footer>
+
+  <!-- ══ ROUTE MAP SCRIPT ══ -->
+  <script>
+
+  function formatMovingTime(seconds) {
+    const h = Math.floor(seconds / 3600);
+    const m = Math.floor((seconds % 3600) / 60);
+    return h > 0 ? `${h}h ${m}m` : `${m}m`;
+  }
+
+  function decodePolyline(encoded) {
+    if (!encoded) return [];
+    const coords = [];
+    let index = 0, lat = 0, lng = 0;
+    while (index < encoded.length) {
+      let shift = 0, result = 0, byte;
+      do {
+        byte = encoded.charCodeAt(index++) - 63;
+        result |= (byte & 0x1f) << shift;
+        shift += 5;
+      } while (byte >= 0x20);
+      lat += (result & 1) ? ~(result >> 1) : result >> 1;
+      shift = 0; result = 0;
+      do {
+        byte = encoded.charCodeAt(index++) - 63;
+        result |= (byte & 0x1f) << shift;
+        shift += 5;
+      } while (byte >= 0x20);
+      lng += (result & 1) ? ~(result >> 1) : result >> 1;
+      coords.push([lat / 1e5, lng / 1e5]);
+    }
+    return coords;
+  }
+
+  // Colour palette for route stages
+  const ROUTE_COLOURS = [
+    '#7AAFC4', '#D4A94A', '#6da874', '#cc7451',
+    '#C4B49A', '#4A7A96', '#E8CC7A', '#a0503b'
+  ];
+
+  function routeColour(index) {
+    return ROUTE_COLOURS[index % ROUTE_COLOURS.length];
+  }
+
+  if (typeof L !== 'undefined') {
+    const map = L.map('route-map', {
+      zoomControl: true,
+      scrollWheelZoom: false,
+      gestureHandling: true,
+    });
+
+    // Default view — Italy
+    map.setView([42, 13], 5);
+
+    L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenTopoMap contributors',
+      maxZoom: 20,
+      opacity: 0.85
+    }).addTo(map);
+
+    const loadingEl = document.getElementById('map-loading');
+    if (loadingEl) loadingEl.remove();
+
+    // Store polyline layers per route id for highlight on click
+    const routeLayers = {};
+    let activeRouteId = null;
+
+    fetch('/italy26/strava/routes.json')
+      .then(r => {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      })
+      .then(routes => {
+        if (routes.length === 0) {
+          document.getElementById('route-panel').innerHTML =
+            '<div class="route-panel-empty">No routes found — run fetch_routes.py first.</div>';
+          return;
+        }
+
+        const allCoords = [];
+
+        // Draw all routes on map
+        routes.forEach((route, index) => {
+          if (!route.polyline) return;
+          const coords = decodePolyline(route.polyline);
+          if (coords.length === 0) return;
+          coords.forEach(c => allCoords.push(c));
+
+          const colour = routeColour(index);
+
+          // Outline
+          L.polyline(coords, { color: '#111', weight: 5, opacity: 0.6 }).addTo(map);
+
+          // Coloured line
+          const line = L.polyline(coords, {
+            color:   colour,
+            weight:  3,
+            opacity: 0.9
+          }).addTo(map);
+
+          routeLayers[route.id] = { line, colour, coords };
+
+          line.on('click', () => highlightRoute(route.id, routes, index));
+          line.getElement()?.style.setProperty('cursor', 'pointer');
+        });
+
+        if (allCoords.length > 0) map.fitBounds(allCoords, { padding: [20, 20] });
+
+        // Render side panel
+        renderPanel(routes);
+      })
+      .catch(err => {
+        console.error('Failed to load routes:', err);
+        document.getElementById('route-panel').innerHTML =
+          `<div class="route-panel-empty">Could not load routes.<br><small>${err.message}</small></div>`;
+      });
+
+    function highlightRoute(id, routes, index) {
+      // Reset all lines
+      Object.entries(routeLayers).forEach(([rid, { line, colour }]) => {
+        line.setStyle({ color: colour, weight: 3, opacity: 0.9 });
+      });
+
+      // Highlight selected
+      const layer = routeLayers[id];
+      if (layer) {
+        layer.line.setStyle({ color: '#ffffff', weight: 5, opacity: 1 });
+        map.fitBounds(layer.coords, { padding: [40, 40] });
+      }
+
+      // Update active card
+      document.querySelectorAll('.route-card').forEach(card => {
+        card.classList.toggle('active', card.dataset.id === String(id));
+      });
+
+      activeRouteId = id;
+    }
+
+    function renderPanel(routes) {
+      const lang  = localStorage.getItem('preferred-lang') || 'en';
+      const panel = document.getElementById('route-panel');
+
+      const labels = {
+        distance:  { en: 'Distance',      sv: 'Distans',     it: 'Distanza'   },
+        elevation: { en: 'Elevation',      sv: 'Höjdmeter',   it: 'Dislivello' },
+        time:      { en: 'Est. ride time', sv: 'Uppskattad tid', it: 'Tempo stimato' },
+        days:      { en: 'Est. days',      sv: 'Uppskattade dagar', it: 'Giorni stimati' },
+        region:    { en: 'Region',         sv: 'Region',      it: 'Regione'    },
+        difficulty:{ en: 'Difficulty',     sv: 'Svårighet',   it: 'Difficoltà' },
+        notes:     { en: 'Notes',          sv: 'Anteckningar',it: 'Note'       },
+      };
+
+      panel.innerHTML = routes.map((route, index) => {
+        const colour   = routeColour(index);
+        const time     = route.estimated_moving_time
+          ? formatMovingTime(route.estimated_moving_time)
+          : '—';
+
+        // Build optional extra fields from whatever is in the JSON
+        const extras = [];
+        if (route.days)       extras.push([labels.days[lang],       route.days + ' d']);
+        if (route.region)     extras.push([labels.region[lang],     route.region]);
+        if (route.difficulty) extras.push([labels.difficulty[lang], route.difficulty]);
+        if (route.notes)      extras.push([labels.notes[lang],      route.notes]);
+
+        const extrasHTML = extras.length > 0
+          ? `<div class="route-card-extras">
+              ${extras.map(([l, v]) => `
+                <div class="route-extra-row">
+                  <span class="route-extra-label">${l}</span>
+                  <span class="route-extra-value">${v}</span>
+                </div>`).join('')}
+            </div>`
+          : '';
+
+        return `
+          <div class="route-card" data-id="${route.id}" data-index="${index}"
+               onclick="highlightRoute(${route.id}, window._routes, ${index})">
+            <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.6rem;">
+              <div style="width:10px;height:10px;border-radius:50%;background:${colour};flex-shrink:0;"></div>
+              <span class="route-card-name">${route.name}</span>
+            </div>
+            <div class="route-card-stats">
+              <div class="route-stat">
+                <span class="route-stat-value">${route.distance} km</span>
+                <span class="route-stat-label">${labels.distance[lang]}</span>
+              </div>
+              <div class="route-stat">
+                <span class="route-stat-value">${route.elevation} m</span>
+                <span class="route-stat-label">${labels.elevation[lang]}</span>
+              </div>
+              <div class="route-stat">
+                <span class="route-stat-value">${time}</span>
+                <span class="route-stat-label">${labels.time[lang]}</span>
+              </div>
+            </div>
+            ${extrasHTML}
+            <a href="https://www.strava.com/routes/${route.id}"
+               target="_blank"
+               class="route-strava-link"
+               onclick="event.stopPropagation()">
+              View on Strava →
+            </a>
+          </div>`;
+      }).join('');
+
+      // Store routes on window so onclick can access them
+      window._routes = routes;
+    }
+
+  } else {
+    document.getElementById('map-loading').textContent = 'Map could not load — Leaflet missing';
+  }
+
+  </script>
+
+</body>
+</html>
