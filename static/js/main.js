@@ -24,12 +24,71 @@ function getPrefix() {
   return '';
 }
 
+
+// ── NAV THEME CONFIG ─────────────────────────────────────────
+// Edit these to control nav bg and link colours per page.
+const NAV_THEMES = {
+  'index': {
+    bg:        'rgba(30, 61, 47, 0.96)',
+    border:    'rgba(196,180,154,0.15)',
+    link:      '#8C7B65',
+    linkHover: '#C4B49A',
+  },
+  'sweden2024': {
+    bg:        'rgba(74, 122, 150, 0.97)',
+    border:    'rgba(184,212,224,0.2)',
+    link:      'rgba(184,212,224,0.7)',
+    linkHover: '#FDFAF4',
+  },
+  'donate': {
+    bg:        'rgba(74, 122, 150, 0.97)',
+    border:    'rgba(184,212,224,0.2)',
+    link:      'rgba(184,212,224,0.7)',
+    linkHover: '#FDFAF4',
+  },
+  'routes': {
+    bg:        'rgba(30, 61, 47, 0.96)',
+    border:    'rgba(196,180,154,0.15)',
+    link:      '#8C7B65',
+    linkHover: '#C4B49A',
+  },
+  'blog': {
+    bg:        'rgba(30, 61, 47, 0.96)',
+    border:    'rgba(196,180,154,0.15)',
+    link:      '#8C7B65',
+    linkHover: '#C4B49A',
+  },
+  'post': {
+    bg:        'rgba(30, 61, 47, 0.96)',
+    border:    'rgba(196,180,154,0.15)',
+    link:      '#8C7B65',
+    linkHover: '#C4B49A',
+  },
+};
+
+function applyNavTheme(page) {
+  const t = NAV_THEMES[page] || NAV_THEMES['index'];
+  let el = document.getElementById('nav-theme-vars');
+  if (!el) {
+    el = document.createElement('style');
+    el.id = 'nav-theme-vars';
+    document.head.appendChild(el);
+  }
+  el.textContent = `:root {
+    --nav-bg:          ${t.bg};
+    --nav-border:      ${t.border};
+    --nav-link:        ${t.link};
+    --nav-link-hover:  ${t.linkHover};
+  }`;
+}
+
 // ── NAV INJECTION ───────────────────────────────────────────
 // Builds and injects the shared nav into <nav id="shared-nav">.
 // Pass the page name to hide the correct link and set home href.
 function injectNav(page) {
   page = page || getCurrentPage();
   const p = getPrefix();
+  applyNavTheme(page);
 
   // Nav link definitions
   // Each entry: { id, href, en, sv, it }
@@ -136,30 +195,26 @@ function injectPizzaScrollbar() {
     'donate':     'pizza.png',
     'blog':       'pizza.png',
     'post':       'pizza.png',
-    'sweden2024': 'wheel.png',
-    'routes':     'wheel.png',
+    'sweden2024': 'sun.png',
+    'routes':     'pizza.png',
   };
   const thumbImage = PAGE_IMAGES[getCurrentPage()] || 'pizza.png';
+
+  // Per-page flag image: sweden2024 → flaguk, all others → flagit
+  const PAGE_FLAGS = { 'sweden2024': 'flagse.png' };
+  const flagImg = PAGE_FLAGS[getCurrentPage()] || 'flagit.png';
 
   const html = `
     <div id="pizza-scrollbar">
       <div class="sb-track"></div>
       <div class="sb-flag top">
-        <div class="banner">
-          <span style="background:#009246"></span>
-          <span style="background:#fff;border-left:0.5px solid #ddd;border-right:0.5px solid #ddd"></span>
-          <span style="background:#CE2B37"></span>
-        </div>
+        <img src="${getPrefix()}assets/images/${flagImg}" alt="flag" width="30" height="30">
       </div>
       <div id="pizza-thumb">
         <img src="${getPrefix()}assets/images/${thumbImage}" alt="scroll position">
       </div>
       <div class="sb-flag bottom">
-        <div class="banner">
-          <span style="background:#009246"></span>
-          <span style="background:#fff;border-left:0.5px solid #ddd;border-right:0.5px solid #ddd"></span>
-          <span style="background:#CE2B37"></span>
-        </div>
+        <img src="${getPrefix()}assets/images/${flagImg}" alt="flag" width="30" height="30">
       </div>
     </div>`;
 

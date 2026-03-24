@@ -174,8 +174,9 @@ body::-webkit-scrollbar { display: none; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: rgba(30, 61, 47, 0.92);
-  border-left: 1px solid rgba(196,180,154,0.18);
+  background: rgba(255,255,255,0.5);
+  backdrop-filter: blur(4px);
+  border-left: 1px solid rgba(255,255,255,0.3);
 }
 
 #pizza-scrollbar .sb-track {
@@ -198,16 +199,13 @@ body::-webkit-scrollbar { display: none; }
 #pizza-scrollbar .sb-flag.top    { top: 8px; }
 #pizza-scrollbar .sb-flag.bottom { bottom: 8px; flex-direction: column-reverse; }
 
-#pizza-scrollbar .sb-flag .banner {
-  display: flex;
-  width: 30px; height: 20px;
-  border-radius: 2px;
-  overflow: hidden;
-  margin-left: 5px;
+#pizza-scrollbar .sb-flag img {
+  width: 30px; height: 30px;
+  object-fit: cover;
+  border-radius: 3px;
   box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  display: block;
 }
-
-#pizza-scrollbar .sb-flag .banner span { flex: 1; height: 100%; }
 
 #pizza-thumb {
   position: absolute;
