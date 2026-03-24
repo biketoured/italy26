@@ -55,7 +55,7 @@ def fetch_routes(access_token):
 # ── STEP 3: Filter to Italy26 routes only ─────────────────────────
 # Keeps only routes whose name contains "Italy26" (case-insensitive)
 def filter_routes(routes):
-    filtered = [r for r in routes if 'Italy26' in r.get('name', '').upper()]
+    filtered = [r for r in routes if 'Italy' in r.get('name', '').upper()]
     print(f"Filtered to {len(filtered)} Italy26 routes")
     return filtered
 
