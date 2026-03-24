@@ -164,11 +164,10 @@ function injectPizzaScrollbar() {
   // Faster scroll → shorter duration → faster spin.
   // On scroll-stop we gradually increase the duration (slow-down).
 
-  const SPIN_FAST   = 0.5;    // seconds per revolution at full speed
-  const SPIN_SLOW   = 12;     // seconds per revolution when nearly stopped
+  const SPIN_FAST   = 1.25;   // seconds per revolution at full speed (= 0.8 rev/s)
   const SPIN_IDLE   = 99999;  // effectively stopped
-  const DECEL_STEPS = 40;     // number of steps in the coast-down
-  const DECEL_MS    = 60;     // ms between each decel step
+  const DECEL_MS    = 100;    // ms between decel steps
+  const DECEL_STEP  = 0.05;   // rev/s lost per step → stops after 16 steps (1.6s total)
 
   let   currentDur   = SPIN_IDLE;
   let   decelTimer   = null;
@@ -198,18 +197,16 @@ function injectPizzaScrollbar() {
 
   function startDecel() {
     if (decelTimer) clearInterval(decelTimer);
-    let step = 0;
+    // currentRevs starts at 0.8 rev/s, loses 0.05 rev/s every 100ms
+    let revs = 1 / SPIN_FAST;   // 0.8 rev/s
     decelTimer = setInterval(() => {
-      step++;
-      // Ease out: duration grows from SPIN_FAST toward SPIN_SLOW then SPIN_IDLE
-      const t   = step / DECEL_STEPS;
-      const eased = SPIN_FAST + (SPIN_SLOW - SPIN_FAST) * (t * t);   // quadratic ease-in
-      if (step >= DECEL_STEPS) {
+      revs = Math.max(0, revs - DECEL_STEP);
+      if (revs <= 0) {
         setDuration(SPIN_IDLE);
         clearInterval(decelTimer);
         decelTimer = null;
       } else {
-        setDuration(eased);
+        setDuration(1 / revs);  // convert rev/s back to seconds-per-revolution
       }
     }, DECEL_MS);
   }
