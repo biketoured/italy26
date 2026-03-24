@@ -8,7 +8,7 @@ CLIENT_SECRET = os.environ['STRAVA_CLIENT_SECRET']
 REFRESH_TOKEN = os.environ['STRAVA_REFRESH_TOKEN']
 
 TRIP_START_TIMESTAMP = int(datetime(2025, 8, 16).timestamp())
-TRIP_END_TIMESTAMP = int(datetime(2025,10,29).timestamp())
+TRIP_END_TIMESTAMP = int(datetime(2026,04,20).timestamp())
 
 # Absolute path — works regardless of where script is called from
 REPO_ROOT   = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -72,7 +72,7 @@ def load_existing():
 # ── STEP 4: Merge new activities with existing ones ────────────
 # Only adds activities we haven't saved yet — avoids duplicates
 # Only keeps cycling activities (road, gravel, virtual, etc.)
-BIKE_TYPES = {
+ACCEPTED_TYPES = {
     'Ride',
     'GravelRide',
     'MountainBikeRide',
@@ -86,7 +86,7 @@ def merge_activities(existing, new_activities):
         if activity['id'] not in existing_ids:
             # Skip non-cycling activities
             sport_type = activity.get('sport_type', activity.get('type', ''))
-            if sport_type not in BIKE_TYPES:
+            if sport_type not in ACCEPTED_TYPES:
                 continue
             # Skip activities with no GPS/polyline data (e.g. indoor rides without location)
             if not activity.get('map', {}).get('summary_polyline', ''):

@@ -12,23 +12,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css">
   <script src="https://unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.js"></script>
-  <link rel="stylesheet" href="/italy26/static/css/style.css">
-  <script src="/italy26/static/js/main.js" defer></script>
   <script src="manuals.js"></script>
 
   <style>
-    /* ── SWEDEN2024 THEME OVERRIDES ── */
-    :root {
-      --nav-bg:          rgba(74, 122, 150, 0.97);
-      --nav-border:      rgba(184,212,224,0.2);
-      --nav-link:        rgba(184,212,224,0.7);
-      --nav-link-hover:  var(--white);
-      --footer-bg:       var(--sky-deep);
-      --footer-text:     var(--sky-pale);
-      --footer-logo:     var(--white);
-    }
-
-    /* ── PAGE PALETTE (kept for page-specific rules below) ── */
     :root {
       --green:         #1E3D2F;
       --green-mid:     #3A6B4A;
@@ -607,8 +593,26 @@
 <body>
 
   <!-- ══ NAV ══ -->
-  <nav id="shared-nav"></nav>
-
+  <nav>
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang="en" title="English">
+        <img src="assets/images/flaguk.png" alt="English" width="50" height="50">
+      </button>
+      <button class="lang-btn" data-lang="sv" title="Svenska">
+        <img src="assets/images/flagse.png" alt="Svenska" width="50" height="50">
+      </button>
+      <button class="lang-btn" data-lang="it" title="Italiano">
+        <img src="assets/images/flagit.png" alt="Italiano" width="50" height="50">
+      </button>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html" data-en="Home" data-sv="Hem" data-it="Home">Home</a></li>
+      <li><a href="index.html#blog" data-en="Blog" data-sv="Blogg" data-it="Blog">Blog</a></li>
+      <li><a href="donate.html" data-en="Donate" data-sv="Donera" data-it="Dona">Donate</a></li>
+      <li><a href="index.html#links" data-en="Links" data-sv="Länkar" data-it="Link">Links</a></li>
+      <li><a href="sweden2024.html" data-en="Sweden 2024" data-sv="Sverige 2024" data-it="Svezia 2024" style="color:var(--yellow);">Sweden 2024</a></li>
+    </ul>
+  </nav>
 
   <!-- ══ HERO ══ -->
   <div class="hero">
@@ -820,9 +824,39 @@
   </div>
 
   <!-- ══ FOOTER ══ -->
-  <footer id="shared-footer"></footer>
+  <footer>
+    <span class="logo">Edvard Appelberg</span>
+    <p data-en="Skellefteå, Sweden — Built with HTML &amp; CSS"
+       data-sv="Skellefteå, Sverige — Byggd med HTML &amp; CSS"
+       data-it="Skellefteå, Svezia — Costruito con HTML &amp; CSS">
+      Skellefteå, Sweden — Built with HTML &amp; CSS
+    </p>
+  </footer>
 
-  <!-- Language switcher handled by /italy26/static/js/main.js -->
+  <!-- ══ LANGUAGE SWITCHER ══ -->
+  <script>
+    let currentLang = 'en';
+    const langBtns = document.querySelectorAll('.lang-btn');
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+      document.querySelectorAll('[data-en]').forEach(el => {
+        const translation = el.getAttribute('data-' + lang);
+        if (translation) el.innerHTML = translation;
+      });
+      langBtns.forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+      localStorage.setItem('preferred-lang', lang);
+    }
+
+    langBtns.forEach(btn => {
+      btn.addEventListener('click', () => applyLanguage(btn.getAttribute('data-lang')));
+    });
+
+    const saved = localStorage.getItem('preferred-lang');
+    if (saved) applyLanguage(saved);
+  </script>
 
   <!-- ══ MAP + ACTIVITY CARDS ══ -->
   <script>

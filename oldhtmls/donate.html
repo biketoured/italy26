@@ -8,21 +8,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <script src="manuals.js"></script>
-  <link rel="stylesheet" href="/italy26/static/css/style.css">
-  <script src="/italy26/static/js/main.js" defer></script>
   <style>
-    /* ── DONATE THEME OVERRIDES ── */
-    :root {
-      --nav-bg:          rgba(74, 122, 150, 0.97);
-      --nav-border:      rgba(184,212,224,0.2);
-      --nav-link:        rgba(184,212,224,0.7);
-      --nav-link-hover:  var(--white);
-      --footer-bg:       var(--green);
-      --footer-text:     var(--green-light);
-      --footer-logo:     var(--stone);
+    /* ── LANG SWITCHER ── */
+    .lang-switcher { display: flex; align-items: center; gap: 0.4rem; }
+    .lang-btn {
+      background: none; border: none; cursor: pointer;
+      padding: 0.1rem 0.15rem; border-radius: 3px;
+      opacity: 0.45; transition: opacity 0.2s, transform 0.15s; line-height: 0;
     }
-
-    /* lang-switcher styles moved to /italy26/static/css/style.css */
+    .lang-btn:hover { opacity: 0.85; transform: scale(1.1); }
+    .lang-btn.active { display: none; }
 
     :root {
       --green:         #1E3D2F;
@@ -466,8 +461,27 @@
 <body>
 
   <!-- ══ NAV ══ -->
-  <nav id="shared-nav"></nav>
-
+  <nav>
+    <a href="https://biketoured.github.io/italy26" class="nav-back"
+       data-en="← Home"
+       data-sv="← Hem"
+       data-it="← Home">← Home</a>
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang="en" title="English">
+        <img src="assets/images/flaguk.png" alt="English" width="50" height="50">
+      </button>
+      <button class="lang-btn" data-lang="sv" title="Svenska">
+        <img src="assets/images/flagse.png" alt="Svenska" width="36" height="36">
+      </button>
+      <button class="lang-btn" data-lang="it" title="Italiano">
+        <img src="assets/images/flagit.png" alt="Italiano" width="36" height="36">
+      </button>
+    </div>
+    <span class="nav-title"
+          data-en="Donate"
+          data-sv="Donera"
+          data-it="Dona">Donate</span>
+  </nav>
 
   <div class="page">
 
@@ -615,7 +629,10 @@
   </div>
 
   <!-- ══ FOOTER ══ -->
-  <footer id="shared-footer"></footer>
+  <footer>
+    <span class="logo">Edvard Appelberg</span>
+    <p data-en="Skellefteå, Sweden — Italy 2026" data-sv="Skellefteå, Sverige — Italien 2026" data-it="Skellefteå, Svezia — Italia 2026">Skellefteå, Sweden — Italy 2026</p>
+  </footer>
 
   <script>
     // ── DONATION METER ──
@@ -641,7 +658,28 @@
     }
   </script>
 
-  <!-- Language switcher handled by /italy26/static/js/main.js -->
+  <script>
+    // ── LANGUAGE SWITCHER ──
+    const langBtns = document.querySelectorAll('.lang-btn');
+
+    function applyLanguage(lang) {
+      document.querySelectorAll('[data-en]').forEach(el => {
+        const translation = el.getAttribute('data-' + lang);
+        if (translation) el.innerHTML = translation;
+      });
+      langBtns.forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+      localStorage.setItem('preferred-lang', lang);
+    }
+
+    langBtns.forEach(btn => {
+      btn.addEventListener('click', () => applyLanguage(btn.getAttribute('data-lang')));
+    });
+
+    const saved = localStorage.getItem('preferred-lang');
+    if (saved) applyLanguage(saved);
+  </script>
 
 </body>
 </html>

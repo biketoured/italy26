@@ -12,31 +12,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css">
   <script src="https://unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.js"></script>
+  <link rel="stylesheet" href="/italy26/static/css/style.css">
+  <script src="/italy26/static/js/main.js" defer></script>
   <style>
-    :root {
-      --green:         #1E3D2F;
-      --green-mid:     #3A6B4A;
-      --green-light:   #6da874;
-      --stone:         #C4B49A;
-      --stone-dark:    #8C7B65;
-      --soil:          #7A5C3E;
-      --red:           #a0503b;
-      --red-warm:      #cc7451;
-      --orange:        #eea66b;
-      --yellow:        #D4A94A;
-      --yellow-soft:   #E8CC7A;
-      --sky:           #7AAFC4;
-      --sky-deep:      #4A7A96;
-      --gray:          #8A8E8C;
-      --gray-light:    #C8CBC9;
-      --text:          #1A1A18;
-      --text-muted:    #7A7260;
-      --white:         #FDFAF4;
-      --black:         #111110;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'DM Sans', sans-serif;
@@ -44,67 +22,6 @@
       color: var(--text);
       overflow-x: hidden;
     }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.2rem 3rem;
-      background: rgba(30, 61, 47, 0.96);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(196,180,154,0.15);
-    }
-
-    /* Flag container on the left */
-    .lang-switcher {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-      
-    /* Each flag button — emoji only, no styling */
-    .lang-btn {
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0.1rem 0.15rem;
-      border-radius: 3px;
-      opacity: 0.45;
-      transition: opacity 0.2s, transform 0.15s;
-      line-height: 0;   /* removes extra space around the image */
-    }
-
-    .lang-btn:hover {
-      opacity: 0.85;
-      transform: scale(1.1);
-    }
-
-    /* Hide the currently active language flag */
-    .lang-btn.active {
-      display: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-family: 'DM Mono', monospace;
-      font-size: 1rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--stone-dark);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--stone); }
 
     /* ── HERO ── */
     .hero {
@@ -935,33 +852,6 @@
       .donation-meter { max-width: 100%; }
       .hero-donate { width: 100%; justify-content: center; }
     }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--green);
-      padding: 3rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    footer .logo {
-      font-family: 'Playfair Display', serif;
-      color: var(--stone);
-      font-size: 1.1rem;
-    }
-
-    footer p {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      color: var(--green-light);
-      text-transform: uppercase;
-    }
-
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(40px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
@@ -980,7 +870,6 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; }
-      .nav-links { gap: 1.5rem; }
       .hero { grid-template-columns: 1fr; }
       .hero-left { padding: 7rem 2rem 3rem; }
       .hero-left::after { display: none; }
@@ -999,7 +888,6 @@
       body { font-size: 0.9rem; }
       .hero-title { font-size: clamp(1.8rem, 6vw, 2.8rem); }
       .section-title { font-size: clamp(1.4rem, 5vw, 2rem); }
-      .nav-links a { font-size: 0.65rem; }
       .activity-stat-value { font-size: 0.9rem; }
       .blog-card-title { font-size: 1rem; }
     }
@@ -1011,30 +899,8 @@
 
 
   <!-- ══ NAV ══ -->
-  <nav>
-    <div class="lang-switcher">
-      <!-- BUG FIX: <button> must be INSIDE <body>, and font-family set for emoji rendering -->
-        <div class="lang-switcher">
-    <button class="lang-btn active" data-lang="en" title="English">
-      <img src="assets/images/flaguk.png" alt="English" width="50" height="50">
-    </button>
-    <button class="lang-btn" data-lang="sv" title="Svenska">
-      <img src="assets/images/flagse.png" alt="Svenska" width="50" height="50">
-    </button>
-    <button class="lang-btn" data-lang="it" title="Italiano">
-      <img src="assets/images/flagit.png" alt="Italiano" width="50" height="50">
-    </button>
-  </div>
-    </div>
-    <ul class="nav-links">
-      <li><a href="#about"    data-en="About me"  data-sv="Om mig"   data-it="Chi sono">About me</a></li>
-      <li><a href="#blog"     data-en="Blog"      data-sv="Blogg"    data-it="Blog">Blog</a></li>
-      <li><a href="donate.html" data-en="Donate" data-sv="Donera" data-it="Dona">Donate</a></li>
-      <li><a href="#links"    data-en="Links"     data-sv="Länkar"   data-it="Link">Links</a></li>
-      <li><a href="dashboard" data-en="Routes"    data-sv="Rutter"   data-it="Percorsi">Routes</a></li>
-      <li><a href="sweden2024.html" data-en="Sweden 2024" data-sv="Sverige 2024" data-it="Svezia 2024">Sweden 2024</a></li>
-    </ul>
-  </nav>
+  <nav id="shared-nav"></nav>
+
 
   <!-- ══ HERO ══ -->
   <div class="hero">
@@ -1447,52 +1313,9 @@
   </section>
 
   <!-- ══ FOOTER ══ -->
-  <footer>
-    <span class="logo">Edvard Appelberg<br></span>
-    <p data-en="Skellefteå, Sweden — Built with HTML &amp; CSS"
-       data-sv="Skellefteå, Sverige — Byggd med HTML &amp; CSS"
-       data-it="Skellefteå, Svezia — Costruito con HTML &amp; CSS">
-      Skellefteå, Sweden — Built with HTML &amp; CSS
-    </p>
-  </footer>
+  <footer id="shared-footer"></footer>
 
-  <!-- ══ LANGUAGE SWITCHER SCRIPT ══
-       Placed at the end of <body> so all elements exist before the script runs.
-       This was a key bug — the script was in <head> before, where no HTML elements
-       exist yet, so querySelectorAll found nothing.
-  ══ -->
-  <script>
-    let currentLang = 'en';
-    const langBtns = document.querySelectorAll('.lang-btn');
-
-    function applyLanguage(lang) {
-      currentLang = lang;
-
-      // Swap text on every element that has a data-en attribute
-      document.querySelectorAll('[data-en]').forEach(el => {
-        const translation = el.getAttribute('data-' + lang);
-        if (translation) el.innerHTML = translation;
-      });
-
-      // Hide the active flag, show the others
-      langBtns.forEach(btn => {
-        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-      });
-
-      // Remember choice across page reloads
-      localStorage.setItem('preferred-lang', lang);
-    }
-
-    // Wire up each flag button
-    langBtns.forEach(btn => {
-      btn.addEventListener('click', () => applyLanguage(btn.getAttribute('data-lang')));
-    });
-
-    // Restore saved language on load
-    const saved = localStorage.getItem('preferred-lang');
-    if (saved) applyLanguage(saved);
-  </script>
-  </script>
+  <!-- Language switcher handled by /italy26/static/js/main.js -->
   <script>
   // ── DONATION METER ──
   (function() {
