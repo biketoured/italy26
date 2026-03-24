@@ -159,56 +159,45 @@ function injectPizzaScrollbar() {
   const img        = thumb.querySelector('img');
   const TRACK_PAD  = 56;   // px reserved for each flag at top/bottom
 
-  // ── Spin physics ──
-  // We drive the CSS animation-duration to control speed.
-  // Faster scroll → shorter duration → faster spin.
-  // On scroll-stop we gradually increase the duration (slow-down).
+  // ── Spin physics (rAF-based — no CSS animation, no snapping) ──
+  // We own the angle entirely. Each frame: angle += degsPerMs * elapsed.
+  // Deceleration uses exponential decay: speed *= DECAY each frame.
+  // This is the standard approach for spinning objects (same as iOS momentum scroll).
+  //
+  // Target speed: 1.5s per revolution = 1/1.5 rev/s = 240 deg/s
+  // Decay: chosen so speed halves roughly every 300ms → feels swift but smooth.
 
-  const SPIN_FAST   = 1.25;   // seconds per revolution at full speed (= 0.8 rev/s)
-  const SPIN_IDLE   = 99999;  // effectively stopped
-  const DECEL_MS    = 100;    // ms between decel steps
-  const DECEL_STEP  = 0.05;   // rev/s lost per step → stops after 16 steps (1.6s total)
+  const TARGET_DEG_S = 240;          // deg/s while scrolling (1 rev per 1.5s)
+  const DECAY        = 0.9925;       // multiply speed by this each rAF frame (~16ms)
+  const STOP_THRESH  = 0.5;          // deg/s below which we treat as stopped
 
-  let   currentDur   = SPIN_IDLE;
-  let   decelTimer   = null;
-  let   scrollActive = false;
-  let   lastScrollY  = window.scrollY;
-  // Track cumulative rotation so the pizza never jumps when we change duration
-  let   angle        = 0;
-  let   lastTick     = performance.now();
+  let angle     = 0;                 // current rotation in degrees
+  let speed     = 0;                 // current deg/s
+  let lastTime  = performance.now();
+  let rafId     = null;
+  let isScrolling = false;
 
-  function setDuration(dur) {
-    // Accumulate angle so the pizza doesn't snap when speed changes
-    const now   = performance.now();
-    const delta = (now - lastTick) / 1000;          // seconds elapsed
-    angle      += (delta / currentDur) * 360;        // degrees rotated
-    angle       = angle % 360;
-    lastTick    = now;
-    currentDur  = dur;
-    img.style.setProperty('--pizza-start-angle', angle + 'deg');
-    // Reset the animation so it picks up from current angle at new speed
-    img.style.animationDuration = dur + 's';
-    img.style.animation = 'none';
-    // Force reflow then restart
-    void img.offsetWidth;
-    img.style.animation = '';
-    img.style.animationDuration = dur + 's';
+  function spinFrame(now) {
+    const dt = Math.min(now - lastTime, 64) / 1000;   // seconds; cap at 64ms (tab blur)
+    lastTime = now;
+
+    if (isScrolling) {
+      speed = TARGET_DEG_S;
+    } else {
+      speed *= Math.pow(DECAY, dt * 60);   // frame-rate independent decay
+      if (speed < STOP_THRESH) { speed = 0; rafId = null; img.style.transform = `rotate(${angle % 360}deg)`; return; }
+    }
+
+    angle += speed * dt;
+    img.style.transform = `rotate(${angle % 360}deg)`;
+    rafId = requestAnimationFrame(spinFrame);
   }
 
-  function startDecel() {
-    if (decelTimer) clearInterval(decelTimer);
-    // currentRevs starts at 0.8 rev/s, loses 0.05 rev/s every 100ms
-    let revs = 1 / SPIN_FAST;   // 0.8 rev/s
-    decelTimer = setInterval(() => {
-      revs = Math.max(0, revs - DECEL_STEP);
-      if (revs <= 0) {
-        setDuration(SPIN_IDLE);
-        clearInterval(decelTimer);
-        decelTimer = null;
-      } else {
-        setDuration(1 / revs);  // convert rev/s back to seconds-per-revolution
-      }
-    }, DECEL_MS);
+  function ensureSpinning() {
+    if (!rafId) {
+      lastTime = performance.now();
+      rafId = requestAnimationFrame(spinFrame);
+    }
   }
 
   // ── Thumb position ──
@@ -223,13 +212,10 @@ function injectPizzaScrollbar() {
   // ── Scroll listener ──
   window.addEventListener('scroll', () => {
     updateThumb();
-
-    if (decelTimer) { clearInterval(decelTimer); decelTimer = null; }
-    setDuration(SPIN_FAST);
-
-    // Restart decel after scrolling pauses
+    isScrolling = true;
+    ensureSpinning();
     clearTimeout(scrollbar._stopTimer);
-    scrollbar._stopTimer = setTimeout(startDecel, 120);
+    scrollbar._stopTimer = setTimeout(() => { isScrolling = false; }, 120);
   }, { passive: true });
 
   // ── Click-to-jump ──

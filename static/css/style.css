@@ -235,8 +235,6 @@ body::-webkit-scrollbar { display: none; }
   display: block;
   pointer-events: none;
   will-change: transform;
-  /* animation-duration driven by JS via --pizza-dur */
-  animation: pizzaSpin var(--pizza-dur, 99999s) linear infinite;
 }
 
 @keyframes pizzaSpin {
