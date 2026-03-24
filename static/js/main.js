@@ -201,21 +201,11 @@ function injectPizzaScrollbar() {
   };
   const thumbImage = PAGE_IMAGES[getCurrentPage()] || 'pizza.png';
 
-  // Per-page flag image: sweden2024 → flaguk, all others → flagit
-  const PAGE_FLAGS = { 'sweden2024': 'flagse.png' };
-  const flagImg = PAGE_FLAGS[getCurrentPage()] || 'flagit.png';
-
   const html = `
     <div id="pizza-scrollbar">
       <div class="sb-track"></div>
-      <div class="sb-flag top">
-        <img src="${getPrefix()}assets/images/${flagImg}" alt="flag" width="30" height="30">
-      </div>
       <div id="pizza-thumb">
         <img src="${getPrefix()}assets/images/${thumbImage}" alt="scroll position">
-      </div>
-      <div class="sb-flag bottom">
-        <img src="${getPrefix()}assets/images/${flagImg}" alt="flag" width="30" height="30">
       </div>
     </div>`;
 
@@ -238,15 +228,6 @@ function injectPizzaScrollbar() {
       width: 2px; background: rgba(196,180,154,0.15);
       transform: translateX(-50%);
     }
-    .sb-flag {
-      position: relative; z-index: 2; width: 28px;
-      flex-shrink: 0;
-    }
-    .sb-flag .banner {
-      display: flex; width: 100%; height: 18px; overflow: hidden;
-      border-radius: 2px; box-shadow: 0 1px 4px rgba(0,0,0,0.4);
-    }
-    .sb-flag .banner span { flex: 1; }
     #pizza-thumb {
       position: absolute; left: 50%; transform: translateX(-50%);
       width: 36px; height: 36px; z-index: 3;
