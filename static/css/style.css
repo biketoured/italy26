@@ -30,8 +30,8 @@
      Each page overrides these in its own inline <style> block.
      Defaults match index.html (green theme).
   ── */
-  --nav-bg:        rgba(30, 61, 47, 0.96);
-  --nav-border:    rgba(196,180,154,0.15);
+  --nav-bg:        rgba(30,61,47,0.96);
+  --nav-border:    rgba(196,180,154,0.15); /* --stone at 15% opacity */
   --nav-link:      var(--stone-dark);
   --nav-link-hover: var(--stone);
   --footer-bg:     var(--green);
@@ -174,7 +174,7 @@ body::-webkit-scrollbar { display: none; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: rgba(255,255,255,0.5);
+  background: rgba(145, 145, 145, 0.37);
   backdrop-filter: blur(4px);
   border-left: 1px solid rgba(255,255,255,0.3);
 }
@@ -209,20 +209,22 @@ body::-webkit-scrollbar { display: none; }
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 50px; height: 50px;
+  width: 60px; height: 60px;
   top: 56px;
   cursor: grab;
   z-index: 2;
   user-select: none;
+  overflow: visible;
 }
 #pizza-thumb:active { cursor: grabbing; }
 
 #pizza-thumb img {
-  width: 40px; height: 40px;
+  width: 45px; height: 45px;
   border-radius: 50%;
   display: block;
   pointer-events: none;
   will-change: transform;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.3));
 }
 
 @keyframes pizzaSpin {

@@ -3,6 +3,7 @@
    Loaded by every page via <script src="/italy26/static/js/main.js">
    ══════════════════════════════════════════════════════════════ */
 
+
 // ── PAGE DETECTION ──────────────────────────────────────────
 // Returns a short page identifier based on the current URL.
 // Used to hide the active page link and set the home href.
@@ -29,37 +30,37 @@ function getPrefix() {
 // Edit these to control nav bg and link colours per page.
 const NAV_THEMES = {
   'index': {
-    bg:        'rgba(30, 61, 47, 0.96)',
+    bg:        'rgba(30,61,47,0.96)',
     border:    'rgba(196,180,154,0.15)',
     link:      '#8C7B65',
     linkHover: '#C4B49A',
   },
   'sweden2024': {
-    bg:        'rgba(74, 122, 150, 0.97)',
+    bg:        'rgba(74,122,150,0.97)',
     border:    'rgba(184,212,224,0.2)',
     link:      'rgba(184,212,224,0.7)',
     linkHover: '#FDFAF4',
   },
   'donate': {
-    bg:        'rgba(74, 122, 150, 0.97)',
+    bg:        'rgba(74,122,150,0.97)',
     border:    'rgba(184,212,224,0.2)',
     link:      'rgba(184,212,224,0.7)',
     linkHover: '#FDFAF4',
   },
   'routes': {
-    bg:        'rgba(30, 61, 47, 0.96)',
+    bg:        'rgba(30,61,47,0.96)',
     border:    'rgba(196,180,154,0.15)',
     link:      '#8C7B65',
     linkHover: '#C4B49A',
   },
   'blog': {
-    bg:        'rgba(30, 61, 47, 0.96)',
+    bg:        'rgba(30,61,47,0.96)',
     border:    'rgba(196,180,154,0.15)',
     link:      '#8C7B65',
     linkHover: '#C4B49A',
   },
   'post': {
-    bg:        'rgba(30, 61, 47, 0.96)',
+    bg:        'rgba(30,61,47,0.96)',
     border:    'rgba(196,180,154,0.15)',
     link:      '#8C7B65',
     linkHover: '#C4B49A',
