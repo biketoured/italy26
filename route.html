@@ -76,7 +76,7 @@
 
     .route-map {
       width: 100%;
-      height: 600px;
+      height: 900px;
       border: 1px solid rgba(196,180,154,0.15);
       position: relative;
     }
@@ -107,7 +107,7 @@
       display: flex;
       flex-direction: column;
       gap: 0;
-      max-height: 600px;
+      max-height: 900px;
       overflow-y: auto;
       scrollbar-width: thin;
       scrollbar-color: var(--stone-dark) transparent;
@@ -392,7 +392,7 @@
           line.getElement()?.style.setProperty('cursor', 'pointer');
         });
 
-        if (allCoords.length > 0) map.fitBounds(allCoords, { padding: [20, 20] });
+        if (allCoords.length > 0) map.fitBounds(allCoords, { padding: [10, 10] });
 
         // Render side panel
         renderPanel(routes);

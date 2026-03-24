@@ -127,7 +127,7 @@
       });
       return `<div class="blog-prose">${marked.parse(html)}</div>`;
     }
-
+    let currentLang = 'en';
     const backLabels = {
       journal: { en: '← Back to Journal', sv: '← Tillbaka till dagboken', it: '← Torna al diario' },
       blog:    { en: '← Back to Blog',    sv: '← Tillbaka till bloggen',  it: '← Torna al blog'  }

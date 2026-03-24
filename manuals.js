@@ -14,3 +14,5 @@ const DONATION_GOAL  = 100000;                       // goal in SEK
 // Checka storlekar
 // Ikoner
 // Utforska betalningssätt
+// Routes.html
+// Donate.html

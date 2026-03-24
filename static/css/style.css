@@ -33,7 +33,7 @@
   --nav-bg:        rgba(30,61,47,0.96);
   --nav-border:    rgba(196,180,154,0.15); /* --stone at 15% opacity */
   --nav-link:      var(--stone-dark);
-  --nav-link-hover: var(--stone);
+  --nav-link-hover:var(--stone);
   --footer-bg:     var(--green);
   --footer-text:   var(--green-light);
   --footer-logo:   var(--stone);
