@@ -199,13 +199,6 @@ body::-webkit-scrollbar { display: none; }
 #bike-scrollbar .sb-flag.top    { top: 8px; }
 #bike-scrollbar .sb-flag.bottom { bottom: 8px; flex-direction: column-reverse; }
 
-#bike-scrollbar .sb-flag .pole {
-  width: 2px; height: 26px;
-  background: var(--stone);
-  align-self: flex-start;
-  margin-left: 3px;
-}
-
 #bike-scrollbar .sb-flag .banner {
   display: flex;
   width: 30px; height: 20px;

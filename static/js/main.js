@@ -137,7 +137,6 @@ function injectPizzaScrollbar() {
           <span style="background:#fff;border-left:0.5px solid #ddd;border-right:0.5px solid #ddd"></span>
           <span style="background:#CE2B37"></span>
         </div>
-        <div class="pole"></div>
       </div>
       <div id="bike-thumb">
         <img src="${getPrefix()}assets/images/pizza.png" alt="scroll position">
@@ -148,7 +147,6 @@ function injectPizzaScrollbar() {
           <span style="background:#fff;border-left:0.5px solid #ddd;border-right:0.5px solid #ddd"></span>
           <span style="background:#CE2B37"></span>
         </div>
-        <div class="pole"></div>
       </div>
     </div>`;
 
@@ -160,44 +158,48 @@ function injectPizzaScrollbar() {
   const TRACK_PAD  = 56;   // px reserved for each flag at top/bottom
 
   // ── Spin physics (rAF-based — no CSS animation, no snapping) ──
-  // We own the angle entirely. Each frame: angle += degsPerMs * elapsed.
-  // Deceleration uses exponential decay: speed *= DECAY each frame.
-  // This is the standard approach for spinning objects (same as iOS momentum scroll).
-  //
-  // Target speed: 1.5s per revolution = 1/1.5 rev/s = 240 deg/s
-  // Decay: chosen so speed halves roughly every 300ms → feels swift but smooth.
+  const TARGET_DEG_S = 240;    // deg/s while scrolling (1 rev per 1.5s)
+  const DECAY        = 0.9925; // exponential friction per normalised 60fps frame
+  const STOP_THRESH  = 0.5;    // deg/s below which we call it stopped
 
-  const TARGET_DEG_S = 240;          // deg/s while scrolling (1 rev per 1.5s)
-  const DECAY        = 0.9925;       // multiply speed by this each rAF frame (~16ms)
-  const STOP_THRESH  = 0.5;          // deg/s below which we treat as stopped
-
-  let angle     = 0;                 // current rotation in degrees
-  let speed     = 0;                 // current deg/s
-  let lastTime  = performance.now();
-  let rafId     = null;
+  let angle       = 0;
+  let speed       = 0;
+  let lastTime    = null;      // null = loop is not running
+  let rafId       = null;
   let isScrolling = false;
 
   function spinFrame(now) {
-    const dt = Math.min(now - lastTime, 64) / 1000;   // seconds; cap at 64ms (tab blur)
+    // Guard: if the loop was cancelled between scheduling and firing, bail cleanly
+    if (rafId === null) return;
+
+    if (lastTime === null) lastTime = now;
+    const dt = Math.min(now - lastTime, 64) / 1000;  // cap at 64ms for tab-blur spikes
     lastTime = now;
 
     if (isScrolling) {
       speed = TARGET_DEG_S;
     } else {
-      speed *= Math.pow(DECAY, dt * 60);   // frame-rate independent decay
-      if (speed < STOP_THRESH) { speed = 0; rafId = null; img.style.transform = `rotate(${angle % 360}deg)`; return; }
+      speed *= Math.pow(DECAY, dt * 60);  // frame-rate independent
     }
 
-    angle += speed * dt;
-    img.style.transform = `rotate(${angle % 360}deg)`;
+    if (!isScrolling && speed < STOP_THRESH) {
+      // Come to a full stop — clean up completely
+      speed   = 0;
+      rafId   = null;
+      lastTime = null;
+      img.style.transform = `rotate(${angle % 360}deg)`;
+      return;
+    }
+
+    angle = (angle + speed * dt) % 360;   // keep angle tidy to avoid float drift
+    img.style.transform = `rotate(${angle}deg)`;
     rafId = requestAnimationFrame(spinFrame);
   }
 
   function ensureSpinning() {
-    if (!rafId) {
-      lastTime = performance.now();
-      rafId = requestAnimationFrame(spinFrame);
-    }
+    if (rafId !== null) return;   // loop already running, isScrolling flag handles speed
+    lastTime = null;              // will be initialised on first frame
+    rafId = requestAnimationFrame(spinFrame);
   }
 
   // ── Thumb position ──
