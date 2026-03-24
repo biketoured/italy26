@@ -166,10 +166,10 @@ body          { overflow-y: scroll; scrollbar-width: none; }
 body::-webkit-scrollbar { display: none; }
 
 /* ── PIZZA SCROLLBAR ── */
-#bike-scrollbar {
+#pizza-scrollbar {
   position: fixed;
   right: 0; top: 0; bottom: 0;
-  width: 52px;
+  width: 40px;
   z-index: 1000;
   display: flex;
   flex-direction: column;
@@ -178,17 +178,16 @@ body::-webkit-scrollbar { display: none; }
   border-left: 1px solid rgba(196,180,154,0.18);
 }
 
-#bike-scrollbar .sb-track {
+#pizza-scrollbar .sb-track {
   position: absolute;
   left: 50%; top: 56px; bottom: 56px;
-  width: 2px;
+  width: 5px;
   transform: translateX(-50%);
   background: var(--stone-dark);
   border-radius: 2px;
-  opacity: 0.5;
 }
 
-#bike-scrollbar .sb-flag {
+#pizza-scrollbar .sb-flag {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -196,10 +195,10 @@ body::-webkit-scrollbar { display: none; }
   flex-direction: column;
   align-items: flex-start;
 }
-#bike-scrollbar .sb-flag.top    { top: 8px; }
-#bike-scrollbar .sb-flag.bottom { bottom: 8px; flex-direction: column-reverse; }
+#pizza-scrollbar .sb-flag.top    { top: 8px; }
+#pizza-scrollbar .sb-flag.bottom { bottom: 8px; flex-direction: column-reverse; }
 
-#bike-scrollbar .sb-flag .banner {
+#pizza-scrollbar .sb-flag .banner {
   display: flex;
   width: 30px; height: 20px;
   border-radius: 2px;
@@ -208,9 +207,9 @@ body::-webkit-scrollbar { display: none; }
   box-shadow: 0 1px 4px rgba(0,0,0,0.4);
 }
 
-#bike-scrollbar .sb-flag .banner span { flex: 1; height: 100%; }
+#pizza-scrollbar .sb-flag .banner span { flex: 1; height: 100%; }
 
-#bike-thumb {
+#pizza-thumb {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -220,9 +219,9 @@ body::-webkit-scrollbar { display: none; }
   z-index: 2;
   user-select: none;
 }
-#bike-thumb:active { cursor: grabbing; }
+#pizza-thumb:active { cursor: grabbing; }
 
-#bike-thumb img {
+#pizza-thumb img {
   width: 40px; height: 40px;
   border-radius: 50%;
   display: block;
@@ -235,7 +234,7 @@ body::-webkit-scrollbar { display: none; }
   to   { transform: rotate(360deg); }
 }
 
-@media (max-width: 480px) { #bike-scrollbar { display: none; } }
+@media (max-width: 480px) { #pizza-scrollbar { display: none; } }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {

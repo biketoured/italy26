@@ -12,6 +12,7 @@ function getCurrentPage() {
   if (path.includes('donate'))            return 'donate';
   if (path.includes('/blog/') && path.includes('post')) return 'post';
   if (path.includes('/blog/'))            return 'blog';
+  if (path.includes('route'))             return 'routes';
   return 'index'; // default — root index.html
 }
 
@@ -36,7 +37,7 @@ function injectNav(page) {
     { id: 'blog',      href: p + 'blog/index.html',  en: 'Blog',        sv: 'Blogg',       it: 'Blog'        },
     { id: 'donate',    href: p + 'donate.html',       en: 'Donate',      sv: 'Donera',      it: 'Dona'        },
     { id: 'links',     href: p + 'index.html#links',  en: 'Links',       sv: 'Länkar',      it: 'Link'        },
-    { id: 'routes',    href: p + 'dashboard',         en: 'Routes',      sv: 'Rutter',      it: 'Percorsi'    },
+    { id: 'routes',    href: p + 'route.html',         en: 'Routes',      sv: 'Rutter',      it: 'Percorsi'    },
     { id: 'sweden2024',href: p + 'sweden2024.html',   en: 'Sweden 2024', sv: 'Sverige 2024',it: 'Svezia 2024' },
   ];
 
@@ -111,6 +112,7 @@ function applyLanguage(lang) {
   });
 
   localStorage.setItem('preferred-lang', lang);
+  document.dispatchEvent(new CustomEvent('langchange', { detail: lang }));
 }
 
 function initLanguage() {
@@ -128,8 +130,19 @@ function initLanguage() {
 
 // ── PIZZA SCROLLBAR ─────────────────────────────────────────
 function injectPizzaScrollbar() {
+  // ── Per-page thumb image ──
+  const PAGE_IMAGES = {
+    'index':      'pizza.png',
+    'donate':     'pizza.png',
+    'blog':       'pizza.png',
+    'post':       'pizza.png',
+    'sweden2024': 'wheel.png',
+    'routes':     'wheel.png',
+  };
+  const thumbImage = PAGE_IMAGES[getCurrentPage()] || 'pizza.png';
+
   const html = `
-    <div id="bike-scrollbar">
+    <div id="pizza-scrollbar">
       <div class="sb-track"></div>
       <div class="sb-flag top">
         <div class="banner">
@@ -138,8 +151,8 @@ function injectPizzaScrollbar() {
           <span style="background:#CE2B37"></span>
         </div>
       </div>
-      <div id="bike-thumb">
-        <img src="${getPrefix()}assets/images/pizza.png" alt="scroll position">
+      <div id="pizza-thumb">
+        <img src="${getPrefix()}assets/images/${thumbImage}" alt="scroll position">
       </div>
       <div class="sb-flag bottom">
         <div class="banner">
@@ -150,12 +163,55 @@ function injectPizzaScrollbar() {
       </div>
     </div>`;
 
+  // Hide native scrollbar
+  const styleEl = document.createElement('style');
+  styleEl.textContent = `
+    html { scrollbar-width: none; }
+    html::-webkit-scrollbar { display: none; }
+    #pizza-scrollbar {
+      position: fixed; right: 0; top: 0; bottom: 0;
+      width: 44px; z-index: 9999;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: space-between;
+      padding: 0;
+      cursor: pointer;
+      user-select: none;
+    }
+    .sb-track {
+      position: absolute; top: 0; bottom: 0; left: 50%;
+      width: 2px; background: rgba(196,180,154,0.15);
+      transform: translateX(-50%);
+    }
+    .sb-flag {
+      position: relative; z-index: 2; width: 28px;
+      flex-shrink: 0;
+    }
+    .sb-flag .banner {
+      display: flex; width: 100%; height: 18px; overflow: hidden;
+      border-radius: 2px; box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+    }
+    .sb-flag .banner span { flex: 1; }
+    #pizza-thumb {
+      position: absolute; left: 50%; transform: translateX(-50%);
+      width: 36px; height: 36px; z-index: 3;
+      display: flex; align-items: center; justify-content: center;
+      cursor: grab;
+    }
+    #pizza-thumb:active { cursor: grabbing; }
+    #pizza-thumb img { width: 32px; height: 32px; object-fit: contain; }
+    @media (max-width: 768px) {
+      #pizza-scrollbar { width: 36px; }
+      #pizza-thumb { width: 30px; height: 30px; }
+      #pizza-thumb img { width: 26px; height: 26px; }
+    }
+  `;
+  document.head.appendChild(styleEl);
   document.body.insertAdjacentHTML('beforeend', html);
 
-  const scrollbar  = document.getElementById('bike-scrollbar');
-  const thumb      = document.getElementById('bike-thumb');
+  const scrollbar  = document.getElementById('pizza-scrollbar');
+  const thumb      = document.getElementById('pizza-thumb');
   const img        = thumb.querySelector('img');
-  const TRACK_PAD  = 56;   // px reserved for each flag at top/bottom
+  const TRACK_PAD  = 30;   // px reserved for each flag at top/bottom
 
   // ── Spin physics (rAF-based — no CSS animation, no snapping) ──
   const TARGET_DEG_S = 240;    // deg/s while scrolling (1 rev per 1.5s)
@@ -220,33 +276,44 @@ function injectPizzaScrollbar() {
     scrollbar._stopTimer = setTimeout(() => { isScrolling = false; }, 120);
   }, { passive: true });
 
-  // ── Click-to-jump ──
-  scrollbar.addEventListener('click', e => {
-    if (thumb.contains(e.target)) return;
+  // ── Click-to-jump (works for mouse and touch) ──
+  function jumpToY(clientY) {
     const rect       = scrollbar.getBoundingClientRect();
-    const clickY     = e.clientY - rect.top;
+    const clickY     = clientY - rect.top;
     const trackRange = scrollbar.offsetHeight - TRACK_PAD * 2 - thumb.offsetHeight;
     const progress   = Math.min(1, Math.max(0, (clickY - TRACK_PAD) / trackRange));
     const maxScroll  = document.documentElement.scrollHeight - window.innerHeight;
     window.scrollTo({ top: progress * maxScroll, behavior: 'smooth' });
+  }
+  scrollbar.addEventListener('click', e => {
+    if (thumb.contains(e.target)) return;
+    jumpToY(e.clientY);
   });
+  scrollbar.addEventListener('touchstart', e => {
+    if (thumb.contains(e.target)) return;
+    jumpToY(e.touches[0].clientY);
+    e.preventDefault();
+  }, { passive: false });
 
-  // ── Drag ──
+  // ── Drag — pointer events work for both mouse and touch ──
   let dragging = false, dragStartY = 0, dragStartScroll = 0;
 
-  thumb.addEventListener('mousedown', e => {
-    dragging       = true;
-    dragStartY     = e.clientY;
+  thumb.addEventListener('pointerdown', e => {
+    dragging        = true;
+    dragStartY      = e.clientY;
     dragStartScroll = window.scrollY;
+    thumb.setPointerCapture(e.pointerId); // keeps events on thumb even if mouse leaves
     e.preventDefault();
   });
-  document.addEventListener('mousemove', e => {
+  thumb.addEventListener('pointermove', e => {
     if (!dragging) return;
     const trackRange = scrollbar.offsetHeight - TRACK_PAD * 2 - thumb.offsetHeight;
     const maxScroll  = document.documentElement.scrollHeight - window.innerHeight;
-    window.scrollTo(0, dragStartScroll + ((e.clientY - dragStartY) / trackRange) * maxScroll);
+    const newScroll  = dragStartScroll + ((e.clientY - dragStartY) / trackRange) * maxScroll;
+    window.scrollTo(0, Math.max(0, Math.min(maxScroll, newScroll)));
   });
-  document.addEventListener('mouseup', () => { dragging = false; });
+  thumb.addEventListener('pointerup',     () => { dragging = false; });
+  thumb.addEventListener('pointercancel', () => { dragging = false; });
 
   updateThumb();
 }
