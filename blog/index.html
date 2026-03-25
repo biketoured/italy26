@@ -3,44 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog — Eddie Appelberg</title>
+  <title>Blog — Edvard Appelberg</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <script src="manuals.js"></script>
+  <script src="../manuals.js"></script>
+  <link rel="stylesheet" href="/italy26/static/css/style.css">
+  <script src="/italy26/static/js/main.js" defer></script>
   <style>
-    :root {
-      --green:       #1E3D2F;
-      --green-mid:   #3A6B4A;
-      --green-light: #6da874;
-      --stone:       #C4B49A;
-      --stone-dark:  #8C7B65;
-      --red:         #a0503b;
-      --red-warm:    #cc7451;
-      --yellow:      #D4A94A;
-      --text:        #1A1A18;
-      --text-muted:  #7A7260;
-      --white:       #FDFAF4;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
     body { font-family: 'DM Sans', sans-serif; background: var(--stone); color: var(--text); min-height: 100vh; }
-
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 1.2rem 3rem;
-      background: rgba(30, 61, 47, 0.96);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(196,180,154,0.15);
-    }
-    .lang-switcher { display: flex; align-items: center; gap: 0.4rem; }
-    .lang-btn { background: none; border: none; cursor: pointer; line-height: 0; padding: 0.1rem 0.15rem; border-radius: 3px; opacity: 0.45; transition: opacity 0.2s, transform 0.15s; }
-    .lang-btn img { display: block; border-radius: 2px; }
-    .lang-btn:hover { opacity: 0.85; transform: scale(1.1); }
-    .lang-btn.active { display: none; }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-links a { font-family: 'DM Mono', monospace; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--stone-dark); text-decoration: none; transition: color 0.2s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--stone); }
 
     .page-header { padding: 8rem 3rem 2rem; max-width: 1200px; margin: 0 auto; }
     .page-header .section-tag { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); margin-bottom: 0.75rem; }
@@ -72,42 +42,18 @@
     .post-card-readtime { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.08em; color: var(--stone-dark); text-transform: uppercase; }
     .empty-state { grid-column: 1 / -1; text-align: center; padding: 4rem 2rem; color: var(--text-muted); font-family: 'DM Mono', monospace; font-size: 0.8rem; letter-spacing: 0.1em; }
 
-    footer { background: var(--green); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; }
-    footer .logo { font-family: 'Playfair Display', serif; color: var(--stone); font-size: 1rem; }
-    footer p { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; color: var(--green-light); text-transform: uppercase; }
-
     @media (max-width: 900px) { .posts-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 600px) {
-      nav { padding: 1rem 1.5rem; } .nav-links { gap: 1.2rem; }
       .page-header { padding: 7rem 1.5rem 1.5rem; } .tabs-wrapper { padding: 0 1.5rem; }
       .posts-container { padding: 0 1.5rem 4rem; } .posts-grid { grid-template-columns: 1fr; }
-      footer { flex-direction: column; gap: 1rem; text-align: center; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV — flags use ../ because this file is inside the blog/ subfolder -->
-  <nav>
-    <div class="lang-switcher">
-      <button class="lang-btn active" data-lang="en" title="English">
-        <img src="../assets/images/flaguk.png" alt="English" width="20" height="50">
-      </button>
-      <button class="lang-btn" data-lang="sv" title="Svenska">
-        <img src="../assets/images/flagse.png" alt="Svenska" width="20" height="50">
-      </button>
-      <button class="lang-btn" data-lang="it" title="Italiano">
-        <img src="../assets/images/flagit.png" alt="Italiano" width="20" height="50">
-      </button>
-    </div>
-    <ul class="nav-links">
-      <li><a href="../index.html#about" data-en="About me" data-sv="Om mig"    data-it="Chi sono">About me</a></li>
-      <li><a href="index.html" class="active" data-en="Blog" data-sv="Blogg"  data-it="Blog">Blog</a></li>
-      <li><a href="#donate" data-en="Donate" data-sv="Donera" data-it="Dona">Donate</a></li>
-      <li><a href="../index.html#links" data-en="Links"    data-sv="Länkar"    data-it="Link">Links</a></li>
-      <li><a href="../dashboard"        data-en="Routes"   data-sv="Rutter"    data-it="Percorsi">Routes</a></li>
-    </ul>
-  </nav>
+  <!-- NAV -->
+  <nav id="shared-nav"></nav>
+
 
   <!-- PAGE HEADER -->
   <div class="page-header">
@@ -127,31 +73,10 @@
   </div>
 
   <!-- FOOTER -->
-  <footer>
-    <span class="logo">Edvard Appelberg</span>
-    <p data-en="Skellefteå, Sweden — Built with HTML &amp; CSS"
-       data-sv="Skellefteå, Sverige — Byggd med HTML &amp; CSS"
-       data-it="Skellefteå, Svezia — Costruito con HTML &amp; CSS">
-      Skellefteå, Sweden — Built with HTML &amp; CSS
-    </p>
-  </footer>
+  <footer id="shared-footer"></footer>
 
   <script>
-    let currentLang = localStorage.getItem('preferred-lang') || 'en';
-    const langBtns  = document.querySelectorAll('.lang-btn');
-
-    function applyLanguage(lang) {
-      currentLang = lang;
-      document.querySelectorAll('[data-en]').forEach(el => {
-        const t = el.getAttribute('data-' + lang);
-        if (t) el.innerHTML = t;
-      });
-      langBtns.forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-lang') === lang));
-      localStorage.setItem('preferred-lang', lang);
-      renderCards(activeTab);
-    }
-
-    langBtns.forEach(btn => btn.addEventListener('click', () => applyLanguage(btn.getAttribute('data-lang'))));
+    // Language handled by main.js — currentLang available globally
 
     let activeTab = 'journal';
     const tabBtns = document.querySelectorAll('.tab-btn');
@@ -183,21 +108,17 @@
         const title     = post.title[currentLang] || post.title.en;
         const date      = formatDate(post.date, currentLang);
         const rt        = readTime(post);
-        // Try cover.jpg first; onerror cascades through jpeg/png then placeholder
         const coverSrc = '/italy26/blog/posts/' + post.slug + '/cover.jpg';
         const coverHTML = `<img class="post-card-cover"
           src="${coverSrc}"
           alt="${title}"
           loading="lazy"
           onerror="
-            const tries = ['cover.jpeg','cover.png','cover.webp'];
-            const idx = parseInt(this.dataset.try||0);
-            if (idx < tries.length) {
-              this.dataset.try = idx+1;
-              this.src = '/italy26/blog/posts/${post.slug}/' + tries[idx];
-            } else {
-              this.src='/italy26/assets/images/placehold.png';
-            }">`;
+            const t=['cover.jpeg','cover.png','cover.webp'];
+            const i=parseInt(this.dataset.try||0);
+            if(i<t.length){this.dataset.try=i+1;this.src='/italy26/blog/posts/${post.slug}/'+t[i];}
+            else{this.onerror=null;this.src='/italy26/assets/images/placehold.png';}
+          ">`;
         const badgeText = post.type === 'journal'
           ? ({ en: 'Day', sv: 'Dag', it: 'Giorno' }[currentLang] + ' ' + post.day)
           : post.tag;
@@ -227,11 +148,8 @@
         return r.json();
       })
       .then(data => {
-        // Show how many posts were loaded — temporary debug
-        document.getElementById('posts-grid').innerHTML =
-          `<div class="empty-state">Loaded ${data.length} posts. First slug: ${data[0]?.slug}</div>`;
         allPosts = data.sort((a, b) => new Date(b.date) - new Date(a.date));
-        applyLanguage(currentLang);
+        renderCards(activeTab);
       })
       .catch(err => {
         document.getElementById('posts-grid').innerHTML =
