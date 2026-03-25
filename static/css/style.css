@@ -166,18 +166,16 @@ body          { overflow-y: scroll; scrollbar-width: none; }
 body::-webkit-scrollbar { display: none; }
 
 /* ── PIZZA SCROLLBAR ──
-   Bar is 10px wide (like a native scrollbar) so it doesn't
-   push page content. The pizza image overflows visually but
-   has pointer-events:none so it never blocks clicks.
+   Bar: 6px wide — same footprint as a native scrollbar.
+   Pizza thumb: 52px, overflows the bar on both sides.
+   overflow:visible on bar + pointer-events:none on img
+   means the pizza never blocks clicks on page content.
 ── */
 #pizza-scrollbar {
   position: fixed;
   right: 0; top: 0; bottom: 0;
-  width: 10px;
+  width: 6px;
   z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   background: var(--stone);
   border-left: 1px solid var(--stone-dark);
   overflow: visible;
@@ -185,35 +183,38 @@ body::-webkit-scrollbar { display: none; }
 
 #pizza-scrollbar .sb-track {
   position: absolute;
-  left: 50%; top: 40px; bottom: 40px;
-  width: 3px;
+  left: 50%; top: 20; bottom: 20;
+  width: 6px;
   transform: translateX(-50%);
   background: var(--stone-dark);
-  border-radius: 2px;
+  border-radius: 0;
 }
 
 #pizza-thumb {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 45px; height: 45px;
-  background: var(--stone-dark);
-  top: 56px;
+  width: 52px; height: 52px;
+  background: var(--stone);
+  top: 0;
   cursor: grab;
   z-index: 2;
   user-select: none;
   overflow: visible;
   pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 #pizza-thumb:active { cursor: grabbing; }
 
 #pizza-thumb img {
-  width: 50px; height: 50px;
+  width: 52px; height: 52px;
   border-radius: 50%;
   display: block;
   pointer-events: none;
   will-change: transform;
-  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.3));
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
 }
 
 @keyframes pizzaSpin {

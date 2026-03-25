@@ -74,6 +74,26 @@
     /* ── MAP ── */
     .route-map-wrap { position: relative; }
 
+    .map-toggle-btn {
+      position: absolute;
+      top: 0.75rem; left: 0.75rem;
+      z-index: 500;
+      background: var(--green);
+      color: var(--stone);
+      border: 1px solid rgba(196,180,154,0.3);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .map-toggle-btn:hover {
+      background: var(--green-mid);
+      color: var(--stone);
+    }
+
     .route-map {
       width: 100%;
       height: 900px;
@@ -264,6 +284,10 @@
 
     <!-- Map -->
     <div class="route-map-wrap">
+      <button class="map-toggle-btn" id="map-style-btn"
+              data-en="B&amp;W map" data-sv="S/V karta" data-it="Mappa B/N">
+        B&amp;W map
+      </button>
       <div class="route-map" id="route-map">
         <div class="map-loading" id="map-loading"
              data-en="Loading routes..."
@@ -340,11 +364,40 @@
     // Default view — Italy
     map.setView([42, 13], 5);
 
-    L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+    // ── Tile layers ──
+    const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
       attribution: '© OpenTopoMap contributors',
       maxZoom: 20,
       opacity: 0.85
-    }).addTo(map);
+    });
+
+    const bwLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '© OpenStreetMap contributors, © CartoDB',
+      maxZoom: 20,
+      opacity: 1
+    });
+
+    let isBW = false;
+    topoLayer.addTo(map);
+
+    document.getElementById('map-style-btn').addEventListener('click', () => {
+      if (isBW) {
+        map.removeLayer(bwLayer);
+        topoLayer.addTo(map);
+        document.getElementById('map-style-btn').setAttribute('data-en', 'B&W map');
+        document.getElementById('map-style-btn').setAttribute('data-sv', 'S/V karta');
+        document.getElementById('map-style-btn').setAttribute('data-it', 'Mappa B/N');
+        document.getElementById('map-style-btn').textContent = 'B&W map';
+      } else {
+        map.removeLayer(topoLayer);
+        bwLayer.addTo(map);
+        document.getElementById('map-style-btn').setAttribute('data-en', 'Topo map');
+        document.getElementById('map-style-btn').setAttribute('data-sv', 'Topokarta');
+        document.getElementById('map-style-btn').setAttribute('data-it', 'Mappa topo');
+        document.getElementById('map-style-btn').textContent = 'Topo map';
+      }
+      isBW = !isBW;
+    });
 
     const loadingEl = document.getElementById('map-loading');
     if (loadingEl) loadingEl.remove();

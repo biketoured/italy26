@@ -73,11 +73,6 @@ function applyNavTheme(page) {
   }`;
 }
 
-
-  function getPrefix() {
-  return window.location.pathname.includes('/blog/') ? '../' : '';
-}
-
 // ── NAV INJECTION ───────────────────────────────────────────
 // Builds and injects the shared nav into <nav id="shared-nav">.
 // Pass the page name to hide the correct link and set home href.
@@ -204,46 +199,12 @@ function injectPizzaScrollbar() {
       </div>
     </div>`;
 
-  // Hide native scrollbar
-  const styleEl = document.createElement('style');
-  styleEl.textContent = `
-    html { scrollbar-width: none; }
-    html::-webkit-scrollbar { display: none; }
-    #pizza-scrollbar {
-      position: fixed; right: 0; top: 0; bottom: 0;
-      width: 44px; z-index: 9999;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: space-between;
-      padding: 0;
-      cursor: pointer;
-      user-select: none;
-    }
-    .sb-track {
-      position: absolute; top: 0; bottom: 0; left: 50%;
-      width: 2px; background: rgba(196,180,154,0.15);
-      transform: translateX(-50%);
-    }
-    #pizza-thumb {
-      position: absolute; left: 50%; transform: translateX(-50%);
-      width: 36px; height: 36px; z-index: 3;
-      display: flex; align-items: center; justify-content: center;
-      cursor: grab;
-    }
-    #pizza-thumb:active { cursor: grabbing; }
-    #pizza-thumb img { width: 32px; height: 32px; object-fit: contain; }
-    @media (max-width: 768px) {
-      #pizza-scrollbar { width: 36px; }
-      #pizza-thumb { width: 30px; height: 30px; }
-      #pizza-thumb img { width: 26px; height: 26px; }
-    }
-  `;
-  document.head.appendChild(styleEl);
   document.body.insertAdjacentHTML('beforeend', html);
 
   const scrollbar  = document.getElementById('pizza-scrollbar');
   const thumb      = document.getElementById('pizza-thumb');
   const img        = thumb.querySelector('img');
-  const TRACK_PAD  = 30;   // px reserved for each flag at top/bottom
+  const TRACK_PAD  = 26;   // half of thumb height so pizza stays within viewport
 
   // ── Spin physics (rAF-based — no CSS animation, no snapping) ──
   const TARGET_DEG_S = 240;    // deg/s while scrolling (1 rev per 1.5s)
