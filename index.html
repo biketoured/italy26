@@ -964,25 +964,6 @@
     .donation-meter { animation-delay: 1.5s; }
 
 
-    .map-toggle-btn {
-      position: absolute;
-      top: 0.75rem; right: 0.75rem;
-      z-index: 500;
-      background: var(--green);
-      color: var(--stone);
-      border: 1px solid rgba(196,180,154,0.3);
-      font-family: 'DM Mono', monospace;
-      font-size: 0.62rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 0.4rem 0.8rem;
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s;
-    }
-    .map-toggle-btn:hover {
-      background: var(--green-mid);
-      color: var(--stone);
-    }
     /* ── TRIP STATS BAR ── */
     .trip-stats {
       display: flex;
@@ -1363,7 +1344,7 @@
       <!-- Trip stats bar — values filled by JS from activities.json -->
       <div class="trip-stats" id="trip-stats">
         <div class="trip-stat-tab">
-          <img src="assets/images/distance.svg" alt="Distance" class="trip-stat-icon"
+          <img src="assets/images/road.png" alt="Distance" class="trip-stat-icon"
                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <div class="trip-stat-icon-placeholder" style="display:none;">km</div>
           <div class="trip-stat-text">
@@ -1406,6 +1387,21 @@
                  data-en="Placeholder"
                  data-sv="Platshållare"
                  data-it="Segnaposto">Placeholder</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="position:relative;">
+        <button class="map-toggle-btn" id="map-style-btn"
+                data-en="B&amp;W map" data-sv="Svartvit karta" data-it="Mappa B&amp;W">
+          B&amp;W map
+        </button>
+        <div class="strava-map" id="strava-map">
+          <div class="map-loading" id="map-loading"
+              data-en="Loading activities..."
+              data-sv="Laddar aktiviteter..."
+              data-it="Caricamento le attività...">
+            Loading activities...
           </div>
         </div>
       </div>
