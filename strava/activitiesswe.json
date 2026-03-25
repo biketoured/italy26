@@ -1,16 +1,5 @@
 [
   {
-    "id": 12003216200,
-    "name": "LOFOTEN #10 Trondheim - Storlien",
-    "type": "Ride",
-    "date": "2024-07-27T23:38:52Z",
-    "distance": 108.9,
-    "elevation": 1346,
-    "moving_time": 20071,
-    "calories": 0.0,
-    "polyline": "kwcbKq~k~@oAgj@hBye@y]sYyE{fByBcvA_Ewd@~Bet@fKob@xAa@i@aFdGka@~Bkg@GiOsGyf@eBwp@dGk^vIi\\eJ__@fJggApFgUjNaRvDmd@^k[gH_b@TsPuEsc@bFsj@j@_e@}Jge@}C}TXiVGlCaDiAqUseA_Dye@eRohAjAwK|I{InMoWrB{SmJod@oFyaAkPefAuEokAlTqi@zJad@@cq@zJi_CtGkg@xFyv@k@s`@pCyn@sJk~Bs@_cAfFsk@hJmn@~Nc]l]ca@pYnFzEcFrCiK`PyO~Kou@`@u_@uWkzA_HqI_IiBiIpJyZpBwIaLwOcqAeMsc@kXsoB}Xon@kRwt@gBuNrHa~AyHwlBwOgb@cAyVOu@vA`ThBib@}@_`@rIq`@qC}OfAsk@wAsCdAqAsBab@qIeMeFch@p@{k@zLefAe@qiA}B{_@oDeKwHqv@}HcgAnDu|@a@cXiNkg@lFq}@mA{g@xAc|@wEcq@}@k_AfCyq@uQmXgHqd@sNaP}Oei@J}dAbA_TdAN_AuAlKwnCmA}n@iCuTtBm]iCw`@{@mx@nBc|@bO{VxUwNdCqWxOgNbDaIfRqV|NoqAjI{[rQsNbBuZjF_SgIur@Mqa@zC}\\sA_Nl@sR{AcKuJqIxA{^oFRkGfZ}GhMmFex@iKyd@wIaQuQeKiZib@sTqq@i@cf@vHsm@h@iTwKi_B@qrDyIql@i@mPjFal@{@ch@vCalA{Byg@lAyy@fIgf@dOcc@^kIqLc|@X{c@|Dsj@aC{]@qbAmCiK}MaPoQsK{FyQcAoNj@}nA_LwzAxIwX`Joj@jAcgAvIoxAwAs~@rYwpA|Gyf@wCc_AXqNvLqe@vGol@xT{\\tNug@~Csg@vNsy@dC}hB}CbkA_EsOi@uOxDy]vJyh@oAa|BjAqk@aGo`CdNka@jHqZpHimAb`@cs@xXsnBhU{g@vZgG`Ye^xO[dJqc@`[{ObMkWtDcvAfj@s~B|D}zAlKgl@Q{d@dBaWbO}g@b`@{iCpEsKfKoIjMsZnAcy@wDij@lHisA`Gk]`H_mArJ{p@pMkvAjPkt@|IinA~Vw{A~Lwe@uLvi@x}@ufEtF{KnO}MtPsd@hEoz@p]_sA~E{|@`Mqv@bCyh@~G_e@zGsU~HmEnZb[fIa@lFsJpJ}d@jWq[rYkmCvVuz@AgT|EmJ"
-  },
-  {
     "id": 11986494863,
     "name": "LOFOTEN #9: Nusfjord - Å",
     "type": "Ride",
