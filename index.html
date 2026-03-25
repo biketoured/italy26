@@ -1927,10 +1927,34 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
             };
             excerpt = '<p class="blog-card-excerpt">' + (labels[lang] || labels.en) + '</p>';
           }
+
           const href = 'blog/post.html?slug=' + post.slug;
-          const cover = post.cover
-            ? '<div class="blog-card-cover" style="background-image:url(\'' + post.cover + '\')"></div>'
-            : '';
+
+          const coverUrl = '/italy26/blog/posts/' + post.slug + '/cover.jpg';
+          const cover = '<div class="blog-card-cover" id="cover-' + post.slug + '" style="background-image:url(\'' + coverUrl + '\')"></div>';
+          // Cascade through extensions then placeholder
+          setTimeout(() => {
+            const el = document.getElementById('cover-' + post.slug);
+            if (!el) return;
+            const slug = post.slug;
+            const tries = ['cover.jpeg','cover.png','cover.webp','/italy26/assets/images/placehold.png'];
+            let i = 0;
+            function tryNext() {
+              const img = new Image();
+              img.onload = () => { if (el) el.style.backgroundImage = "url('" + img.src + "')"; };
+              img.onerror = () => { if (i < tries.length) { img.src = (tries[i].startsWith('/') ? tries[i] : '/italy26/blog/posts/' + slug + '/' + tries[i]); i++; } };
+              img.src = coverUrl;
+            }
+            const probe = new Image();
+            probe.onerror = () => {
+              if (i < tries.length) {
+                const next = tries[i].startsWith('/') ? tries[i] : '/italy26/blog/posts/' + slug + '/' + tries[i];
+                i++;
+                if (el) el.style.backgroundImage = "url('" + next + "')";
+              }
+            };
+            probe.src = coverUrl;
+          }, 50);
 
           return '<a href="' + href + '" class="blog-card">' +
             cover +

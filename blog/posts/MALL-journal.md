@@ -5,16 +5,10 @@ day: X
 location: Stad, Region
 km: 0
 elevation: 0
-cover: photos/photo-01.jpg
 title:
   en: Day X — Stad, Region
   sv: Dag X — Stad, Region
   it: Giorno X — Città, Regione
-photos:
-  - src: photos/photo-01.jpg
-    caption: Din bildtext här
-  - src: photos/photo-02.jpg
-    caption: ""
 ---
 
 ## How did my body feel?
