@@ -5,7 +5,7 @@ day: 2
 location: Teststad, Testregion
 km: 50
 elevation: 500
-cover: italy26/assets/images/placehold.png
+cover: placehold.png
 title:
   en: Day 2 — Teststad, Testregion
   sv: Dag 2 — Teststad, Testregion
