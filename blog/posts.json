@@ -7,7 +7,7 @@
     "location": "Genova, Liguria",
     "km": 87,
     "elevation": 1240,
-    "cover": "../assets/images/placehold.png",
+    "cover": "assets/images/placehold.png",
     "title": {
       "en": "Day 1 — Genova, Liguria",
       "sv": "Dag 1 — Genova, Ligurien",
@@ -19,7 +19,7 @@
     "type": "blog",
     "date": "2026-03-01",
     "tag": "Gear",
-    "cover": "../assets/images/placehold.png",
+    "cover": "assets/images/placehold.png",
     "title": {
       "en": "What goes in the bags for a 40-day trip",
       "sv": "Vad packar man för en 40-dagarsresa",
@@ -33,7 +33,7 @@
   "location": "Teststad, Testregion",
   "km": 50,
   "elevation": 500,
-  "cover": "../assets/images/placehold.png",
+  "cover": "assets/images/placehold.png",
   "title": {
     "en": "Day 2 — Teststad, Testregion",
     "sv": "Dag 2 — Teststad, Testregion",

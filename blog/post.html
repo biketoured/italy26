@@ -144,7 +144,7 @@
           if (!r.ok) throw new Error('not found');
           return r.text();
         });
-      tryFetch(currentLang)
+      tryFetch(typeof currentLang !== 'undefined' ? currentLang : 'en')
         .catch(() => tryFetch('en'))
         .then(raw => {
           if (!raw) throw new Error('empty');
@@ -156,18 +156,19 @@
           
           const photos  = meta.photos || [];
           const type    = meta.type || 'blog';
-          const title   = meta.title ? (meta.title[currentLang] || meta.title.en || slug) : slug;
+          const lang    = typeof currentLang !== 'undefined' ? currentLang : 'en';
+          const title   = meta.title ? (meta.title[lang] || meta.title.en || slug) : slug;
 
           document.title = `${title} — Edvard A`;
 
-          const backLabel = backLabels[type][currentLang];
+          const backLabel = backLabels[type][lang] || backLabels[type]['en'];
           const backHref  = `index.html?tab=${type}`;
 
           const badgeText = type === 'journal'
-            ? ({ en: 'Day', sv: 'Dag', it: 'Giorno' }[currentLang] + ' ' + meta.day)
+            ? ({ en: 'Day', sv: 'Dag', it: 'Giorno' }[lang] + ' ' + meta.day)
             : meta.tag;
 
-          const dateFmt   = formatDate(meta.date, currentLang);
+          const dateFmt   = formatDate(meta.date, lang);
           const metaParts = [dateFmt];
           if (type === 'journal') {
             if (meta.km)        metaParts.push(meta.km + ' km');
@@ -193,7 +194,12 @@
             `<div class="error-state">Post not found.<br><small>${err.message}</small></div>`;
         });}
 
-    loadPost(); // initial load — main.js has already set currentLang
+    // Wait for main.js (defer) to finish before calling loadPost
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', loadPost);
+    } else {
+      loadPost();
+    }
   </script>
 </body>
 </html>

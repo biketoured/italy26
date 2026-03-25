@@ -29,7 +29,7 @@
   "location": "Stad, Region",
   "km": 0,
   "elevation": 0,
-  "cover": "../assets/images/placehold.png",
+  "cover": "assets/images/placehold.png",
   "title": {
     "en": "Day X — Stad, Region",
     "sv": "Dag X — Stad, Region",
@@ -44,7 +44,7 @@
   "type": "blog",
   "date": "ÅÅÅÅ-MM-DD",
   "tag": "Gear",
-  "cover": "../assets/images/placehold.png",
+  "cover": "assets/images/placehold.png",
   "title": {
     "en": "Din engelska titel",
     "sv": "Din svenska titel",
