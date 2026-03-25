@@ -516,7 +516,8 @@
         <p class="org-desc">
           <span data-en="Sweden's leading foundation funding research into brain diseases — including early diagnostics, tumour biology, and the development of new treatments. All donations go directly to Swedish research projects."
                 data-sv="Sveriges ledande stiftelse för forskning om hjärnsjukdomar — inklusive tidig diagnostik, tumörbiologi och utveckling av nya behandlingar. Alla donationer går direkt till svenska forskningsprojekt."
-                data-it="La principale fondazione svedese che finanzia la ricerca sulle malattie cerebrali — inclusa la diagnostica precoce, la biologia tumorale e lo sviluppo di nuovi trattamenti. Tutte le donazioni vanno direttamente a progetti di ricerca svedesi.">Sweden's leading foundation funding research into brain diseases — including early diagnostics, tumour biology, and the development of new treatments. All donations go directly to Swedish research projects.</span>
+                data-it="La principale fondazione svedese che finanzia la ricerca sulle malattie cerebrali — inclusa la diagnostica precoce, la biologia tumorale e lo sviluppo di nuovi trattamenti. Tutte le donazioni vanno direttamente a progetti di ricerca svedesi.">
+                Sweden's leading foundation funding research into brain diseases — including early diagnostics, tumour biology, and the development of new treatments. All donations go directly to Swedish research projects.</span>
         </p>
         <!-- INSERT: replace # with Hjärnfonden's official website URL -->
         <a href="https://www.hjarnfonden.se/" class="org-link" target="_blank">hjarnfonden.se →</a>
@@ -553,16 +554,19 @@
           <!-- INSERT: replace the placeholder below with your Swish number -->
           <div class="payment-detail placeholder" id="swish-number">
             <span>0725532011</span>
-             <button class="copy-btn" onclick="copyText('bic-number')" title="Copy BIC">⧉</button>
+             <button class="copy-btn" onclick="copyText('swish-number')" title="Kopiera">⧉</button>
           </div>
-          <p class="payment-note" data-en="Use your message field to write your name or nickname — it will appear in the donor list on this site." data-sv="Skriv ditt namn eller smeknamn i meddelandefältet — det visas i givarlistan på den här sidan." data-it="Usa il campo messaggio per scrivere il tuo nome o soprannome — apparirà nell'elenco dei donatori su questo sito.">Use your message field to write your name or nickname — it will appear in the donor list on this site.</p>
+          <p class="payment-note" data-en="Use your message field to write your nickname that will appear in the donor list on this site." data-sv="Använd meddelandefältet för att skriva det namnet du vill ska synas i meddelandefältet. Det kommer visas i donationslistan på den här sidan." data-it="Usa il campo messaggio per scrivere il tuo nome o soprannome — apparirà nell'elenco dei donatori su questo sito.">
+            Use your message field to write your name or nickname — it will appear in the donor list on this site.</p>
         </div>
 
         <div class="payment-method">
           <div class="payment-method-name" data-en="Swish QR code" data-sv="Swish QR-kod" data-it="Codice QR Swish">Swish QR code</div>
           <!-- INSERT: replace this div with an <img> tag pointing to your Swish QR code image -->
           <!-- Example: <img src="assets/images/swish-qr.png" alt="Swish QR" style="width:140px;"> -->
-          <div class="qr-placeholder">Add QR<br>image here</div>
+          <div class="qr-placeholder">
+            <img src="italy26/assets/images/pizza" alt="Swish QR">
+          </div>
           <p class="payment-note" data-en="Scan with your Swish app to pay instantly." data-sv="Skanna med din Swish-app för att betala direkt." data-it="Scansiona con la tua app Swish per pagare istantaneamente.">Scan with your Swish app to pay instantly.</p>
         </div>
 
@@ -578,9 +582,10 @@
           <!-- INSERT: replace with your Satispay username or link -->
           <div class="payment-detail placeholder" id="satispay-handle">
             <span>INSERT SATISPAY HANDLE</span>
-             <button class="copy-btn" onclick="copyText('bic-number')" title="Copy BIC">⧉</button>
+             <button class="copy-btn" onclick="copyText('satispay-handle')" title="Copy BIC">⧉</button>
           </div>
-          <p class="payment-note" data-en="Search for this name in your Satispay app. Free for personal accounts." data-sv="Sök efter det här namnet i din Satispay-app. Gratis för privatkonton." data-it="Cerca questo nome nella tua app Satispay. Gratuito per account personali.">Search for this name in your Satispay app. Free for personal accounts.</p>
+          <p class="payment-note" data-en="Search for this name in your Satispay app. Free for personal accounts." data-sv="Sök efter det här namnet i din Satispay-app. Gratis för privatkonton." data-it="Cerca questo nome nella tua app Satispay. Gratuito per account personali.">
+            Search for this name in your Satispay app. Free for personal accounts.</p>
         </div>
 
         <div class="payment-method">
@@ -591,11 +596,12 @@
             <button class="copy-btn" onclick="copyText('iban-number')" title="Copy IBAN">⧉</button>
           </div>
           <!-- INSERT: replace with your bank's BIC/SWIFT code -->
-          <div class="payment-detail placeholder" style="margin-top:0.4rem;">
+          <div class="payment-detail placeholder" style="margin-top:0.4rem;" id="bic-number">
             <span>BIC/SWIFT: INSERT BIC</span>
              <button class="copy-btn" onclick="copyText('bic-number')" title="Copy BIC">⧉</button>
           </div>
-          <p class="payment-note" data-en="Include your name in the payment description — it will appear in the donor list." data-sv="Ange ditt namn i betalningsbeskrivningen — det visas i givarlistan." data-it="Includi il tuo nome nella descrizione del pagamento — apparirà nell'elenco dei donatori.">Include your name in the payment description — it will appear in the donor list.</p>
+          <p class="payment-note" data-en="Include your name in the payment description. It will appear in the donor list." data-sv="Ange namn i betalningsbeskrivningen. Namnet visas i givarlistan." data-it="Includi il tuo nome nella descrizione del pagamento. Apparirà nell'elenco dei donatori.">
+            Include your name in the payment description — it will appear in the donor list.</p>
         </div>
 
       </div>
@@ -605,14 +611,13 @@
     <!-- ══ TRANSPARENCY ══ -->
     <div class="transparency">
       <p>
-        <span data-en="<strong>Transparency commitment:<br></strong> I personally cover all costs of the trip — equipment, transport, food, accommodation. No donation money is used for my expenses. After the trip, donation receipts to both organisations will be published on this page. Questions? Write to me at <strong><!-- INSERT email --></strong>."
-              data-sv="<strong>Transparenslöfte:</strong> Jag betalar personligen alla resekostnader — utrustning, transport, mat, boende. Inga donationspengar används för mina utgifter. Efter resan publiceras donationskvitton till båda organisationerna på den här sidan. Frågor? Skriv till mig på <strong><!-- INSERT email --></strong>."
-              data-it="<strong>Impegno per la trasparenza:</strong> Copro personalmente tutti i costi del viaggio — attrezzatura, trasporto, cibo, alloggio. Nessun denaro donato viene utilizzato per le mie spese. Dopo il viaggio, le ricevute delle donazioni a entrambe le organizzazioni saranno pubblicate su questa pagina. Domande? Scrivimi a <strong><!-- INSERT email --></strong>.">
-              <strong>Transparency commitment:</strong> I personally cover all costs of the trip — equipment, transport, food, accommodation. No donation money is used for my expenses. After the trip, donation receipts to both organisations will be published on this page. Questions? Write to me at <strong><!-- INSERT email --></strong>.</span>
+        <span data-en="<strong>Transparency commitment:<br></strong> I personally cover all costs of the trip — equipment, transport, food, accommodation. No donation money is used for my expenses. After the trip, donation receipts to both organisations will be published on this page. Questions? Write to me at <strong>edvaberg@gmail.com</strong>."
+              data-sv="<strong>Transparenslöfte:</strong> Jag betalar personligen alla resekostnader: Utrustning, transport, mat, boende står jag själv för. Inga donationspengar används för mina utgifter. Efter resan publiceras donationskvitton till båda organisationerna på den här sidan. Frågor? Skriv till mig på <strong>edvaberg@gmail.com</strong>."
+              data-it="<strong>Impegno per la trasparenza:</strong> Copro personalmente tutti i costi del viaggio — attrezzatura, trasporto, cibo, alloggio. Nessun denaro donato viene utilizzato per le mie spese. Dopo il viaggio, le ricevute delle donazioni a entrambe le organizzazioni saranno pubblicate su questa pagina. Domande? Scrivimi a <strong>edvaberg@gmail.com</strong>.">
+              <strong>Transparency commitment:</strong> I personally cover all costs of the trip — equipment, transport, food, accommodation. No donation money is used for my expenses. After the trip, donation receipts to both organisations will be published on this page. Questions? Write to me at <strong>edvaberg@gmail.com</strong>.</span>
       </p>
     </div>
 
-  </div>
 
   <!-- ══ FOOTER ══ -->
   <footer id="shared-footer"></footer>
