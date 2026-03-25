@@ -65,7 +65,7 @@ nav {
   align-items: center;
   padding: 1.2rem 3rem;
   background: var(--nav-bg);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--nav-border);
   gap: 1.5rem;
 }

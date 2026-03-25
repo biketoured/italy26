@@ -11,20 +11,10 @@ function getCurrentPage() {
   const path = window.location.pathname;
   if (path.includes('sweden2024'))        return 'sweden2024';
   if (path.includes('donate'))            return 'donate';
-  if (path.includes('/blog/') && path.includes('post')) return 'post';
-  if (path.includes('/blog/'))            return 'blog';
+  if (path.includes('blog'))            return 'blog';
   if (path.includes('route'))             return 'routes';
   return 'index'; // default — root index.html
 }
-
-// ── PATH PREFIX ─────────────────────────────────────────────
-// Pages inside subfolders (e.g. blog/) need ../ prefixes.
-function getPrefix() {
-  const path = window.location.pathname;
-  if (path.includes('/blog/')) return '../';
-  return '';
-}
-
 
 // ── NAV THEME CONFIG ─────────────────────────────────────────
 // Edit these to control nav bg and link colours per page.

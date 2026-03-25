@@ -8,85 +8,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <script src="manuals.js"></script>
+  <link rel="stylesheet" href="/italy26/static/css/style.css">
+  <script src="/italy26/static/js/main.js" defer></script>
+  
   <style>
-    /* ── LANG SWITCHER ── */
-    .lang-switcher { display: flex; align-items: center; gap: 0.4rem; }
-    .lang-btn {
-      background: none; border: none; cursor: pointer;
-      padding: 0.1rem 0.15rem; border-radius: 3px;
-      opacity: 0.45; transition: opacity 0.2s, transform 0.15s; line-height: 0;
-    }
-    .lang-btn:hover { opacity: 0.85; transform: scale(1.1); }
-    .lang-btn.active { display: none; }
-
-    :root {
-      --green:         #1E3D2F;
-      --green-mid:     #3A6B4A;
-      --green-light:   #6da874;
-      --stone:         #C4B49A;
-      --stone-dark:    #8C7B65;
-      --soil:          #7A5C3E;
-      --red:           #a0503b;
-      --red-warm:      #cc7451;
-      --yellow:        #D4A94A;
-      --sky:           #7AAFC4;
-      --sky-deep:      #4A7A96;
-      --sky-pale:      #B8D4E0;
-      --text:          #1A1A18;
-      --text-muted:    #99915d;
-      --white:         #FDFAF4;
-      --black:         #111110;
-      --lavender:      #9B8AB4;
-      --sage:          #7A8C6E;
-      --cream:         #F5EDD6;
-      --text-light:    #E8DCC8;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--green);
-      color: var(--stone);
-      overflow-x: hidden;
-      min-height: 100vh;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.2rem 3rem;
-      background: rgba(30, 61, 47, 0.96);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(196,180,154,0.12);
-    }
-
-    .nav-back {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--stone-dark);
-      text-decoration: none;
-      transition: color 0.2s;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .nav-back:hover { color: var(--sky); }
-
-    .nav-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      color: var(--stone);
-      font-style: italic;
-    }
 
     /* ── PAGE WRAPPER ── */
     .page {
@@ -460,29 +385,6 @@
 
 <body>
 
-  <!-- ══ NAV ══ -->
-  <nav>
-    <a href="https://biketoured.github.io/italy26" class="nav-back"
-       data-en="← Home"
-       data-sv="← Hem"
-       data-it="← Home">← Home</a>
-    <div class="lang-switcher">
-      <button class="lang-btn active" data-lang="en" title="English">
-        <img src="assets/images/flaguk.png" alt="English" width="50" height="50">
-      </button>
-      <button class="lang-btn" data-lang="sv" title="Svenska">
-        <img src="assets/images/flagse.png" alt="Svenska" width="36" height="36">
-      </button>
-      <button class="lang-btn" data-lang="it" title="Italiano">
-        <img src="assets/images/flagit.png" alt="Italiano" width="36" height="36">
-      </button>
-    </div>
-    <span class="nav-title"
-          data-en="Donate"
-          data-sv="Donera"
-          data-it="Dona">Donate</span>
-  </nav>
-
   <div class="page">
 
     <!-- ══ STORY ══ -->
@@ -492,14 +394,25 @@
           data-sv="Cyklar för <em>forskning</em><br>som förändrar liv"
           data-it="Pedalando per la <em>ricerca</em><br>che cambia le vite">Riding for <em>research</em><br>that changes lives</h1>
       <p>
-        <span data-en="This journey through Italy — 40 days, roughly 4 000 km, from Sardinia to the Veneto — is about more than cycling. Every kilometre is ridden in memory of someone I lost to a brain tumour, and in hope for those who are fighting one today."
+        <span data-en="This adventure across Italy; roughly 4 000 km through almost every region, is about more than just cycling. Every kilometre is ridden in memory of someone I lost to a brain tumour, and in hope for those who are fighting one today."
               data-sv="Den här resan genom Italien — 40 dagar, ungefär 4 000 km, från Sardinien till Veneto — handlar om mer än cykling. Varje kilometer cyklas i minnet av någon jag förlorade till en hjärntumör, och i hopp för dem som kämpar idag."
+              data-it="Questo viaggio attraverso l'Italia — 40 giorni, circa 4 000 km, dalla Sardegna al Veneto — è molto più che ciclismo. Ogni chilometro viene percorso in memoria di qualcuno che ho perso a causa di un tumore al cervello, e nella speranza per chi sta combattendo oggi.">
+              This journey through Italy — 40 days, roughly 4 000 km, from Sardinia to the Veneto — is about more than cycling. Every kilometre is ridden in memory of someone I lost to a brain tumour, and in hope for those who are fighting one today.</span>
+      </p>      
+      <p>
+        <span data-en="A journey like this would likely be impossible to complete for most people on earth. While it may sound intimidating, it only points out just how privileged I am to undertake such a challenge. I am not only lucky to be free from health complications stopping me, but also for having the physical and mental capacity for it. <br>
+        When my father was diagnosed with brain tumors in 2017 his life changed drastically. The surgeries, rehabilitation and horrible uncertainty that he went through during the years following. I would never wish anyone had to go through the same. Despite this he stayed strong and positive. <br>
+        Me and my family are thankful beyond words for the advancements made in brain surgery that allowed my father to stay alive several years longer than would have been possible just a handful of years earlier. This charity collection is my way of giving back to the brain research that made it possible."
+              data-sv="En resa som denna skulle förmodligen vara omöjlig för de allra flesta. Även om det kan kännas överväldigande skulle jag snarare se det som ett privilegium att ta mig an den här utmaningen. Jag har turen att vara fri från hälsokomplikationer, och är fortfarande ung och stark i kropp och själ.<br>
+        Efter att min far blev diagnosticerad med hjärncancer 2017 förändrades hans liv snabbt. Operationerna, rehabiliteringen och den otäcka ovissheten om hur länge han klarar sig var inte enbart jobbig för honom, men även för oss närstående under åren som följde. <br>
+        Hjärncancer är en sann tragedi, en sjukdom som man inte riktigt kan förhindra på något säkert sätt. Det är hjärtkrossande att veta att någon man bryr sig om har en ytterst begränsad tid kvar. Lyckligtvis behöll min far sin personlighet hela vägen, men det kan ske stora förändringar i takt med att tumörerna sakta men säkert gör hjärnan dysfunktionell.
+        Jag och min familj är evigt tacksamma för de framgångar som skett inom hjärncancerforskningen, som tillåtit min far att kunna stanna med oss några år längre än vad som hade varit möjligt endast några år tidigare. Den här insamlingen är mitt sätt att ge tillbaka."
               data-it="Questo viaggio attraverso l'Italia — 40 giorni, circa 4 000 km, dalla Sardegna al Veneto — è molto più che ciclismo. Ogni chilometro viene percorso in memoria di qualcuno che ho perso a causa di un tumore al cervello, e nella speranza per chi sta combattendo oggi.">
               This journey through Italy — 40 days, roughly 4 000 km, from Sardinia to the Veneto — is about more than cycling. Every kilometre is ridden in memory of someone I lost to a brain tumour, and in hope for those who are fighting one today.</span>
       </p>
       <p>
-        <span data-en="<strong>100% of every donation goes directly to the organisations below.</strong> No platform fees, no middlemen. I cover all costs of the trip myself. You can follow every kilometre on this site in real time, and after the trip I will publish the donation receipts here."
-              data-sv="<strong>100% av varje donation går direkt till organisationerna nedan.</strong> Inga plattformsavgifter, inga mellanhänder. Jag betalar alla resekostnader själv. Du kan följa varje kilometer på den här sidan i realtid, och efter resan publicerar jag kvittona här."
+        <span data-en="<strong>100% of every donation goes directly to the organisations below.</strong> No platform fees, no middlemen. I cover all costs of my trip myself. You can follow every kilometre on this site in real time, and after the trip I will publish the donation receipts below."
+              data-sv="<strong>100% av varje donation går direkt till organisationerna nedan.</strong> Inga plattformsavgifter, inga mellanhänder. Jag står för alla kostnader under resan själv. Du kan följa varje kilometer på den här sidan i realtid, och under resans gång + efter resan publicerar jag donationskvittona här."
               data-it="<strong>Il 100% di ogni donazione va direttamente alle organizzazioni qui sotto.</strong> Nessuna commissione, nessun intermediario. Copro personalmente tutti i costi del viaggio. Puoi seguire ogni chilometro su questo sito in tempo reale, e dopo il viaggio pubblicherò le ricevute delle donazioni qui.">
               <strong>100% of every donation goes directly to the organisations below.</strong> No platform fees, no middlemen. I cover all costs of the trip myself. You can follow every kilometre on this site in real time, and after the trip I will publish the donation receipts here.</span>
       </p>
@@ -514,7 +427,8 @@
       <div class="goal-bar">
         <div class="goal-fill" id="donate-fill" style="width:0%"></div>
       </div>
-      <p class="goal-note" data-en="Updated manually each evening from the road" data-sv="Uppdateras manuellt varje kväll från vägen" data-it="Aggiornato manualmente ogni sera dalla strada">Updated manually each evening from the road</p>
+      <p class="goal-note" data-en="Updated manually each evening from the road" data-sv="Uppdateras manuellt varje kväll från vägen" data-it="Aggiornato manualmente ogni sera dalla strada">
+        Updated manually each evening from the road</p>
     </div>
 
     <!-- ══ ORGANISATIONS ══ -->
@@ -530,7 +444,8 @@
         <p class="org-desc">
           <span data-en="Sweden's leading foundation funding research into brain diseases — including early diagnostics, tumour biology, and the development of new treatments. All donations go directly to Swedish research projects."
                 data-sv="Sveriges ledande stiftelse för forskning om hjärnsjukdomar — inklusive tidig diagnostik, tumörbiologi och utveckling av nya behandlingar. Alla donationer går direkt till svenska forskningsprojekt."
-                data-it="La principale fondazione svedese che finanzia la ricerca sulle malattie cerebrali — inclusa la diagnostica precoce, la biologia tumorale e lo sviluppo di nuovi trattamenti. Tutte le donazioni vanno direttamente a progetti di ricerca svedesi.">Sweden's leading foundation funding research into brain diseases — including early diagnostics, tumour biology, and the development of new treatments. All donations go directly to Swedish research projects.</span>
+                data-it="La principale fondazione svedese che finanzia la ricerca sulle malattie cerebrali — inclusa la diagnostica precoce, la biologia tumorale e lo sviluppo di nuovi trattamenti. Tutte le donazioni vanno direttamente a progetti di ricerca svedesi.">
+                Sweden's leading foundation funding research into brain diseases — including early diagnostics, tumour biology, and the development of new treatments. All donations go directly to Swedish research projects.</span>
         </p>
         <!-- INSERT: replace # with Hjärnfonden's official website URL -->
         <a href="https://www.hjarnfonden.se/" class="org-link" target="_blank">hjarnfonden.se →</a>
@@ -567,16 +482,19 @@
           <!-- INSERT: replace the placeholder below with your Swish number -->
           <div class="payment-detail placeholder" id="swish-number">
             <span>0725532011</span>
-             <button class="copy-btn" onclick="copyText('bic-number')" title="Copy BIC">⧉</button>
+             <button class="copy-btn" onclick="copyText('swish-number')" title="Kopiera">⧉</button>
           </div>
-          <p class="payment-note" data-en="Use your message field to write your name or nickname — it will appear in the donor list on this site." data-sv="Skriv ditt namn eller smeknamn i meddelandefältet — det visas i givarlistan på den här sidan." data-it="Usa il campo messaggio per scrivere il tuo nome o soprannome — apparirà nell'elenco dei donatori su questo sito.">Use your message field to write your name or nickname — it will appear in the donor list on this site.</p>
+          <p class="payment-note" data-en="Use your message field to write your nickname that will appear in the donor list on this site." data-sv="Använd meddelandefältet för att skriva det namnet du vill ska synas i meddelandefältet. Det kommer visas i donationslistan på den här sidan." data-it="Usa il campo messaggio per scrivere il tuo nome o soprannome — apparirà nell'elenco dei donatori su questo sito.">
+            Use your message field to write your name or nickname — it will appear in the donor list on this site.</p>
         </div>
 
         <div class="payment-method">
           <div class="payment-method-name" data-en="Swish QR code" data-sv="Swish QR-kod" data-it="Codice QR Swish">Swish QR code</div>
           <!-- INSERT: replace this div with an <img> tag pointing to your Swish QR code image -->
           <!-- Example: <img src="assets/images/swish-qr.png" alt="Swish QR" style="width:140px;"> -->
-          <div class="qr-placeholder">Add QR<br>image here</div>
+          <div class="qr-placeholder">
+            <img src="italy26/assets/images/pizza" alt="Swish QR">
+          </div>
           <p class="payment-note" data-en="Scan with your Swish app to pay instantly." data-sv="Skanna med din Swish-app för att betala direkt." data-it="Scansiona con la tua app Swish per pagare istantaneamente.">Scan with your Swish app to pay instantly.</p>
         </div>
 
@@ -592,9 +510,10 @@
           <!-- INSERT: replace with your Satispay username or link -->
           <div class="payment-detail placeholder" id="satispay-handle">
             <span>INSERT SATISPAY HANDLE</span>
-             <button class="copy-btn" onclick="copyText('bic-number')" title="Copy BIC">⧉</button>
+             <button class="copy-btn" onclick="copyText('satispay-handle')" title="Copy BIC">⧉</button>
           </div>
-          <p class="payment-note" data-en="Search for this name in your Satispay app. Free for personal accounts." data-sv="Sök efter det här namnet i din Satispay-app. Gratis för privatkonton." data-it="Cerca questo nome nella tua app Satispay. Gratuito per account personali.">Search for this name in your Satispay app. Free for personal accounts.</p>
+          <p class="payment-note" data-en="Search for this name in your Satispay app. Free for personal accounts." data-sv="Sök efter det här namnet i din Satispay-app. Gratis för privatkonton." data-it="Cerca questo nome nella tua app Satispay. Gratuito per account personali.">
+            Search for this name in your Satispay app. Free for personal accounts.</p>
         </div>
 
         <div class="payment-method">
@@ -609,7 +528,8 @@
             <span>BIC/SWIFT: INSERT BIC</span>
              <button class="copy-btn" onclick="copyText('bic-number')" title="Copy BIC">⧉</button>
           </div>
-          <p class="payment-note" data-en="Include your name in the payment description — it will appear in the donor list." data-sv="Ange ditt namn i betalningsbeskrivningen — det visas i givarlistan." data-it="Includi il tuo nome nella descrizione del pagamento — apparirà nell'elenco dei donatori.">Include your name in the payment description — it will appear in the donor list.</p>
+          <p class="payment-note" data-en="Include your name in the payment description. It will appear in the donor list." data-sv="Ange namn i betalningsbeskrivningen. Namnet visas i givarlistan." data-it="Includi il tuo nome nella descrizione del pagamento. Apparirà nell'elenco dei donatori.">
+            Include your name in the payment description — it will appear in the donor list.</p>
         </div>
 
       </div>
@@ -619,20 +539,14 @@
     <!-- ══ TRANSPARENCY ══ -->
     <div class="transparency">
       <p>
-        <span data-en="<strong>Transparency commitment:<br></strong> I personally cover all costs of the trip — equipment, transport, food, accommodation. No donation money is used for my expenses. After the trip, donation receipts to both organisations will be published on this page. Questions? Write to me at <strong><!-- INSERT email --></strong>."
-              data-sv="<strong>Transparenslöfte:</strong> Jag betalar personligen alla resekostnader — utrustning, transport, mat, boende. Inga donationspengar används för mina utgifter. Efter resan publiceras donationskvitton till båda organisationerna på den här sidan. Frågor? Skriv till mig på <strong><!-- INSERT email --></strong>."
-              data-it="<strong>Impegno per la trasparenza:</strong> Copro personalmente tutti i costi del viaggio — attrezzatura, trasporto, cibo, alloggio. Nessun denaro donato viene utilizzato per le mie spese. Dopo il viaggio, le ricevute delle donazioni a entrambe le organizzazioni saranno pubblicate su questa pagina. Domande? Scrivimi a <strong><!-- INSERT email --></strong>.">
-              <strong>Transparency commitment:</strong> I personally cover all costs of the trip — equipment, transport, food, accommodation. No donation money is used for my expenses. After the trip, donation receipts to both organisations will be published on this page. Questions? Write to me at <strong><!-- INSERT email --></strong>.</span>
+        <span data-en="<strong>Transparency commitment:<br></strong> I personally cover all costs of the trip — equipment, transport, food, accommodation. No donation money is used for my expenses. After the trip, donation receipts to both organisations will be published on this page. Questions? Write to me at <strong>edvaberg@gmail.com</strong>."
+              data-sv="<strong>Transparenslöfte:</strong> Jag betalar personligen alla resekostnader: Utrustning, transport, mat, boende står jag själv för. Inga donationspengar används för mina utgifter. Efter resan publiceras donationskvitton till båda organisationerna på den här sidan. Frågor? Skriv till mig på <strong>edvaberg@gmail.com</strong>."
+              data-it="<strong>Impegno per la trasparenza:</strong> Copro personalmente tutti i costi del viaggio — attrezzatura, trasporto, cibo, alloggio. Nessun denaro donato viene utilizzato per le mie spese. Dopo il viaggio, le ricevute delle donazioni a entrambe le organizzazioni saranno pubblicate su questa pagina. Domande? Scrivimi a <strong>edvaberg@gmail.com</strong>.">
+              <strong>Transparency commitment:</strong> I personally cover all costs of the trip — equipment, transport, food, accommodation. No donation money is used for my expenses. After the trip, donation receipts to both organisations will be published on this page. Questions? Write to me at <strong>edvaberg@gmail.com</strong>.</span>
       </p>
     </div>
 
   </div>
-
-  <!-- ══ FOOTER ══ -->
-  <footer>
-    <span class="logo">Edvard Appelberg</span>
-    <p data-en="Skellefteå, Sweden — Italy 2026" data-sv="Skellefteå, Sverige — Italien 2026" data-it="Skellefteå, Svezia — Italia 2026">Skellefteå, Sweden — Italy 2026</p>
-  </footer>
 
   <script>
     // ── DONATION METER ──
