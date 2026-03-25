@@ -842,6 +842,27 @@
     
     .strava-more-link:hover { border-color: var(--yellow); }
     
+
+    .map-toggle-btn {
+      position: absolute;
+      top: 0.75rem; right: 0.75rem;
+      z-index: 500;
+      background: var(--green);
+      color: var(--stone);
+      border: 1px solid rgba(196,180,154,0.3);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .map-toggle-btn:hover {
+      background: var(--green-mid);
+      color: var(--stone);
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       .strava-grid { grid-template-columns: 1fr; }
@@ -865,6 +886,27 @@
     .hero-donate    { animation-delay: 0.8s; }    
     .hero-map       { animation-delay: 0.8s; }
     .donation-meter { animation-delay: 1.5s; }
+
+
+    .map-toggle-btn {
+      position: absolute;
+      top: 0.75rem; right: 0.75rem;
+      z-index: 500;
+      background: var(--green);
+      color: var(--stone);
+      border: 1px solid rgba(196,180,154,0.3);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .map-toggle-btn:hover {
+      background: var(--green-mid);
+      color: var(--stone);
+    }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
@@ -1168,12 +1210,18 @@
       <div class="section-divider"></div>
   
       <!-- Terrain map — Leaflet draws routes from activities.json -->
-      <div class="strava-map" id="strava-map">
+      <div style="position:relative;">
+        <button class="map-toggle-btn" id="map-style-btn"
+                data-en="B&amp;W map" data-sv="Svartvit karta" data-it="Mappa B&amp;W">
+          B&amp;W map
+        </button>
+        <div class="strava-map" id="strava-map">
         <div class="map-loading" id="map-loading"
             data-en="Loading activities..."
             data-sv="Laddar aktiviteter..."
             data-it="Caricamento le attività...">
           Loading activities...
+        </div>
         </div>
       </div>
   
@@ -1532,11 +1580,35 @@
       });
       map.fitBounds(EUROPE_BOUNDS);
 
-      L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenTopoMap contributors',
         maxZoom: 20,
         opacity: 0.85
-      }).addTo(map);
+      });
+      const bwLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        attribution: '© OpenStreetMap contributors, © CartoDB',
+        maxZoom: 20,
+      });
+      let isBW = false;
+      topoLayer.addTo(map);
+      document.getElementById('map-style-btn').addEventListener('click', () => {
+        if (isBW) {
+          map.removeLayer(bwLayer);
+          topoLayer.addTo(map);
+          document.getElementById('map-style-btn').setAttribute('data-en', 'B&W map');
+          document.getElementById('map-style-btn').setAttribute('data-sv', 'Svartvit karta');
+          document.getElementById('map-style-btn').setAttribute('data-it', 'Mappa B&W');
+          document.getElementById('map-style-btn').textContent = 'B&W map';
+        } else {
+          map.removeLayer(topoLayer);
+          bwLayer.addTo(map);
+          document.getElementById('map-style-btn').setAttribute('data-en', 'Topo map');
+          document.getElementById('map-style-btn').setAttribute('data-sv', 'Topokarta');
+          document.getElementById('map-style-btn').setAttribute('data-it', 'Mappa topo');
+          document.getElementById('map-style-btn').textContent = 'Topo map';
+        }
+        isBW = !isBW;
+      });
 
       const loadingEl = document.getElementById('map-loading');
       if (loadingEl) loadingEl.remove();

@@ -508,6 +508,27 @@
     .hero-sub   { animation-delay: 0.4s; }
     .hero-cta   { animation-delay: 0.8s; }
 
+
+    .map-toggle-btn {
+      position: absolute;
+      top: 0.75rem; right: 0.75rem;
+      z-index: 500;
+      background: var(--green);
+      color: var(--stone);
+      border: 1px solid rgba(196,180,154,0.3);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .map-toggle-btn:hover {
+      background: var(--green-mid);
+      color: var(--stone);
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; }
@@ -701,12 +722,18 @@
       </div>
 
       <!-- Map -->
-      <div class="strava-map" id="strava-map">
+      <div style="position:relative;">
+        <button class="map-toggle-btn" id="map-style-btn"
+                data-en="B&amp;W map" data-sv="Svartvit karta" data-it="Mappa B&amp;W">
+          B&amp;W map
+        </button>
+        <div class="strava-map" id="strava-map">
         <div class="map-loading" id="map-loading"
              data-en="Loading routes..."
              data-sv="Laddar rutter..."
              data-it="Caricamento percorsi...">
           Loading routes...
+        </div>
         </div>
       </div>
 

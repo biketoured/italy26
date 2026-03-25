@@ -175,7 +175,7 @@ body::-webkit-scrollbar { display: none; }
 #pizza-scrollbar {
   position: fixed;
   right: 0; top: 0; bottom: 0;
-  width: 10px;
+  width: 25px;
   z-index: 1000;
   background: var(--stone);
   border-left: 1px solid var(--stone-dark);
@@ -185,7 +185,7 @@ body::-webkit-scrollbar { display: none; }
 #pizza-scrollbar .sb-track {
   position: absolute;
   left: 50%; top: 30; bottom: 30;
-  width: 10px;
+  width: 25px;
   transform: translateX(-50%);
   background: var(--stone-dark);
   border-radius: 0;
