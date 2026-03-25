@@ -10,7 +10,4 @@ const DONATION_GOAL  = 100000;                       // goal in SEK
 
 // Write something personal to me
 // Blogginlägg
-// Ikoner
 // Utforska betalningssätt
-// Routes.html
-// Donate.html
