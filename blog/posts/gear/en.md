@@ -2,7 +2,7 @@
 type: blog
 date: 2026-03-01
 tag: Gear
-cover: ../../assets/images/pizza.png
+cover: ../../../assets/images/pizza.png
 title:
   en: What goes in the bags for a 40-day trip
   sv: Vad packar man för en 40-dagarsresa
