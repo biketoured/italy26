@@ -76,7 +76,7 @@
 
     .map-toggle-btn {
       position: absolute;
-      top: 0.75rem; left: 0.75rem;
+      top: 0.75rem; right: 0.75rem;
       z-index: 500;
       background: var(--green);
       color: var(--stone);
@@ -137,7 +137,7 @@
     .route-panel::-webkit-scrollbar-thumb { background: var(--stone-dark); border-radius: 2px; }
 
     .route-card {
-      background: rgba(0,0,0,0.18);
+      background: var(--red-warm);
       border: 1px solid rgba(196,180,154,0.1);
       border-left: 3px solid var(--stone-dark);
       padding: 1.25rem 1rem;
@@ -227,12 +227,12 @@
       font-size: 0.6rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--sky);
+      color: var(--red);
       text-decoration: none;
       margin-top: 0.6rem;
       transition: color 0.2s;
     }
-    .route-strava-link:hover { color: var(--sky-pale); }
+    .route-strava-link:hover { color: var(--red-warm); }
 
     .route-panel-empty {
       font-family: 'DM Mono', monospace;
@@ -285,7 +285,7 @@
     <!-- Map -->
     <div class="route-map-wrap">
       <button class="map-toggle-btn" id="map-style-btn"
-              data-en="B&amp;W map" data-sv="S/V karta" data-it="Mappa B/N">
+              data-en="B&amp;W map" data-sv="Svartvit karta" data-it="Mappa B&amp;W">
         B&amp;W map
       </button>
       <div class="route-map" id="route-map">
@@ -385,8 +385,8 @@
         map.removeLayer(bwLayer);
         topoLayer.addTo(map);
         document.getElementById('map-style-btn').setAttribute('data-en', 'B&W map');
-        document.getElementById('map-style-btn').setAttribute('data-sv', 'S/V karta');
-        document.getElementById('map-style-btn').setAttribute('data-it', 'Mappa B/N');
+        document.getElementById('map-style-btn').setAttribute('data-sv', 'Svartvit karta');
+        document.getElementById('map-style-btn').setAttribute('data-it', 'Mappa B&W');
         document.getElementById('map-style-btn').textContent = 'B&W map';
       } else {
         map.removeLayer(topoLayer);
