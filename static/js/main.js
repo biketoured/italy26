@@ -73,8 +73,7 @@ function applyNavTheme(page) {
   }`;
 }
 
-
-  function getPrefix() {
+function getPrefix() {
   return window.location.pathname.includes('/blog/') ? '../' : '';
 }
 // ── NAV INJECTION ───────────────────────────────────────────
