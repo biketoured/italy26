@@ -73,6 +73,11 @@ function applyNavTheme(page) {
   }`;
 }
 
+
+  function getPrefix() {
+  return window.location.pathname.includes('/blog/') ? '../' : '';
+}
+
 // ── NAV INJECTION ───────────────────────────────────────────
 // Builds and injects the shared nav into <nav id="shared-nav">.
 // Pass the page name to hide the correct link and set home href.
