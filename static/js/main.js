@@ -186,9 +186,9 @@ function injectPizzaScrollbar() {
   // ── Per-page thumb image ──
   const PAGE_IMAGES = {
     'index':      'pizza.png',
-    'donate':     'pizza.png',
-    'blog':       'pizza.png',
-    'post':       'pizza.png',
+    'donate':     'heart.png',
+    'blog':       'wheel.png',
+    'post':       'cheese.png',
     'sweden2024': 'mayflower.png',
     'routes':     'pizza.png',
   };

@@ -286,7 +286,7 @@
     .trip-stat-tab:nth-child(4)::after { background: var(--yellow-soft); }
 
     .trip-stat-icon {
-      width: 28px; height: 28px;
+      width: 50px; height: 50px;
       object-fit: contain;
       opacity: 0.75;
       flex-shrink: 0;
@@ -649,7 +649,7 @@
       <!-- Trip stats bar -->
       <div class="trip-stats" id="trip-stats">
         <div class="trip-stat-tab">
-          <img src="assets/images/road.png" alt="Distance" class="trip-stat-icon"
+          <img src="assets/images/distance.svg" alt="Distance" class="trip-stat-icon"
                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <div class="trip-stat-icon-placeholder" style="display:none;">road</div>
           <div class="trip-stat-text">
@@ -861,11 +861,40 @@
     });
     map.setView([65, 14], 5);
 
-    L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+    // ── Tile layers ──
+    const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
       attribution: '© OpenTopoMap contributors',
       maxZoom: 20,
       opacity: 0.85
-    }).addTo(map);
+    });
+
+    const bwLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '© OpenStreetMap contributors, © CartoDB',
+      maxZoom: 20,
+      opacity: 1
+    });
+
+    let isBW = false;
+    topoLayer.addTo(map);
+
+    document.getElementById('map-style-btn').addEventListener('click', () => {
+      if (isBW) {
+        map.removeLayer(bwLayer);
+        topoLayer.addTo(map);
+        document.getElementById('map-style-btn').setAttribute('data-en', 'B&W map');
+        document.getElementById('map-style-btn').setAttribute('data-sv', 'Svartvit karta');
+        document.getElementById('map-style-btn').setAttribute('data-it', 'Mappa B&W');
+        document.getElementById('map-style-btn').textContent = 'B&W map';
+      } else {
+        map.removeLayer(topoLayer);
+        bwLayer.addTo(map);
+        document.getElementById('map-style-btn').setAttribute('data-en', 'Topo map');
+        document.getElementById('map-style-btn').setAttribute('data-sv', 'Topokarta');
+        document.getElementById('map-style-btn').setAttribute('data-it', 'Mappa topo');
+        document.getElementById('map-style-btn').textContent = 'Topo map';
+      }
+      isBW = !isBW;
+    });
 
     const loadingEl = document.getElementById('map-loading');
     if (loadingEl) loadingEl.remove();
