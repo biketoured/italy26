@@ -69,7 +69,7 @@ def process_routes(routes):
             'name':         r['name'],
             'distance':     round(r['distance'] / 1000, 1),       # metres → km
             'elevation':    round(r['elevation_gain']),            # metres
-            'estimated_moving_time': r.get('estimated_moving_time', 0),  # seconds
+            'estimated_moving_time': r.get('estimated_moving_time', 0)*1.2,  # seconds
             'polyline':     r.get('map', {}).get('summary_polyline', ''),
             # ── Manual fields — fill these in the JSON file ──
             # 'days':       1,

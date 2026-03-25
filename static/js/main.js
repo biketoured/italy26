@@ -9,13 +9,13 @@
 // Used to hide the active page link and set the home href.
 function getCurrentPage() {
   const path = window.location.pathname;
-  if (path.includes('sweden2024'))        return 'sweden2024';
-  if (path.includes('donate'))            return 'donate';
-  if (path.includes('blog'))            return 'blog';
-  if (path.includes('route'))             return 'routes';
-  return 'index'; // default — root index.html
+  if (path.includes('sweden2024'))                      return 'sweden2024';
+  if (path.includes('donate'))                          return 'donate';
+  if (path.includes('blog') && path.includes('post'))   return 'post';
+  if (path.includes('blog'))                            return 'blog';
+  if (path.includes('route'))                           return 'routes';
+  return 'index';
 }
-
 // ── NAV THEME CONFIG ─────────────────────────────────────────
 // Edit these to control nav bg and link colours per page.
 const NAV_THEMES = {
