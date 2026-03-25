@@ -14,10 +14,14 @@
   <style>
     body { background: var(--stone); color: var(--text); min-height: 100vh; }
 
+    /* 2. Italian flag banner — always shown, full width */
     .post-cover-banner {
       width: 100%; height: 340px; object-fit: cover; display: block;
     }
+
+    /* 3–5. Post content wrapper */
     .post-wrapper { max-width: 780px; margin: 0 auto; padding: 3rem 2rem 6rem; }
+
     .back-link { display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red); text-decoration: none; margin-bottom: 2.5rem; transition: color 0.2s; }
     .back-link:hover { color: var(--red-warm); }
     .post-header { border-bottom: 2px solid var(--stone-dark); padding-bottom: 1.5rem; margin-bottom: 2.5rem; }
@@ -26,9 +30,17 @@
     .post-badge.blog    { background: var(--red);   color: var(--white); }
     .post-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--green); font-weight: 400; line-height: 1.15; margin-bottom: 0.75rem; }
     .post-meta  { font-family: 'DM Mono', monospace; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone-dark); }
+
+    /* 4. Uploaded cover photo — between header and text */
+    .post-cover-photo { margin: 0 0 2rem; }
+    .post-cover-photo img { width: 100%; max-height: 480px; object-fit: cover; display: block; }
+
+    /* 5. Journal sections */
     .journal-section { margin-bottom: 2rem; padding-left: 1rem; border-left: 3px solid var(--stone-dark); }
     .journal-section-label { font-family: 'DM Mono', monospace; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--stone-dark); margin-bottom: 0.5rem; }
     .journal-section-body { font-size: 1rem; line-height: 1.75; color: var(--text); }
+
+    /* Blog prose */
     .blog-prose { font-size: 1.05rem; line-height: 1.8; color: var(--text); }
     .blog-prose p      { margin-bottom: 1.2rem; }
     .blog-prose h2     { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--green); margin: 2rem 0 0.75rem; font-weight: 400; }
@@ -38,7 +50,9 @@
     .blog-prose ul, .blog-prose ol { margin: 0.75rem 0 1.2rem 1.5rem; }
     .blog-prose li     { margin-bottom: 0.4rem; line-height: 1.7; }
     .blog-prose blockquote { border-left: 3px solid var(--red); padding-left: 1rem; color: var(--text-muted); font-style: italic; margin: 1.5rem 0; }
+
     .loading-state, .error-state { text-align: center; padding: 4rem 2rem; font-family: 'DM Mono', monospace; font-size: 0.8rem; letter-spacing: 0.1em; color: var(--text-muted); }
+
     @media (max-width: 600px) {
       .post-cover-banner { height: 220px; }
       .post-wrapper { padding: 2rem 1.25rem 4rem; }
@@ -47,31 +61,27 @@
 </head>
 <body>
 
+  <!-- 1. Nav -->
   <nav id="shared-nav"></nav>
-  <img id="post-cover" class="post-cover-banner" src="" alt="" style="display:none;">
+
+  <!-- 2. Italian flag banner — always placehold.png -->
+  <img class="post-cover-banner" src="/italy26/assets/images/placehold.png" alt="Italy 2026">
+
+  <!-- 3–5. Post content injected by JS -->
   <div class="post-wrapper" id="post-wrapper">
     <div class="loading-state">Loading post...</div>
   </div>
+
   <footer id="shared-footer"></footer>
 
   <script>
     const PLACEHOLDER = '/italy26/assets/images/placehold.png';
 
-    // Probe common filenames with HEAD requests — works with any name you give the photo
-    async function findCover(slug) {
-      const candidates = ['cover.jpg', 'cover.jpeg', 'cover.png', 'cover.webp'];
-      for (const name of candidates) {
-        try {
-          const res = await fetch('/italy26/blog/posts/' + slug + '/' + name, { method: 'HEAD' });
-          if (res.ok) return '/italy26/blog/posts/' + slug + '/' + name;
-        } catch(e) {}
-      }
-      return PLACEHOLDER;
-    }
-
     document.addEventListener('langchange', loadPost);
 
-    function getSlug() { return new URLSearchParams(window.location.search).get('slug'); }
+    function getSlug() {
+      return new URLSearchParams(window.location.search).get('slug');
+    }
 
     function parseFrontmatter(raw) {
       const n = raw.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
@@ -90,15 +100,17 @@
     function renderJournal(body) {
       return body.split(/^## /m).filter(Boolean).map(part => {
         const lines = part.trim().split('\n');
-        return `<div class="journal-section">
-          <p class="journal-section-label">${lines[0].trim()}</p>
-          <div class="journal-section-body">${marked.parse(lines.slice(1).join('\n').trim())}</div>
-        </div>`;
+        const heading = lines[0].trim();
+        const content = lines.slice(1).join('\n').trim();
+        return '<div class="journal-section">'
+          + '<p class="journal-section-label">' + heading + '</p>'
+          + '<div class="journal-section-body">' + marked.parse(content) + '</div>'
+          + '</div>';
       }).join('');
     }
 
     function renderBlog(body) {
-      return `<div class="blog-prose">${marked.parse(body)}</div>`;
+      return '<div class="blog-prose">' + marked.parse(body) + '</div>';
     }
 
     const backLabels = {
@@ -116,51 +128,68 @@
       const lang = (typeof currentLang !== 'undefined' ? currentLang : null)
                 || localStorage.getItem('preferred-lang') || 'en';
 
-      const tryFetch = (l) =>
-        fetch(`/italy26/blog/posts/${slug}/${l}.md`).then(r => {
+      const tryFetch = function(l) {
+        return fetch('/italy26/blog/posts/' + slug + '/' + l + '.md').then(function(r) {
           if (!r.ok) throw new Error('not found');
           return r.text();
         });
+      };
 
-      Promise.all([
-        tryFetch(lang).catch(() => tryFetch('en')),
-        findCover(slug)
-      ]).then(([raw, coverUrl]) => {
+      tryFetch(lang).catch(function() { return tryFetch('en'); }).then(function(raw) {
         if (!raw) throw new Error('empty');
-        const { meta, body } = parseFrontmatter(raw);
+
+        var parsed = parseFrontmatter(raw);
+        var meta = parsed.meta;
+        var body = parsed.body;
         if (!meta.type) throw new Error('parse failed');
 
-        const type      = meta.type || 'blog';
-        const title     = meta.title ? (meta.title[lang] || meta.title.en || slug) : slug;
-        const backLabel = backLabels[type][lang] || backLabels[type]['en'];
-        const badgeText = type === 'journal'
-          ? ({ en: 'Day', sv: 'Dag', it: 'Giorno' }[lang] + ' ' + meta.day)
+        var type      = meta.type || 'blog';
+        var title     = meta.title ? (meta.title[lang] || meta.title.en || slug) : slug;
+        var backLabel = (backLabels[type] && backLabels[type][lang]) || backLabels[type]['en'];
+        var badgeText = type === 'journal'
+          ? ({en:'Day',sv:'Dag',it:'Giorno'}[lang] + ' ' + meta.day)
           : meta.tag;
-        const metaParts = [formatDate(meta.date, lang)];
+        var metaParts = [formatDate(meta.date, lang)];
         if (type === 'journal') {
           if (meta.km)        metaParts.push(meta.km + ' km');
-          if (meta.elevation) metaParts.push(meta.elevation + ' m ↑');
+          if (meta.elevation) metaParts.push(meta.elevation + ' m \u2191');
         }
 
-        const coverEl = document.getElementById('post-cover');
-        coverEl.src   = coverUrl;
-        coverEl.alt   = title;
-        coverEl.style.display = 'block';
-        coverEl.onerror = () => { coverEl.src = PLACEHOLDER; };
+        // 4. Cover photo — probe jpg/jpeg/png, hide if none found
+        var coverUrl = '/italy26/blog/posts/' + slug + '/cover.jpg';
+        var coverHTML = '<div class="post-cover-photo">'
+          + '<img id="post-photo" src="' + coverUrl + '" alt="' + title + '">'
+          + '</div>';
 
-        document.title = `${title} — Edvard A`;
-        document.getElementById('post-wrapper').innerHTML = `
-          <a href="index.html?tab=${type}" class="back-link">${backLabel}</a>
-          <div class="post-header">
-            <span class="post-badge ${type}">${badgeText}</span>
-            <h1 class="post-title">${title}</h1>
-            <p class="post-meta">${metaParts.join(' · ')}</p>
-          </div>
-          ${type === 'journal' ? renderJournal(body) : renderBlog(body)}`;
-      })
-      .catch(err => {
+        document.title = title + ' — Edvard A';
         document.getElementById('post-wrapper').innerHTML =
-          `<div class="error-state">Post not found.<br><small>${err.message}</small></div>`;
+          '<a href="index.html?tab=' + type + '" class="back-link">' + backLabel + '</a>'
+          + '<div class="post-header">'
+          +   '<span class="post-badge ' + type + '">' + badgeText + '</span>'
+          +   '<h1 class="post-title">' + title + '</h1>'
+          +   '<p class="post-meta">' + metaParts.join(' · ') + '</p>'
+          + '</div>'
+          + coverHTML
+          + (type === 'journal' ? renderJournal(body) : renderBlog(body));
+
+        // Cascade through extensions, hide if none exist
+        var photo = document.getElementById('post-photo');
+        if (photo) {
+          var tries = ['cover.jpeg', 'cover.png', 'cover.webp'];
+          var idx = 0;
+          photo.onerror = function() {
+            if (idx < tries.length) {
+              photo.src = '/italy26/blog/posts/' + slug + '/' + tries[idx++];
+            } else {
+              photo.onerror = null;
+              photo.style.display = 'none';
+            }
+          };
+        }
+
+      }).catch(function(err) {
+        document.getElementById('post-wrapper').innerHTML =
+          '<div class="error-state">Post not found.<br><small>' + err.message + '</small></div>';
       });
     }
 
