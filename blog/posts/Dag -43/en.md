@@ -16,7 +16,7 @@ title:
 Today my body feels perfectly fine. I'm going to try a longer bike ride this afternoon.
 
 ## Best moment of the day
-Daydreaming about the journey 
+Daydreaming about the journey, had a 2 hour Zwift workout which felt good.
 
 ## Person I met
 This Saturday I'm starting at home and doing some chores. It's been a long week.
