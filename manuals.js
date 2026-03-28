@@ -9,5 +9,7 @@ const DONATION_GOAL  = 100000;                       // goal in SEK
 
 
 // Write something personal to me
-// Blogginlägg
 // Utforska betalningssätt
+// AUtomatisera journal
+// SKapa blogginlägg
+// Fixa Donationssidan
