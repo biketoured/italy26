@@ -10,6 +10,6 @@ const DONATION_GOAL  = 100000;                       // goal in SEK
 
 // Write something personal to me
 // Utforska betalningssätt
-// AUtomatisera journal
+// AUtomatisera journal: Markdown plus bilder kan uppladdas via webben github
 // SKapa blogginlägg
 // Fixa Donationssidan

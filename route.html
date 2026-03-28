@@ -254,6 +254,130 @@
       .route-map   { height: 400px; }
       .page-header { padding: 7rem 1.5rem 1.5rem; }
     }
+
+    /* ── RECOMMEND SECTION ── */
+    .recommend-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 3rem 6rem;
+    }
+
+    .recommend-header {
+      margin-bottom: 2rem;
+    }
+
+    .recommend-header .section-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(196,180,154,0.6);
+      margin-bottom: 0.75rem;
+    }
+
+    .recommend-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      color: var(--stone);
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
+
+    .recommend-header p {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--stone-dark);
+      line-height: 1.7;
+      max-width: 560px;
+    }
+
+    .recommend-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      max-width: 700px;
+    }
+
+    .recommend-form .field-full {
+      grid-column: 1 / -1;
+    }
+
+    .field-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(196,180,154,0.5);
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    .recommend-form input,
+    .recommend-form textarea {
+      width: 100%;
+      background: rgba(0,0,0,0.25);
+      border: 1px solid rgba(196,180,154,0.15);
+      border-bottom: 2px solid rgba(196,180,154,0.3);
+      color: var(--stone);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      padding: 0.7rem 0.9rem;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+      resize: none;
+    }
+
+    .recommend-form input::placeholder,
+    .recommend-form textarea::placeholder {
+      color: rgba(196,180,154,0.3);
+      font-style: italic;
+    }
+
+    .recommend-form input:focus,
+    .recommend-form textarea:focus {
+      background: rgba(0,0,0,0.35);
+      border-bottom-color: var(--yellow);
+    }
+
+    .recommend-submit {
+      background: none;
+      border: 1px solid rgba(196,180,154,0.3);
+      color: var(--stone);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.7rem 1.5rem;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+      justify-self: start;
+    }
+    .recommend-submit:hover {
+      background: var(--yellow);
+      border-color: var(--yellow);
+      color: var(--black);
+    }
+
+    .recommend-confirm {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: var(--green-light);
+      padding: 0.7rem 0;
+      display: none;
+    }
+
+    .recommend-divider {
+      width: 160px;
+      height: 2px;
+      background: rgba(196,180,154,0.15);
+      margin: 0 0 2rem;
+    }
+
+    @media (max-width: 900px) {
+      .recommend-section { padding: 0 1.5rem 4rem; }
+      .recommend-form { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 
@@ -307,6 +431,71 @@
     </div>
 
   </div>
+
+  <!-- ══ RECOMMEND A PLACE ══ -->
+  <section class="recommend-section">
+    <div class="recommend-header">
+      <p class="section-tag"
+         data-en="// Your suggestions"
+         data-sv="// Dina tips"
+         data-it="// I tuoi consigli">// Your suggestions</p>
+      <h2 data-en="Recommend me a place"
+          data-sv="Tipsa mig om ett ställe"
+          data-it="Consigliami un posto">Recommend me a place</h2>
+      <div class="recommend-divider"></div>
+      <p data-en="Know a hidden village, a view, a trattoria, a coastal path or anything else worth a detour? Tell me — I read every suggestion."
+         data-sv="Känner du till en gömd by, en utsikt, en trattoria, en kustled eller något annat som är värt en omväg? Berätta — jag läser varje förslag."
+         data-it="Conosci un borgo nascosto, un panorama, una trattoria, un sentiero costiero o qualcos'altro che vale la deviazione? Dimmelo — leggo ogni suggerimento.">
+        Know a hidden village, a view, a trattoria, a coastal path or anything else worth a detour? Tell me — I read every suggestion.
+      </p>
+    </div>
+
+    <div class="recommend-form" id="recommend-form">
+      <div>
+        <label class="field-label"
+               data-en="Destination / place name"
+               data-sv="Destination / platsnamn"
+               data-it="Destinazione / nome del posto">Destination / place name</label>
+        <input type="text" id="rec-place" maxlength="120"
+               data-placeholder-en="e.g. Matera, Basilicata"
+               data-placeholder-sv="t.ex. Matera, Basilicata"
+               data-placeholder-it="es. Matera, Basilicata"
+               placeholder="e.g. Matera, Basilicata">
+      </div>
+      <div>
+        <label class="field-label"
+               data-en="Your name (optional)"
+               data-sv="Ditt namn (valfritt)"
+               data-it="Il tuo nome (opzionale)">Your name (optional)</label>
+        <input type="text" id="rec-name" maxlength="60"
+               data-placeholder-en="How should I credit you?"
+               data-placeholder-sv="Vad ska jag kalla dig?"
+               data-placeholder-it="Come ti chiamo?">
+      </div>
+      <div class="field-full">
+        <label class="field-label"
+               data-en="Why is it worth a visit?"
+               data-sv="Varför är det värt ett besök?"
+               data-it="Perché vale la visita?">Why is it worth a visit?</label>
+        <textarea id="rec-reason" rows="4" maxlength="600"
+                  data-placeholder-en="Tell me what makes it special — the light at dusk, a dish you can only find there, a climb that ruins you in the best way…"
+                  data-placeholder-sv="Berätta vad som gör det speciellt — ljuset i skymningen, en rätt du bara hittar där, en backe som verkligen testar dig…"
+                  data-placeholder-it="Dimmi cosa lo rende speciale — la luce al tramonto, un piatto che trovi solo lì, una salita che ti distrugge nel miglior modo possibile…"
+                  placeholder="Tell me what makes it special…"></textarea>
+      </div>
+      <div class="field-full" style="display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap;">
+        <button class="recommend-submit" id="rec-submit"
+                data-en="Send suggestion →"
+                data-sv="Skicka tips →"
+                data-it="Invia consiglio →"
+                onclick="submitRecommendation()">Send suggestion →</button>
+        <span class="recommend-confirm" id="rec-confirm"
+              data-en="✓ Got it — thank you!"
+              data-sv="✓ Tack för tipset!"
+              data-it="✓ Ricevuto — grazie!">✓ Got it — thank you!</span>
+      </div>
+    </div>
+  </section>
 
   <!-- ══ FOOTER ══ -->
   <footer id="shared-footer"></footer>
@@ -552,6 +741,71 @@
     document.getElementById('map-loading').textContent = 'Map could not load — Leaflet missing';
   }
 
+  </script>
+
+  <script>
+  // ── RECOMMEND A PLACE — placeholder localisation ──
+  document.addEventListener('langchange', e => updatePlaceholders(e.detail));
+  document.addEventListener('DOMContentLoaded', () => {
+    const lang = localStorage.getItem('preferred-lang') || 'en';
+    updatePlaceholders(lang);
+  });
+
+  function updatePlaceholders(lang) {
+    document.querySelectorAll('[data-placeholder-' + lang + ']').forEach(el => {
+      el.placeholder = el.getAttribute('data-placeholder-' + lang) || el.placeholder;
+    });
+  }
+
+  // ── SUBMIT via Formspree (replace YOUR_FORM_ID with your Formspree endpoint) ──
+  // If you don't use Formspree, swap the fetch() for mailto: or any other backend.
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+
+  function submitRecommendation() {
+    const place  = document.getElementById('rec-place').value.trim();
+    const reason = document.getElementById('rec-reason').value.trim();
+    const name   = document.getElementById('rec-name').value.trim();
+    const lang   = localStorage.getItem('preferred-lang') || 'en';
+
+    if (!place || !reason) {
+      // Highlight empty required fields
+      ['rec-place','rec-reason'].forEach(id => {
+        const el = document.getElementById(id);
+        if (!el.value.trim()) el.style.borderBottomColor = 'var(--red)';
+      });
+      return;
+    }
+
+    const btn = document.getElementById('rec-submit');
+    btn.disabled = true;
+    btn.style.opacity = '0.5';
+
+    fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ place, reason, name: name || '(anonymous)', _subject: 'Place recommendation: ' + place })
+    })
+    .then(r => {
+      const confirm = document.getElementById('rec-confirm');
+      confirm.style.display = 'inline';
+      document.getElementById('rec-place').value  = '';
+      document.getElementById('rec-reason').value = '';
+      document.getElementById('rec-name').value   = '';
+      setTimeout(() => { confirm.style.display = 'none'; btn.disabled = false; btn.style.opacity = ''; }, 4000);
+    })
+    .catch(() => {
+      btn.disabled = false;
+      btn.style.opacity = '';
+      alert('Could not send — please try again.');
+    });
+  }
+
+  // Reset red border on input
+  ['rec-place','rec-reason'].forEach(id => {
+    document.getElementById(id)?.addEventListener('input', function() {
+      this.style.borderBottomColor = '';
+    });
+  });
   </script>
 
 </body>

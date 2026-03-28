@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flaskpost — Edvard A</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/italy26/static/css/style.css">
+  <script src="/italy26/static/js/main.js" defer></script>
+
+  <style>
+    /* ── FLASKPOST THEME ── */
+    :root {
+      --sand:        #e8d5b0;
+      --sand-dark:   #c8a97e;
+      --sand-deep:   #8b6e45;
+      --ocean:       #3a6b7a;
+      --ocean-mid:   #5a8fa0;
+      --ocean-light: #8dbccc;
+      --ocean-pale:  #c5dde6;
+      --driftwood:   #2a1f12;
+      --foam:        #f5f0e8;
+      --nav-bg:          rgba(42,31,18,0.96);
+      --nav-border:      rgba(200,169,126,0.2);
+      --nav-link:        rgba(200,169,126,0.65);
+      --nav-link-hover:  #e0c49a;
+      --footer-bg:       var(--driftwood);
+      --footer-text:     var(--sand-dark);
+      --footer-logo:     var(--sand);
+    }
+
+    body {
+      background: var(--ocean);
+      color: var(--sand);
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* ── OCEAN WAVE BG ── */
+    .wave-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .wave-bg svg {
+      position: absolute;
+      bottom: 0;
+      width: 200%;
+      opacity: 0.08;
+      animation: waveDrift 18s ease-in-out infinite alternate;
+    }
+    .wave-bg svg:nth-child(2) {
+      opacity: 0.05;
+      animation-duration: 24s;
+      animation-direction: alternate-reverse;
+      bottom: 40px;
+    }
+    @keyframes waveDrift {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-25%); }
+    }
+
+    /* ── PAGE WRAPPER ── */
+    .page {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 8rem 2rem 6rem;
+    }
+
+    /* ── HEADER ── */
+    .fp-header {
+      margin-bottom: 3rem;
+      animation: fadeUp 0.6s ease 0.1s both;
+    }
+
+    .fp-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ocean-light);
+      margin-bottom: 0.75rem;
+    }
+
+    .fp-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--sand);
+      margin-bottom: 1rem;
+    }
+
+    .fp-title em {
+      font-style: italic;
+      color: var(--sand-dark);
+    }
+
+    .fp-sub {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: rgba(232,213,176,0.65);
+      line-height: 1.8;
+      max-width: 520px;
+    }
+
+    /* ── BOTTLE ILLUSTRATION ── */
+    .bottle-wrap {
+      display: flex;
+      justify-content: center;
+      margin: 2.5rem 0;
+      animation: bottleBob 4s ease-in-out infinite;
+    }
+    @keyframes bottleBob {
+      0%, 100% { transform: translateY(0) rotate(-2deg); }
+      50%       { transform: translateY(-10px) rotate(2deg); }
+    }
+    .bottle-wrap svg {
+      width: 80px;
+      opacity: 0.85;
+      filter: drop-shadow(0 8px 20px rgba(0,0,0,0.4));
+    }
+
+    /* ── VISIBILITY TOGGLE ── */
+    .visibility-toggle {
+      display: flex;
+      gap: 0;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(200,169,126,0.25);
+      width: fit-content;
+      animation: fadeUp 0.6s ease 0.2s both;
+    }
+
+    .vis-btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.65rem 1.5rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      background: transparent;
+      color: rgba(200,169,126,0.5);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .vis-btn.active {
+      background: var(--sand-dark);
+      color: var(--driftwood);
+    }
+
+    .vis-btn:not(.active):hover {
+      background: rgba(200,169,126,0.12);
+      color: var(--sand);
+    }
+
+    .vis-hint {
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: rgba(200,169,126,0.5);
+      margin-bottom: 1.75rem;
+      font-style: italic;
+      min-height: 1.2em;
+      animation: fadeUp 0.4s ease both;
+    }
+
+    /* ── FORM ── */
+    .fp-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      animation: fadeUp 0.6s ease 0.3s both;
+    }
+
+    .fp-field label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(200,169,126,0.55);
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    .fp-field input,
+    .fp-field textarea {
+      width: 100%;
+      background: rgba(0,0,0,0.2);
+      border: 1px solid rgba(200,169,126,0.15);
+      border-bottom: 2px solid rgba(200,169,126,0.3);
+      color: var(--sand);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      padding: 0.75rem 1rem;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+      resize: none;
+      border-radius: 0;
+    }
+
+    .fp-field input::placeholder,
+    .fp-field textarea::placeholder {
+      color: rgba(200,169,126,0.28);
+      font-style: italic;
+    }
+
+    .fp-field input:focus,
+    .fp-field textarea:focus {
+      background: rgba(0,0,0,0.3);
+      border-bottom-color: var(--sand-dark);
+    }
+
+    .fp-field .char-count {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.08em;
+      color: rgba(200,169,126,0.3);
+      text-align: right;
+      margin-top: 0.25rem;
+    }
+
+    .fp-field .char-count.near-limit { color: var(--sand-dark); }
+
+    /* Optional contact field */
+    .fp-optional-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(200,169,126,0.35);
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    .fp-optional-label::after {
+      content: ' — VALFRITT';
+      opacity: 0.6;
+    }
+
+    /* ── CONSENT BOX ── */
+    .fp-consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 1rem 1.1rem;
+      background: rgba(0,0,0,0.18);
+      border: 1px solid rgba(200,169,126,0.15);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .fp-consent input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      accent-color: var(--sand-dark);
+      cursor: pointer;
+    }
+
+    .fp-consent-text {
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: rgba(200,169,126,0.6);
+      line-height: 1.6;
+    }
+
+    .fp-consent-text strong {
+      color: var(--sand);
+      font-weight: 400;
+    }
+
+    /* ── SUBMIT ── */
+    .fp-submit-row {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .fp-submit {
+      background: var(--sand-dark);
+      color: var(--driftwood);
+      border: none;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.85rem 2rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .fp-submit:hover:not(:disabled) {
+      background: var(--sand);
+      transform: translateY(-2px);
+    }
+    .fp-submit:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* ── SUCCESS STATE ── */
+    .fp-success {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 4rem 2rem;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .fp-success-bottle {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+      animation: bottleSail 2s ease-in-out infinite alternate;
+    }
+    @keyframes bottleSail {
+      from { transform: translateX(-20px) rotate(-5deg); }
+      to   { transform: translateX(20px) rotate(5deg); }
+    }
+
+    .fp-success h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--sand);
+      margin-bottom: 0.75rem;
+    }
+
+    .fp-success p {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: rgba(200,169,126,0.6);
+      line-height: 1.7;
+      max-width: 380px;
+    }
+
+    .fp-cooldown {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      color: rgba(200,169,126,0.4);
+      margin-top: 1.5rem;
+    }
+
+    /* ── ANIMATION ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .page { padding: 7rem 1.25rem 5rem; }
+      .vis-btn { padding: 0.6rem 1rem; font-size: 0.65rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── WAVE BACKGROUND ── -->
+  <div class="wave-bg">
+    <svg viewBox="0 0 1440 200" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,80 C240,160 480,0 720,80 C960,160 1200,0 1440,80 L1440,200 L0,200 Z" fill="#e8d5b0"/>
+    </svg>
+    <svg viewBox="0 0 1440 200" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,100 C360,0 720,160 1080,60 C1260,10 1380,90 1440,100 L1440,200 L0,200 Z" fill="#e8d5b0"/>
+    </svg>
+  </div>
+
+  <!-- ── NAV ── -->
+  <nav id="shared-nav"></nav>
+
+  <div class="page" id="fp-page">
+
+    <!-- Bottle illustration -->
+    <div class="bottle-wrap" aria-hidden="true">
+      <svg viewBox="0 0 80 160" xmlns="http://www.w3.org/2000/svg" fill="none">
+        <!-- Cork -->
+        <rect x="30" y="8" width="20" height="14" rx="3" fill="#8b6e45" opacity="0.9"/>
+        <!-- Neck -->
+        <rect x="32" y="20" width="16" height="22" rx="4" fill="#c8a97e" opacity="0.6"/>
+        <!-- Body -->
+        <ellipse cx="40" cy="105" rx="26" ry="52" fill="#5a8fa0" opacity="0.55"/>
+        <ellipse cx="40" cy="105" rx="26" ry="52" fill="none" stroke="#c8a97e" stroke-width="1.5" opacity="0.35"/>
+        <!-- Highlight -->
+        <ellipse cx="30" cy="88" rx="6" ry="18" fill="white" opacity="0.08"/>
+        <!-- Scroll inside -->
+        <rect x="30" y="80" width="20" height="30" rx="2" fill="#e8d5b0" opacity="0.35"/>
+        <line x1="33" y1="87" x2="47" y2="87" stroke="#8b6e45" stroke-width="1.5" opacity="0.5"/>
+        <line x1="33" y1="93" x2="47" y2="93" stroke="#8b6e45" stroke-width="1" opacity="0.4"/>
+        <line x1="33" y1="99" x2="42" y2="99" stroke="#8b6e45" stroke-width="1" opacity="0.3"/>
+      </svg>
+    </div>
+
+    <!-- Header -->
+    <div class="fp-header">
+      <p class="fp-tag"
+         data-en="// Write to me"
+         data-sv="// Skriv till mig"
+         data-it="// Scrivimi">// Write to me</p>
+      <h1 class="fp-title"
+          data-en="Send me a <em>message in a bottle</em>"
+          data-sv="Skicka ett <em>brev i en flaska</em>"
+          data-it="Mandami un <em>messaggio in bottiglia</em>">
+        Send me a <em>message in a bottle</em>
+      </h1>
+      <p class="fp-sub"
+         data-en="Ask me a question. Suggest an Italian song, dish or event. Send me a riddle. Tell me something. I'm riding 4 000 km through Italy — what do you want me to know?"
+         data-sv="Ställ en fråga. Tips om en italiensk låt, maträtt eller händelse. Skicka en gåta. Berätta något. Jag cyklar 4 000 km genom Italien — vad vill du att jag ska veta?"
+         data-it="Fai una domanda. Consigliami una canzone, un piatto o un evento italiano. Mandami un indovinello. Racconta qualcosa. Sto pedalando 4 000 km in Italia — cosa vuoi che sappia?">
+        Ask me a question. Suggest an Italian song, dish or event. Send me a riddle. Tell me something. I'm riding 4 000 km through Italy — what do you want me to know?
+      </p>
+    </div>
+
+    <!-- Visibility toggle -->
+    <div class="visibility-toggle" role="group" aria-label="Message visibility">
+      <button class="vis-btn active" id="btn-private" onclick="setVisibility('private')">
+        🔒
+        <span data-en="Private" data-sv="Privat" data-it="Privato">Private</span>
+      </button>
+      <button class="vis-btn" id="btn-public" onclick="setVisibility('public')">
+        🌊
+        <span data-en="Public" data-sv="Offentlig" data-it="Pubblico">Public</span>
+      </button>
+    </div>
+    <p class="vis-hint" id="vis-hint">
+      <span data-en="Only I will see this message."
+            data-sv="Bara jag ser detta meddelande."
+            data-it="Solo io vedrò questo messaggio.">Only I will see this message.</span>
+    </p>
+
+    <!-- Form -->
+    <div class="fp-form" id="fp-form">
+      <input type="hidden" id="fp-visibility" value="private">
+
+      <!-- Name -->
+      <div class="fp-field">
+        <label for="fp-name"
+               data-en="Your name — what should I call you?"
+               data-sv="Ditt namn — vad ska jag kalla dig?"
+               data-it="Il tuo nome — come ti chiamo?">Your name — what should I call you?</label>
+        <input type="text" id="fp-name" maxlength="80"
+               data-placeholder-en="Captain Nemo, or just your first name…"
+               data-placeholder-sv="Kapten Nemo, eller bara ditt förnamn…"
+               data-placeholder-it="Capitano Nemo, o solo il tuo nome…"
+               placeholder="Captain Nemo, or just your first name…">
+      </div>
+
+      <!-- Message -->
+      <div class="fp-field">
+        <label for="fp-message"
+               data-en="Your message — ask, suggest, say anything (max 1000 characters)"
+               data-sv="Ditt meddelande — fråga, tipsa, säg vad som helst (max 1000 tecken)"
+               data-it="Il tuo messaggio — chiedi, suggerisci, di' qualsiasi cosa (max 1000 caratteri)">
+          Your message — ask, suggest, say anything (max 1 000 characters)
+        </label>
+        <textarea id="fp-message" rows="7" maxlength="1000"
+                  data-placeholder-en="Ask me a question, recommend an Italian dish I must try, send me a riddle, suggest a song for my playlist, tell me a fact about the region I'm cycling through… anything goes. Emojis welcome 🌊🚴🍕"
+                  data-placeholder-sv="Ställ en fråga, rekommendera en italiensk rätt, skicka en gåta, föreslå en låt till min spellista, berätta om en region jag cyklar igenom… allt är tillåtet. Emojis välkomna 🌊🚴🍕"
+                  data-placeholder-it="Fai una domanda, consiglia un piatto italiano che devo provare, mandami un indovinello, suggerisci una canzone per la mia playlist, raccontami qualcosa sulla regione che sto attraversando… tutto va bene. Emoji benvenute 🌊🚴🍕"
+                  placeholder="Ask me a question, recommend an Italian dish I must try, send me a riddle…"
+                  oninput="updateCharCount(this)"></textarea>
+        <div class="char-count" id="fp-char-count">0 / 1000</div>
+      </div>
+
+      <!-- Contact (optional) -->
+      <div class="fp-field">
+        <label class="fp-optional-label" for="fp-contact"
+               data-en="Contact details"
+               data-sv="Kontaktuppgifter"
+               data-it="Contatti">Contact details</label>
+        <input type="text" id="fp-contact" maxlength="200"
+               data-placeholder-en="Email, phone, Instagram — only if you want a reply"
+               data-placeholder-sv="E-post, telefon, Instagram — bara om du vill ha svar"
+               data-placeholder-it="Email, telefono, Instagram — solo se vuoi una risposta"
+               placeholder="Email, phone, Instagram — only if you want a reply">
+      </div>
+
+      <!-- Consent -->
+      <label class="fp-consent">
+        <input type="checkbox" id="fp-consent">
+        <span class="fp-consent-text"
+              data-en="I understand that <strong>only Edvard sees this message</strong>, and that he may keep it in a file. Public messages may appear on the site."
+              data-sv="Jag förstår att <strong>bara Edvard ser detta meddelande</strong>, och att han kan spara det. Offentliga meddelanden kan visas på sajten."
+              data-it="Capisco che <strong>solo Edvard vede questo messaggio</strong> e che potrebbe conservarlo. I messaggi pubblici potrebbero apparire sul sito.">
+          I understand that <strong>only Edvard sees this message</strong>, and that he may keep it in a file. Public messages may appear on the site.
+        </span>
+      </label>
+
+      <!-- Submit row -->
+      <div class="fp-submit-row">
+        <button class="fp-submit" id="fp-submit-btn" onclick="sendFlaskpost()" disabled>
+          <span id="fp-submit-label"
+                data-en="Throw it in the sea 🌊"
+                data-sv="Kasta ut den 🌊"
+                data-it="Lanciala in mare 🌊">Throw it in the sea 🌊</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Success state -->
+    <div class="fp-success" id="fp-success">
+      <div class="fp-success-bottle">🍾</div>
+      <h2 data-en="Message sent!" data-sv="Meddelande skickat!" data-it="Messaggio inviato!">Message sent!</h2>
+      <p data-en="Your bottle is drifting towards Italy. Edvard will find it somewhere between Sardinia and Venice."
+         data-sv="Din flaska driftar mot Italien. Edvard hittar den någonstans mellan Sardinien och Venedig."
+         data-it="La tua bottiglia sta derivando verso l'Italia. Edvard la troverà da qualche parte tra la Sardegna e Venezia.">
+        Your bottle is drifting towards Italy. Edvard will find it somewhere between Sardinia and Venice.
+      </p>
+      <p class="fp-cooldown" id="fp-cooldown"></p>
+    </div>
+
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer id="shared-footer"></footer>
+
+  <script>
+  // ── FORMSPREE ENDPOINT — replace with your own ──
+  // Go to formspree.io, create a form, paste the endpoint here.
+  const FLASKPOST_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+
+  // ── VISIBILITY TOGGLE ──
+  function setVisibility(mode) {
+    document.getElementById('fp-visibility').value = mode;
+    document.getElementById('btn-private').classList.toggle('active', mode === 'private');
+    document.getElementById('btn-public').classList.toggle('active', mode === 'public');
+    const hint = document.getElementById('vis-hint');
+    const lang = localStorage.getItem('preferred-lang') || 'en';
+    const hints = {
+      private: { en: 'Only I will see this message.', sv: 'Bara jag ser detta meddelande.', it: 'Solo io vedrò questo messaggio.' },
+      public:  { en: 'This message may appear publicly on the site (no personal details).', sv: 'Det här meddelandet kan visas offentligt på sajten (inga personuppgifter).', it: 'Questo messaggio potrebbe apparire pubblicamente sul sito (nessun dato personale).' }
+    };
+    hint.textContent = hints[mode][lang] || hints[mode].en;
+  }
+
+  // ── CHAR COUNT ──
+  function updateCharCount(el) {
+    const count = document.getElementById('fp-char-count');
+    const len = el.value.length;
+    count.textContent = len + ' / 1000';
+    count.classList.toggle('near-limit', len > 850);
+  }
+
+  // ── CONSENT GATE ──
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('fp-consent').addEventListener('change', function() {
+      document.getElementById('fp-submit-btn').disabled = !this.checked;
+    });
+
+    // Localise placeholders on lang change
+    const lang = localStorage.getItem('preferred-lang') || 'en';
+    applyPlaceholders(lang);
+    document.addEventListener('langchange', e => applyPlaceholders(e.detail));
+
+    // Check cooldown
+    const lastSent = parseInt(localStorage.getItem('flaskpost-last') || '0');
+    const cooldownMs = 10 * 60 * 1000; // 10 minutes
+    if (Date.now() - lastSent < cooldownMs) {
+      showCooldownWarning(lastSent + cooldownMs);
+    }
+  });
+
+  function applyPlaceholders(lang) {
+    document.querySelectorAll('[data-placeholder-' + lang + ']').forEach(el => {
+      el.placeholder = el.getAttribute('data-placeholder-' + lang);
+    });
+  }
+
+  // ── SEND ──
+  function sendFlaskpost() {
+    const name      = document.getElementById('fp-name').value.trim();
+    const message   = document.getElementById('fp-message').value.trim();
+    const contact   = document.getElementById('fp-contact').value.trim();
+    const visibility = document.getElementById('fp-visibility').value;
+
+    if (!message) {
+      document.getElementById('fp-message').style.borderBottomColor = 'var(--sand-dark)';
+      document.getElementById('fp-message').focus();
+      return;
+    }
+
+    const btn = document.getElementById('fp-submit-btn');
+    btn.disabled = true;
+    btn.style.opacity = '0.6';
+    document.getElementById('fp-submit-label').textContent = '…';
+
+    fetch(FLASKPOST_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        name: name || 'Anonymous',
+        message,
+        contact: contact || '—',
+        visibility,
+        _subject: (visibility === 'public' ? '[PUBLIC] ' : '[PRIVATE] ') + 'Flaskpost från ' + (name || 'Anonymous')
+      })
+    })
+    .then(() => {
+      localStorage.setItem('flaskpost-last', String(Date.now()));
+      document.getElementById('fp-form').style.display = 'none';
+      const success = document.getElementById('fp-success');
+      success.style.display = 'flex';
+      // Apply current lang to success block
+      const lang = localStorage.getItem('preferred-lang') || 'en';
+      if (typeof applyLanguage === 'function') applyLanguage(lang);
+    })
+    .catch(() => {
+      btn.disabled = false;
+      btn.style.opacity = '';
+      document.getElementById('fp-submit-label').textContent = '⚠ Try again';
+    });
+  }
+
+  function showCooldownWarning(expiresAt) {
+    const el = document.getElementById('fp-cooldown');
+    if (!el) return;
+    function tick() {
+      const rem = Math.max(0, Math.ceil((expiresAt - Date.now()) / 1000));
+      if (rem === 0) { el.textContent = ''; return; }
+      const m = Math.floor(rem / 60), s = rem % 60;
+      el.textContent = `You can send another message in ${m}:${String(s).padStart(2,'0')}`;
+      setTimeout(tick, 1000);
+    }
+    tick();
+  }
+  </script>
+
+</body>
+</html>

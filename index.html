@@ -180,6 +180,27 @@
       transform: translateX(4px);
     }
 
+    /* ── FLASKPOST BUTTON ── */
+    .hero-flaskpost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: #c8a97e;
+      color: #2a1f12;
+      text-decoration: none;
+      padding: 0.9rem 2rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: background 0.2s, transform 0.2s;
+      width: fit-content;
+    }
+    .hero-flaskpost:hover {
+      background: #e0c49a;
+      transform: translateX(4px);
+    }
+
     
     /* ── MAP BUTTON ── */
     .hero-map {
@@ -269,13 +290,37 @@
     }
     .donate-info-link svg { flex-shrink: 0; color: var(--sky-deep); }
     
+    .blog-card-cover-wrap {
+      width: 100%;
+      /* Square by default */
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      position: relative;
+      transition: aspect-ratio 0s, max-height 0.45s cubic-bezier(0.4,0,0.2,1);
+      max-height: 280px;
+    }
+
+    .blog-card:hover .blog-card-cover-wrap {
+      /* On hover: expand to show full image — tall enough for portraits */
+      max-height: 600px;
+      aspect-ratio: unset;
+    }
+
     .blog-card-cover-wrap img {
-      width: 110%;
-      height: 110%;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       object-position: center;
-      margin: -5%;
       display: block;
+      transition: transform 0.45s cubic-bezier(0.4,0,0.2,1),
+                  height   0.45s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .blog-card:hover .blog-card-cover-wrap img {
+      /* Show full image at natural proportions */
+      object-fit: contain;
+      object-position: top;
+      background: var(--green);
     }
 
     /* ── SHARED SECTIONS ── */
@@ -1127,6 +1172,12 @@
            data-sv="Donera ♥"
            data-it="Dona ♥">
           Donate ♥
+        </a>
+        <a href="flaskpost.html" class="hero-flaskpost"
+           data-en="Flaskpost 🍾"
+           data-sv="Flaskpost 🍾"
+           data-it="Messaggio in bottiglia 🍾">
+          Flaskpost 🍾
         </a>
       </div>
 

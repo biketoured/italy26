@@ -11,6 +11,7 @@ function getCurrentPage() {
   const path = window.location.pathname;
   if (path.includes('sweden2024'))                      return 'sweden2024';
   if (path.includes('donate'))                          return 'donate';
+  if (path.includes('flaskpost'))                       return 'flaskpost';
   if (path.includes('blog') && path.includes('post'))   return 'post';
   if (path.includes('blog'))                            return 'blog';
   if (path.includes('route'))                           return 'routes';
@@ -36,6 +37,12 @@ const NAV_THEMES = {
     border:    'rgba(184,212,224,0.2)',
     link:      'rgba(184,212,224,0.7)',
     linkHover: '#FDFAF4',
+  },
+  'flaskpost': {
+    bg:        'rgba(42,31,18,0.96)',
+    border:    'rgba(200,169,126,0.2)',
+    link:      'rgba(200,169,126,0.65)',
+    linkHover: '#e0c49a',
   },
   'routes': {
     bg:        'rgba(30,61,47,0.96)',
@@ -87,11 +94,12 @@ function injectNav(page) {
   // Nav link definitions
   // Each entry: { id, href, en, sv, it }
   const links = [
-    { id: 'blog',      href: p + 'blog/index.html',  en: 'Blog',        sv: 'Blogg',       it: 'Blog'        },
-    { id: 'donate',    href: p + 'donate.html',       en: 'Donate',      sv: 'Donera',      it: 'Dona'        },
-    { id: 'links',     href: p + 'index.html#links',  en: 'Links',       sv: 'Länkar',      it: 'Link'        },
-    { id: 'routes',    href: p + 'route.html',         en: 'Routes',      sv: 'Rutter',      it: 'Percorsi'    },
-    { id: 'sweden2024',href: p + 'sweden2024.html',   en: 'Sweden 2024', sv: 'Sverige 2024',it: 'Svezia 2024' },
+    { id: 'blog',       href: p + 'blog/index.html',  en: 'Blog',        sv: 'Blogg',       it: 'Blog'                      },
+    { id: 'donate',     href: p + 'donate.html',       en: 'Donate',      sv: 'Donera',      it: 'Dona'                      },
+    { id: 'flaskpost',  href: p + 'flaskpost.html',    en: 'Flaskpost',   sv: 'Flaskpost',   it: 'Messaggio in bottiglia'    },
+    { id: 'links',      href: p + 'index.html#links',  en: 'Links',       sv: 'Länkar',      it: 'Link'                      },
+    { id: 'routes',     href: p + 'route.html',        en: 'Routes',      sv: 'Rutter',      it: 'Percorsi'                  },
+    { id: 'sweden2024', href: p + 'sweden2024.html',   en: 'Sweden 2024', sv: 'Sverige 2024',it: 'Svezia 2024'               },
   ];
 
   // Home link — hidden on index, points to index from everywhere else
@@ -190,7 +198,8 @@ function injectPizzaScrollbar() {
     'blog':       'wheel.png',
     'post':       'cheese.png',
     'sweden2024': 'mayflower.png',
-    'routes':     'pizza.png',
+    'routes':     'tomato.png',
+    'flaskpost':  'bottle.png',
   };
   const thumbImage = PAGE_IMAGES[getCurrentPage()] || 'pizza.png';
 
