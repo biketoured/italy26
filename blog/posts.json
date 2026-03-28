@@ -7,7 +7,6 @@
     "location": "Genova, Liguria",
     "km": 87,
     "elevation": 1240,
-    "cover": "assets/images/placehold.png",
     "title": {
       "en": "Day 1 — Genova, Liguria",
       "sv": "Dag 1 — Genova, Ligurien",
@@ -15,29 +14,42 @@
     }
   },
   {
+    "slug": "dag3",
+    "type": "journal",
+    "date": "2026-03-25",
+    "day": -50,
+    "location": "Skelleftehamn, Sweden",
+    "km": 0,
+    "elevation": 0,
+    "title": {
+      "en": "Day X — Stad, Region",
+      "sv": "Dag X — Stad, Region",
+      "it": "Giorno X — Città, Regione"
+    }
+  },
+  {
+    "slug": "dag2",
+    "type": "journal",
+    "date": "2026-03-15",
+    "day": 2,
+    "location": "Teststad, Testregion",
+    "km": 50,
+    "elevation": 500,
+    "title": {
+      "en": "Day 2 — Teststad, Testregion",
+      "sv": "Dag 2 — Teststad, Testregion",
+      "it": "Giorno 2 — Teststad, Testregion"
+    }
+  },
+  {
     "slug": "gear",
     "type": "blog",
     "date": "2026-03-01",
     "tag": "Gear",
-    "cover": "assets/images/placehold.png",
     "title": {
       "en": "What goes in the bags for a 40-day trip",
       "sv": "Vad packar man för en 40-dagarsresa",
       "it": "Cosa si mette nelle borse per un viaggio di 40 giorni"
     }
-  },{
-  "slug": "dag2",
-  "type": "journal",
-  "date": "2026-03-15",
-  "day": 2,
-  "location": "Teststad, Testregion",
-  "km": 50,
-  "elevation": 500,
-  "cover": "assets/images/placehold.png",
-  "title": {
-    "en": "Day 2 — Teststad, Testregion",
-    "sv": "Dag 2 — Teststad, Testregion",
-    "it": "Giorno 2 — Teststad, Testregion"
   }
-}
 ]
