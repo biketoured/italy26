@@ -175,7 +175,7 @@
         // Cascade through extensions, hide if none exist
         var photo = document.getElementById('post-photo');
         if (photo) {
-          var tries = ['cover.jpeg', 'cover.png', 'cover.webp'];
+          var tries = ['cover.jpeg', 'cover.png'];
           var idx = 0;
           photo.onerror = function() {
             if (idx < tries.length) {

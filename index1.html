@@ -270,23 +270,13 @@
     .donate-info-link svg { flex-shrink: 0; color: var(--sky-deep); }
 
     /* ── BLOG CARD COVER ── */
-    .blog-card-cover-wrap {
+    .blog-card-cover {
       width: 100%;
-      aspect-ratio: 1 / 1;       /* square — same width and height */
-      background: var(--green-mid);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      margin-bottom: 0;
-    }
-    .blog-card-cover-wrap img {
-      max-width: 100%;
-      max-height: 100%;
-      width: auto;
-      height: auto;
-      object-fit: contain;       /* whole photo fits, no crop */
-      display: block;
+      height: 120px;
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 1rem;
+      opacity: 0.75;
     }
 
     /* ── SHARED SECTIONS ── */
@@ -520,27 +510,17 @@
     .blog-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
+      gap: 2rem;
       margin-top: 3rem;
     }
-    /* Show max 3 cards on desktop (first row only) */
-    .blog-grid .blog-card:nth-child(n+4) { display: none; }
 
     .blog-card {
       background: var(--green);
-      padding: 0;
+      padding: 2rem;
       border-left: 3px solid var(--yellow-soft);
       transition: transform 0.2s, border-color 0.2s;
       text-decoration: none;
-      display: flex;
-      flex-direction: column;
-    }
-    .blog-card-body {
-      padding: 1.25rem 1.25rem 0.75rem;
-    }
-    .blog-card-footer {
-      padding: 0 1.25rem 1.25rem;
-      margin-top: auto;
+      display: block;
     }
 
     .blog-card:hover { transform: translateY(-8px); border-color: var(--green-mid); }
@@ -551,7 +531,7 @@
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--green-light);
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.75rem;
     }
 
     .blog-card-title {
@@ -559,15 +539,14 @@
       font-size: 1.2rem;
       color: var(--white);
       line-height: 1.4;
-      margin-bottom: 0;
+      margin-bottom: 1rem;
     }
 
     .blog-card-excerpt {
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       font-weight: 300;
-      color: var(--stone-dark);
-      line-height: 1.4;
-      margin-top: 0.4rem;
+      color: var(--stone);
+      line-height: 1.6;
     }
 
     /* ── LINKS ── */
@@ -1070,9 +1049,7 @@
       .hero-left::after { display: none; }
       .hero-right { min-height: 300px; }
       .about-grid { grid-template-columns: 3fr; }
-      .blog-grid  { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-      .blog-grid .blog-card:nth-child(n+4) { display: none; }
-      .blog-grid .blog-card:nth-child(n+5) { display: none; }
+      .blog-grid  { grid-template-columns: 1fr; }
       .activities-grid { grid-template-columns: 1fr; }
       .activities-inner { padding: 0 1.5rem; }
       .activities-header-row { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
@@ -1086,7 +1063,7 @@
       .hero-title { font-size: clamp(1.8rem, 6vw, 2.8rem); }
       .section-title { font-size: clamp(1.4rem, 5vw, 2rem); }
       .activity-stat-value { font-size: 0.9rem; }
-      .blog-card-title { font-size: 0.95rem; }
+      .blog-card-title { font-size: 1rem; }
     }
   </style>
   <script src="manuals.js"></script>
@@ -1954,32 +1931,38 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
           const href = 'blog/post.html?slug=' + post.slug;
 
           const coverUrl = '/italy26/blog/posts/' + post.slug + '/cover.jpg';
-          // cover handled inline in coverImg below
+          const cover = '<div class="blog-card-cover" style="background-image:url(\'' + coverUrl + '\')"' +
+            ' data-slug="' + post.slug + '"' +
+            ' onerror="void 0"' +
+            '></div>';
+          // Cascade through extensions via Image probe
+          (() => {
+            const tries = ['cover.jpeg', 'cover.png', 'cover.webp', '/italy26/assets/images/placehold.png'];
+            let i = 0;
+            function probe(src) {
+              const img = new Image();
+              img.onload = () => {
+                const el = document.querySelector('.blog-card-cover[data-slug="' + post.slug + '"]');
+                if (el) el.style.backgroundImage = "url('" + src + "')";
+              };
+              img.onerror = () => {
+                if (i < tries.length) {
+                  const next = tries[i].startsWith('/') ? tries[i] : '/italy26/blog/posts/' + post.slug + '/' + tries[i];
+                  i++;
+                  probe(next);
+                }
+              };
+              img.src = src;
+            }
+            probe(coverUrl);
+          })();
 
-          // Rebuild cover as <img> for object-fit:contain
-          const coverImg = '<div class="blog-card-cover-wrap"><img'
-            + ' data-slug="' + post.slug + '"'
-            + ' src="' + coverUrl + '"'
-            + ' alt="' + title + '"'
-            + ' loading="lazy"'
-            + ' onerror="'
-            +   'var t=[\'cover.jpeg\',\'cover.png\'];'
-            +   'var i=parseInt(this.dataset.try||0);'
-            +   'if(i<t.length){this.dataset.try=i+1;this.src=\'/italy26/blog/posts/' + post.slug + '/\'+t[i];}'
-            +   'else{this.onerror=null;this.src=\'/italy26/assets/images/placehold.png\';}'
-            + '"'
-            + '></div>';
-
-          return '<a href="' + href + '" class="blog-card">'
-            + '<div class="blog-card-body">'
-            +   '<p class="blog-card-tag">' + tag + '</p>'
-            +   '<h3 class="blog-card-title">' + title + '</h3>'
-            + '</div>'
-            + coverImg
-            + '<div class="blog-card-footer">'
-            +   excerpt
-            + '</div>'
-            + '</a>';
+          return '<a href="' + href + '" class="blog-card">' +
+            cover +
+            '<p class="blog-card-tag">' + tag + '</p>' +
+            '<h3 class="blog-card-title">' + title + '</h3>' +
+            excerpt +
+            '</a>';
         }).join('');
       })
       .catch(() => {
