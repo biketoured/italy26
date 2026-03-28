@@ -1,0 +1,41 @@
+name: Sync posts.json
+
+on:
+  # Runs every night at midnight UTC
+  schedule:
+    - cron: '0 0 * * *'
+
+  # Also runs whenever you push changes to blog/posts/
+  push:
+    paths:
+      - 'blog/posts/**/en.md'
+      - 'blog/posts/**/*.jpg'
+      - 'blog/posts/**/*.jpeg'
+      - 'blog/posts/**/*.png'
+
+  # And can be triggered manually from GitHub Actions tab
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run sync script
+        run: python scripts/sync_posts.py
+
+      - name: Commit and push if anything changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add blog/posts.json blog/posts/
+          git diff --staged --quiet || git commit -m "Auto: sync posts.json and rename cover images"
+          git push

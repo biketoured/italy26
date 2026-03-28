@@ -268,17 +268,13 @@
       color: var(--sky);
     }
     .donate-info-link svg { flex-shrink: 0; color: var(--sky-deep); }
-
-    /* ── BLOG CARD COVER ── */
-    .blog-card-cover-wrap {
-      width: 100%;
-      aspect-ratio: 1 / 1;       /* square — same width and height */
-      background: var(--green-mid);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      margin-bottom: 0;
+    
+    .blog-card-cover-wrap img {
+      width: 110%;
+      height: 110%;
+      object-fit: cover;
+      margin: -5%;
+      display: block;
     }
     .blog-card-cover-wrap img {
       max-width: 100%;

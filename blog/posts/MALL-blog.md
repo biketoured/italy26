@@ -2,16 +2,13 @@
 type: blog
 date: ÅÅÅÅ-MM-DD
 tag: Välj en — Gear / Training / Italy 2026 / Reflections / Route
-cover: photos/photo-01.jpg
 title:
   en: Din engelska titel här
   sv: Din svenska titel här
   it: Din italienska titel här
-photos:
-  - src: photos/photo-01.jpg
-    caption: Din bildtext här
-  - src: photos/photo-02.jpg
-    caption: ""
+captions:
+  photo1: Bildtext för andra bilden (valfri)
+  photo2: Bildtext för tredje bilden (valfri)
 ---
 
 Skriv din inledande text här. Den visas direkt utan rubrik.
