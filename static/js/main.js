@@ -94,11 +94,12 @@ function injectNav(page) {
   // Nav link definitions
   // Each entry: { id, href, en, sv, it }
   const links = [
-    { id: 'blog',       href: p + 'blog/index.html',  en: 'Blog',        sv: 'Blogg',       it: 'Blog'        },
-    { id: 'donate',     href: p + 'donate.html',       en: 'Donate',      sv: 'Donera',      it: 'Dona'        },
-    { id: 'links',      href: p + 'index.html#links',  en: 'Links',       sv: 'Länkar',      it: 'Link'        },
-    { id: 'routes',     href: p + 'route.html',        en: 'Routes',      sv: 'Rutter',      it: 'Percorsi'    },
-    { id: 'sweden2024', href: p + 'sweden2024.html',   en: 'Sweden 2024', sv: 'Sverige 2024',it: 'Svezia 2024' },
+    { id: 'blog',       href: p + 'blog/index.html',  en: 'Blog',        sv: 'Blogg',       it: 'Blog'                      },
+    { id: 'donate',     href: p + 'donate.html',       en: 'Donate',      sv: 'Donera',      it: 'Dona'                      },
+    { id: 'flaskpost',  href: p + 'flaskpost.html',    en: 'Flaskpost',   sv: 'Flaskpost',   it: 'Messaggio in bottiglia'    },
+    { id: 'links',      href: p + 'index.html#links',  en: 'Links',       sv: 'Länkar',      it: 'Link'                      },
+    { id: 'routes',     href: p + 'route.html',        en: 'Routes',      sv: 'Rutter',      it: 'Percorsi'                  },
+    { id: 'sweden2024', href: p + 'sweden2024.html',   en: 'Sweden 2024', sv: 'Sverige 2024',it: 'Svezia 2024'               },
   ];
 
   // Home link — hidden on index, points to index from everywhere else
@@ -129,144 +130,17 @@ function injectNav(page) {
              data-sv="${l.sv}"
              data-it="${l.it}">${l.en}</a>
         </li>`).join('')}
-    </ul>
-
-    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-
-    <div class="nav-drawer" id="nav-drawer" aria-hidden="true">
-      <ul class="nav-drawer-links">
-        ${links.map(l => `
-          <li class="${l.id === page ? 'hidden' : ''}">
-            <a href="${l.href}"
-               data-en="${l.en}"
-               data-sv="${l.sv}"
-               data-it="${l.it}">${l.en}</a>
-          </li>`).join('')}
-      </ul>
-    </div>`;
+    </ul>`;
 
   const nav = document.getElementById('shared-nav');
   if (nav) {
     nav.innerHTML = navHTML;
   } else {
+    // Fallback — create nav if not present
     const el = document.createElement('nav');
     el.id = 'shared-nav';
     el.innerHTML = navHTML;
     document.body.insertBefore(el, document.body.firstChild);
-  }
-
-  // ── Inject hamburger CSS (once) ──
-  if (!document.getElementById('hamburger-styles')) {
-    const style = document.createElement('style');
-    style.id = 'hamburger-styles';
-    style.textContent = `
-      /* Hamburger button — hidden on desktop */
-      .nav-hamburger {
-        display: none;
-        flex-direction: column;
-        justify-content: center;
-        gap: 5px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 4px;
-        z-index: 200;
-      }
-      .nav-hamburger span {
-        display: block;
-        width: 22px;
-        height: 2px;
-        background: var(--nav-link);
-        border-radius: 2px;
-        transition: background 0.2s, transform 0.25s, opacity 0.2s;
-      }
-      .nav-hamburger:hover span { background: var(--nav-link-hover); }
-
-      /* Animated X when open */
-      .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-      .nav-hamburger.open span:nth-child(2) { opacity: 0; }
-      .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-      /* Drawer — slides down from nav */
-      .nav-drawer {
-        display: none;
-        position: fixed;
-        top: 0; left: 0; right: 0;
-        z-index: 99;
-        background: var(--nav-bg);
-        backdrop-filter: blur(8px);
-        padding: 5rem 2rem 2rem;
-        transform: translateY(-100%);
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        border-bottom: 1px solid var(--nav-border);
-      }
-      .nav-drawer.open {
-        transform: translateY(0);
-      }
-      .nav-drawer-links {
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-      }
-      .nav-drawer-links li { border-bottom: 1px solid var(--nav-border); }
-      .nav-drawer-links li:first-child { border-top: 1px solid var(--nav-border); }
-      .nav-drawer-links li.hidden { display: none; }
-      .nav-drawer-links a {
-        display: block;
-        font-family: 'DM Mono', monospace;
-        font-size: 0.9rem;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: var(--nav-link-hover);
-        text-decoration: none;
-        padding: 1rem 0.25rem;
-        transition: color 0.15s, padding-left 0.15s;
-      }
-      .nav-drawer-links a:hover {
-        color: var(--nav-link-hover);
-        padding-left: 0.75rem;
-      }
-
-      @media (max-width: 480px) {
-        .nav-links   { display: none !important; }
-        .nav-hamburger { display: flex; }
-        .nav-drawer  { display: block; }
-      }
-    `;
-    document.head.appendChild(style);
-  }
-
-  // ── Wire up hamburger toggle ──
-  const hamburger = document.getElementById('nav-hamburger');
-  const drawer    = document.getElementById('nav-drawer');
-  if (hamburger && drawer) {
-    hamburger.addEventListener('click', () => {
-      const isOpen = hamburger.classList.toggle('open');
-      drawer.classList.toggle('open', isOpen);
-      hamburger.setAttribute('aria-expanded', isOpen);
-      drawer.setAttribute('aria-hidden', !isOpen);
-    });
-    // Close drawer when any link inside it is clicked
-    drawer.addEventListener('click', e => {
-      if (e.target.tagName === 'A') {
-        hamburger.classList.remove('open');
-        drawer.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', 'false');
-        drawer.setAttribute('aria-hidden', 'true');
-      }
-    });
-    // Close on outside tap
-    document.addEventListener('click', e => {
-      if (!hamburger.contains(e.target) && !drawer.contains(e.target)) {
-        hamburger.classList.remove('open');
-        drawer.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', 'false');
-        drawer.setAttribute('aria-hidden', 'true');
-      }
-    });
   }
 }
 
@@ -405,6 +279,12 @@ function injectPizzaScrollbar() {
     ensureSpinning();
     clearTimeout(scrollbar._stopTimer);
     scrollbar._stopTimer = setTimeout(() => { isScrolling = false; }, 120);
+
+    // ── Apple drop — trigger when user reaches the very bottom ──
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    if (maxScroll > 0 && window.scrollY >= maxScroll - 2) {
+      spawnAppleDrop();
+    }
   }, { passive: true });
 
   // ── Click-to-jump (works for mouse and touch) ──
@@ -445,6 +325,146 @@ function injectPizzaScrollbar() {
   });
   thumb.addEventListener('pointerup',     () => { dragging = false; });
   thumb.addEventListener('pointercancel', () => { dragging = false; });
+
+  // ── Apple drop animation ────────────────────────────────────
+  // Spawns a copy of the thumb image that falls from the scrollbar,
+  // bounces like a dropped apple, drifts left, then rests on the floor.
+  // Each apple is physically independent — different bounce power + drift speed.
+  // Constraints: max bounce height = 1/5 vh, max leftward travel = 1/3 vw.
+
+  const appleDropState = {
+    fired:   false,   // only fire once per page-bottom visit
+    settled: [],      // refs to resting apple elements (for cleanup on scroll up)
+  };
+
+  // Re-arm when user scrolls away from the bottom so they can see it again
+  window.addEventListener('scroll', () => {
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    if (maxScroll > 0 && window.scrollY < maxScroll - 80) {
+      appleDropState.fired = false;
+    }
+  }, { passive: true });
+
+  function spawnAppleDrop() {
+    if (appleDropState.fired) return;
+    appleDropState.fired = true;
+
+    const imgSrc   = img.src;                  // same image as the real thumb
+    const thumbW   = thumb.offsetWidth;        // ~60 px
+    const thumbH   = thumb.offsetHeight;       // ~60 px
+    const sbRect   = scrollbar.getBoundingClientRect();
+
+    // Floor = bottom of the viewport (fixed coords)
+    const floorY   = window.innerHeight - thumbH - 6;
+
+    // Starting position = where the real thumb currently is (bottom of bar)
+    const startX   = sbRect.left + (sbRect.width - thumbW) / 2;
+    const startY   = sbRect.top + (scrollbar.offsetHeight - TRACK_PAD - thumbH);
+
+    // How many apples fall? 1 to 3 — one per "previous" bottom visit would also work,
+    // but one feels clean and physical. Extend count here if you want a cascade.
+    const COUNT = 3;
+
+    for (let i = 0; i < COUNT; i++) {
+      launchApple(imgSrc, startX, startY, floorY, thumbW, thumbH, i * 120);
+    }
+  }
+
+  function launchApple(src, startX, startY, floorY, w, h, delayMs) {
+    // ── Randomised physics per apple ──
+    const maxBounceH  = window.innerHeight / 5;          // hard cap: 1/5 vh
+    const maxDriftX   = window.innerWidth  / 3;          // hard cap: 1/3 vw (leftward)
+    const bounceDecay = 0.42 + Math.random() * 0.18;     // 0.42–0.60 — bounciness
+    const driftPxPerS = 60  + Math.random() * 120;       // 60–180 px/s leftward drift
+    const initBounceH = (maxBounceH * 0.55) + Math.random() * (maxBounceH * 0.45); // 55–100% of cap
+    const spinDir     = Math.random() < 0.5 ? 1 : -1;   // clockwise or counter
+    const spinRpm     = 1.5 + Math.random() * 2.5;       // 1.5–4 rotations per bounce
+
+    // Create element
+    const el = document.createElement('div');
+    el.style.cssText = `
+      position: fixed;
+      width: ${w}px; height: ${h}px;
+      left: ${startX}px; top: ${startY}px;
+      z-index: 999;
+      pointer-events: none;
+      display: flex; align-items: center; justify-content: center;
+      transform-origin: center center;
+      will-change: transform, top, left;
+    `;
+    const appleImg = document.createElement('img');
+    appleImg.src = src;
+    appleImg.style.cssText = `width:50px;height:50px;border-radius:50%;display:block;filter:drop-shadow(0 4px 8px rgba(0,0,0,0.4));`;
+    el.appendChild(appleImg);
+    document.body.appendChild(el);
+
+    let posX      = startX;
+    let posY      = startY;
+    let velY      = 0;              // px/s downward
+    let bounceH   = initBounceH;   // current peak height for this bounce
+    let angle     = 0;             // current rotation degrees
+    let totalDrift = 0;            // how far left we've gone
+    let resting   = false;
+    let lastTs    = null;
+    const GRAVITY = 1800;          // px/s²
+
+    // Phases: 'falling' → 'bouncing' → 'resting'
+    let phase = 'falling';
+
+    setTimeout(() => {
+      function frame(ts) {
+        if (resting) return;
+        if (lastTs === null) lastTs = ts;
+        const dt = Math.min((ts - lastTs) / 1000, 0.05); // cap dt at 50ms
+        lastTs = ts;
+
+        if (phase === 'falling' || phase === 'bouncing') {
+          velY += GRAVITY * dt;
+          posY += velY * dt;
+
+          // Drift left — respect the 1/3 vw cap
+          const driftThisFrame = Math.min(driftPxPerS * dt, maxDriftX - totalDrift);
+          if (driftThisFrame > 0) {
+            posX      -= driftThisFrame;
+            totalDrift += driftThisFrame;
+          }
+
+          // Rotation — proportional to horizontal speed
+          angle += spinDir * spinRpm * 360 * dt;
+
+          // Hit the floor?
+          if (posY >= floorY) {
+            posY = floorY;
+            phase = 'bouncing';
+
+            // Next bounce height
+            bounceH *= bounceDecay;
+
+            if (bounceH < 4) {
+              // Too small to bother — come to rest
+              resting = true;
+              el.style.top  = floorY + 'px';
+              el.style.left = posX  + 'px';
+              appleImg.style.transform = `rotate(${Math.round(angle)}deg)`;
+              appleDropState.settled.push(el);
+              return;
+            }
+
+            // Bounce: set upward velocity to reach bounceH
+            // v² = 2·g·h  →  v = √(2·g·h)
+            velY = -Math.sqrt(2 * GRAVITY * bounceH);
+          }
+
+          el.style.top  = Math.round(posY) + 'px';
+          el.style.left = Math.round(posX) + 'px';
+          appleImg.style.transform = `rotate(${angle % 360}deg)`;
+        }
+
+        requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    }, delayMs);
+  }
 
   updateThumb();
 }

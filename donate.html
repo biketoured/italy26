@@ -194,7 +194,7 @@
 
     .goal-note {
       font-family: 'DM Mono', monospace;
-      font-size: 0.62rem;
+      font-size: 0.75rem;
       letter-spacing: 0.1em;
       color: rgba(196,180,154,0.4);
       text-transform: uppercase;
@@ -383,24 +383,25 @@
       line-height: 1.6;
       margin-top: 0.6rem;
     }
-
     /* QR placeholder */
     .qr-placeholder {
+      width: 140px;
+      height: 140px;
+      overflow: hidden;
+      transition: width 0.3s ease, height 0.3s ease;
+      cursor: pointer;
+    }
+
+    .qr-placeholder img {
       width: 100%;
-      aspect-ratio: 1;
-      max-width: 140px;
-      background: rgba(196,180,154,0.08);
-      border: 2px dashed rgba(196,180,154,0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.1em;
-      color: rgba(196,180,154,0.3);
-      text-transform: uppercase;
-      text-align: center;
-      margin-bottom: 0.75rem;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .qr-placeholder:hover {
+      width: 220px;
+      height: 220px;
     }
 
     /* ── TRANSPARENCY NOTE ── */
@@ -675,6 +676,12 @@
           <!-- INSERT: replace this div with an <img> tag pointing to your Swish QR code image -->
           <!-- Example: <img src="assets/images/swish-qr.png" alt="Swish QR" style="width:140px;"> -->
           <div class="qr-placeholder">
+          <a href="swish://payment?data=%7B%22version%22%3A1%2C%22payee%22%3A%7B%22value%22%3A%220725532011%22%7D%7D" 
+            aria-label="Open in Swish app">
+            <div class="qr-placeholder">
+              <img src="assets/images/swish.png" alt="Swish QR">
+            </div>
+          </a>
             <img src="assets/images/swish.png" alt="Swish QR">
           </div>
           <p class="payment-note" data-en="Scan with your Swish app to pay instantly." data-sv="Skanna med din Swish-app för att betala direkt." data-it="Scansiona con la tua app Swish per pagare istantaneamente.">Scan with your Swish app to pay instantly.</p>

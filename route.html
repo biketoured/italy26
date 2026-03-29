@@ -392,9 +392,9 @@
        data-en="// The plan"
        data-sv="// Planen"
        data-it="// Il piano">// The plan</p>
-    <h1 data-en="Italy 2026 — Route overview"
-        data-sv="Italien 2026 — Rutöversikt"
-        data-it="Italia 2026 — Panoramica percorso">Italy 2026 — Route overview</h1>
+    <h1 data-en="Italy 2026 — Itinerary"
+        data-sv="Italien 2026 — Planerad färdväg genom Italien "
+        data-it="Italia 2026 — Panoramica del percorso">Italy 2026 — Route overview</h1>
     <div class="section-divider"></div>
     <p data-en="The planned route broken into stages. Click a stage to highlight it on the map."
        data-sv="Den planerade rutten uppdelad i etapper. Klicka på en etapp för att markera den på kartan."
@@ -443,10 +443,10 @@
           data-sv="Tipsa mig om ett ställe"
           data-it="Consigliami un posto">Recommend me a place</h2>
       <div class="recommend-divider"></div>
-      <p data-en="Know a hidden village, a view, a trattoria, a coastal path or anything else worth a detour? Tell me — I read every suggestion."
-         data-sv="Känner du till en gömd by, en utsikt, en trattoria, en kustled eller något annat som är värt en omväg? Berätta — jag läser varje förslag."
-         data-it="Conosci un borgo nascosto, un panorama, una trattoria, un sentiero costiero o qualcos'altro che vale la deviazione? Dimmelo — leggo ogni suggerimento.">
-        Know a hidden village, a view, a trattoria, a coastal path or anything else worth a detour? Tell me — I read every suggestion.
+      <p data-en="Know a hidden village, a fantastic view, a tasty trattoria, a coastal path or anything else worth a detour? Please tell me! I read every suggestion."
+         data-sv="Känner du till en utsikt, en trattoria, en vacker by långt in i bergen eller något annat som är värt en omväg? Berätta gärna! Jag läser varje förslag."
+         data-it="Conosci un borgo nascosto, un panorama, una trattoria, un sentiero costiero o qualcos'altro che vale la deviazione? Dimmelo! Leggo ogni suggerimento.">
+        Know a hidden village, a fantastic view, a tasty trattoria, a coastal path or anything else worth a detour? Please tell me! I read every suggestion.
       </p>
     </div>
 
@@ -455,22 +455,24 @@
         <label class="field-label"
                data-en="Destination / place name"
                data-sv="Destination / platsnamn"
-               data-it="Destinazione / nome del posto">Destination / place name</label>
+               data-it="Destinazione / nome del posto">
+               Destination / place name</label>
         <input type="text" id="rec-place" maxlength="120"
-               data-placeholder-en="e.g. Matera, Basilicata"
-               data-placeholder-sv="t.ex. Matera, Basilicata"
-               data-placeholder-it="es. Matera, Basilicata"
+               data-placeholder-en="e.g. Ravenna, Veneto"
+               data-placeholder-sv="t.ex. Trapani, Sicilien"
+               data-placeholder-it="es. Carrara, Toscana"
                placeholder="e.g. Matera, Basilicata">
       </div>
       <div>
         <label class="field-label"
                data-en="Your name (optional)"
                data-sv="Ditt namn (valfritt)"
-               data-it="Il tuo nome (opzionale)">Your name (optional)</label>
+               data-it="Il tuo nome (opzionale)">
+               Your name (optional)</label>
         <input type="text" id="rec-name" maxlength="60"
-               data-placeholder-en="How should I credit you?"
-               data-placeholder-sv="Vad ska jag kalla dig?"
-               data-placeholder-it="Come ti chiamo?">
+               data-placeholder-en="What do you want to be named?"
+               data-placeholder-sv="Vad vill du kallas"
+               data-placeholder-it="Come ti chiama?">
       </div>
       <div class="field-full">
         <label class="field-label"
@@ -478,21 +480,22 @@
                data-sv="Varför är det värt ett besök?"
                data-it="Perché vale la visita?">Why is it worth a visit?</label>
         <textarea id="rec-reason" rows="4" maxlength="600"
-                  data-placeholder-en="Tell me what makes it special — the light at dusk, a dish you can only find there, a climb that ruins you in the best way…"
-                  data-placeholder-sv="Berätta vad som gör det speciellt — ljuset i skymningen, en rätt du bara hittar där, en backe som verkligen testar dig…"
-                  data-placeholder-it="Dimmi cosa lo rende speciale — la luce al tramonto, un piatto che trovi solo lì, una salita che ti distrugge nel miglior modo possibile…"
+                  data-placeholder-en="Tell me what makes it special. The architecture, a dish you can only find there, a climb with an amazing view…"
+                  data-placeholder-sv="Berätta vad som gör det speciellt. Är det arkitekturen, en utsökt maträtt, en backe som verkligen utmanar…"
+                  data-placeholder-it="Dimmi cosa lo rende speciale. L'architetturo, un piatto che trovi solo lì, una salita monumentale…"
                   placeholder="Tell me what makes it special…"></textarea>
       </div>
       <div class="field-full" style="display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap;">
         <button class="recommend-submit" id="rec-submit"
                 data-en="Send suggestion →"
-                data-sv="Skicka tips →"
+                data-sv="Skicka tipset →"
                 data-it="Invia consiglio →"
                 onclick="submitRecommendation()">Send suggestion →</button>
         <span class="recommend-confirm" id="rec-confirm"
               data-en="✓ Got it — thank you!"
               data-sv="✓ Tack för tipset!"
-              data-it="✓ Ricevuto — grazie!">✓ Got it — thank you!</span>
+              data-it="✓ Ricevuto — grazie!">
+              ✓ Got it — thank you!</span>
       </div>
     </div>
   </section>
