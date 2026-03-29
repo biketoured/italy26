@@ -219,9 +219,9 @@ function injectPizzaScrollbar() {
   const TRACK_PAD  = 26;   // half of thumb height so pizza stays within viewport
 
   // ── Spin physics (rAF-based — no CSS animation, no snapping) ──
-  const TARGET_DEG_S = 240;    // deg/s while scrolling (1 rev per 1.5s)
-  const DECAY        = 0.9925; // exponential friction per normalised 60fps frame
-  const STOP_THRESH  = 0.5;    // deg/s below which we call it stopped
+  const TARGET_DEG_S = 360;    // deg/s while scrolling (1 rev per 1.5s)
+  const DECAY        = 0.98; // exponential friction per normalised 60fps frame
+  const STOP_THRESH  = 5;    // deg/s below which we call it stopped
 
   let angle       = 0;
   let speed       = 0;
@@ -363,7 +363,7 @@ function injectPizzaScrollbar() {
 
     // How many apples fall? 1 to 3 — one per "previous" bottom visit would also work,
     // but one feels clean and physical. Extend count here if you want a cascade.
-    const COUNT = 3;
+    const COUNT = 1;
 
     for (let i = 0; i < COUNT; i++) {
       launchApple(imgSrc, startX, startY, floorY, thumbW, thumbH, i * 120);
@@ -375,10 +375,10 @@ function injectPizzaScrollbar() {
     const maxBounceH  = window.innerHeight / 5;          // hard cap: 1/5 vh
     const maxDriftX   = window.innerWidth  / 3;          // hard cap: 1/3 vw (leftward)
     const bounceDecay = 0.42 + Math.random() * 0.18;     // 0.42–0.60 — bounciness
-    const driftPxPerS = 60  + Math.random() * 120;       // 60–180 px/s leftward drift
+    const driftPxPerS = 60  + Math.random() * 180;       // 60–180 px/s leftward drift
     const initBounceH = (maxBounceH * 0.55) + Math.random() * (maxBounceH * 0.45); // 55–100% of cap
     const spinDir     = Math.random() < 0.5 ? 1 : -1;   // clockwise or counter
-    const spinRpm     = 1.5 + Math.random() * 2.5;       // 1.5–4 rotations per bounce
+    const spinRpm     = 0.25 + Math.random() * 0.5;       // 1.5–4 rotations per bounce
 
     // Create element
     const el = document.createElement('div');
@@ -400,7 +400,7 @@ function injectPizzaScrollbar() {
 
     let posX      = startX;
     let posY      = startY;
-    let velY      = 0;              // px/s downward
+    let velY      = 0;             // px/s downward
     let bounceH   = initBounceH;   // current peak height for this bounce
     let angle     = 0;             // current rotation degrees
     let totalDrift = 0;            // how far left we've gone
