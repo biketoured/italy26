@@ -94,13 +94,11 @@ function injectNav(page) {
   // Nav link definitions
   // Each entry: { id, href, en, sv, it }
   const links = [
-  const links = [
     { id: 'blog',       href: p + 'blog/index.html',  en: 'Blog',        sv: 'Blogg',       it: 'Blog'        },
     { id: 'donate',     href: p + 'donate.html',       en: 'Donate',      sv: 'Donera',      it: 'Dona'        },
     { id: 'links',      href: p + 'index.html#links',  en: 'Links',       sv: 'Länkar',      it: 'Link'        },
     { id: 'routes',     href: p + 'route.html',        en: 'Routes',      sv: 'Rutter',      it: 'Percorsi'    },
     { id: 'sweden2024', href: p + 'sweden2024.html',   en: 'Sweden 2024', sv: 'Sverige 2024',it: 'Svezia 2024' },
-  ];
   ];
 
   // Home link — hidden on index, points to index from everywhere else
@@ -200,7 +198,7 @@ function injectPizzaScrollbar() {
     'post':       'cheese.png',
     'sweden2024': 'mayflower.png',
     'routes':     'tomato.png',
-    'flaskpost':  'bottle.png',
+    'flaskpost':  'flaskpost.png',
   };
   const thumbImage = PAGE_IMAGES[getCurrentPage()] || 'pizza.png';
 
