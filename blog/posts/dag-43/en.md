@@ -13,7 +13,7 @@ title:
 ---
 
 ## How did my body feel?
-Today my body feels perfectly fine. I'm going to try a longer bike ride this afternoon.
+Today my body feels perfectly fine. I'm excited to start training outdoors in the sunny spring weather.
 
 ## Best moment of the day
 Daydreaming about the journey, had a 2 hour Zwift workout which felt good.

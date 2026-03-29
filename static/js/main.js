@@ -219,8 +219,8 @@ function injectPizzaScrollbar() {
 
   // ── Spin physics (rAF-based — no CSS animation, no snapping) ──
   const TARGET_DEG_S = 360;    // deg/s while scrolling (1 rev per 1.5s)
-  const DECAY        = 0.98; // exponential friction per normalised 60fps frame
-  const STOP_THRESH  = 5;    // deg/s below which we call it stopped
+  const DECAY        = 0.99; // exponential friction per normalised 60fps frame
+  const STOP_THRESH  = 3;    // deg/s below which we call it stopped
 
   let angle       = 0;
   let speed       = 0;

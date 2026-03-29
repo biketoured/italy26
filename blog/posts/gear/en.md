@@ -14,6 +14,7 @@ photos:
     caption: Frame bag takes the heaviest items closest to the centre of gravity
 ---
 
+THIS TEXT IS A TEST-TEXT. I WILL REPLACE IT LATER.
 Packing for 40 days on a bike through Italy is a different problem than packing for a weekend. You need enough to be self-sufficient, light enough to climb, and simple enough to fix anything that breaks on the side of the road in a village where nobody speaks English.
 
 [photo:1]

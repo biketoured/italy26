@@ -17,6 +17,8 @@ photos:
     caption: ""
 ---
 
+This is a test text.
+
 ## How did my body feel?
 Good
 

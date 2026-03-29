@@ -12,6 +12,7 @@ title:
   it: Giorno 2 — Teststad, Testregion
 photos: []
 ---
+This is a test text.
 
 ## How did my body feel?
 Feeling great today, legs are strong.
