@@ -325,7 +325,7 @@ function injectPizzaScrollbar() {
     'post':       'cheese.png',
     'sweden2024': 'mayflower.png',
     'routes':     'tomato.png',
-    'flaskpost':  'flaskpost.png',
+    'flaskpost':  'bottle.png',
   };
   const thumbImage = PAGE_IMAGES[getCurrentPage()] || 'pizza.png';
 
