@@ -185,8 +185,8 @@
       display: inline-flex;
       align-items: center;
       gap: 0.75rem;
-      background: #c8a97e;
-      color: #2a1f12;
+      background: var(--sand-dark, #c8a97e);
+      color: var(--green);
       text-decoration: none;
       padding: 0.9rem 2rem;
       font-family: 'DM Mono', monospace;
@@ -197,7 +197,7 @@
       width: fit-content;
     }
     .hero-flaskpost:hover {
-      background: #e0c49a;
+      background: var(--stone);
       transform: translateX(4px);
     }
 
@@ -942,11 +942,11 @@
       .live-banner { padding: 0.9rem 1.5rem; flex-direction: column; align-items: flex-start; }
       .strava-header-row { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
       .donation-meter { max-width: 100%; }
-      .hero-donate { width: 100%; justify-content: center; }
+      .hero-donate, .hero-flaskpost { width: 100%; justify-content: center; }
     }
       to   { opacity: 1; transform: translateY(0); }
 
-    .hero-tag, .hero-title, .hero-sub, .hero-cta, .hero-map, .hero-donate, .donation-meter {
+    .hero-tag, .hero-title, .hero-sub, .hero-cta, .hero-map, .hero-donate, .hero-flaskpost, .donation-meter {
       opacity: 0;
       animation: fadeUp 0.7s ease forwards;
     }
@@ -956,6 +956,7 @@
     .hero-cta       { animation-delay: 0.8s; }
     .hero-donate    { animation-delay: 0.8s; }    
     .hero-map       { animation-delay: 0.8s; }
+    .hero-flaskpost { animation-delay: 0.8s; }
     .donation-meter { animation-delay: 1.5s; }
 
 
@@ -1054,7 +1055,7 @@
       .hero-photo { width: 160px; height: 160px; top: 50%; left: 2rem; transform: translateY(-50%); }
       .about-image { width: 200px; height: 300px; }
       .donation-meter { max-width: 100%; }
-      .hero-donate { width: 100%; justify-content: center; }
+      .hero-donate, .hero-flaskpost { width: 100%; justify-content: center; }
       body { font-size: 0.9rem; }
       .hero-title { font-size: clamp(1.8rem, 6vw, 2.8rem); }
       .section-title { font-size: clamp(1.4rem, 5vw, 2rem); }

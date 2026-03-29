@@ -377,15 +377,15 @@
          data-it="// Scrivimi">// Write to me</p>
       <h1 class="fp-title"
           data-en="Send me a <em>message in a bottle</em>"
-          data-sv="Skicka ett <em>brev i en flaska</em>"
+          data-sv="Skicka mig <em>flaskpost!</em>"
           data-it="Mandami un <em>messaggio in bottiglia</em>">
         Send me a <em>message in a bottle</em>
       </h1>
       <p class="fp-sub"
-         data-en="Ask me a question. Suggest an Italian song, dish, or event. Send me a riddle. Tell me something. I'm riding 4 000 km through Italy — what do you want me to know?"
-         data-sv="Ställ en fråga. Tips om en italiensk låt, maträtt eller händelse. Skicka en gåta. Berätta något. Jag cyklar 4 000 km genom Italien — vad vill du att jag ska veta?"
-         data-it="Fai una domanda. Consigliami una canzone, un piatto o un evento italiano. Mandami un indovinello. Racconta qualcosa. Sto pedalando 4 000 km in Italia — cosa vuoi che sappia?">
-        Ask me a question. Suggest an Italian song, dish, or event. Send me a riddle. Tell me something. I'm riding 4 000 km through Italy — what do you want me to know?
+         data-en="Ask me a question. Suggest an Italian song, dish, or event. Send me a riddle. Tell me something, funny or serious, I'm up for everything. What do you want me to know?"
+         data-sv="Ställ en fråga. Tips om en italiensk låt, maträtt eller händelse. Skicka en gåta. Skriv dina tankar. Berätta något jag borde veta, eller något kul! Vad vill du att jag ska veta?"
+         data-it="Fai una domanda. Consigliami una canzone, un piatto o un evento italiano. Mandami un indovinello. Racconta qualcosa, divertente o sinceramente, sono aperto per tutto. Che cosa vuoi che sappia?">
+        Ask me a question. Suggest an Italian song, dish, or event. Send me a riddle. Tell me something, funny or serious, I'm up for everything. What do you want me to know?
       </p>
     </div>
 
@@ -394,7 +394,7 @@
         🔒 <span data-en="Private" data-sv="Privat" data-it="Privato">Private</span>
       </button>
       <button class="vis-btn" id="btn-public" onclick="setVisibility('public')">
-        🌊 <span data-en="Public" data-sv="Offentlig" data-it="Pubblico">Public</span>
+        🌍 <span data-en="Public" data-sv="Offentlig" data-it="Pubblico">Public</span>
       </button>
     </div>
     <p class="vis-hint">
@@ -406,14 +406,15 @@
 
       <div class="fp-field">
         <label for="fp-name"
-               data-en="Your name — what should I call you?"
-               data-sv="Ditt namn — vad ska jag kalla dig?"
-               data-it="Il tuo nome — come ti chiamo?">Your name — what should I call you?</label>
+               data-en="Your name, or nickname?"
+               data-sv="Ditt namn?"
+               data-it="Il tuo nome — come ti chiamo?">
+               Your name, or nickname?</label>
         <input type="text" id="fp-name" maxlength="80"
-               data-placeholder-en="Captain Nemo, or just your first name…"
-               data-placeholder-sv="Kapten Nemo, eller bara ditt förnamn…"
-               data-placeholder-it="Capitano Nemo, o solo il tuo nome…"
-               placeholder="Captain Nemo, or just your first name…">
+               data-placeholder-en="Julius Ceasar, or just your first name…"
+               data-placeholder-sv="Pablo Picasso, eller bara ditt förnamn…"
+               data-placeholder-it="Dante Alighieri, oppure solo il tuo nome…"
+               placeholder="Julius Ceasar, or just your first name…">
       </div>
 
       <div class="fp-field">
@@ -458,8 +459,9 @@
         <button class="fp-submit" id="fp-submit-btn" onclick="sendFlaskpost()" disabled>
           <span id="fp-submit-label"
                 data-en="Throw it in the sea 🌊"
-                data-sv="Kasta ut den 🌊"
-                data-it="Lanciala in mare 🌊">Throw it in the sea 🌊</span>
+                data-sv="Kasta ut den i medelhavet 🌊"
+                data-it="Lanciala in mare 🌊">
+                Throw it in the sea 🌊</span>
         </button>
       </div>
     </div>
