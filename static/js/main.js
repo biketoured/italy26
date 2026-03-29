@@ -375,7 +375,7 @@ function injectPizzaScrollbar() {
     const maxBounceH  = window.innerHeight / 5;          // hard cap: 1/5 vh
     const maxDriftX   = window.innerWidth  / 3;          // hard cap: 1/3 vw (leftward)
     const bounceDecay = 0.42 + Math.random() * 0.18;     // 0.42–0.60 — bounciness
-    const driftPxPerS = 60  + Math.random() * 180;       // 60–180 px/s leftward drift
+    const driftPxPerS = 60  + Math.random() * 120;       // 60–180 px/s leftward drift
     const initBounceH = (maxBounceH * 0.55) + Math.random() * (maxBounceH * 0.45); // 55–100% of cap
     const spinDir     = Math.random() < 0.5 ? 1 : -1;   // clockwise or counter
     const spinRpm     = 0.25 + Math.random() * 0.5;       // 1.5–4 rotations per bounce
