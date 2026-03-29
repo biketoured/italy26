@@ -757,18 +757,20 @@
     });
   }
 
-  // ── SUBMIT via Formspree (replace YOUR_FORM_ID with your Formspree endpoint) ──
-  // If you don't use Formspree, swap the fetch() for mailto: or any other backend.
-  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+  // ── CONFIGURATION ──────────────────────────────────────────
+  // Same setup as flaskpost.html — use the same keys.
+  // Web3Forms: https://web3forms.com (free, unlimited, emails you)
+  const WEB3FORMS_KEY = '338ad75d-be30-474b-b848-3f339e64c66c';
+  // ntfy.sh: free push notifications — install the ntfy app, subscribe to this topic
+  const NTFY_TOPIC = 'italy26-bottlespin';
+  // ────────────────────────────────────────────────────────────
 
-  function submitRecommendation() {
+  async function submitRecommendation() {
     const place  = document.getElementById('rec-place').value.trim();
     const reason = document.getElementById('rec-reason').value.trim();
     const name   = document.getElementById('rec-name').value.trim();
-    const lang   = localStorage.getItem('preferred-lang') || 'en';
 
     if (!place || !reason) {
-      // Highlight empty required fields
       ['rec-place','rec-reason'].forEach(id => {
         const el = document.getElementById(id);
         if (!el.value.trim()) el.style.borderBottomColor = 'var(--red)';
@@ -780,24 +782,44 @@
     btn.disabled = true;
     btn.style.opacity = '0.5';
 
-    fetch(FORMSPREE_ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ place, reason, name: name || '(anonymous)', _subject: 'Place recommendation: ' + place })
-    })
-    .then(r => {
+    const subject = 'Place recommendation: ' + place + (name ? ' (from ' + name + ')' : '');
+
+    try {
+      // 1 — Web3Forms (email + stored log)
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject,
+          from_name: name || 'Anonymous',
+          place,
+          reason,
+        })
+      });
+      if (!res.ok) throw new Error('web3forms ' + res.status);
+
+      // 2 — ntfy push notification (non-blocking)
+      const preview = reason.length > 100 ? reason.slice(0, 100) + '…' : reason;
+      fetch('https://ntfy.sh/' + NTFY_TOPIC, {
+        method: 'POST',
+        headers: { 'Title': subject, 'Priority': 'default', 'Tags': 'world_map,pushpin' },
+        body: preview
+      }).catch(() => {});
+
+      // 3 — Show confirmation
       const confirm = document.getElementById('rec-confirm');
       confirm.style.display = 'inline';
       document.getElementById('rec-place').value  = '';
       document.getElementById('rec-reason').value = '';
       document.getElementById('rec-name').value   = '';
       setTimeout(() => { confirm.style.display = 'none'; btn.disabled = false; btn.style.opacity = ''; }, 4000);
-    })
-    .catch(() => {
+
+    } catch (err) {
       btn.disabled = false;
       btn.style.opacity = '';
       alert('Could not send — please try again.');
-    });
+    }
   }
 
   // Reset red border on input

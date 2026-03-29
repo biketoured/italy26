@@ -683,10 +683,11 @@
         </div>
 
         <div class="payment-method">
+          <div class="payment-card-title">
           <p class="intl-donors-heading"
              data-en="// International donors"
              data-sv="// Internationella donatörer"
-             data-it="// Donatori internazionali">// Internationella donatörer</p>
+             data-it="// Donatori internazionali">// Internationella donatörer</p></div>
           <div class="payment-method-name" data-en="Bank transfer — IBAN" data-sv="Banköverföring — IBAN" data-it="Bonifico bancario — IBAN">Bonifico bancario — IBAN</div>
           <!-- INSERT: replace with your IBAN -->
           <div class="payment-detail placeholder" id="iban-number">
@@ -706,6 +707,16 @@
 
     </div>
 
+    <!-- ══ TRANSPARENCY ══ -->
+    <div class="transparency">
+      <p>
+        <span data-en="<strong>Transparency commitment:<br></strong> I personally cover all costs of the trip — equipment, transport, food, accommodation. No donation money is used for my expenses. After the trip, donation receipts to both organisations will be published on this page. Questions? Write to me at <strong>edvardappelberg25@gmail.com</strong>."
+              data-sv="<strong>Transparenslöfte:</strong><br> Jag betalar personligen alla resekostnader: Utrustning, transport, mat, boende står jag själv för. Inga donationspengar används för mina utgifter. Efter resan publiceras donationskvitton till båda organisationerna på den här sidan. Frågor? Skriv till mig på <strong>edvardappelberg25@gmail.com</strong>."
+              data-it="<strong>Impegno per la trasparenza:</strong><br> Copro personalmente tutti i costi del viaggio — attrezzatura, trasporto, cibo, alloggio. Nessun denaro donato viene utilizzato per le mie spese. Dopo il viaggio, le ricevute delle donazioni a entrambe le organizzazioni saranno pubblicate su questa pagina. Domande? Scrivimi a <strong>edvardappelberg25@gmail.com</strong>.">
+              <strong>Transparency commitment:</strong><br> I personally cover all costs of the trip — equipment, transport, food, accommodation. No donation money is used for my expenses. After the trip, donation receipts to both organisations will be published on this page. Questions? Write to me at <strong>edvardappelberg25@gmail.com</a></strong>.</span>
+      </p>
+    </div>
+    
     <!-- ══ DONOR WALL ══ -->
     <p class="donor-label"
        data-en="// Messages from donors"
@@ -718,21 +729,11 @@
            data-it="Ancora nessuna donazione — sii il primo!">No donations yet — be the first!</div>
     </div>
 
-    <!-- ══ TRANSPARENCY ══ -->
-    <div class="transparency">
-      <p>
-        <span data-en="<strong>Transparency commitment:<br></strong> I personally cover all costs of the trip — equipment, transport, food, accommodation. No donation money is used for my expenses. After the trip, donation receipts to both organisations will be published on this page. Questions? Write to me at <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0a6f6e7c6b686f786d4a6d676b636624696567">[email&#160;protected]</strong>."
-              data-sv="<strong>Transparenslöfte:</strong><br> Jag betalar personligen alla resekostnader: Utrustning, transport, mat, boende står jag själv för. Inga donationspengar används för mina utgifter. Efter resan publiceras donationskvitton till båda organisationerna på den här sidan. Frågor? Skriv till mig på <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0a6f6e7c6b686f786d4a6d676b636624696567">[email&#160;protected]</strong>."
-              data-it="<strong>Impegno per la trasparenza:</strong><br> Copro personalmente tutti i costi del viaggio — attrezzatura, trasporto, cibo, alloggio. Nessun denaro donato viene utilizzato per le mie spese. Dopo il viaggio, le ricevute delle donazioni a entrambe le organizzazioni saranno pubblicate su questa pagina. Domande? Scrivimi a <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0a6f6e7c6b686f786d4a6d676b636624696567">[email&#160;protected]</strong>.">
-              <strong>Transparency commitment:</strong><br> I personally cover all costs of the trip — equipment, transport, food, accommodation. No donation money is used for my expenses. After the trip, donation receipts to both organisations will be published on this page. Questions? Write to me at <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0a6f6e7c6b686f786d4a6d676b636624696567">[email&#160;protected]</a></strong>.</span>
-      </p>
-    </div>
-
 
     <!-- ══ FOOTER ══ -->
   <footer id="shared-footer"></footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     // ── DONATION METER ──
     (function() {
       const fill    = document.getElementById('donate-fill');
