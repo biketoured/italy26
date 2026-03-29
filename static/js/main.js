@@ -14,7 +14,7 @@ function getCurrentPage() {
   if (path.includes('flaskpost'))                       return 'flaskpost';
   if (path.includes('blog') && path.includes('post'))   return 'post';
   if (path.includes('blog'))                            return 'blog';
-  if (path.includes('route'))                           return 'routes';
+  if (path.includes('route'))                           return 'route';
   return 'index';
 }
 // ── NAV THEME CONFIG ─────────────────────────────────────────
@@ -44,7 +44,7 @@ const NAV_THEMES = {
     link:      'rgba(200,169,126,0.65)',
     linkHover: '#e0c49a',
   },
-  'routes': {
+  'route': {
     bg:        'rgba(30,61,47,0.96)',
     border:    'rgba(196,180,154,0.15)',
     link:      '#8C7B65',
@@ -97,7 +97,7 @@ function injectNav(page) {
     { id: 'blog',       href: p + 'blog/index.html',  en: 'Blog',        sv: 'Blogg',       it: 'Blog'        },
     { id: 'donate',     href: p + 'donate.html',       en: 'Donate',      sv: 'Donera',      it: 'Dona'        },
     { id: 'links',      href: p + 'index.html#links',  en: 'Links',       sv: 'Länkar',      it: 'Link'        },
-    { id: 'routes',     href: p + 'route.html',        en: 'Routes',      sv: 'Rutter',      it: 'Percorsi'    },
+    { id: 'route',     href: p + 'route.html',        en: 'Routes',      sv: 'Rutter',      it: 'Percorsi'    },
     { id: 'sweden2024', href: p + 'sweden2024.html',   en: 'Sweden 2024', sv: 'Sverige 2024',it: 'Svezia 2024' },
   ];
 
@@ -197,7 +197,7 @@ function injectPizzaScrollbar() {
     'blog':       'wheel.png',
     'post':       'cheese.png',
     'sweden2024': 'mayflower.png',
-    'routes':     'tomato.png',
+    'route':     'tomato.png',
     'flaskpost':  'flaskpost.png',
   };
   const thumbImage = PAGE_IMAGES[getCurrentPage()] || 'pizza.png';
