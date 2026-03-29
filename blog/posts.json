@@ -51,24 +51,5 @@
       "sv": "Vad packar man för en 40-dagarsresa",
       "it": "Cosa si mette nelle borse per un viaggio di 40 giorni"
     }
-  },
-  {
-    "slug": "dag4",
-    "type": "journal",
-    "date": "2025-09-01",
-    "day": -100,
-    "location": "Skellefteå, Sverige",
-    "km": 0,
-    "elevation": 0,
-    "title": {
-      "en": "Test",
-      "sv": "Test",
-      "it": "Prova"
-    },
-    "captions": {
-      "photo1": "Let's see if the captions work",
-      "photo2": "This one also works! Fantastic."
-    },
-    "photos": 1
   }
 ]
