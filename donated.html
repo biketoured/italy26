@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank you — Edvard A</title>
+  <link rel="icon" href="/italy26/assets/images/flagit.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/italy26/static/css/style.css">
+  <script src="/italy26/static/js/main.js" defer></script>
+  <style>
+    body {
+      background: var(--green);
+      color: var(--stone);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .page {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8rem 2rem 6rem;
+    }
+
+    .card {
+      max-width: 560px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--green-light);
+      margin-bottom: 1.5rem;
+    }
+
+    .heart {
+      font-size: 3.5rem;
+      line-height: 1;
+      margin-bottom: 1.75rem;
+      animation: heartbeat 1.8s ease-in-out infinite;
+      display: block;
+    }
+
+    @keyframes heartbeat {
+      0%   { transform: scale(1); }
+      14%  { transform: scale(1.15); }
+      28%  { transform: scale(1); }
+      42%  { transform: scale(1.1); }
+      56%  { transform: scale(1); }
+      100% { transform: scale(1); }
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 400;
+      color: var(--stone);
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--green-light);
+    }
+
+    .body-text {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--stone);
+      line-height: 1.85;
+      margin-bottom: 2.5rem;
+    }
+
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: rgba(196,180,154,0.3);
+      margin: 0 auto 2.5rem;
+    }
+
+    .note {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--stone-dark);
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.85rem 2rem;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--sky-deep);
+      color: var(--white);
+    }
+    .btn-primary:hover { background: var(--sky); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--stone);
+      border: 1px solid rgba(196,180,154,0.3);
+    }
+    .btn-secondary:hover {
+      background: rgba(196,180,154,0.08);
+      border-color: var(--stone-dark);
+    }
+
+    @media (max-width: 480px) {
+      .btn-row { flex-direction: column; align-items: center; }
+      .btn { width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="shared-nav"></nav>
+
+  <div class="page">
+    <div class="card">
+
+      <p class="tag"
+         data-en="// Donation received"
+         data-sv="// Donation mottagen"
+         data-it="// Donazione ricevuta">// Donation received</p>
+
+      <span class="heart" aria-hidden="true">♥</span>
+
+      <h1 data-en="Thank you for <em>your support</em>"
+          data-sv="Tack för <em>ditt stöd</em>"
+          data-it="Grazie per <em>il tuo supporto</em>">
+        Thank you for <em>your support</em>
+      </h1>
+
+      <p class="body-text"
+         data-en="Every contribution brings us closer to the goal — and means one more step taken for cancer research. It genuinely means a lot."
+         data-sv="Varje bidrag för oss närmre målet — och innebär ett steg till för cancerforskningen. Det betyder verkligen mycket."
+         data-it="Ogni contributo ci avvicina all'obiettivo — e significa un passo in più per la ricerca sul cancro. Significa davvero molto.">
+        Every contribution brings us closer to the goal — and means one more step taken for cancer research. It genuinely means a lot.
+      </p>
+
+      <div class="divider"></div>
+
+      <p class="note"
+         data-en="Your name will appear in the donor wall on the donate page once the list is updated."
+         data-sv="Ditt namn visas på givarvägen på donationssidan när listan uppdateras."
+         data-it="Il tuo nome apparirà nella bacheca dei donatori non appena la lista verrà aggiornata.">
+        Your name will appear in the donor wall once the list is updated.
+      </p>
+
+      <div class="btn-row">
+        <a href="index.html" class="btn btn-primary"
+           data-en="Back to the journey"
+           data-sv="Tillbaka till resan"
+           data-it="Torna al viaggio">
+          Back to the journey
+        </a>
+        <a href="donate.html" class="btn btn-secondary"
+           data-en="Donate again"
+           data-sv="Donera igen"
+           data-it="Dona di nuovo">
+          Donate again
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <footer id="shared-footer"></footer>
+
+</body>
+</html>

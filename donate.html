@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" href="/italy26/assets/images/flagit.png" type="image/png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Donate — Edvard A</title>
@@ -54,7 +53,7 @@
     body {
       font-family: 'DM Sans', sans-serif;
       background: var(--green);
-      color: var(--white);
+      color: var(--green);
       overflow-x: hidden;
       min-height: 100vh;
     }
@@ -99,7 +98,6 @@
       max-width: 860px;
       margin: 0 auto;
       padding: 7rem 2rem 5rem;
-      background: var(--green-mid);
     }
 
     /* ── STORY SECTION ── */
@@ -137,7 +135,7 @@
       font-size: 1rem;
       font-weight: 300;
       line-height: 1.85;
-      color: var(--white);
+      color: var(--cream);
       max-width: 700px;
       margin-bottom: 1rem;
     }
@@ -146,9 +144,9 @@
 
     /* ── GOAL METER ── */
     .goal-block {
-      background: rgba(0,0,0,0.15);
-      border: 1px solid rgba(74,122,150,0.2);
-      border-top: 3px solid var(--sky-deep);
+      background: rgba(74,155,150,0.18);
+      border: 1px solid rgba(74,195,185,0.35);
+      border-top: 3px solid #4ab8b0;
       padding: 2rem;
       margin-bottom: 4rem;
       opacity: 0;
@@ -222,7 +220,7 @@
     }
 
     .org-card {
-      background: var(--green);
+      background: rgba(74,122,150,0.07);
       border: 1px solid rgba(74,122,150,0.18);
       border-top: 3px solid var(--sky-deep);
       padding: 1.75rem;
@@ -266,7 +264,7 @@
       font-size: 0.88rem;
       font-weight: 300;
       line-height: 1.7;
-      color: var(--white);
+      color: var(--stone-dark);
       margin-bottom: 1.5rem;
     }
 
@@ -303,7 +301,7 @@
     }
 
     .payment-card {
-      background: var(--green);
+      background: rgba(30,61,47,0.6);
       border: 1px solid rgba(196,180,154,0.12);
       padding: 1.75rem;
       opacity: 0;
@@ -391,7 +389,7 @@
     .payment-note {
       font-size: 0.8rem;
       font-weight: 300;
-      color: var(--white);
+      color: var(--stone-dark);
       line-height: 1.6;
       margin-top: 0.6rem;
     }
@@ -430,15 +428,28 @@
     .transparency p {
       font-size: 1rem;
       font-weight: 300;
-      color: var(--white);
+      color: var(--stone);
       line-height: 1.9;
       max-width: 700px;
       }
 
     .transparency strong { 
-      color: var(--stone);
+      color: var(--stone); 
       font-size: larger;
     }
+
+    .story-expand-btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: var(--sky);
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+    .story-expand-btn:hover { color: var(--sky-pale); }
 
     /* ── ANIMATION ── */
     @keyframes fadeUp {
@@ -491,7 +502,7 @@
     .donor-message {
       font-size: 0.83rem;
       font-weight: 300;
-      color: var(--white);
+      color: var(--stone-dark);
       line-height: 1.6;
     }
 
@@ -564,14 +575,18 @@
               This journey I ride partly in memory of my father, and for everyone else fighting brain cancer.</span>
       </p>
       <p>
-        <span data-en="When he was diagnosed in 2017, everything changed. The surgeries, the rehabilitation, and the constant uncertainty about the future were not only hard on him, but on all of us close to him.
-        <br>My family and I are forever grateful for the research that extended the time we had together. This collection is my way of giving back, and hopefully contributing so that more people to survive brain cancer, today and in the future."
-              data-sv="När han fick sin diagnos 2017 förändrades allt. Operationer, rehabilitering, och den ständiga ovissheten om framtiden var inte enbart jobbig för honom, men även för oss närstående.
-        <br>Jag och min familj är evigt tacksamma för att forskningen förlängde tiden vi fick tillsammans. Den här insamlingen är mitt sätt att ge tillbaka, och förhoppningsvis ge förutsättningar för fler att överleva hjärncancer, idag och i framtiden."
-              data-it="Quando ha ricevuto la diagnosi nel 2017, tutto è cambiato. Gli interventi, la riabilitazione e la costante incertezza sul futuro non erano difficili solo per lui, ma per tutti noi che gli volevamo bene.
-        <br>La mia famiglia ed io siamo eternamente grati che la ricerca abbia prolungato il tempo che abbiamo avuto insieme. Questa raccolta è il mio modo di ricambiare, e di creare le condizioni affinché sempre più persone sopravvivano al cancro al cervello, oggi e in futuro.">
-              When he was diagnosed in 2017, everything changed. The surgeries, the rehabilitation, and the constant uncertainty about the future were not only hard on him, but on all of us close to him.
-        <br>My family and I are forever grateful that research extended the time we had together. This collection is my way of giving back — and hopefully creating the conditions for more people to survive brain cancer, today and in the future.</span>
+        <span class="story-preview"
+              data-en="When he was diagnosed in 2017, everything changed."
+              data-sv="När han fick sin diagnos 2017 förändrades allt."
+              data-it="Quando ha ricevuto la diagnosi nel 2017, tutto è cambiato.">
+              When he was diagnosed in 2017, everything changed.</span><!--
+        --><span class="story-expand-btn" onclick="toggleStory(this)"
+              data-en=" See more…" data-sv=" Läs mer…" data-it=" Leggi tutto…"> See more…</span>
+        <span class="story-full" style="display:none;"
+              data-en=" The surgeries, the rehabilitation, and the constant uncertainty about the future were not only hard on him, but on all of us close to him.<br>My family and I are forever grateful that research extended the time we had together. This collection is my way of giving back — and hopefully creating the conditions for more people to survive brain cancer, today and in the future."
+              data-sv=" Operationer, rehabilitering, och den ständiga ovissheten om framtiden var inte enbart jobbig för honom, men även för oss närstående.<br>Jag och min familj är evigt tacksamma för att forskningen förlängde tiden vi fick tillsammans. Den här insamlingen är mitt sätt att ge tillbaka, och förhoppningsvis ge förutsättningar för fler att överleva hjärncancer, idag och i framtiden."
+              data-it=" Gli interventi, la riabilitazione e la costante incertezza sul futuro non erano difficili solo per lui, ma per tutti noi che gli volevamo bene.<br>La mia famiglia ed io siamo eternamente grati che la ricerca abbia prolungato il tempo che abbiamo avuto insieme. Questa raccolta è il mio modo di ricambiare, e di creare le condizioni affinché sempre più persone sopravvivano al cancro al cervello, oggi e in futuro.">
+               The surgeries, the rehabilitation, and the constant uncertainty about the future were not only hard on him, but on all of us close to him.<br>My family and I are forever grateful that research extended the time we had together. This collection is my way of giving back — and hopefully creating the conditions for more people to survive brain cancer, today and in the future.</span>
       </p>
       <p>
         <span data-en="<strong>100% of every donation goes directly to the organisations below.</strong> No platform fees, no middlemen or charges. I cover all costs of the trip myself. You can follow every kilometre on this site in real time, and during and after the trip I will publish the donation receipts below."
@@ -799,6 +814,18 @@
         const btn = el.nextElementSibling;
         if (btn) { btn.textContent = '✓'; setTimeout(() => btn.textContent = '⧉', 1500); }
       }).catch(() => {});
+    }
+
+    function toggleStory(btn) {
+      const full = btn.nextElementSibling;
+      const lang = localStorage.getItem('preferred-lang') || 'en';
+      if (full.style.display === 'none') {
+        full.style.display = 'inline';
+        btn.innerHTML = ({ en: ' See less', sv: ' Läs mindre', it: ' Leggi meno' })[lang] || ' See less';
+      } else {
+        full.style.display = 'none';
+        btn.innerHTML = ({ en: ' See more…', sv: ' Läs mer…', it: ' Leggi tutto…' })[lang] || ' See more…';
+      }
     }
 
     function copyText(elementId) {
