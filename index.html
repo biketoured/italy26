@@ -83,7 +83,7 @@
     .hero-sub {
       font-size: 1rem;
       font-weight: 300;
-      color: var(--stone-dark);
+      color: var(--stone);
       line-height: 1.7;
       max-width: 600px;
       margin-bottom: 2rem;
@@ -186,7 +186,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.75rem;
-      background: var(--sand-dark, #c8a97e);
+      background: var(--green-mid, var(--green-light));
       color: var(--green);
       text-decoration: none;
       padding: 0.9rem 2rem;
@@ -336,7 +336,7 @@
       font-size: 0.7rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--red);
+      color: var(--text-muted);
       margin-bottom: 1rem;
     }
 
@@ -1090,8 +1090,8 @@
         Exploring the regions of<br><em>Italy</em><br>For a good cause<br><bo>Starting May 10th 2026</bo>
       </h1>
       <p class="hero-sub"
-         data-en="My mission is to explore the Italian culture, nature, and people, while also spreading awareness of cancer research."
-         data-sv="Min passion är att utforska den italienska kulturen, naturen och människorna och samtidigt samla in pengar för cancerforskning."
+         data-en="My mission is to explore the Italian culture, nature, and people, while also collecting donations to brain cancer research."
+         data-sv="Mitt mål med resan är att utforska den italienska kulturen, naturen och människorna och samtidigt samla in pengar för hjärncancerforskning."
          data-it="La mia missione è esplorare la natura, la cultura, e la gente italiana mentre raccolgo donazioni per la ricerca sul cancro al cervello.">
         My mission is to explore the Italian culture, nature, and people, while also spreading awareness of cancer research.
       </p>
@@ -1108,12 +1108,6 @@
            data-it="Vedi la mappa">
           See the map
         </a>
-        <a href="donate.html" class="hero-donate"
-           data-en="Donate ♥"
-           data-sv="Donera ♥"
-           data-it="Dona ♥">
-          Donate ♥
-        </a>
         <a href="flaskpost.html" class="hero-flaskpost"
            data-en="Flaskpost"
            data-sv="Flaskpost"
@@ -1122,10 +1116,21 @@
         </a>
       </div>
 
+    
+      <a href="donate.html" class="hero-donate"
+          data-en="Donate ♥"
+          data-sv="Donera ♥"
+          data-it="Dona ♥">
+        Donate ♥
+      </a>
+
       <div class="donation-meter">
         <div class="donation-meter-labels">
-          <span id="meter-current">0 kr</span>
-          <span id="meter-goal">100 000 kr</span>
+          <span id="meter-current">DONATION_TOTAL</span>
+          <span id="meter-goal"
+              data-en="Goal"
+              data-sv="Mål"
+              data-it="Obiettivo">Goal DONATION_GOAL</span>
         </div>
         <div class="donation-meter-bar">
           <div class="donation-meter-fill" id="meter-fill" style="width:0%"></div>
@@ -1201,21 +1206,27 @@
     <div class="section-divider"></div>
     <div class="about-grid">
       <div class="about-text">
-        <p data-en="Welcome to my site! I am a Swedish 24 year-old with great passion for sports and adventuring in new places, preferrably in combination. When I am not at the office nor training I like to learn new stuff, like for example learning a new language or building this particular website!
-           Currently based in <strong>Skellefteå, Sweden</strong>, I spend my days analysing electricity markets and my spare time planning this passion project: Bikepacking across Italy 2026."
-           data-sv="Hej och välkommen till min hemsida! Jag är en 24-åring som älskar att träna och utforska, gärna i kombination. När jag inte sitter på kontoret lägger jag mestadels tid på träning och att lära mig något nytt, t.ex. lära mig ett nytt språk, laga någon spännande maträtt eller skapa den här hemsidan. 
-           För närvarande bor och jobbar jag i <strong>Skellefteå</strong>, jag flyttade hit för knappt ett år sedan. Helgerna lägger jag gärna på en lång cykeltur om vädret tillåter."
+        <p data-en="Welcome to my site! I am a Swedish 24 year-old with great passion for sports and adventuring in new places, preferrably in combination. When I am not working or training I like to learn new stuff, for example learning a new language, reading something, or building this particular website!
+           Currently based in <strong>Skellefteå, Sweden</strong>, I spend my days analysing electricity markets and much of my spare time planning and preparing for this passion project: Bikepacking across Italy 2026."
+           data-sv="Hej, och varmt välkommen till min hemsida! Jag är en 24-åring som älskar att träna och utforska, gärna i kombination. I fjol uppnådde jag mitt mål sedan barndomen, att tävla i 400m på Friidrotts-SM. Inför den här resan sadlar jag om till något mycket mer uthållighetskrävande; en tiotusen gånger längre sträcka. <br>
+           För närvarande bor och jobbar jag i <strong>Skellefteå</strong>, flyttade hit ifjol. När jag inte jobbar lägger jag mestadels tid på träning eller att lära mig något nytt, t.ex. ett nytt språk, laga någon spännande maträtt eller skapa den här hemsidan. <br> 
+           Helgerna lägger jag gärna på att umgås med vänner, eller en lång cykeltur om vädret tillåter."
            data-it="Benvenute allo mio spazio! Sono Edvard da Svezia, ho 25 anni e tiene una grande passione per allenarmi ed insegnarmi nuove cose, oltretutto in combinazione. Quando non lavoro prefererei di passare tempo di allenarmi o insegnarmi nuove cose, come ho fatto per imparare l'italiano ed anche creare questo website.
            Allora sono situato in Skellefteå, vicino al Circolo Polare. Questo é la seconda volta che viaggio in Italia.">
-          Currently based in <strong>Skellefteå, Sweden</strong>, I spend my days analysing electricity markets and my spare time planning this passion project: Bikepacking across Italy 2026.<br>I enjoy working out, learning new languages and cooking something new.
+          Welcome to my site! I am a Swedish 24 year-old with great passion for sports and adventuring in new places, preferrably in combination. When I am not working or training I like to learn new stuff, for example learning a new language, reading something, or building this particular website!<br>
+          Currently based in <strong>Skellefteå, Sweden</strong>, I spend my days analysing electricity markets and much of my spare time planning and preparing for this passion project: Bikepacking across Italy 2026.
         </p>
-        <p data-en="My project <em>Italy26</em> will cover about <strong>4,000km through Italy</strong> covering Sardinia, Sicily and the mainland. It is drawn to get a couple days in each region.<br>My objective is to combine challenging efforts with profound encounters with Italian people and the Italian culture."
-           data-sv="Projektet <em>Italy26</em> täcker <strong>4 000 km genom Italien</strong> med Sardinien, Sicilien och fastlandet. Jag har dragit rutten i syfte att uppleva lite av varje region.<br>Mitt mål är att kombinera fysiska utmaningar med djupa möten med det italienska folket och den italienska kulturen."
-           data-it="Il progetto <em>Italy26</em> coprirà <strong>4.000 km attraverso l'Italia</strong> tra Sardegna, Sicilia e la penisola. Ho disegnato l'itinerario per godere un po' di ogni regione.<br>Il mio obiettivo è combinare sforzi impegnativi con incontri profondi con la gente e la cultura italiana.">
-          My project <em>Italy26</em> will cover <strong>4,000km through Italy</strong> covering Sardinia, Sicily and the mainland.<br>My objective is to combine challenging efforts with profound encounters with Italian people and the Italian culture.
+        <p data-en="My project <em>Italy26</em> will cover about <strong>4,000km through Italy</strong> through Sardinia, Sicily and the mainland. It is drawn to experience parts of each region.<br>
+          My objective is to combine challenging efforts with unforgettable encounters with the Italian people and their culture."
+           data-sv="Projektet <em>Italy26</em> täcker <strong>4 000 km genom Italien</strong> via Sardinien, Sicilien och fastlandet. Jag har dragit rutten i syfte att uppleva lite av varje region.
+           <br>Mitt mål är att kombinera fysiska utmaningar med genuina möten med det italienska folket och den italienska kulturen."
+           data-it="Il progetto <em>Italy26</em> coprirà <strong>4.000 km attraverso l'Italia</strong> tra Sardegna, Sicilia e la penisola. Ho disegnato l'itinerario per godere un po' di ogni regione.
+           <br>Il mio obiettivo è combinare sforzi impegnativi con incontri profondi con la gente e la cultura italiana.">
+          My project <em>Italy26</em> will cover <strong>4,000km through Italy</strong> covering Sardinia, Sicily and the mainland.
+          <br>My objective is to combine challenging efforts with profound encounters with Italian people and the Italian culture.
         </p>
-        <p data-en="<em>This site is still under construction</em> but I aim to share the ride in a convenient way here. Expect route notes, gear lists, maps pulled from Strava, and much more!"
-           data-sv="<em>Den här sidan är fortfarande under uppbyggnad</em> men jag siktar på att dela resan på ett smidigt sätt här. Förvänta dig ruttanteckningar, utrustningslistor, kartor från Strava och mycket mer!"
+        <p data-en="<em>This site is still under construction</em> but I aim to share the ride in a convenient way here. Expect route notes, gear lists, journals, photos, and much more!"
+           data-sv="<em>Den här sidan är fortfarande under uppbyggnad</em> men jag siktar på att dela resan på ett smidigt sätt här. Förvänta dig resedagboksinlägg, fotoalbum, statistik och mycket mer!"
            data-it="<em>Questo sito è ancora in costruzione</em> ma intendo condividere il viaggio in modo conveniente qui. Aspettatevi note sui percorsi, liste di equipaggiamento, mappe da Strava e molto altro!">
           This site is still under construction but I aim to share the ride in a convenient way here. Expect route notes, gear lists, maps pulled from Strava, and much more!
         </p>
@@ -1270,18 +1281,20 @@
           <strong>The memories:</strong> An experience like this creates memories that I am sure I will keep close to my heart forever.<br>
           <strong>The food:</strong> Do I really need to tell you why? :)<br>
           <strong>The friends:</strong> When on exchange in Norway I met some Italians that I'm hoping to reunite with along the trip.<br>
-          <strong>The culture:</strong> The italian culture is interesting to me, most definitively as a result of the above."
+          <strong>The culture:</strong> The italian culture is interesting to me, most definitively as a result of the above.<br>
+          <strong>The privilege.</strong> Thinking about how many people cannot do a journey like this makes me beyond grateful to even imagine it is possible. Tomorrow might not be possible. Life is fragile. Better do it now."
 
-          data-sv="Se det här som ett avsnitt där jag försöker motivera mitt äventyr för vänner och familj.<br><br>
+          data-sv="Se det här som ett avsnitt där jag försöker motivera mitt äventyr för vänner och familj. Eller kanske som inspiration?<br><br>
           <strong>Språket:</strong> Ända sedan jag började lära mig italienska på egen hand har jag känt mig motiverad att besöka olika delar av Italien och prata med lokalbefolkningen.<br>
-          <strong>Utmaningen:</strong> En utmaning som den här ger mig motivation och en känsla av att ha åstadkommit något.<br>
+          <strong>Utmaningen:</strong> En utmaning som den här ger mig stark motivation och en känsla av att ha åstadkommit något.<br>
           <strong>Variationen:</strong> Italiensk natur och kultur är ganska varierad, och jag är nyfiken på att känna på likheterna och skillnaderna mellan regionerna.<br>
-          <strong>Transportmedlet:</strong> Att ta sig fram långa sträckor helt på egen kraft, och ändå ha tid för att känna in omgivningen och stanna precis när man vill. Bikepacking är otroligt belönande och gör gott för kropp och sinne<br>
-          <strong>Gästfriheten:</strong> Italienare blir glada när en utlänning talar italienska, och kan öppna sig på ett sätt som känns äkta.<br>
+          <strong>Transportmedlet:</strong> Att ta sig fram långa sträckor helt på egen kraft, och ändå ha tid för att känna in omgivningen och stanna precis när man vill. Bikepacking är otroligt belönande och ger en känsla av frihet<br>
+          <strong>Gästfriheten:</strong> Italienare blir glada när en turist talar italienska, och kan snabbt öppna upp sig på ett sätt som känns äkta.<br>
           <strong>Minnena:</strong> En upplevelse som den här skapar minnen som jag är säker på att jag alltid kommer att bära nära hjärtat.<br>
-          <strong>Maten:</strong> Behöver jag verkligen berätta varför? :)<br>
+          <strong>Maten:</strong> Behöver jag verkligen berätta varför? :) Dessutom behöver jag äta dubbelt så mycket än normalt. Perfekt!<br>
           <strong>Vännerna:</strong> Under utbytet i Norge träffade jag några italienare som jag hoppas kunna återförenas med längs vägen.<br>
-          <strong>Kulturen:</strong> Den italienska kulturen är intressant för mig, definitivt som ett resultat av ovanstående."
+          <strong>Kulturen:</strong> Den italienska kulturen är intressant för mig, definitivt som ett resultat av ovanstående.<br>
+          <strong>Privilegiet:</strong> Att tänka på hur många som saknar möjligheten eller kapaciteten att genomföra en sådan här resa gör mig enormt tacksam att jag ens ser den som möjlig. Imorgon kan allt ha förändrats. Livet är skört. Jag gör det nu, medan jag kan."
 
           data-it="Considerate questa una sezione in cui cerco di giustificare le mie scelte ai miei amici e familiari.<br><br>
           <strong>La lingua:</strong> Da quando ho iniziato a imparare l'italiano da solo, mi sono sempre sentito motivato a visitare diverse parti d'Italia e parlare con i locali.<br>
@@ -1292,17 +1305,19 @@
           <strong>I ricordi:</strong> Un'esperienza come questa crea ricordi che sono sicuro di custodire per sempre nel cuore.<br>
           <strong>Il cibo:</strong> Devo davvero spiegare perché? :)<br>
           <strong>Gli amici:</strong> Durante lo scambio in Norvegia ho conosciuto alcuni italiani che spero di rincontrare lungo il viaggio.<br>
-          <strong>La cultura:</strong> La cultura italiana mi affascina, quasi sicuramente come risultato di tutto quanto sopra.">
+          <strong>La cultura:</strong> La cultura italiana mi affascina, quasi sicuramente come risultato di tutto quanto sopra.
+          <strong>La privilegia</strong> Pensare a quante persone non sarebbero in grado o non avrebbero l'opportunità di fare un viaggio del genere mi rende enormemente grato. Domani tutto púo essere cambiato. La vita e fragile. Facciolo ora, mentre rimango in capacitá">
           See this as a section where I try to justify my choices for my friends and relatives.<br><br>
           <strong>The language:</strong> Ever since I started learning Italian on my own I've been motivated to visit different parts of Italy and speak with locals.<br>
           <strong>The challenge:</strong> A challenge like this feeds me motivation and a sense of accomplishment.<br>
           <strong>The variation:</strong> Italian nature and culture is quite diverse, and I am curious to get a feel of the similarities and differences across the regions.<br>
-          <strong>The mode of transport:</strong> Italian nature and culture is quite diverse across the country, and I am curious to learn the similarities and differences across the regions first-hand.<br>
+          <strong>The bikepacking:</strong> Bikepacking is an incredibly rewarding way to travel which I can talk about for hours. No other way of travelling gives time for processing the surroundings with all senses activated, all while being sound for the body and mind.<br>
           <strong>The hospitality:</strong> Italians are delighted when a foreigner speaks Italian, and can open up in a way that feels authentic.<br>
           <strong>The memories:</strong> An experience like this creates memories that I am sure I will keep close to my heart forever.<br>
-          <strong>The food:</strong> Do I really need to tell you why?<br>
+          <strong>The food:</strong> Do I really need to tell you why? :)<br>
           <strong>The friends:</strong> When on exchange in Norway I met some Italians that I'm hoping to reunite with along the trip.<br>
           <strong>The culture:</strong> The italian culture is interesting to me, most definitively as a result of the above.<br>
+          <strong>The privilege.</strong> Thinking about how many people cannot do a journey like this makes me beyond grateful to even imagine it is possible. Tomorrow might not be possible. Life is fragile. Better do it now.
         </p>
       </div>
     </div>

@@ -22,9 +22,11 @@
   --gray:          #8A8E8C;
   --gray-light:    #C8CBC9;
   --text:          #1A1A18;
-  --text-muted:    #7A7260;
+  --text-muted:    #242320; /* --7A7260 */
   --white:         #FDFAF4;
   --black:         #111110;
+  --lavender:      #9B8AB4;
+  --sage:          #7A8C6E;
 
   /* ── PAGE THEME TOKENS ──
      Each page overrides these in its own inline <style> block.
@@ -32,8 +34,8 @@
   ── */
   --nav-bg:        rgba(30,61,47,0.96);
   --nav-border:    rgba(196,180,154,0.15); /* --stone at 15% opacity */
-  --nav-link:      var(--stone-dark);
-  --nav-link-hover:var(--stone);
+  --nav-link:      var(--stone);
+  --nav-link-hover:var(--white);
   --footer-bg:     var(--green);
   --footer-text:   var(--green-light);
   --footer-logo:   var(--stone);

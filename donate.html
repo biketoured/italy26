@@ -17,7 +17,7 @@
       --nav-border:      rgba(184,212,224,0.2);
       --nav-link:        rgba(184,212,224,0.7);
       --nav-link-hover:  var(--white);
-      --footer-bg:       var(--green);
+      --footer-bg:       var(--soil);
       --footer-text:     var(--green-light);
       --footer-logo:     var(--stone);
     }
@@ -25,26 +25,26 @@
     /* lang-switcher styles moved to /italy26/static/css/style.css */
 
     :root {
-      --green:         #1E3D2F;
-      --green-mid:     #3A6B4A;
-      --green-light:   #6da874;
-      --stone:         #C4B49A;
-      --stone-dark:    #8C7B65;
-      --soil:          #7A5C3E;
-      --red:           #a0503b;
-      --red-warm:      #cc7451;
-      --yellow:        #D4A94A;
-      --sky:           #7AAFC4;
-      --sky-deep:      #4A7A96;
-      --sky-pale:      #B8D4E0;
-      --text:          #1A1A18;
-      --text-muted:    #99915d;
-      --white:         #FDFAF4;
-      --black:         #111110;
-      --lavender:      #9B8AB4;
-      --sage:          #7A8C6E;
-      --cream:         #F5EDD6;
-      --text-light:    #E8DCC8;
+  --green:         #1E3D2F;
+  --green-mid:     #3A6B4A;
+  --green-light:   #6da874;
+  --stone:         #C4B49A;
+  --stone-dark:    #7e705c;
+  --soil:          #7A5C3E;
+  --red:           #a0503b;
+  --red-warm:      #cc7451;
+  --orange:        #eea66b;
+  --yellow:        #D4A94A;
+  --yellow-soft:   #E8CC7A;
+  --sky:           #7AAFC4;
+  --sky-deep:      #4A7A96;
+  --sky-pale:      #B8D4E0;
+  --gray:          #8A8E8C;
+  --gray-light:    #C8CBC9;
+  --text:          #1A1A18;
+  --text-muted:    #242320; /* --7A7260 */
+  --white:         #FDFAF4;
+  --black:         #111110;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -53,7 +53,7 @@
     body {
       font-family: 'DM Sans', sans-serif;
       background: var(--green);
-      color: var(--stone);
+      color: var(--white);
       overflow-x: hidden;
       min-height: 100vh;
     }
@@ -98,6 +98,7 @@
       max-width: 860px;
       margin: 0 auto;
       padding: 7rem 2rem 5rem;
+      background: var(--green-mid);
     }
 
     /* ── STORY SECTION ── */
@@ -135,8 +136,8 @@
       font-size: 1rem;
       font-weight: 300;
       line-height: 1.85;
-      color: var(--text-muted);
-      max-width: 600px;
+      color: var(--white);
+      max-width: 700px;
       margin-bottom: 1rem;
     }
 
@@ -144,7 +145,7 @@
 
     /* ── GOAL METER ── */
     .goal-block {
-      background: rgba(74,122,150,0.08);
+      background: rgba(0,0,0,0.15);
       border: 1px solid rgba(74,122,150,0.2);
       border-top: 3px solid var(--sky-deep);
       padding: 2rem;
@@ -164,15 +165,15 @@
 
     .goal-current {
       font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      color: var(--green-light);
+      font-size: 2.8rem;
+      color: var(--white);
       line-height: 1;
     }
 
     .goal-target {
       font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      color: var(--green-light);
+      font-size: 1.5rem;
+      color: rgba(196,180,154,0.5);
       line-height: 1;
     }
 
@@ -220,7 +221,7 @@
     }
 
     .org-card {
-      background: rgba(74,122,150,0.07);
+      background: var(--green);
       border: 1px solid rgba(74,122,150,0.18);
       border-top: 3px solid var(--sky-deep);
       padding: 1.75rem;
@@ -264,7 +265,7 @@
       font-size: 0.88rem;
       font-weight: 300;
       line-height: 1.7;
-      color: var(--stone-dark);
+      color: var(--white);
       margin-bottom: 1.5rem;
     }
 
@@ -301,7 +302,7 @@
     }
 
     .payment-card {
-      background: rgba(30,61,47,0.6);
+      background: var(--green);
       border: 1px solid rgba(196,180,154,0.12);
       padding: 1.75rem;
       opacity: 0;
@@ -376,10 +377,20 @@
     }
     .copy-btn:hover { color: var(--sky); }
 
+    .payment-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--sky-pale);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    .payment-link:hover { color: var(--white); }
+
     .payment-note {
       font-size: 0.8rem;
       font-weight: 300;
-      color: var(--stone-dark);
+      color: var(--white);
       line-height: 1.6;
       margin-top: 0.6rem;
     }
@@ -418,13 +429,13 @@
     .transparency p {
       font-size: 1rem;
       font-weight: 300;
-      color: var(--stone);
+      color: var(--white);
       line-height: 1.9;
-      max-width: 600px;
+      max-width: 700px;
       }
 
     .transparency strong { 
-      color: var(--stone); 
+      color: var(--stone);
       font-size: larger;
     }
 
@@ -479,7 +490,7 @@
     .donor-message {
       font-size: 0.83rem;
       font-weight: 300;
-      color: var(--stone-dark);
+      color: var(--white);
       line-height: 1.6;
     }
 
@@ -541,14 +552,14 @@
     <!-- ══ STORY ══ -->
     <div class="story">
       <p class="story-tag" data-en="// Why this matters" data-sv="// Varför det spelar roll" data-it="// Perché è importante">// Why this matters</p>
-      <h1 data-en="Riding for <em>research</em><br>that save lives"
-          data-sv="Cyklar för <em>forskning</em><br>som räddar liv"
-          data-it="Pedalando per la <em>ricerca</em><br>che cambia le vite">
-          Riding for <em>research</em><br>that changes lives</h1>
+      <h1 data-en="Riding for <em>research<br>that save lives</em>"
+          data-sv="Cyklar för <em>forskning<br>som räddar liv</em>"
+          data-it="Pedalando per la <em>ricerca<br>che salva le vite</em>">
+          Riding for <em>research<br>that save lives</em></h1>
         <p>
-        <span data-en="This journey I ride partly in memory of my father, and for everyone else fighting brain cancer."
-              data-sv="Det här äventyret cyklar jag delvis i minne av min far, och för alla andra som kämpar med hjärncancer."
-              data-it="Questo viaggio lo percorro in parte in memoria di mio padre, e per tutti coloro che combattono il cancro al cervello.">
+        <span data-en="I ride this journey partly in memory of my father, partly for everyone else fighting brain cancer."
+              data-sv="Det här äventyret cyklar jag delvis i minne av min far, delvis för alla andra som kämpar, här kämpat, eller kommer att kämpa mot hjärncancer."
+              data-it="Questo viaggio lo percorro in parte in memoria di mio padre, e per tutti coloro che combattono, combattavano e combatteranno il cancro al cervello.">
               This journey I ride partly in memory of my father, and for everyone else fighting brain cancer.</span>
       </p>
       <p>
@@ -648,6 +659,7 @@
 
         <div class="payment-method">
           <div class="payment-method-name" data-en="Swish QR code" data-sv="Swish QR-kod" data-it="Codice QR Swish">Swish QR code</div>
+          <div style="text-align:center; margin: 0.75rem 0;">
           <!-- INSERT: replace this div with an <img> tag pointing to your Swish QR code image -->
           <!-- Example: <img src="assets/images/swish-qr.png" alt="Swish QR" style="width:140px;"> -->
           <div class="qr-placeholder">
@@ -659,46 +671,80 @@
           </a>
             <img src="assets/images/swish.png" alt="Swish QR">
           </div>
+          </div>
           <p class="payment-note" data-en="Scan with your Swish app to pay instantly." data-sv="Skanna med din Swish-app för att betala direkt." data-it="Scansiona con la tua app Swish per pagare istantaneamente.">Scan with your Swish app to pay instantly.</p>
         </div>
 
       </div>
 
-      <!-- ITALIAN DONORS -->
+      <!-- INTERNATIONAL DONORS -->
       <div class="payment-card">
         <div class="payment-card-title">
-            <img src="assets/images/flagit.png" alt="Swedish" width="30" height="30">
-           <span data-en="Italian donors" data-sv="Italienska donationer" data-it="Donatori italiani">Italian donors</span></div>
-        <div class="payment-method">
-          <div class="payment-method-name">Satispay</div>
-          <!-- INSERT: replace with your Satispay username or link -->
-          <div class="payment-detail placeholder" id="satispay-handle">
-            <span>INSERT SATISPAY HANDLE</span>
-             <button class="copy-btn" onclick="copyText('satispay-handle')" title="Copy BIC">⧉</button>
-          </div>
-          <p class="payment-note" data-en="Search for this name in your Satispay app. Free for personal accounts." data-sv="Sök efter det här namnet i din Satispay-app. Gratis för privatkonton." data-it="Cerca questo nome nella tua app Satispay. Gratuito per account personali.">
-            Search for this name in your Satispay app. Free for personal accounts.</p>
+          <span data-en="International donors"
+                data-sv="Internationella donatörer"
+                data-it="Donatori internazionali">International donors</span>
         </div>
 
+        <!-- Revolut -->
         <div class="payment-method">
-          <div class="payment-card-title">
-            <span
-             data-en="International donors"
-             data-sv="Internationella donatörer"
-             data-it="Donatori internazionali">
-             Internationella donatörer</span></div>
-          <div class="payment-method-name" data-en="Bank transfer — IBAN" data-sv="Banköverföring — IBAN" data-it="Bonifico bancario — IBAN">Bonifico bancario — IBAN</div>
-          <!-- INSERT: replace with your IBAN -->
+          <div class="payment-method-name" style="display:flex; align-items:center; gap:0.6rem;">
+            Revolut
+            <span style="font-family:'DM Mono',monospace; font-size:0.55rem; letter-spacing:0.12em; text-transform:uppercase; background:var(--sky-deep); color:var(--white); padding:2px 7px; border-radius:2px;"
+                  data-en="Recommended" data-sv="Rekommenderas" data-it="Consigliato">Recommended</span>
+          </div>
+          <div class="payment-detail">
+            <a href="https://revolut.me/INSERT_REVOLUT"
+               target="_blank"
+               class="payment-link"
+               id="revolut-link">
+              revolut.me/INSERT_REVOLUT
+            </a>
+            <button class="copy-btn" onclick="copyLink('revolut-link')" title="Copy link">⧉</button>
+          </div>
+          <p class="payment-note"
+             data-en="Works internationally. No fees for most transfers."
+             data-sv="Fungerar internationellt. Inga avgifter för de flesta överföringar."
+             data-it="Funziona internazionalmente. Nessuna commissione per la maggior parte dei trasferimenti.">
+            Works internationally. No fees for most transfers.</p>
+        </div>
+
+        <!-- PayPal -->
+        <div class="payment-method">
+          <div class="payment-method-name">PayPal</div>
+          <div class="payment-detail">
+            <a href="https://paypal.me/INSERT_PAYPAL"
+               target="_blank"
+               class="payment-link"
+               id="paypal-link">
+              paypal.me/INSERT_PAYPAL
+            </a>
+            <button class="copy-btn" onclick="copyLink('paypal-link')" title="Copy link">⧉</button>
+          </div>
+          <p class="payment-note"
+             data-en="Works globally. PayPal takes a small fee (~3%) on received payments."
+             data-sv="Fungerar globalt. PayPal tar en liten avgift (~3%) på mottagna betalningar."
+             data-it="Funziona globalmente. PayPal trattiene una piccola commissione (~3%) sui pagamenti ricevuti.">
+            Works globally. PayPal takes a small fee (~3%) on received payments.</p>
+        </div>
+
+        <!-- IBAN bank transfer -->
+        <div class="payment-method">
+          <div class="payment-method-name"
+               data-en="Bank transfer — IBAN"
+               data-sv="Banköverföring — IBAN"
+               data-it="Bonifico bancario — IBAN">Bank transfer — IBAN</div>
           <div class="payment-detail placeholder" id="iban-number">
             <span>INSERT IBAN</span>
             <button class="copy-btn" onclick="copyText('iban-number')" title="Copy IBAN">⧉</button>
           </div>
-          <!-- INSERT: replace with your bank's BIC/SWIFT code -->
           <div class="payment-detail placeholder" style="margin-top:0.4rem;" id="bic-number">
             <span>BIC/SWIFT: INSERT BIC</span>
-             <button class="copy-btn" onclick="copyText('bic-number')" title="Copy BIC">⧉</button>
+            <button class="copy-btn" onclick="copyText('bic-number')" title="Copy BIC">⧉</button>
           </div>
-          <p class="payment-note" data-en="Include your name in the payment description. It will appear in the donor list." data-sv="Ange namn i betalningsbeskrivningen. Namnet visas i givarlistan." data-it="Includi il tuo nome nella descrizione del pagamento. Apparirà nell'elenco dei donatori.">
+          <p class="payment-note"
+             data-en="Include your name in the payment description — it will appear in the donor list."
+             data-sv="Ange namn i betalningsbeskrivningen — det visas i givarlistan."
+             data-it="Includi il tuo nome nella descrizione del pagamento — apparirà nell'elenco dei donatori.">
             Include your name in the payment description — it will appear in the donor list.</p>
         </div>
 
@@ -712,7 +758,7 @@
         <span data-en="<strong>Transparency commitment:<br></strong> I personally cover all costs of the trip — equipment, transport, food, accommodation. No donation money is used for my expenses. After the trip, donation receipts to both organisations will be published on this page. Questions? Write to me at <strong>edvardappelberg25@gmail.com</strong>."
               data-sv="<strong>Transparenslöfte:</strong><br> Jag betalar personligen alla resekostnader: Utrustning, transport, mat, boende står jag själv för. Inga donationspengar används för mina utgifter. Efter resan publiceras donationskvitton till båda organisationerna på den här sidan. Frågor? Skriv till mig på <strong>edvardappelberg25@gmail.com</strong>."
               data-it="<strong>Impegno per la trasparenza:</strong><br> Copro personalmente tutti i costi del viaggio — attrezzatura, trasporto, cibo, alloggio. Nessun denaro donato viene utilizzato per le mie spese. Dopo il viaggio, le ricevute delle donazioni a entrambe le organizzazioni saranno pubblicate su questa pagina. Domande? Scrivimi a <strong>edvardappelberg25@gmail.com</strong>.">
-              <strong>Transparency commitment:</strong><br> I personally cover all costs of the trip — equipment, transport, food, accommodation. No donation money is used for my expenses. After the trip, donation receipts to both organisations will be published on this page. Questions? Write to me at <strong>edvardappelberg25@gmail.com</a></strong>.</span>
+              <strong>Transparency commitment:</strong><br> I personally cover all costs of the trip — equipment, transport, food, accommodation. No donation money is used for my expenses. After the trip, donation receipts to both organisations will be published on this page. Questions? Write to me at <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="90f5f4e6f1e2f4f1e0e0f5fcf2f5e2f7a2a5d0f7fdf1f9fcbef3fffd">[email&#160;protected]</a></a></strong>.</span>
       </p>
     </div>
     
@@ -731,7 +777,7 @@
     <!-- ══ FOOTER ══ -->
   <footer id="shared-footer"></footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // ── DONATION METER ──
     (function() {
       const fill    = document.getElementById('donate-fill');
@@ -745,6 +791,15 @@
     })();
 
     // ── COPY TO CLIPBOARD ──
+    function copyLink(elementId) {
+      const el = document.getElementById(elementId);
+      const text = el.href;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = el.nextElementSibling;
+        if (btn) { btn.textContent = '✓'; setTimeout(() => btn.textContent = '⧉', 1500); }
+      }).catch(() => {});
+    }
+
     function copyText(elementId) {
       const el = document.getElementById(elementId);
       const text = el.querySelector('span').textContent.trim();
@@ -762,7 +817,7 @@
     const grid = document.getElementById('donor-grid');
     if (!grid) return;
     const lang = localStorage.getItem('preferred-lang') || 'en';
-
+ 
     fetch('/italy26/donors.json')
       .then(r => { if (!r.ok) throw new Error('no file'); return r.json(); })
       .then(donors => {
@@ -773,12 +828,15 @@
               <div class="donor-name">${d.name || 'Anonymous'}</div>
               ${d.message ? `<div class="donor-message">${d.message}</div>` : ''}
             </div>
-            <div class="donor-amount">${Number(d.amount).toLocaleString('sv-SE')} ${d.currency || 'kr'}</div>
-          </div>`).join('');
+            <div class="donor-card-right">
+              ${d.amount ? `<div class="donor-amount">${d.amount.toLocaleString('sv-SE')} ${d.currency || 'kr'}</div>` : ''}
+            </div>
+          </div>`
+        ).join('');
       })
-      .catch(() => { /* keep "no donations yet" placeholder */ });
+      .catch(() => {}); // silently fail — empty state already shown
   })();
   </script>
-
+ 
 </body>
 </html>
