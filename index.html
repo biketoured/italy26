@@ -83,7 +83,7 @@
     .hero-sub {
       font-size: 1rem;
       font-weight: 300;
-      color: var(--stone);
+      color: var(--white);
       line-height: 1.7;
       max-width: 600px;
       margin-bottom: 2rem;
@@ -147,7 +147,7 @@
       letter-spacing: 0.15em;
       text-transform: uppercase;
       text-align: end;
-      color: var(--yellow-soft);
+      color: var(--yellow);
     }
 
     .hero-photo {
@@ -162,24 +162,24 @@
 
     /* ── DONATE BUTTON ── */
     .hero-donate {
-      display: inline-flex;
+      display: flex;
       align-items: center;
+      justify-content: center;
       gap: 0.75rem;
       background: var(--sky-deep);
       color: var(--white);
       text-decoration: none;
-      padding: 0.9rem 2rem;
+      padding: 1.1rem 2rem;
       font-family: 'DM Mono', monospace;
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      transition: background 0.2s, transform 0.2s;
-      width: fit-content;
+      transition: background 0.2s;
+      width: 100%;
+      max-width: 700px;
+      margin-top: 1.5rem;
     }
-    .hero-donate:hover {
-      background: var(--sky);
-      transform: translateX(4px);
-    }
+    .hero-donate:hover { background: var(--sky); }
 
     /* ── FLASKPOST BUTTON ── */
     .hero-flaskpost {
@@ -1077,16 +1077,10 @@
   <!-- ══ HERO ══ -->
   <div class="hero">
     <div class="hero-left">
-      <p class="hero-tag"
-         data-en="// Bikepacking Journal"
-         data-sv="// Bikepacking Dagbok"
-         data-it="// Diario di Bikepacking">
-        // Bikepacking Journal
-      </p>
       <h1 class="hero-title"
-          data-en="Exploring the regions<br>of<em>Italy</em><br>For a good cause.<br><bo>Starting May 10th 2026</bo>"
-          data-sv="Cyklar tvärs genom<br><em>Italien</em><br>För välgörenhet.<br><bo>Startar 10 maj 2026</bo>"
-          data-it="Esplorando le regioni<br><em>d'Italia</em><br>Per una buona causa.<br><bo>Partenza 10 maggio 2026</bo>">
+          data-en="Exploring the regions<br>of<em>Italy</em><br>for a good cause.<br><bo>Starting May 10th 2026</bo>"
+          data-sv="Cyklar tvärs genom<br><em>Italien</em><br>för välgörenhet.<br><bo>Startar 10 maj 2026</bo>"
+          data-it="Esplorando le regioni<br><em>d'Italia</em><br>per una buona causa.<br><bo>Partenza 10 maggio 2026</bo>">
         Exploring the regions of<br><em>Italy</em><br>For a good cause<br><bo>Starting May 10th 2026</bo>
       </h1>
       <p class="hero-sub"
@@ -1116,7 +1110,6 @@
         </a>
       </div>
 
-    
       <a href="donate.html" class="hero-donate"
           data-en="Donate ♥"
           data-sv="Donera ♥"
