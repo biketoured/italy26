@@ -53,7 +53,7 @@
     body {
       font-family: 'DM Sans', sans-serif;
       background: var(--green);
-      color: var(--green);
+      color: var(--gray-light);
       overflow-x: hidden;
       min-height: 100vh;
     }
@@ -573,20 +573,18 @@
               data-sv="Det här äventyret cyklar jag delvis i minne av min far, delvis för alla andra som kämpar, här kämpat, eller kommer att kämpa mot hjärncancer."
               data-it="Questo viaggio lo percorro in parte in memoria di mio padre, e per tutti coloro che combattono, combattavano e combatteranno il cancro al cervello.">
               This journey I ride partly in memory of my father, and for everyone else fighting brain cancer.</span>
-      </p>
-      <p>
-        <span class="story-preview"
-              data-en="When he was diagnosed in 2017, everything changed."
-              data-sv="När han fick sin diagnos 2017 förändrades allt."
-              data-it="Quando ha ricevuto la diagnosi nel 2017, tutto è cambiato.">
-              When he was diagnosed in 2017, everything changed.</span><!--
-        --><span class="story-expand-btn" onclick="toggleStory(this)"
+      </p><p>
+        <span data-en="When he was diagnosed in 2017, everything changed.<br>"
+              data-sv="När han fick sin diagnos 2017 förändrades allt.<br>"
+              data-it="Quando ha ricevuto la diagnosi nel 2017, tutto è cambiato.<br>">
+          When he was diagnosed in 2017, everything changed.<br></span>
+        <span class="story-expand-btn" onclick="toggleStory(this)"
               data-en=" See more…" data-sv=" Läs mer…" data-it=" Leggi tutto…"> See more…</span>
         <span class="story-full" style="display:none;"
               data-en=" The surgeries, the rehabilitation, and the constant uncertainty about the future were not only hard on him, but on all of us close to him.<br>My family and I are forever grateful that research extended the time we had together. This collection is my way of giving back — and hopefully creating the conditions for more people to survive brain cancer, today and in the future."
               data-sv=" Operationer, rehabilitering, och den ständiga ovissheten om framtiden var inte enbart jobbig för honom, men även för oss närstående.<br>Jag och min familj är evigt tacksamma för att forskningen förlängde tiden vi fick tillsammans. Den här insamlingen är mitt sätt att ge tillbaka, och förhoppningsvis ge förutsättningar för fler att överleva hjärncancer, idag och i framtiden."
               data-it=" Gli interventi, la riabilitazione e la costante incertezza sul futuro non erano difficili solo per lui, ma per tutti noi che gli volevamo bene.<br>La mia famiglia ed io siamo eternamente grati che la ricerca abbia prolungato il tempo che abbiamo avuto insieme. Questa raccolta è il mio modo di ricambiare, e di creare le condizioni affinché sempre più persone sopravvivano al cancro al cervello, oggi e in futuro.">
-               The surgeries, the rehabilitation, and the constant uncertainty about the future were not only hard on him, but on all of us close to him.<br>My family and I are forever grateful that research extended the time we had together. This collection is my way of giving back — and hopefully creating the conditions for more people to survive brain cancer, today and in the future.</span>
+        </span>
       </p>
       <p>
         <span data-en="<strong>100% of every donation goes directly to the organisations below.</strong> No platform fees, no middlemen or charges. I cover all costs of the trip myself. You can follow every kilometre on this site in real time, and during and after the trip I will publish the donation receipts below."
@@ -709,11 +707,11 @@
                   data-en="Recommended" data-sv="Rekommenderas" data-it="Consigliato">Recommended</span>
           </div>
           <div class="payment-detail">
-            <a href="https://revolut.me/INSERT_REVOLUT"
+            <a href="https://revolut.me/biketoured"
                target="_blank"
                class="payment-link"
                id="revolut-link">
-              revolut.me/INSERT_REVOLUT
+              revolut.me/biketoured
             </a>
             <button class="copy-btn" onclick="copyLink('revolut-link')" title="Copy link">⧉</button>
           </div>
@@ -728,11 +726,11 @@
         <div class="payment-method">
           <div class="payment-method-name">PayPal</div>
           <div class="payment-detail">
-            <a href="https://paypal.me/INSERT_PAYPAL"
+            <a href="https://paypal.me/biketoured"
                target="_blank"
                class="payment-link"
                id="paypal-link">
-              paypal.me/INSERT_PAYPAL
+              paypal.me/biketoured
             </a>
             <button class="copy-btn" onclick="copyLink('paypal-link')" title="Copy link">⧉</button>
           </div>
@@ -815,12 +813,12 @@
         if (btn) { btn.textContent = '✓'; setTimeout(() => btn.textContent = '⧉', 1500); }
       }).catch(() => {});
     }
-
     function toggleStory(btn) {
       const full = btn.nextElementSibling;
       const lang = localStorage.getItem('preferred-lang') || 'en';
       if (full.style.display === 'none') {
         full.style.display = 'inline';
+        full.innerHTML = full.getAttribute('data-' + lang) || full.getAttribute('data-en');
         btn.innerHTML = ({ en: ' See less', sv: ' Läs mindre', it: ' Leggi meno' })[lang] || ' See less';
       } else {
         full.style.display = 'none';

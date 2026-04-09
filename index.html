@@ -1078,8 +1078,8 @@
   <div class="hero">
     <div class="hero-left">
       <h1 class="hero-title"
-          data-en="Exploring the regions of <em>Italy</em><br>for a good cause.<br><bo>Starting May 10th 2026</bo>"
-          data-sv="<center>Cyklar tvärs genom<br><em>Italien</em><br>för välgörenhet.</center><br><bo>Startar 10 maj 2026</bo>"
+          data-en="Exploring the regions of <em>Italy</em><br>for a good cause.<bo>Starting May 10th 2026</bo><br>"
+          data-sv="<center>Cyklar tvärs genom<br><em>Italien</em><br>för välgörenhet.<br><bo>Startar 10 maj 2026</bo></center>"
           data-it="Esplorando le regioni<br><em>d'Italia</em><br>per una buona causa.<br><bo>Partenza 10 maggio 2026</bo>">
         Exploring the regions of <em>Italy</em><br>for a good cause.<br><bo>Starting May 10th 2026</bo>
       </h1>
@@ -1121,9 +1121,9 @@
         <div class="donation-meter-labels">
           <span id="meter-current">DONATION_TOTAL</span>
           <span id="meter-goal"
-              data-en="Goal: DONATION_GOAL"
-              data-sv="Mål DONATION_GOAL:"
-              data-it="Obiettivo: DONATION_GOAL">Goal DONATION_GOAL</span>
+              data-en="Goal:" DONATION_GOAL
+              data-sv="Mål:" DONATION_GOAL
+              data-it="Obiettivo:" DONATION_GOAL> Goal: DONATION_GOAL</span>
         </div>
         <div class="donation-meter-bar">
           <div class="donation-meter-fill" id="meter-fill" style="width:0%"></div>
@@ -1565,19 +1565,6 @@
 
   <!-- Language switcher handled by /italy26/static/js/main.js -->
   <script>
-  // ── DONATION METER ──
-  (function() {
-    const fill    = document.getElementById('meter-fill');
-    const current = document.getElementById('meter-current');
-    const goal    = document.getElementById('meter-goal');
-    if (!fill) return;
-    const pct = Math.min((DONATION_TOTAL / DONATION_GOAL) * 100, 100);
-    fill.style.width = pct + '%';
-    current.textContent = DONATION_TOTAL.toLocaleString('sv-SE') + ' kr';
-    goal.textContent    = DONATION_GOAL.toLocaleString('sv-SE') + ' kr';
-  })();
-  </script>
-  <script>
   
   // ══════════════════════════════════════════
   // CONFIGURATION — edit these two values
@@ -1881,19 +1868,7 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
     }
   </script>
 
-  <script>
-  // ── DONATION METER ──
-  (function() {
-    const fill    = document.getElementById('meter-fill');
-    const current = document.getElementById('meter-current');
-    const goal    = document.getElementById('meter-goal');
-    if (!fill) return;
-    const pct = Math.min((DONATION_TOTAL / DONATION_GOAL) * 100, 100);
-    fill.style.width = pct + '%';
-    current.textContent = DONATION_TOTAL.toLocaleString('sv-SE') + ' kr';
-    goal.textContent    = 'Goal: ' + DONATION_GOAL.toLocaleString('sv-SE') + ' kr';
-  })();
-  </script>
+
 
 
   <script>

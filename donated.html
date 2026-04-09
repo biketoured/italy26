@@ -42,18 +42,18 @@
     }
 
     .heart {
-      font-size: 3.5rem;
+      font-size: 1rem;
       line-height: 1;
-      margin-bottom: 1.75rem;
+      margin-bottom: 1rem;
       animation: heartbeat 1.8s ease-in-out infinite;
       display: block;
     }
 
     @keyframes heartbeat {
       0%   { transform: scale(1); }
-      14%  { transform: scale(1.15); }
+      14%  { transform: scale(1.25); }
       28%  { transform: scale(1); }
-      42%  { transform: scale(1.1); }
+      42%  { transform: scale(1.15); }
       56%  { transform: scale(1); }
       100% { transform: scale(1); }
     }
@@ -148,7 +148,9 @@
          data-sv="// Donation mottagen"
          data-it="// Donazione ricevuta">// Donation received</p>
 
-      <span class="heart" aria-hidden="true">♥</span>
+      <span class="heart" aria-hidden="true">
+        <img src="assets/images/heart.png" alt= 60px, width = 60px>
+      </span>
 
       <h1 data-en="Thank you for <em>your support</em>"
           data-sv="Tack för <em>ditt stöd</em>"
@@ -157,19 +159,19 @@
       </h1>
 
       <p class="body-text"
-         data-en="Every contribution brings us closer to the goal — and means one more step taken for cancer research. It genuinely means a lot."
-         data-sv="Varje bidrag för oss närmre målet — och innebär ett steg till för cancerforskningen. Det betyder verkligen mycket."
-         data-it="Ogni contributo ci avvicina all'obiettivo — e significa un passo in più per la ricerca sul cancro. Significa davvero molto.">
-        Every contribution brings us closer to the goal — and means one more step taken for cancer research. It genuinely means a lot.
+         data-en="Every contribution brings us closer to the goal, potentially saving lives. Thank you. It genuinely means a lot that you shared what you can."
+         data-sv="Varje bidrag är ett steg framåt för cancerforskningen. Tack. Det betyder verkligen mycket för mig att du valt att dela med dig."
+         data-it="Ogni contributo ci avvicina all'obiettivo, un passo in più per la ricerca sul cancro. Significa davvero molto.">
+        Every contribution brings us closer to the goal, potentially saving lives. Thank you. It genuinely means a lot that you shared what you can
       </p>
 
       <div class="divider"></div>
 
       <p class="note"
-         data-en="Your name will appear in the donor wall on the donate page once the list is updated."
-         data-sv="Ditt namn visas på givarvägen på donationssidan när listan uppdateras."
-         data-it="Il tuo nome apparirà nella bacheca dei donatori non appena la lista verrà aggiornata.">
-        Your name will appear in the donor wall once the list is updated.
+         data-en="Your name will appear in the donor wall on the donate page once the list is updated, done by me every evening. You can send me a personalised message."
+         data-sv="Ditt namn visas på givarvägen på donationssidan när jag uppdaterat listan, vilket jag gör varje kväll."
+         data-it="Il tuo nome apparirà nella bacheca dei donatori non appena la lista verrà aggiornata, fatto di me ogni sera.">
+        Your name will appear in the donor wall once the list is updated, done by me every evening.
       </p>
 
       <div class="btn-row">
@@ -179,11 +181,11 @@
            data-it="Torna al viaggio">
           Back to the journey
         </a>
-        <a href="donate.html" class="btn btn-secondary"
-           data-en="Donate again"
-           data-sv="Donera igen"
-           data-it="Dona di nuovo">
-          Donate again
+        <a href="flaskpost.html" class="btn btn-secondary"
+           data-en="Send a message"
+           data-sv="Skicka meddelande"
+           data-it="Mandi un messagio">
+          Send a message
         </a>
       </div>
 
