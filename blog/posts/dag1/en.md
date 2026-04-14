@@ -7,12 +7,12 @@ km: 87
 elevation: 1240
 cover: placehold.png
 title:
-  en: Day 1 — Genova, Liguria
-  sv: Dag 1 — Genova, Ligurien
-  it: Giorno 1 — Genova, Liguria
+  en: Day 1 — Test, Liguria
+  sv: Dag 1 — Test, Ligurien
+  it: Giorno 1 — Test, Liguria
 photos:
   - src: placehold.png
-    caption: Descending into Genova as the sun hit the sea
+    caption: Test text
   - src: placehold.png
     caption: ""
 ---

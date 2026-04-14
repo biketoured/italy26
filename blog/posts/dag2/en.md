@@ -2,14 +2,14 @@
 type: journal
 date: 2026-03-15
 day: 2
-location: Teststad, Testregion
+location: Test, Test
 km: 50
 elevation: 500
 cover: placehold.png
 title:
-  en: Day 2 — Teststad, Testregion
-  sv: Dag 2 — Teststad, Testregion
-  it: Giorno 2 — Teststad, Testregion
+  en: Day 2 — Test, Test
+  sv: Dag 2 — Test, Test
+  it: Giorno 2 — Test, Test
 photos: []
 ---
 This is a test text.

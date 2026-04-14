@@ -7,9 +7,9 @@ km: 0
 elevation: 0
 cover: ..assets/images/
 title:
-  en: Day X — Stad, Region
-  sv: Dag X — Stad, Region
-  it: Giorno X — Città, Regione
+  en: Day X — Test, Region
+  sv: Dag X — Test, Region
+  it: Giorno X — Test, Regione
 photos:
   - src: 
     caption: Din bildtext här
