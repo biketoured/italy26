@@ -1,7 +1,7 @@
 ---
-tag: Reflections
-date: 2026-02-10
 type: blog
+date: 2026-02-10
+tag: Reflections
 title:
   en: Why do I bikepack through Italy?
   sv: Varför vill jag cykla genom Italien?

@@ -7,7 +7,7 @@ title:
   sv: Vad är mina förväntningar på resan?
   it: Che cosa mi aspetto di questo viaggio?
 captions:
-  photo1: Bildtext för andra bilden (valfri)
+  photo1: Tent spot just outside of Abisko National Park. I fell asleep watching the midnight sun struggle to stay above the mountains on the other side of the lake.
   photo2: Bildtext för tredje bilden (valfri)
 ---
 
