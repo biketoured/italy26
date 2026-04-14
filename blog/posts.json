@@ -14,6 +14,21 @@
     }
   },
   {
+    "slug": "expect",
+    "type": "blog",
+    "date": "2026-04-11",
+    "tag": "Reflections",
+    "title": {
+      "en": "What do I expect from this project?",
+      "sv": "Vad är mina förväntningar på resan?",
+      "it": "Che cosa mi aspetto di questo viaggio?"
+    },
+    "captions": {
+      "photo1": "Bildtext för andra bilden (valfri)",
+      "photo2": "Bildtext för tredje bilden (valfri)"
+    }
+  },
+  {
     "slug": "dag3",
     "type": "journal",
     "date": "2026-03-25",
@@ -58,7 +73,7 @@
     "date": "2026-02-10",
     "tag": "Reflections",
     "title": {
-      "en": "Why bikepack through Italy?",
+      "en": "Why do I bikepack through Italy?",
       "sv": "Varför vill jag cykla genom Italien?",
       "it": "Perchè voglio fare questio viaggio?"
     },
@@ -67,6 +82,6 @@
       "photo2": "Ålesund, the last stop on my first bikepacking trip ever.",
       "photo3": "An enchanting view along the Flåm railway. The mist over the snow-capped mountain, the bright autumn foliage, and the coarse mountainside... Love this photo."
     },
-    "photos": 2
+    "photos": 3
   }
 ]
