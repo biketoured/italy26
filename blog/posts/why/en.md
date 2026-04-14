@@ -3,7 +3,7 @@ tag: Reflections
 date: 2026-02-10
 type: blog
 title:
-  en: Why bikepack through Italy?
+  en: Why do I bikepack through Italy?
   sv: Varför vill jag cykla genom Italien?
   it: Perchè voglio fare questio viaggio?
 captions:
@@ -13,7 +13,7 @@ captions:
 ---
 
 ## The curiousity
-For as long as I can remember, exploring new ground and learning new stuff has excited me. During my childhood me an my brother often accompanied our father with farmwork. Many days were spent in the tractor out on the fields, playing outside or feeding the cows. I also spent much time alone. Immersing myself in an atlas or lexicon where I could learn anything about everything. This curiousness has always remained within me. 
+For as long as I can remember, exploring new ground and learning new stuff has excited me. During my childhood me an my brother often accompanied our father with farmwork. Many days were spent in the tractor out on the fields, playing outside or feeding the cows. I also spent much time alone, immersing myself in an atlas or lexicon where I could learn anything about everything. This curiousness has always remained within me. 
 
 ## The passion for movement
 I started track & field when I was 11, which has brought a lot of personal development and joy to this day. Track is an excellent sport for pushing your own limits, and experiencing first-hand how mental strength and discipline can help you reach achievements you once thought were impossible. I have since then gradually become a training freak, and reached my long-standing goal of competing in the national championships in August 2025. I am very proud of that!
