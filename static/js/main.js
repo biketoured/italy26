@@ -106,6 +106,9 @@ function injectNav(page) {
   const homeHidden = (page === 'index') ? 'hidden' : '';
   const homeHref   = p + 'index.html';
 
+  // Mobile links — same as desktop minus 'links'
+  const mobileLinks = links.filter(l => l.id !== 'links');
+
   const navHTML = `
     <a href="${homeHref}" class="nav-home ${homeHidden}"
        data-en="Home" data-sv="Hem" data-it="Home">Home</a>
@@ -130,17 +133,61 @@ function injectNav(page) {
              data-sv="${l.sv}"
              data-it="${l.it}">${l.en}</a>
         </li>`).join('')}
-    </ul>`;
+    </ul>
+
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="nav-dropdown" id="nav-dropdown">
+      <ul>
+        ${mobileLinks.filter(l => l.id !== page).map(l => `
+          <li>
+            <a href="${l.href}"
+               data-en="${l.en}"
+               data-sv="${l.sv}"
+               data-it="${l.it}">${l.en}</a>
+          </li>`).join('')}
+      </ul>
+    </div>`;
 
   const nav = document.getElementById('shared-nav');
   if (nav) {
     nav.innerHTML = navHTML;
   } else {
-    // Fallback — create nav if not present
     const el = document.createElement('nav');
     el.id = 'shared-nav';
     el.innerHTML = navHTML;
     document.body.insertBefore(el, document.body.firstChild);
+  }
+
+  // ── Hamburger toggle ──
+  const hamburger = document.getElementById('nav-hamburger');
+  const dropdown  = document.getElementById('nav-dropdown');
+  if (hamburger && dropdown) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = dropdown.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close on link click
+    dropdown.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        dropdown.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Close on outside click
+    document.addEventListener('click', e => {
+      if (!nav.contains(e.target)) {
+        dropdown.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
   }
 }
 
