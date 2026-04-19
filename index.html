@@ -1124,10 +1124,7 @@
       <div class="donation-meter">
         <div class="donation-meter-labels">
           <span id="meter-current"></span>
-          <span id="meter-goal"
-              data-en="Goal:" 
-              data-sv="Mål:" 
-              data-it="Obiettivo:" > Goal: </span>
+          <span id="meter-goal"></span>
         </div>
         <div class="donation-meter-bar">
           <div class="donation-meter-fill" id="meter-fill" style="width:0%"></div>
@@ -1971,7 +1968,14 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
     const pct = Math.min((DONATION_TOTAL / DONATION_GOAL) * 100, 100);
     fill.style.width = pct + '%';
     current.textContent = DONATION_TOTAL.toLocaleString('sv-SE') + ' kr';
-    goal.textContent    = 'Goal: ' + DONATION_GOAL.toLocaleString('sv-SE') + ' kr';
+    const labels = { en: 'Goal', sv: 'Mål', it: 'Obiettivo' };
+    function updateGoalLabel() {
+      const lang = (typeof currentLang !== 'undefined' ? currentLang : null)
+                || localStorage.getItem('preferred-lang') || 'en';
+      goal.textContent = (labels[lang] || labels.en) + ': ' + DONATION_GOAL.toLocaleString('sv-SE') + ' kr';
+    }
+    updateGoalLabel();
+    document.addEventListener('langchange', updateGoalLabel);
   })();
   </script>
 
