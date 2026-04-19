@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Edvard Appelberg</title>
+  <link rel="icon" href="/italy26/assets/images/flagit.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/italy26/static/css/style.css">
+  <script src="/italy26/static/js/main.js" defer></script>
+  <style>
+    body {
+      background: var(--green);
+      color: var(--stone);
+      min-height: 100vh;
+    }
+
+    /* ── BANNER ── */
+    .contact-banner {
+      width: 100%;
+      height: 340px;
+      background: var(--green-mid);
+      background-image: url('assets/images/contact-banner.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      margin-top: 0;
+    }
+
+    .contact-banner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(30,61,47,0.2) 0%, rgba(30,61,47,0.7) 100%);
+    }
+
+    /* ── LAYOUT ── */
+    .contact-layout {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 3rem 6rem;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    /* ── LEFT SIDEBAR ── */
+    .contact-sidebar {
+      position: sticky;
+      top: 7rem;
+    }
+
+    .profile-wrap {
+      position: relative;
+      margin-top: -80px;
+      margin-bottom: 2rem;
+    }
+
+    .profile-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--green);
+      display: block;
+      background: var(--green-mid);
+    }
+
+    /* Flower decoration */
+    .profile-flower {
+      position: absolute;
+      bottom: -10px;
+      right: 60px;
+      width: 64px;
+      height: 64px;
+      opacity: 0.9;
+      pointer-events: none;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
+      animation: flowerSway 6s ease-in-out infinite;
+    }
+
+    @keyframes flowerSway {
+      0%, 100% { transform: rotate(-4deg); }
+      50%       { transform: rotate(4deg); }
+    }
+
+    .sidebar-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--green-light);
+      margin-bottom: 0.5rem;
+    }
+
+    .sidebar-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--stone);
+      font-weight: 400;
+      margin-bottom: 0.4rem;
+    }
+
+    .sidebar-sub {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--stone-dark);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .sidebar-divider {
+      width: 40px;
+      height: 2px;
+      background: rgba(196,180,154,0.3);
+      margin-bottom: 1.75rem;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-detail-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .detail-icon {
+      font-size: 0.9rem;
+      color: var(--green-light);
+      width: 18px;
+      flex-shrink: 0;
+    }
+
+    .detail-text {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: var(--stone);
+    }
+
+    .detail-text a {
+      color: var(--stone);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(196,180,154,0.3);
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .detail-text a:hover { color: var(--white); border-color: var(--stone); }
+
+    /* ── RIGHT — FORM ── */
+    .contact-form-wrap {
+      padding-top: 3rem;
+    }
+
+    .form-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--green-light);
+      margin-bottom: 0.75rem;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.1s forwards;
+    }
+
+    .form-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 400;
+      color: var(--stone);
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.2s forwards;
+    }
+
+    .form-title em { font-style: italic; color: var(--green-light); }
+
+    .form-sub {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--stone);
+      line-height: 1.75;
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.3s forwards;
+    }
+
+    .contact-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.4s forwards;
+    }
+
+    .field-full { grid-column: 1 / -1; }
+
+    .field-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--stone-dark);
+      display: block;
+      margin-bottom: 0.45rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      background: rgba(0,0,0,0.2);
+      border: 1px solid rgba(196,180,154,0.15);
+      border-bottom: 2px solid rgba(196,180,154,0.35);
+      color: var(--stone);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      padding: 0.8rem 1rem;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+      resize: none;
+      border-radius: 0;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: rgba(196,180,154,0.28);
+      font-style: italic;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      background: rgba(0,0,0,0.3);
+      border-bottom-color: var(--yellow);
+    }
+
+    .form-submit {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .submit-btn {
+      background: var(--green-mid);
+      color: var(--stone);
+      border: none;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 1rem 2.5rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .submit-btn:hover { background: var(--green-light); color: var(--green); transform: translateY(-2px); }
+
+    .form-status {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: var(--green-light);
+      display: none;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+        padding: 0 1.5rem 4rem;
+        gap: 2rem;
+      }
+      .contact-sidebar { position: static; }
+      .profile-wrap { margin-top: 1.5rem; }
+      .contact-form { grid-template-columns: 1fr; }
+      .contact-banner { height: 220px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="shared-nav"></nav>
+
+  <!-- ── BANNER ── -->
+  <!-- Replace contact-banner.jpg with your landscape photo -->
+  <div class="contact-banner" style="margin-top: 64px;"></div>
+
+  <!-- ── MAIN LAYOUT ── -->
+  <div class="contact-layout">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="contact-sidebar">
+
+      <div class="profile-wrap">
+        <!-- Replace profilepic.jpg with your photo, or use a different image -->
+        <img class="profile-img"
+             src="assets/images/profilepic.jpg"
+             alt="Edvard Appelberg"
+             onerror="this.style.background='var(--green-mid)'; this.removeAttribute('src')">
+
+        <!-- Flower decoration — replace with your preferred flower png -->
+        <img class="profile-flower"
+             src="assets/images/flower.png"
+             alt=""
+             onerror="this.style.display='none'">
+      </div>
+
+      <p class="sidebar-tag"
+         data-en="// Get in touch"
+         data-sv="// Ta kontakt"
+         data-it="// Contattami">// Get in touch</p>
+
+      <h2 class="sidebar-name">Edvard Appelberg</h2>
+
+      <p class="sidebar-sub"
+         data-en="Athlete, traveller, writer. Based in Skellefteå, Sweden."
+         data-sv="Idrottare, resenär, skribent. Baserad i Skellefteå, Sverige."
+         data-it="Atleta, viaggiatore, scrittore. A Skellefteå, Svezia.">
+        Athlete, traveller, writer. Based in Skellefteå, Sweden.
+      </p>
+
+      <div class="sidebar-divider"></div>
+
+      <div class="contact-details">
+        <div class="contact-detail-row">
+          <span class="detail-icon">✉</span>
+          <span class="detail-text">
+            <a href="mailto:edvardappelberg25@gmail.com">edvardappelberg25@gmail.com</a>
+          </span>
+        </div>
+        <div class="contact-detail-row">
+          <span class="detail-icon">📍</span>
+          <span class="detail-text"
+                data-en="Skellefteå, Sweden"
+                data-sv="Skellefteå, Sverige"
+                data-it="Skellefteå, Svezia">Skellefteå, Sweden</span>
+        </div>
+        <div class="contact-detail-row">
+          <span class="detail-icon">@</span>
+          <span class="detail-text">
+            <a href="https://instagram.com/edvardappelberg" target="_blank">@edvardappelberg</a>
+          </span>
+        </div>
+        <div class="contact-detail-row">
+          <span class="detail-icon">🚴</span>
+          <span class="detail-text">
+            <a href="https://www.strava.com/athletes/edvardappelberg" target="_blank">Strava</a>
+          </span>
+        </div>
+      </div>
+
+      <div class="sidebar-divider"></div>
+
+    </aside>
+
+    <!-- RIGHT — FORM -->
+    <div class="contact-form-wrap">
+
+      <p class="form-tag"
+         data-en="// Ideas & questions"
+         data-sv="// Idéer & funderingar"
+         data-it="// Idee & domande">// Ideas & questions</p>
+
+      <h1 class="form-title"
+          data-en="Send me a <em>message</em>"
+          data-sv="Skicka ett <em>meddelande</em>"
+          data-it="Mandami un <em>messaggio</em>">
+        Send me a <em>message</em>
+      </h1>
+
+      <p class="form-sub"
+         data-en="Questions about the trip, collaboration ideas, media enquiries — or just to say hello. I read everything."
+         data-sv="Frågor om resan, samarbetsidéer, mediefrågor — eller bara för att säga hej. Jag läser allt."
+         data-it="Domande sul viaggio, idee di collaborazione, richieste media — o solo per salutare. Leggo tutto.">
+        Questions about the trip, collaboration ideas, media enquiries — or just to say hello. I read everything.
+      </p>
+
+      <form class="contact-form" id="contact-form" onsubmit="sendContact(event)">
+
+        <div>
+          <label class="field-label" for="c-name"
+                 data-en="Your name"
+                 data-sv="Ditt namn"
+                 data-it="Il tuo nome">Your name</label>
+          <input type="text" id="c-name" name="name" required
+                 placeholder="…">
+        </div>
+
+        <div>
+          <label class="field-label" for="c-email"
+                 data-en="Email address"
+                 data-sv="E-postadress"
+                 data-it="Indirizzo email">Email address</label>
+          <input type="email" id="c-email" name="email" required
+                 placeholder="…">
+        </div>
+
+        <div class="field-full">
+          <label class="field-label" for="c-subject"
+                 data-en="Subject"
+                 data-sv="Ämne"
+                 data-it="Oggetto">Subject</label>
+          <input type="text" id="c-subject" name="subject"
+                 placeholder="…">
+        </div>
+
+        <div class="field-full">
+          <label class="field-label" for="c-message"
+                 data-en="Message"
+                 data-sv="Meddelande"
+                 data-it="Messaggio">Message</label>
+          <textarea id="c-message" name="message" rows="7" required
+                    placeholder="…"></textarea>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit" class="submit-btn">
+            <span data-en="Send →"
+                  data-sv="Skicka →"
+                  data-it="Invia →">Send →</span>
+          </button>
+          <span class="form-status" id="form-status"></span>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+  <footer id="shared-footer"></footer>
+
+  <script>
+  const WEB3FORMS_KEY = '338ad75d-be30-474b-b848-3f339e64c66c';
+
+  async function sendContact(e) {
+    e.preventDefault();
+    const btn    = e.target.querySelector('.submit-btn');
+    const status = document.getElementById('form-status');
+    const lang   = localStorage.getItem('preferred-lang') || 'en';
+
+    btn.disabled = true;
+    btn.textContent = '…';
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject:    '[Contact] ' + (document.getElementById('c-subject').value || 'No subject'),
+          from_name:  document.getElementById('c-name').value,
+          email:      document.getElementById('c-email').value,
+          message:    document.getElementById('c-message').value,
+        })
+      });
+      if (!res.ok) throw new Error();
+
+      status.style.display = 'block';
+      status.textContent = { en: '✓ Sent!', sv: '✓ Skickat!', it: '✓ Inviato!' }[lang] || '✓ Sent!';
+      e.target.reset();
+
+      // ntfy ping
+      fetch('https://ntfy.sh/italy26-bottlespin', {
+        method: 'POST',
+        headers: { 'Title': '[Contact form] ' + document.getElementById('c-name').value, 'Priority': 'default', 'Tags': 'email' },
+        body: document.getElementById('c-message').value.slice(0, 200)
+      }).catch(() => {});
+
+    } catch {
+      status.style.display = 'block';
+      status.style.color = 'var(--red-warm)';
+      status.textContent = { en: '⚠ Try again', sv: '⚠ Försök igen', it: '⚠ Riprova' }[lang] || '⚠ Try again';
+      btn.disabled = false;
+      btn.textContent = 'Send →';
+    }
+  }
+  </script>
+
+</body>
+</html>

@@ -96,7 +96,7 @@ function injectNav(page) {
   const links = [
     { id: 'donate',     href: p + 'donate.html',       en: 'Donate',      sv: 'Donera',      it: 'Dona'        },
     { id: 'blog',       href: p + 'blog/index.html',   en: 'Blog',        sv: 'Blogg',       it: 'Blog'        },
-    { id: 'route',      href: p + 'route.html',        en: 'Route',       sv: 'Rutter',      it: 'Mappa'       },
+    { id: 'route',      href: p + 'route.html',        en: 'Route',       sv: 'Färdplan',    it: 'Mappa'       },
     { id: 'sweden2024', href: p + 'sweden2024.html',   en: 'Sweden 2024', sv: 'Sverige 2024',it: 'Svezia 2024' },
     { id: 'links',      href: p + 'index.html#links',  en: 'Links',       sv: 'Länkar',      it: 'Link'        },
     { id: 'contact',    href: p + 'contact.html',      en: 'Contact',     sv: 'Kontakt',     it: 'Contatto'    },
