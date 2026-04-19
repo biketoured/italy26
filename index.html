@@ -739,6 +739,12 @@
       border: 1px solid rgba(196,180,154,0.12);
       border-top: 2px solid var(--yellow);
       padding: 1.5rem 1.25rem;
+      transition: transform 0.2s, background 0.2s, border-color 0.2s;
+    }
+    .activity-card:not(.placeholder):hover {
+      transform: translateY(-6px);
+      background: rgba(0,0,0,0.3);
+      border-color: rgba(196,180,154,0.3);
     }
     
     .activity-header {
@@ -753,7 +759,7 @@
       font-size: 0.62rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: rgba(196,180,154,0.45);
+      color: var(--stone-dark);
     }
     
     /* Colour dot matching the route colour on the map */
@@ -799,7 +805,7 @@
       font-size: 0.6rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: rgba(196,180,154,0.4);
+      color: var(--stone-dark);
     }
     
     /* "No activities yet" placeholder */
@@ -847,10 +853,10 @@
       color: var(--stone);
       border: 1px solid rgba(196,180,154,0.3);
       font-family: 'DM Mono', monospace;
-      font-size: 0.62rem;
+      font-size: 0.72rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      padding: 0.4rem 0.8rem;
+      padding: 0.65rem 1.2rem;
       cursor: pointer;
       transition: background 0.2s, color 0.2s;
     }
@@ -1078,14 +1084,14 @@
       <h1 class="hero-title"
           data-en="Exploring the regions of <em>Italy</em><br>for a good cause.<br><bo>Starting May 10th 2026</bo><br>"
           data-sv="Cyklar tvärs genom<br><em>Italien</em><br>för välgörenhet.<br><bo>Startar 10 maj 2026</bo>"
-          data-it="Esplorando le regioni<br><em>d'Italia</em><br>per una buona causa.<br><bo>Partenza 10 maggio 2026</bo>">
+          data-it="Esplorando le regioni<em>d'Italia</em>per una buona causa.<br><bo>Partenza 10 maggio 2026</bo>">
         Exploring the regions of <em>Italy</em><br>for a good cause.<br><bo>Starting May 10th 2026</bo>
       </h1>
       <p class="hero-sub"
-         data-en="My mission is to explore the Italian culture, nature, and people, while also collecting donations to brain cancer research."
-         data-sv="Mitt mål med resan är att utforska den italienska kulturen, naturen och människorna och samtidigt samla in pengar för hjärncancerforskning."
-         data-it="La mia missione è esplorare la natura, la cultura, e la gente italiana mentre raccolgo donazioni per la ricerca sul cancro al cervello.">
-        My mission is to explore the Italian culture, nature, and people, while also spreading awareness of cancer research.
+         data-en="My mission is to explore the Italian culture, nature, and people, while also collecting donations to brain cancer research. Join me!"
+         data-sv="Mitt mål är att utforska den italienska kulturen, naturen och människorna och samtidigt samla in pengar för hjärncancerforskning. Följ med!"
+         data-it="La mia missione è esplorare la natura, la cultura, e la gente italiana mentre raccolgo donazioni per la ricerca sul cancro al cervello. Seguimi!">
+        My mission is to explore the Italian culture, nature, and people, while also spreading awareness of cancer research. Join me!
       </p>
   <div style="display:flex; flex-wrap:wrap; gap:1rem; align-items:center;">
         <a href="#blog" class="hero-cta"
@@ -1772,23 +1778,28 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
         attribution: '© OpenStreetMap contributors, © CartoDB',
         maxZoom: 20,
       });
-      let isBW = false;
-      topoLayer.addTo(map);
-      document.getElementById('map-style-btn').addEventListener('click', () => {
+      let isBW = true;
+      bwLayer.addTo(map);
+      const btn = document.getElementById('map-style-btn');
+      btn.textContent = 'Topo map';
+      btn.setAttribute('data-en', 'Topo map');
+      btn.setAttribute('data-sv', 'Topokarta');
+      btn.setAttribute('data-it', 'Mappa topo');
+      btn.addEventListener('click', () => {
         if (isBW) {
           map.removeLayer(bwLayer);
           topoLayer.addTo(map);
-          document.getElementById('map-style-btn').setAttribute('data-en', 'B&W map');
-          document.getElementById('map-style-btn').setAttribute('data-sv', 'Svartvit karta');
-          document.getElementById('map-style-btn').setAttribute('data-it', 'Mappa B&W');
-          document.getElementById('map-style-btn').textContent = 'B&W map';
+          btn.setAttribute('data-en', 'B&W map');
+          btn.setAttribute('data-sv', 'Svartvit karta');
+          btn.setAttribute('data-it', 'Mappa B&W');
+          btn.textContent = 'B&W map';
         } else {
           map.removeLayer(topoLayer);
           bwLayer.addTo(map);
-          document.getElementById('map-style-btn').setAttribute('data-en', 'Topo map');
-          document.getElementById('map-style-btn').setAttribute('data-sv', 'Topokarta');
-          document.getElementById('map-style-btn').setAttribute('data-it', 'Mappa topo');
-          document.getElementById('map-style-btn').textContent = 'Topo map';
+          btn.setAttribute('data-en', 'Topo map');
+          btn.setAttribute('data-sv', 'Topokarta');
+          btn.setAttribute('data-it', 'Mappa topo');
+          btn.textContent = 'Topo map';
         }
         isBW = !isBW;
       });

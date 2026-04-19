@@ -13,35 +13,16 @@
   <style>
     /* ── DONATE THEME OVERRIDES ── */
     :root {
-      --nav-bg:          rgba(74, 122, 150, 0.97);
-      --nav-border:      rgba(184,212,224,0.2);
-      --nav-link:        rgba(184,212,224,0.7);
+      --nav-bg:          var(--sky-pale);
+      --nav-border:      rgba(74,122,150,0.2);
+      --nav-link:        var(--green);
+      --nav-link-hover:  var(--green-mid);
+      --footer-bg:       var(--sky-pale);
+      --footer-text:     var(--green);
+      --footer-logo:     var(--green);
     }
 
     /* lang-switcher styles moved to /italy26/static/css/style.css */
-
-    :root {
-  --green:         #1E3D2F;
-  --green-mid:     #3A6B4A;
-  --green-light:   #6da874;
-  --stone:         #C4B49A;
-  --stone-dark:    #7e705c;
-  --soil:          #7A5C3E;
-  --red:           #a0503b;
-  --red-warm:      #cc7451;
-  --orange:        #eea66b;
-  --yellow:        #D4A94A;
-  --yellow-soft:   #E8CC7A;
-  --sky:           #7AAFC4;
-  --sky-deep:      #4A7A96;
-  --sky-pale:      #B8D4E0;
-  --gray:          #8A8E8C;
-  --gray-light:    #C8CBC9;
-  --text:          #1A1A18;
-  --text-muted:    #242320; /* --7A7260 */
-  --white:         #FDFAF4;
-  --black:         #111110;
-    }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -560,10 +541,10 @@
     <!-- ══ STORY ══ -->
     <div class="story">
       <p class="story-tag" data-en="// Why this matters" data-sv="// Varför det spelar roll" data-it="// Perché è importante">// Why this matters</p>
-      <h1 data-en="Riding for <em>research<br>that save lives</em>"
-          data-sv="Cyklar för <em>forskning<br>som räddar liv</em>"
-          data-it="Pedalando per la <em>ricerca<br>che salva le vite</em>">
-          Riding for <em>research<br>that save lives</em></h1>
+      <h1 data-en="Riding for research<br>that <em>save lives</em>"
+          data-sv="Cyklar för forskning<br>som <em>räddar liv</em>"
+          data-it="Pedalando per la ricerca<br>che <em>salva le vite</em>">
+          Riding for research<br>that <em>save lives</em></h1>
         <p>
         <span data-en="I ride this journey partly in memory of my father, partly for everyone else fighting brain cancer."
               data-sv="Det här äventyret cyklar jag delvis i minne av min far, delvis för alla andra som kämpar, här kämpat, eller kommer att kämpa mot hjärncancer."

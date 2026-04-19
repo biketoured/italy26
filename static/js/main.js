@@ -94,11 +94,12 @@ function injectNav(page) {
   // Nav link definitions
   // Each entry: { id, href, en, sv, it }
   const links = [
-    { id: 'blog',       href: p + 'blog/index.html',  en: 'Blog',        sv: 'Blogg',       it: 'Blog'        },
     { id: 'donate',     href: p + 'donate.html',       en: 'Donate',      sv: 'Donera',      it: 'Dona'        },
-    { id: 'links',      href: p + 'index.html#links',  en: 'Links',       sv: 'Länkar',      it: 'Link'        },
-    { id: 'route',     href: p + 'route.html',        en: 'Routes',      sv: 'Rutter',      it: 'Percorsi'    },
+    { id: 'blog',       href: p + 'blog/index.html',   en: 'Blog',        sv: 'Blogg',       it: 'Blog'        },
+    { id: 'route',      href: p + 'route.html',        en: 'Route',       sv: 'Rutter',      it: 'Mappa'       },
     { id: 'sweden2024', href: p + 'sweden2024.html',   en: 'Sweden 2024', sv: 'Sverige 2024',it: 'Svezia 2024' },
+    { id: 'links',      href: p + 'index.html#links',  en: 'Links',       sv: 'Länkar',      it: 'Link'        },
+    { id: 'contact',    href: p + 'contact.html',      en: 'Contact',     sv: 'Kontakt',     it: 'Contatto'    },
   ];
 
   // Home link — hidden on index, points to index from everywhere else
@@ -123,7 +124,7 @@ function injectNav(page) {
 
     <ul class="nav-links">
       ${links.map(l => `
-        <li class="${l.id === page ? 'hidden' : ''}">
+        <li class="${l.id === page ? 'hidden' : ''}" style="min-width:6rem; text-align:center;">
           <a href="${l.href}"
              data-en="${l.en}"
              data-sv="${l.sv}"
@@ -211,6 +212,12 @@ function injectPizzaScrollbar() {
     </div>`;
 
   document.body.insertAdjacentHTML('beforeend', html);
+
+  // Match scrollbar background to nav theme
+  const currentPage = getCurrentPage();
+  const navTheme = NAV_THEMES[currentPage] || NAV_THEMES['index'];
+  const sb = document.getElementById('pizza-scrollbar');
+  if (sb) sb.style.background = navTheme.bg.replace(/,\s*[\d.]+\)$/, ', 1)');
 
   const scrollbar  = document.getElementById('pizza-scrollbar');
   const thumb      = document.getElementById('pizza-thumb');

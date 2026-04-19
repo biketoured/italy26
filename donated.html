@@ -45,16 +45,16 @@
       font-size: 1rem;
       line-height: 1;
       margin-bottom: 1rem;
-      animation: heartbeat 1.8s ease-in-out infinite;
+      animation: heartbeat 1.3s ease-in-out infinite;
       display: block;
     }
 
     @keyframes heartbeat {
       0%   { transform: scale(1); }
-      14%  { transform: scale(1.25); }
+      12%  { transform: scale(1.25); }
       28%  { transform: scale(1); }
-      42%  { transform: scale(1.15); }
-      56%  { transform: scale(1); }
+      44%  { transform: scale(1.15); }
+      62%  { transform: scale(1); }
       100% { transform: scale(1); }
     }
 
@@ -88,10 +88,9 @@
     }
 
     .note {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Playfair Display', serif;
       font-size: 0.68rem;
       letter-spacing: 0.12em;
-      text-transform: uppercase;
       color: var(--stone-dark);
       margin-bottom: 2.5rem;
       line-height: 1.8;
@@ -121,9 +120,9 @@
     .btn-primary:hover { background: var(--sky); }
 
     .btn-secondary {
-      background: transparent;
-      color: var(--stone);
-      border: 1px solid rgba(196,180,154,0.3);
+      background: var(--stone);
+      color: var(--sky-deep);
+      border: 1px solid var(--sky-deep);
     }
     .btn-secondary:hover {
       background: rgba(196,180,154,0.08);
@@ -149,29 +148,29 @@
          data-it="// Donazione ricevuta">// Donation received</p>
 
       <span class="heart" aria-hidden="true">
-        <img src="assets/images/heart.png" alt= 60px, width = 60px>
+        <img src="assets/images/heart.png" alt= 80px, width = 80px>
       </span>
 
-      <h1 data-en="Thank you for <em>your support</em>"
-          data-sv="Tack för <em>ditt stöd</em>"
-          data-it="Grazie per <em>il tuo supporto</em>">
-        Thank you for <em>your support</em>
+      <h1 data-en="<em>Thank you </em> for your support"
+          data-sv="<em>Tusen tack</em> för ditt stöd"
+          data-it="<em>Grazie mille</em> per il tuo supporto">
+        <em>Thank you</em> for your support
       </h1>
 
       <p class="body-text"
-         data-en="Every contribution brings us closer to the goal, potentially saving lives. Thank you. It genuinely means a lot that you shared what you can."
-         data-sv="Varje bidrag är ett steg framåt för cancerforskningen. Tack. Det betyder verkligen mycket för mig att du valt att dela med dig."
-         data-it="Ogni contributo ci avvicina all'obiettivo, un passo in più per la ricerca sul cancro. Significa davvero molto.">
-        Every contribution brings us closer to the goal, potentially saving lives. Thank you. It genuinely means a lot that you shared what you can
+         data-en="Every contribution has potential to change someone's life. Thank you.<br> It genuinely means a lot that you shared what you can. <br>//Edvard"
+         data-sv="Varje bidrag är ett steg framåt för cancerforskningen. Tack.<br> Det betyder verkligen mycket för mig att du valt att dela med dig. <br>//Edvard"
+         data-it="Ogni contributo ci avvicina all'obiettivo, un passo in più per la ricerca sul cancro.<br> Significa davvero molto. <br>//Edvard">
+        Every contribution brings us closer to the goal, potentially saving lives. Thank you. It genuinely means a lot that you shared what you can <br>//Edvard
       </p>
 
       <div class="divider"></div>
 
       <p class="note"
-         data-en="Your name will appear in the donor wall on the donate page once the list is updated, done by me every evening. You can send me a personalised message."
-         data-sv="Ditt namn visas på givarvägen på donationssidan när jag uppdaterat listan, vilket jag gör varje kväll."
-         data-it="Il tuo nome apparirà nella bacheca dei donatori non appena la lista verrà aggiornata, fatto di me ogni sera.">
-        Your name will appear in the donor wall once the list is updated, done by me every evening.
+         data-en="To have your name on the donation wall, please send a public message.<br> You could also send me a personal message that only I can see."
+         data-sv="Skriv gärna ett publikt meddelande om du vill ha ditt namn här.<br> Du kan även välja att skicka mig ett privat meddelande."
+         data-it="Scrivi un messaggio pubblico che apparirá sotto, <br>oppure puoi scrivermi un messaggio personale.">
+        To have your name on the donation wall, please send a public message.<br>You could also send me a personal message that only I can see.
       </p>
 
       <div class="btn-row">

@@ -17,6 +17,16 @@
   <script src="manuals.js"></script>
 
   <style>
+    :root {
+      --nav-bg:          rgba(196,180,154,0.97);
+      --nav-border:      rgba(122,92,62,0.2);
+      --nav-link:        var(--green);
+      --nav-link-hover:  var(--black);
+      --footer-bg:       var(--stone);
+      --footer-text:     var(--green);
+      --footer-logo:     var(--green);
+    }
+
     /* ── PAGE BASE ── */
     body { background: var(--green); }
 
@@ -295,7 +305,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1rem;
-      max-width: 700px;
+      max-width: 100%;
     }
 
     .recommend-form .field-full {

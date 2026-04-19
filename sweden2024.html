@@ -87,7 +87,7 @@
 
     .hero-title em {
       font-style: italic;
-      color: var(--sky);
+      color: var(--sky-pale);
       text-shadow: 2px, 2px;
     }
 
@@ -377,6 +377,12 @@
       border: 1px solid rgba(184,212,224,0.12);
       border-top: 2px solid var(--yellow);
       padding: 1.5rem 1.25rem;
+      transition: transform 0.2s, background 0.2s, border-color 0.2s;
+    }
+    .activity-card:not(.placeholder):hover {
+      transform: translateY(-6px);
+      background: rgba(0,0,0,0.35);
+      border-color: rgba(184,212,224,0.3);
     }
 
     .activity-header {
@@ -391,7 +397,7 @@
       font-size: 0.62rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: rgba(184,212,224,0.45);
+      color: var(--sky-pale);
     }
 
     .activity-color-dot {
@@ -431,7 +437,7 @@
       font-size: 0.6rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: rgba(184,212,224,0.4);
+      color: var(--sky);
     }
 
     .activity-card.placeholder {
@@ -590,7 +596,7 @@
          target="_blank"
          rel="noopener"
          class="hero-cta"
-         style="background:rgba(184,212,224,0.18); color:var(--sky-pale); border:1px solid rgba(184,212,224,0.3); margin-top:0.5rem;"
+         style="background:rgba(184,212,224,0.18); color:var(--sky-deep); border:1px solid var(--black); margin-top:0.5rem;"
          data-en="Photo album →"
          data-sv="Fotoalbum →"
          data-it="Album fotografico →">
@@ -723,12 +729,12 @@
         <div class="trip-stat-tab">
           <div class="trip-stat-icon-placeholder">+</div>
           <div class="trip-stat-text">
-            <div class="trip-stat-value" id="stat-extra">—</div>
+            <div class="trip-stat-value" id="stat-extra"> 26/6 -> 28/7 2024</div>
             <div class="trip-stat-label"
-                 data-en="Placeholder"
-                 data-sv="Platshållare"
-                 data-it="Segnaposto">
-                 Placeholder</div>
+                 data-en="Days"
+                 data-sv="Dagar"
+                 data-it="Giorni">
+                 Days</div>
           </div>
         </div>
       </div>
