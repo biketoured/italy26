@@ -19,20 +19,33 @@
     /* ── BANNER ── */
     .contact-banner {
       width: 100%;
-      height: 500px;
-      background: var(--green-mid);
-      background-image: url('assets/images/contact-banner.jpg');
-      background-size: cover;
-      background-position: center;
+      height: 420px;
       position: relative;
-      margin-top: 0;
+      overflow: hidden;       /* clips the drifting inner layer */
+      background: var(--green-mid);
     }
 
+    /* Drifting image layer — slightly oversized so drift never shows edges */
+    .banner-inner {
+      position: absolute;
+      inset: -8%;             /* 8% bleed on all sides = room to drift */
+      width: 116%;
+      height: 116%;
+      background-size: cover;
+      background-position: center;
+      will-change: transform;
+      transition: transform 6s cubic-bezier(0.45, 0.05, 0.55, 0.95),
+                  opacity 1.2s ease;
+    }
+
+    /* Gradient overlay sits on top of the drifting layer */
     .contact-banner::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(30,61,47,0.2) 0%, rgba(30,61,47,0.7) 100%);
+      background: linear-gradient(to bottom, rgba(30,61,47,0.15) 0%, rgba(30,61,47,0.65) 100%);
+      z-index: 1;
+      pointer-events: none;
     }
 
     /* ── LAYOUT ── */
@@ -291,8 +304,11 @@
   <nav id="shared-nav"></nav>
 
   <!-- ── BANNER ── -->
-  <!-- Replace contact-banner.jpg with your landscape photo -->
-  <div class="contact-banner" style="margin-top: 64px;"></div>
+  <!-- Banner: add images to assets/images/ named contact-banner1.jpg, contact-banner2.jpg etc. -->
+  <!-- The JS below rotates and drifts them automatically. -->
+  <div class="contact-banner" id="contact-banner" style="margin-top: 64px;">
+    <div class="banner-inner" id="banner-inner"></div>
+  </div>
 
   <!-- ── MAIN LAYOUT ── -->
   <div class="contact-layout">
@@ -483,6 +499,63 @@
       btn.textContent = 'Send →';
     }
   }
+  // ── BANNER DRIFT & ROTATION ──────────────────────────────
+  (function() {
+    const inner  = document.getElementById('banner-inner');
+    if (!inner) return;
+
+    // Add your landscape images here — any number works
+    const images = [
+      'assets/images/contact-banner.jpg',
+      'assets/images/contact-banner2.jpg',
+      'assets/images/contact-banner3.jpg',
+    ];
+
+    let currentIdx = 0;
+    let driftTimer  = null;
+
+    // Preload to avoid flash
+    images.forEach(src => { const i = new Image(); i.src = src; });
+
+    function randBetween(a, b) {
+      return a + Math.random() * (b - a);
+    }
+
+    // Pick a new random drift target — small translate + tiny rotation
+    function applyDrift() {
+      const tx  = randBetween(-4, 4);   // % horizontal drift
+      const ty  = randBetween(-3, 3);   // % vertical drift
+      const rot = randBetween(-0.6, 0.6); // degrees rotation
+      const dur = randBetween(5000, 9000); // ms for this move
+
+      // Update transition duration to match chosen duration
+      inner.style.transition = `transform ${dur/1000}s cubic-bezier(0.45,0.05,0.55,0.95), opacity 1.2s ease`;
+      inner.style.transform  = `translate(${tx}%, ${ty}%) rotate(${rot}deg)`;
+
+      driftTimer = setTimeout(applyDrift, dur - 200); // queue next before this ends
+    }
+
+    // Switch to next image with crossfade
+    function nextImage() {
+      currentIdx = (currentIdx + 1) % images.length;
+      inner.style.opacity = '0';
+      setTimeout(() => {
+        inner.style.backgroundImage = `url('${images[currentIdx]}')`;
+        inner.style.opacity = '1';
+      }, 1200); // matches opacity transition
+    }
+
+    // Initialise
+    inner.style.backgroundImage = `url('${images[0]}')`;
+    inner.style.opacity = '1';
+    applyDrift();
+
+    // Rotate images every 12 seconds if more than one
+    if (images.length > 1) {
+      setInterval(nextImage, 12000);
+    }
+  })();
+
   </script>
 
 </body>
