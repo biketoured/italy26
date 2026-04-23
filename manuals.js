@@ -3,9 +3,9 @@
 // ══════════════════════════════════════════
 
 const SEK = 0;
-const EUR = 333;
+const EUR = 0;
 const DONATION_TOTAL = Math.round(SEK + (EUR*11));  // current total in SEK
-const DONATION_GOAL  = 50000;                       // goal in SEK
+const DONATION_GOAL  = 40000;                       // goal in SEK
 const LIVE = "."
 
 
