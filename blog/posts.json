@@ -14,6 +14,20 @@
     }
   },
   {
+    "slug": "motiv",
+    "type": "blog",
+    "date": "2026-04-23",
+    "tag": "Reflections",
+    "title": {
+      "en": "What makes this my dream adventure?",
+      "sv": "Vad gör detta till min drömresa?",
+      "it": "Perché è questo il viaggio dei miei sogni?"
+    },
+    "captions": {
+      "photo1": "Tent spot just outside of Abisko National Park. I fell asleep watching the midnight sun struggle to stay above the mountains on the other side of the lake."
+    }
+  },
+  {
     "slug": "expect",
     "type": "blog",
     "date": "2026-04-11",
