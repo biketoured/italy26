@@ -23,6 +23,7 @@
       position: relative;
       overflow: hidden;       /* clips the drifting inner layer */
       background: var(--green-mid);
+      z-index: 0;
     }
 
     /* Drifting image layer — slightly oversized so drift never shows edges */
@@ -44,7 +45,7 @@
       position: absolute;
       inset: 0;
       background: linear-gradient(to bottom, rgba(30,61,47,0.15) 0%, rgba(30,61,47,0.65) 100%);
-      z-index: 1;
+      z-index: 2;
       pointer-events: none;
     }
 
@@ -69,7 +70,7 @@
       position: relative;
       margin-top: -80px;
       margin-bottom: 2rem;
-      z-index: 2;
+      z-index: 1;
     }
 
     .profile-img {
@@ -80,6 +81,7 @@
       border: 4px solid var(--green);
       display: block;
       background: var(--green-mid);
+      z-index: 1;
     }
 
     /* Flower decoration */
@@ -340,7 +342,7 @@
 
       <p class="sidebar-sub"
          data-en="Athlete, wannabe polyglot and ice cream lover. Based in Skellefteå, Sweden."
-         data-sv="Friidrottare, nationalekonom, kakmonster och wannabe polyglott. Skellefteå, Sverige."
+         data-sv="Allidrottare. På Spåret-älskare och wannabe polyglott. Växte upp i Götene, studerade i Linköping, bor i Skellefteå."
          data-it="Atleta, economista, forse un giorno un scrittore. Skellefteå, Svezia.">
         Athlete, wannabe polyglot and ice cream lover. Based in Skellefteå, Sweden.
       </p>
@@ -374,6 +376,8 @@
             <a href="https://www.strava.com/athletes/33737566" target="_blank">Strava</a>
           </span>
         </div>
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4HdCefIPc45fqDac9w6dM4?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        
       </div>
 
       <div class="sidebar-divider"></div>

@@ -7,7 +7,7 @@ title:
   sv: Vad gör detta till min drömresa?
   it: Perché è questo il viaggio dei miei sogni?
 captions:
-  photo1: Tent spot just outside of Abisko National Park. I fell asleep watching the midnight sun struggle to stay above the mountains on the other side of the lake.
+  photo1: One of my best tent spots ever outside Järnlunden in the heart of Östergötland.
 ---
 
 # What makes this my dream adventure?

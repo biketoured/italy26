@@ -11,7 +11,8 @@ const LIVE = "."
 
 // Utforska betalningssätt: Paypal och Revolut fixat. Behöver koppla konton bara...
 // Automatisera journal: Markdown plus bilder kan uppladdas via webben github
-// SKapa blogginlägg
+
+// Skapa blogginlägg
 // Livelänk
 
 
