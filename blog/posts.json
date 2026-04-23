@@ -1,19 +1,5 @@
 [
   {
-    "slug": "dag1",
-    "type": "journal",
-    "date": "2026-05-10",
-    "day": 1,
-    "location": "Genova, Liguria",
-    "km": 87,
-    "elevation": 1240,
-    "title": {
-      "en": "Day 1 — Test, Liguria",
-      "sv": "Dag 1 — Test, Ligurien",
-      "it": "Giorno 1 — Test, Liguria"
-    }
-  },
-  {
     "slug": "motiv",
     "type": "blog",
     "date": "2026-04-23",
@@ -24,7 +10,7 @@
       "it": "Perché è questo il viaggio dei miei sogni?"
     },
     "captions": {
-      "photo1": "Tent spot just outside of Abisko National Park. I fell asleep watching the midnight sun struggle to stay above the mountains on the other side of the lake."
+      "photo1": "One of my best tent spots ever outside Järnlunden in the heart of Östergötland."
     }
   },
   {
@@ -40,34 +26,6 @@
     "captions": {
       "photo1": "Tent spot just outside of Abisko National Park. I fell asleep watching the midnight sun struggle to stay above the mountains on the other side of the lake.",
       "photo2": "Bildtext för tredje bilden (valfri)"
-    }
-  },
-  {
-    "slug": "dag3",
-    "type": "journal",
-    "date": "2026-03-25",
-    "day": -50,
-    "location": "Skelleftehamn, Sweden",
-    "km": 0,
-    "elevation": 0,
-    "title": {
-      "en": "Day X — Test, Region",
-      "sv": "Dag X — Test, Region",
-      "it": "Giorno X — Test, Regione"
-    }
-  },
-  {
-    "slug": "dag2",
-    "type": "journal",
-    "date": "2026-03-15",
-    "day": 2,
-    "location": "Test, Test",
-    "km": 50,
-    "elevation": 500,
-    "title": {
-      "en": "Day 2 — Test, Test",
-      "sv": "Dag 2 — Test, Test",
-      "it": "Giorno 2 — Test, Test"
     }
   },
   {
@@ -97,5 +55,19 @@
       "photo3": "An enchanting view along the Flåm railway. The mist over the snow-capped mountain, the bright autumn foliage, and the coarse mountainside... Love this photo."
     },
     "photos": 3
+  },
+  {
+    "slug": "dag1",
+    "type": "journal",
+    "date": "2026-01-10",
+    "day": 1,
+    "location": "Genova, Liguria",
+    "km": 87,
+    "elevation": 1240,
+    "title": {
+      "en": "Day 1 — Test, Liguria",
+      "sv": "Dag 1 — Test, Ligurien",
+      "it": "Giorno 1 — Test, Liguria"
+    }
   }
 ]
