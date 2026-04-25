@@ -8,7 +8,7 @@ CLIENT_SECRET = os.environ['STRAVA_CLIENT_SECRET']
 REFRESH_TOKEN = os.environ['STRAVA_REFRESH_TOKEN']
 
 TRIP_START_TIMESTAMP = int(datetime(2024, 8, 16).timestamp())
-TRIP_END_TIMESTAMP = int(datetime(2026,4,20).timestamp())
+TRIP_END_TIMESTAMP = int(datetime(2026,6, 30).timestamp())
 
 # Absolute path — works regardless of where script is called from
 REPO_ROOT   = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

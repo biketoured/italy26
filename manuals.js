@@ -15,8 +15,6 @@ const LIVE = "."
 // Skapa blogginlägg
 // Livelänk
 
-
-
 // Skapa klistermärken med QR
 // Skapa visitkort?
 // Se till att jag har all utrustning som krävs

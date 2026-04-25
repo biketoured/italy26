@@ -1,13 +1,13 @@
 [
   {
     "name": "Test & Test",
-    "amount": 2000,
+    "amount": 1000,
     "currency": "kr",
     "message": "Vilken resa! Rulla försiktigt och ät pasta varje dag!"
   },
   {
     "name": "Test",
-    "amount": 50,
+    "amount": 40,
     "currency": "€",
     "message": "In bocca al lupo, Edvard! Forza dalla Calabria 🇮🇹"
   }
