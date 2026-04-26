@@ -102,8 +102,9 @@ def merge_activities(existing, new_activities):
                 'moving_time': activity['moving_time'],                    # seconds
                 'polyline':   activity.get('map', {}).get('summary_polyline', ''),
                 'avg_speed':  round(activity.get('average_speed', 0) * 3.6, 1),    # m/s → km/h
-                'avg_hr':     round(activity.get('average_heartrate', None),1),              # bpm, None if no HR monitor
-                'hearbeats':  round(activity.get('average_heartrate', None) * activity['moving_time']*60), #total amount of hearbeats
+                'avg_speed':  round(activity.get('average_speed', 0) * 3.6, 1),
+                'avg_hr':     round(activity['average_heartrate'], 1) if activity.get('average_heartrate') else None,
+                'heartbeats': round(activity['average_heartrate'] * (activity['moving_time'] / 60)) if activity.get('average_heartrate') else None,
             })
             existing_ids.add(activity['id'])
             added += 1
