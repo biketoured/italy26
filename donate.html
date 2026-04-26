@@ -380,6 +380,17 @@
       line-height: 1.6;
       margin-top: 0.6rem;
     }
+    /* ── SWISH SIDE BY SIDE ── */
+    .swish-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+    }
+    .swish-row .swish-details {
+      flex: 1;
+      min-width: 0;
+    }
+
     /* QR placeholder */
     .qr-placeholder {
       width: 140px;
@@ -658,31 +669,28 @@
           <span data-en="Swedish donors" data-sv="Svenska donationer" data-it="Donatori svedesi">Swedish donors</span></div>
 
         <div class="payment-method">
-          <div class="payment-method-name" data-en="Swish number" data-sv="Swish-nummer" data-it="Numero Swish">Swish number</div>
-          <div class="payment-detail placeholder" id="swish-number">
-            <span>0725532011</span>
-             <button class="copy-btn" onclick="copyText('swish-number')" title="Kopiera">⧉</button>
-          </div>
-          <p class="payment-note" data-en="Use your message field to write your nickname that will appear in the donor list on this site." data-sv="Använd meddelandefältet för att skriva det namnet du vill ska synas i meddelandefältet. Det kommer visas i donationslistan på den här sidan." data-it="Se usi Swish, entri il tuo nome nel campo di messaggio.">
-            Use your message field to write your name or nickname. The message will appear in the donor list on this site.</p>
-        </div>
-
-        <div class="payment-method">
-          <div class="payment-method-name" data-en="Swish QR code" data-sv="Swish QR-kod" data-it="Codice QR Swish">Swish QR code</div>
-          <div style="text-align:center; margin: 0.75rem 0;">
-          <!-- INSERT: replace this div with an <img> tag pointing to your Swish QR code image -->
-          <!-- Example: <img src="assets/images/swish-qr.png" alt="Swish QR" style="width:140px;"> -->
-          <div class="qr-placeholder">
-          <a href="swish://payment?data=%7B%22version%22%3A1%2C%22payee%22%3A%7B%22value%22%3A%220725532011%22%7D%7D" 
-            aria-label="Open in Swish app">
-            <div class="qr-placeholder">
-              <img src="assets/images/swish.png" alt="Swish QR">
+          <div class="payment-method-name" data-en="Swish" data-sv="Swish" data-it="Swish">Swish</div>
+          <div class="swish-row">
+            <!-- QR code — click opens Swish app on phone -->
+            <a href="swish://payment?data=%7B%22version%22%3A1%2C%22payee%22%3A%7B%22value%22%3A%220725532011%22%7D%7D"
+               aria-label="Open in Swish app">
+              <div class="qr-placeholder">
+                <img src="assets/images/swish.png" alt="Swish QR">
+              </div>
+            </a>
+            <!-- Number + note -->
+            <div class="swish-details">
+              <div class="payment-detail placeholder" id="swish-number">
+                <span>0725532011</span>
+                <button class="copy-btn" onclick="copyText('swish-number')" title="Kopiera">⧉</button>
+              </div>
+              <p class="payment-note" style="margin-top:0.6rem;"
+                 data-en="Tap the QR to open Swish directly. Write your name in the message field to appear in the donor list."
+                 data-sv="Tryck på QR-koden för att öppna Swish direkt. Skriv ditt namn i meddelandefältet för att synas i givarlistan."
+                 data-it="Tocca il QR per aprire Swish. Scrivi il tuo nome nel campo messaggio per apparire nella lista.">
+                Tap the QR to open Swish directly. Write your name in the message field to appear in the donor list.</p>
             </div>
-          </a>
-            <img src="assets/images/swish.png" alt="Swish QR">
           </div>
-          </div>
-          <p class="payment-note" data-en="Click on the image to use Swish. You could also scan the QR-code." data-sv="Tryck på bilden för att swisha. Du kan även skanna QR-koden." data-it="Scansiona con la tua app Swish per pagare istantaneamente.">Click on the image to use Swish instantly. You can also scan the QR-code.</p>
         </div>
 
       </div>
