@@ -89,9 +89,8 @@ nav {
 .nav-badge-sun {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  width: 95px;
+  height: 95px;
   pointer-events: none;
 }
 
