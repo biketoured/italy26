@@ -12,7 +12,7 @@ TRIP_END_TIMESTAMP = int(datetime(2026,6, 30).timestamp())
 
 # Absolute path — works regardless of where script is called from
 REPO_ROOT   = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-OUTPUT_FILE = os.path.join(REPO_ROOT, 'strava', 'activities2.json')
+OUTPUT_FILE = os.path.join(REPO_ROOT, 'strava', 'activities.json')
 
 # ── STEP 1: Get a fresh access token ───────────────────────────
 # Strava access tokens expire after 6 hours.
