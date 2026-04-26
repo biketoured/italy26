@@ -125,7 +125,7 @@ function injectNav(page) {
 
   const navHTML = `
     <div class="nav-badge" title="Italy 2026 — Day ${badgeDay} of 40">
-      <img class="nav-badge-sun" src="${p}assets/images/sun.png" alt="">
+      <img class="nav-badge-sun" src="assets/images/sun.png" alt="sun">
       <div class="nav-badge-text">
         <span class="nav-badge-label">Day</span>
         <span class="nav-badge-day">${badgeDay}</span>
