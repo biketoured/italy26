@@ -84,7 +84,8 @@ function applyNavTheme(page) {
     --nav-border:      ${t.border};
     --nav-link:        ${t.link};
     --nav-link-hover:  ${t.linkHover};
-  }`;
+  }
+  `;
 }
 
 function getPrefix() {
@@ -115,7 +116,23 @@ function injectNav(page) {
   // Mobile links — same as desktop minus current page (filtered below)
   const mobileLinks = links;
 
+  const tripStart = new Date('2026-05-10');
+  const tripEnd   = new Date('2026-06-20');
+  const today     = new Date();
+  const tripDay   = Math.floor((today - tripStart) / 86400000) + 1;
+  const badgeDay  = (today >= tripStart && today <= tripEnd && tripDay >= 1 && tripDay <= 40)
+                    ? tripDay : 0;
+
   const navHTML = `
+    <div class="nav-badge" title="Italy 2026 — Day ${badgeDay} of 40">
+      <img class="nav-badge-sun" src="${p}assets/images/sun.avif" alt="">
+      <div class="nav-badge-text">
+        <span class="nav-badge-label">Day</span>
+        <span class="nav-badge-day">${badgeDay}</span>
+        <span class="nav-badge-total">/ 40</span>
+      </div>
+    </div>
+
     <a href="${homeHref}" class="nav-home ${homeHidden}"
        data-en="Home" data-sv="Hem" data-it="Home">Home</a>
 

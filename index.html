@@ -40,62 +40,6 @@
       overflow: hidden;
     }
 
-
-    /* ── TRIP DAY SUN BADGE ── */
-    #trip-day-badge {
-      width: 120px;
-      height: 120px;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      pointer-events: auto;
-      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
-      position: relative;
-    }
-    #trip-day-badge img.sun-img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      pointer-events: none;
-    }
-    #trip-day-badge .badge-text {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      line-height: 1.2;
-      pointer-events: none;
-      margin-top: -3px;
-    }
-    #trip-day-badge .badge-label {
-      display: block;
-      font-family: 'DM Mono', monospace;
-      font-size: 1rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--green);
-      font-weight: 700;
-    }
-    #trip-day-badge .badge-day {
-      display: block;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--green);
-      line-height: 1.2;
-    }
-    #trip-day-badge .badge-total {
-      display: block;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.66rem;
-      letter-spacing: 0.12em;
-      color: var(--green);
-      font-weight: 700;
-      opacity: 0.85;
-    }
-
     .hero-left {
       background: var(--green);
       display: flex;
@@ -1158,16 +1102,6 @@
   <!-- ══ NAV ══ -->
   <nav id="shared-nav"></nav>
 
-  <!-- ══ TRIP DAY BADGE ══ -->
-  <div id="trip-day-badge">
-    <img class="sun-img" src="assets/images/sun.png" alt="Sun">
-    <div class="badge-text">
-      <span class="badge-label">Day</span>
-      <span class="badge-day" id="badge-day-num">—</span>
-      <span class="badge-total">of 40</span>
-    </div>
-  </div>
-
   <!-- ══ HERO ══ -->
   <div class="hero">
     <div class="hero-left">
@@ -2025,41 +1959,6 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
   })();
   </script>
 
-  <script>
-  // ── TRIP DAY BADGE — injected into nav left slot ────────────
-  (function() {
-    // Create badge and prepend to nav
-    const nav = document.getElementById('shared-nav');
-    if (!nav) return;
-    const badgeHTML = '<div id="trip-day-badge">'
-      + '<img class="sun-img" src="assets/images/sun.avif" alt="">'
-      + '<div class="badge-text">'
-      +   '<span class="badge-label">Day</span>'
-      +   '<span class="badge-day" id="badge-day-num">—</span>'
-      +   '<span class="badge-total">of 40</span>'
-      + '</div>'
-      + '</div>';
-    nav.insertAdjacentHTML('afterbegin', badgeHTML);
-
-    const badge   = document.getElementById('trip-day-badge');
-    const dayNum  = document.getElementById('badge-day-num');
-    if (!badge || !dayNum) return;
-
-    const tripStart = new Date('2026-05-10');
-    const tripEnd   = new Date('2026-06-20');
-    const today     = new Date();
-
-    const day = Math.floor((today - tripStart) / 86400000) + 1;
-
-    // Always show badge — Day 0 before/after trip, actual day during trip
-    if (today >= tripStart && today <= tripEnd && day >= 1 && day <= 40) {
-      dayNum.textContent = day;
-    } else {
-      dayNum.textContent = '0';
-    }
-    badge.style.display = 'flex';
-  })();
-  </script>
 
 
 </body>
