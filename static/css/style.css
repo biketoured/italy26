@@ -76,7 +76,7 @@ nav {
 .nav-badge {
   /* Fill full nav height: padding 1.2rem top+bottom + content */
   width: 95px;
-  height: 95x;
+  height: 95px;
   margin: -1.2rem 0;        /* bleed into nav padding so it fills edge-to-edge */
   position: relative;
   display: flex;
