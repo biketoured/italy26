@@ -1837,11 +1837,8 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
           const totalSecs   = activities.reduce((s, a) => s + (a.moving_time || 0), 0);
           const totalH      = Math.floor(totalSecs / 3600);
           const totalM      = Math.floor((totalSecs % 3600) / 60);
-          // Heartbeats: avg_hr (bpm) × duration in minutes, summed across all activities with HR data
-          const totalBeats  = activities.reduce((s, a) => {
-            if (!a.avg_hr || !a.moving_time) return s;
-            return s + Math.round(a.avg_hr * (a.moving_time / 60));
-          }, 0);
+          // Heartbeats: sum pre-calculated heartbeats field from each activity
+          const totalBeats  = activities.reduce((s, a) => s + (a.heartbeats || 0), 0);
           const dEl = document.getElementById('stat-distance');
           const eEl = document.getElementById('stat-elevation');
           const tEl = document.getElementById('stat-time');
