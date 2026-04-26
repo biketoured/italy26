@@ -23,7 +23,7 @@ See this as a section where I try to justify my choices for my friends and relat
 <strong>The hospitality:</strong> Italians are delighted when a foreigner speaks Italian, and can open up in a way that feels authentic.<br>
 <strong>The memories:</strong> An experience like this creates memories that I am sure I will keep close to my heart forever.<br>
 <strong>The food:</strong> Do I really need to tell you more? <br>
-<strong>The geography:</strong> Italy has a very variable geography, with environment shifting even in a day to day basis.
+<strong>The geography:</strong> Italy has a very variable geography, with environment shifting even in a day to day basis.<br>
 <strong>The friends:</strong> When on exchange in Norway I met some Italians that I'm hoping to reunite with along the trip.<br>
 <strong>The culture:</strong> The italian culture is interesting to me, most definitively as a result of the above.<br>
 <strong>The privilege.</strong> Thinking about how many people cannot do a journey like this makes me beyond grateful to even imagine it is possible. Tomorrow might not be possible. Life is fragile. Better do it now when I have the chance!

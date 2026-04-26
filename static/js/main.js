@@ -207,7 +207,8 @@ function injectFooter() {
        data-sv="Skellefteå, Sverige — Byggd med HTML &amp; CSS"
        data-it="Skellefteå, Svezia — Costruito con HTML &amp; CSS">
       Skellefteå, Sweden — Built with HTML &amp; CSS
-    </p>`;
+    </p>
+    <div id="footer-attribution"></div>`;
 }
 
 // ── LANGUAGE SWITCHER ────────────────────────────────────────

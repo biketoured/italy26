@@ -18,63 +18,10 @@
   <link rel="stylesheet" href="/italy26/static/css/style.css">
   <script src="/italy26/static/js/main.js" defer></script>
   <style>
-    /* ── DONATE THEME OVERRIDES ── */
-    :root {
-      --nav-bg:          rgba(184,212,224,0.97);
-      --nav-border:      rgba(74,122,150,0.25);
-      --nav-link:        var(--green);
-      --nav-link-hover:  var(--black);
-      --footer-bg:       #B8D4E0;
-      --footer-text:     var(--green);
-      --footer-logo:     var(--green);
-    }
-
-    /* lang-switcher styles moved to /italy26/static/css/style.css */
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
     body {
-      font-family: 'DM Sans', sans-serif;
       background: var(--green);
       color: var(--gray-light);
-      overflow-x: hidden;
       min-height: 100vh;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.2rem 3rem;
-      background: rgba(30, 61, 47, 0.96);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(196,180,154,0.12);
-    }
-
-    .nav-back {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--stone);
-      text-decoration: none;
-      transition: color 0.2s;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .nav-back:hover { color: var(--sky); }
-
-    .nav-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      color: var(--white);
-      font-style: italic;
     }
 
     /* ── PAGE WRAPPER ── */
