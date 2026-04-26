@@ -44,13 +44,13 @@
     /* ── TRIP DAY SUN BADGE ── */
     #trip-day-badge {
       position: fixed;
-      top: 72px;
-      right: 30px;
+      top: 68px;
+      right: 28px;
       left: auto;
       width: 110px;
       height: 110px;
       z-index: 98;
-      display: none;          /* hidden until JS confirms trip is active */
+      display: none;
       align-items: center;
       justify-content: center;
       pointer-events: none;
@@ -189,24 +189,24 @@
     }
     .hero-btn-pair a:hover { filter: brightness(1.12); }
 
-    /* Left button: right edge is a 45° cut via clip-path */
+    /* Left button: parallelogram — cut bottom-right, matches right button */
     .hero-btn-left {
-      clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 100%, 0 100%);
-      margin-right: -1px;
+      clip-path: polygon(0 0, 100% 0, calc(100% - 20px) 100%, 0 100%);
+      margin-right: 3px;
     }
 
-    /* Right button: left edge is a 45° cut matching the left */
+    /* Right button: parallelogram — cut top-left, interlocks with left */
     .hero-btn-right {
-      clip-path: polygon(16px 0, 100% 0, 100% 100%, 0 100%);
+      clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%);
     }
 
     /* Pair 1: Map (yellow) + Journal (red) */
     .pair-map    { background: var(--yellow); color: var(--black); }
     .pair-journal { background: var(--red);   color: var(--white); }
 
-    /* Pair 2: Send a note (green-mid) + Gallery (yellow) */
-    .pair-note    { background: var(--green-mid); color: var(--stone); }
-    .pair-gallery { background: var(--yellow);    color: var(--black); }
+    /* Pair 2: Send a note (red) + Gallery (yellow) */
+    .pair-note    { background: var(--red);    color: var(--white); }
+    .pair-gallery { background: var(--yellow); color: var(--black); }
 
     .hero-cta {
       display: none; /* replaced by pair system */
@@ -1539,8 +1539,8 @@
     <div class="links-grid">
 
       <a href="https://www.hjarnfonden.se/om-hjarnan/diagnos/hjarntumor/vad-ar-hjarntumor/" target="_blank" class="link-card">
-      <div class="link-icon">↗</div>        
-      <div>
+          <div class="link-icon">↗</div>        
+        <div>
         <p class="link-card-title">Hjärnfonden</p>
           <p class="link-card-desc"
              data-en="Swedish Brain Research Fund"
@@ -2056,6 +2056,9 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
       dayNum.textContent   = day;
       badge.style.display  = 'flex';
     }
+    // ── REMOVE THIS TEST LINE before going live ──
+    // Temporarily forces badge visible for placement testing:
+    if (badge.style.display === 'none') { dayNum.textContent = '12'; badge.style.display = 'flex'; }
     // Outside trip window: badge stays hidden
   })();
 
