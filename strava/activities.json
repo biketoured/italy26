@@ -1,5 +1,18 @@
 [
   {
+    "id": 18267282895,
+    "name": "Afternoon Ride",
+    "type": "Ride",
+    "date": "2026-04-26T15:41:02Z",
+    "distance": 6.7,
+    "elevation": 52,
+    "moving_time": 1724,
+    "polyline": "uhziK}yq`CEFGBGCu@gAcCgC}@iAGGO@KJEROvAQbEg@hJCvA@vBL`OA|FE`BMnCOtBGrCa@~J@dBJxAFh@Gh@g@~AeCfGm@z@s@h@g@\\YNWCKm@i@eIK_C_@gFAoANe@vBcCrAuAH?HFJd@RzAFt@NjFHrBHr@PdARx@HFH?JGzAiED?D^DJFI|@mBNs@HqAFuAGY_@{@CgAb@kIVsB\\}@PMJc@XaCBiDA}DJaBTqBtAaJZsCN_A|@sIP_Ar@aGLyARcB^sBVaCGe@IMgBcCk@o@aBoBKIQP[fDU|Ae@xD}AbLATFd@LTx@`Ax@hAbAr@V`@Zp@VRDKd@qCJEAL@y@HaAdAkJ`@}CDu@Jk@TSJD|AzBRAJa@h@{C`AqI|@gH@WQkBCmCSgJUsE?eBLc@n@qAb@q@@OuBiL[sB?YBWrAkFtAaEdAqCP[HBFLHd@pApJf@jDjApL^tGt@nIPlEb@vQHfAX`@f@Xp@f@l@@^VHb@DGHF@F@^[vBELAIF{@MQ?JM\\?HAABBAA?DBIFDLVLo@LyAQS@MDCBDFJBNFt@DT?bBNHICB[B\\B@EE?BMG?FYb@]W}@eAo@y@m@q@uAsBiCaDIMOc@K?YScC}CKASPKRi@j@OAQFGDSx@cCnRWbCsCnUk@pEGXEFG?GEw@gAg@e@I?K_@?o@DMH{@Jw@DOD_@FQCB?HBVAn@EG@B?C@?A@FHD\\AZDW@?DKECGQBLFB?GEB",
+    "avg_speed": 14.1,
+    "avg_hr": 105.0,
+    "heartbeats": 3017
+  },
+  {
     "id": 18083845894,
     "name": "Pedalata dell'ora di pranzo",
     "type": "Ride",
