@@ -641,6 +641,12 @@
       flex-shrink: 0;
       color: var(--stone);
       font-size: 1rem;
+      overflow: hidden;
+    }
+    .link-icon img {
+      width: 24px; height: 24px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
     }
 
     .link-card-title {
@@ -2052,14 +2058,13 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
 
     const day = Math.floor((today - tripStart) / 86400000) + 1;
 
+    // Always show badge — Day 0 before/after trip, actual day during trip
     if (today >= tripStart && today <= tripEnd && day >= 1 && day <= 40) {
-      dayNum.textContent   = day;
-      badge.style.display  = 'flex';
+      dayNum.textContent = day;
+    } else {
+      dayNum.textContent = '0';
     }
-    // ── REMOVE THIS TEST LINE before going live ──
-    // Temporarily forces badge visible for placement testing:
-    if (badge.style.display === 'none') { dayNum.textContent = '12'; badge.style.display = 'flex'; }
-    // Outside trip window: badge stays hidden
+    badge.style.display = 'flex';
   })();
 
 
