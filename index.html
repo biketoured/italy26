@@ -167,17 +167,6 @@
       border-radius: 50%;
     }
 
-    /* ── INLINE PROFILE PHOTO (buttons row) ── */
-    .hero-photo-inline {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-left: auto;
-      flex-shrink: 0;
-      border: 2px solid rgba(196,180,154,0.3);
-    }
-
     /* ── DONATE BUTTON ── */
     .hero-donate {
       display: flex;
@@ -1078,7 +1067,6 @@
       .hero-left { padding: 7rem 2rem 3rem; }
       .hero-left::after { display: none; }
       .hero-right { display: none; }
-      .hero-photo-inline { width: 64px; height: 64px; }
       .about-grid { grid-template-columns: 1fr; }
       .blog-grid  { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
       .blog-grid .blog-card:nth-child(n+4) { display: none; }
@@ -1104,10 +1092,6 @@
       .activity-stat-value { font-size: 0.9rem; }
       .blog-card-title { font-size: 0.95rem; }
     }
-
-    @media (max-width: 380px) {
-      .hero-photo-inline { display: none; }
-    }
   </style>
   <script src="manuals.js"></script>
 </head>
@@ -1132,7 +1116,7 @@
          data-it="La mia missione è esplorare la natura, la cultura, e la gente italiana mentre raccolgo donazioni per la ricerca sul cancro al cervello. Seguimi!">
         My mission is to explore the Italian culture, nature, and people, while also spreading awareness of cancer research. Join me!
       </p>
-  <div style="display:flex; flex-wrap:nowrap; gap:1rem; align-items:center;">
+  <div style="display:flex; flex-wrap:wrap; gap:1rem; align-items:center;">
         <a href="#routes" class="hero-map"
            data-en="Roadmap"
            data-sv="Karta"
@@ -1151,11 +1135,6 @@
            data-it="Contattami">
           Send a note
         </a>
-        <!-- Profile photo — pushed to far right of button row -->
-        <img src="assets/images/profilepic.jpg"
-             alt="Edvard Appelberg"
-             class="hero-photo-inline"
-             onerror="this.style.display='none'">
       </div>
 
       <a href="donate.html" class="hero-donate"
@@ -1376,13 +1355,14 @@
           </div>
         </div>
         <div class="trip-stat-tab">
-          <div class="trip-stat-icon-placeholder">+</div>
+          <img src="assets/images/heart.png" alt="Heartbeats" class="trip-stat-icon"
+               onerror="this.style.display='none'">
           <div class="trip-stat-text">
             <div class="trip-stat-value" id="stat-extra">—</div>
             <div class="trip-stat-label"
-                 data-en="Placeholder"
-                 data-sv="Platshållare"
-                 data-it="Segnaposto">Placeholder</div>
+                 data-en="Heartbeats"
+                 data-sv="Hjärtslag"
+                 data-it="Battiti cardiaci">Heartbeats</div>
           </div>
         </div>
       </div>
@@ -1486,7 +1466,13 @@
 
       <a href="https://www.hjarnfonden.se/om-hjarnan/diagnos/hjarntumor/vad-ar-hjarntumor/" target="_blank" class="link-card">
         <div>
-          <p class="link-card-title">Hjärnfonden</p>
+          <div class="link-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10.6 16.3l-2.3-4.6H5.5l5.1 9.3 5.1-9.3h-2.8l-2.3 4.6zM15.7 7l-2.1 4.2h2.8L19.5 4 15.7 7z"/>
+            <path d="M10.6 4L6.8 11.2h2.8L10.6 9l1 2.2h2.8L10.6 4z"/>
+          </svg>
+        </div>
+        <p class="link-card-title">Hjärnfonden</p>
           <p class="link-card-desc"
              data-en="Swedish Brain Research Fund"
              data-sv="Hjärnfonden"
@@ -1846,17 +1832,26 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
           });
 
           // ── Trip stats ──
-          const totalDist = activities.reduce((s, a) => s + (a.distance || 0), 0);
-          const totalElev = activities.reduce((s, a) => s + (a.elevation || 0), 0);
-          const totalSecs = activities.reduce((s, a) => s + (a.moving_time || 0), 0);
-          const totalH    = Math.floor(totalSecs / 3600);
-          const totalM    = Math.floor((totalSecs % 3600) / 60);
+          const totalDist   = activities.reduce((s, a) => s + (a.distance || 0), 0);
+          const totalElev   = activities.reduce((s, a) => s + (a.elevation || 0), 0);
+          const totalSecs   = activities.reduce((s, a) => s + (a.moving_time || 0), 0);
+          const totalH      = Math.floor(totalSecs / 3600);
+          const totalM      = Math.floor((totalSecs % 3600) / 60);
+          // Heartbeats: avg_hr (bpm) × duration in minutes, summed across all activities with HR data
+          const totalBeats  = activities.reduce((s, a) => {
+            if (!a.avg_hr || !a.moving_time) return s;
+            return s + Math.round(a.avg_hr * (a.moving_time / 60));
+          }, 0);
           const dEl = document.getElementById('stat-distance');
           const eEl = document.getElementById('stat-elevation');
           const tEl = document.getElementById('stat-time');
+          const hEl = document.getElementById('stat-extra');
           if (dEl) dEl.textContent = totalDist.toFixed(0) + ' km';
           if (eEl) eEl.textContent = totalElev.toLocaleString('sv-SE') + ' m';
           if (tEl) tEl.textContent = totalH + 'h ' + totalM + 'm';
+          if (hEl) hEl.textContent = totalBeats > 0
+            ? (totalBeats / 1000).toFixed(0) + 'k'
+            : '—';
           console.log('[Map] Drew', drawn, 'routes. Total coord points:', allCoords.length);
           if (allCoords.length > 0) {
             map.fitBounds(allCoords, { padding: [20, 20] });
