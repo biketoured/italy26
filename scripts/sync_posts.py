@@ -22,6 +22,11 @@ import os
 import json
 import re
 import shutil
+try:
+    from PIL import Image as PILImage
+    HAS_PIL = True
+except ImportError:
+    HAS_PIL = False
 
 # ── Paths ─────────────────────────────────────────────────────
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -115,6 +120,41 @@ def rename_images(folder, slug):
     return photo_count
 
 
+def generate_thumb(folder, slug):
+    """
+    Creates cover_thumb.jpg at 400x400px from cover.jpg.
+    Skips if thumb already exists and is newer than cover.
+    Silently skips if Pillow not installed.
+    """
+    if not HAS_PIL:
+        return
+
+    cover = None
+    for name in ['cover.jpg', 'cover.jpeg', 'cover.png']:
+        path = os.path.join(folder, name)
+        if os.path.exists(path):
+            cover = path
+            break
+
+    if not cover:
+        return
+
+    thumb_path = os.path.join(folder, 'cover_thumb.jpg')
+
+    # Skip if thumb is already up to date
+    if os.path.exists(thumb_path):
+        if os.path.getmtime(thumb_path) >= os.path.getmtime(cover):
+            return
+
+    try:
+        img = PILImage.open(cover).convert('RGB')
+        img.thumbnail((400, 400), PILImage.LANCZOS)
+        img.save(thumb_path, 'JPEG', quality=82, optimize=True)
+        print(f"  [thumb] {slug}/cover_thumb.jpg ({img.size[0]}x{img.size[1]})")
+    except Exception as e:
+        print(f"  [thumb] {slug}/ skipped — {e}")
+
+
 def build_posts():
     posts   = []
     skipped = []
@@ -133,6 +173,9 @@ def build_posts():
 
         # Rename images
         photo_count = rename_images(folder, slug)
+
+        # Generate thumbnail for cover
+        generate_thumb(folder, slug)
 
         # Parse frontmatter
         with open(md_path, encoding='utf-8') as f:

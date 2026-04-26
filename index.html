@@ -1186,7 +1186,7 @@
 
   <!-- ══ TRIP DAY BADGE ══ -->
   <div id="trip-day-badge">
-    <img class="sun-img" src="assets/images/sun.avif" alt="Sun">
+    <img class="sun-img" src="assets/images/sun.png" alt="Sun">
     <div class="badge-text">
       <span class="badge-label">Day</span>
       <span class="badge-day" id="badge-day-num">—</span>
@@ -1982,22 +1982,22 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
 
           const href = 'blog/post.html?slug=' + post.slug;
 
+          // Try thumb first (small), fall back to full cover, then placeholder
+          const thumbUrl = '/italy26/blog/posts/' + post.slug + '/cover_thumb.jpg';
           const coverUrl = '/italy26/blog/posts/' + post.slug + '/cover.jpg';
-          // cover handled inline in coverImg below
 
-          // Rebuild cover as <img> for object-fit:contain
           const coverImg = '<div class="blog-card-cover-wrap"><img'
             + ' data-slug="' + post.slug + '"'
-            + ' src="' + coverUrl + '"'
+            + ' src="' + thumbUrl + '"'
             + ' alt="' + title + '"'
             + ' loading="lazy"'
             + ' decoding="async"'
             + ' width="400" height="400"'
             + ' onerror="'
-            +   'var t=[\'cover.jpeg\',\'cover.png\'];'
-            +   'var i=parseInt(this.dataset.try||0);'
-            +   'if(i<t.length){this.dataset.try=i+1;this.src=\'/italy26/blog/posts/' + post.slug + '/\'+t[i];}'
-            +   'else{this.onerror=null;this.src=\'/italy26/assets/images/placehold.png\';}'
+            +   'var s=this,t=s.dataset.try||0;'
+            +   'var fallbacks=[\'cover.jpg\',\'cover.jpeg\',\'cover.png\'];'
+            +   'if(t<fallbacks.length){s.dataset.try=parseInt(t)+1;s.src=\'/italy26/blog/posts/' + post.slug + '/\'+fallbacks[t];}'
+            +   'else{s.onerror=null;s.src=\'/italy26/assets/images/placehold.png\';}'
             + '"'
             + '></div>';
 
