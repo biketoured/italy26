@@ -43,20 +43,16 @@
 
     /* ── TRIP DAY SUN BADGE ── */
     #trip-day-badge {
-      position: fixed;
-      top: 68px;
-      right: 28px;
-      left: auto;
-      width: 240px;           /* larger so text fits comfortably */
-      height: 240px;
-      z-index: 98;
+      width: 120px;
+      height: 120px;
       display: none;
       align-items: center;
       justify-content: center;
-      pointer-events: none;
-      filter: drop-shadow(0 3px 10px rgba(0,0,0,0.4));
+      flex-shrink: 0;
+      pointer-events: auto;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
+      position: relative;
     }
-
     #trip-day-badge img.sun-img {
       position: absolute;
       inset: 0;
@@ -65,52 +61,39 @@
       object-fit: contain;
       pointer-events: none;
     }
-
     #trip-day-badge .badge-text {
       position: relative;
       z-index: 2;
       text-align: center;
-      line-height: 1.25;
+      line-height: 1.2;
       pointer-events: none;
-      margin-top: -4px;       /* nudge text into visual centre of sun */
+      margin-top: -3px;
     }
-
     #trip-day-badge .badge-label {
       display: block;
       font-family: 'DM Mono', monospace;
-      font-size: 0.58rem;
-      letter-spacing: 0.2em;
+      font-size: 1rem;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--green);
-      font-weight: 600;
-      margin-bottom: 1px;
+      font-weight: 700;
     }
-
     #trip-day-badge .badge-day {
       display: block;
       font-family: 'Playfair Display', serif;
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-weight: 700;
       color: var(--green);
-      line-height: 1;
+      line-height: 1.2;
     }
-
     #trip-day-badge .badge-total {
       display: block;
       font-family: 'DM Mono', monospace;
-      font-size: 0.55rem;
-      letter-spacing: 0.15em;
+      font-size: 0.66rem;
+      letter-spacing: 0.12em;
       color: var(--green);
-      font-weight: 600;
-      opacity: 0.8;
-      margin-top: 2px;
-    }
-
-    @media (max-width: 768px) {
-      #trip-day-badge { width: 100px; height: 100px; top: 60px; right: 12px; }
-      #trip-day-badge .badge-day { font-size: 1.4rem; }
-      #trip-day-badge .badge-label { font-size: 0.5rem; }
-      #trip-day-badge .badge-total { font-size: 0.45rem; }
+      font-weight: 700;
+      opacity: 0.85;
     }
 
     .hero-left {
@@ -1037,9 +1020,6 @@
         justify-content: center;
         text-align: center;
       }
-  
-    /* ── TRIP DAY SUN BADGE ── */
-
 
     .hero-left { padding: 6rem 1.5rem 3rem; }
     }
@@ -1139,9 +1119,6 @@
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; }
       .hero { grid-template-columns: 1fr; }
-  
-    /* ── TRIP DAY SUN BADGE ── */
-
 
     .hero-left { padding: 7rem 2rem 3rem; }
       .hero-left::after { display: none; }
@@ -1164,9 +1141,6 @@
         justify-content: center;
         text-align: center;
       }
-  
-    /* ── TRIP DAY SUN BADGE ── */
-
 
     .hero-left { padding: 6rem 1.5rem 3rem; }
       body { font-size: 0.9rem; }
@@ -2052,8 +2026,21 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
   </script>
 
   <script>
-  // ── TRIP DAY BADGE ──────────────────────────────────────────
+  // ── TRIP DAY BADGE — injected into nav left slot ────────────
   (function() {
+    // Create badge and prepend to nav
+    const nav = document.getElementById('shared-nav');
+    if (!nav) return;
+    const badgeHTML = '<div id="trip-day-badge">'
+      + '<img class="sun-img" src="assets/images/sun.avif" alt="">'
+      + '<div class="badge-text">'
+      +   '<span class="badge-label">Day</span>'
+      +   '<span class="badge-day" id="badge-day-num">—</span>'
+      +   '<span class="badge-total">of 40</span>'
+      + '</div>'
+      + '</div>';
+    nav.insertAdjacentHTML('afterbegin', badgeHTML);
+
     const badge   = document.getElementById('trip-day-badge');
     const dayNum  = document.getElementById('badge-day-num');
     if (!badge || !dayNum) return;

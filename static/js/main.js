@@ -250,7 +250,7 @@ function injectPizzaScrollbar() {
     'index':      'pizza.png',
     'donate':     'heart.png',
     'blog':       'wheel.png',
-    'post':       'cheese.png',
+    'post':       'sun.png',
     'sweden2024': 'mayflower.png',
     'route':     'tomato.png',
     'flaskpost':  'flaskpost.png',
