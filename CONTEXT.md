@@ -3,13 +3,13 @@
 # Last updated: April 2026
 
 ## OWNER & PROJECT
-- Edvard Appelberg (Eddie), 24, Swedish elite track & field athlete
+- Edvard Appelberg, 24, Swedish elite track & field athlete
 - Solo bikepacking Italy May 10 – ~June 20 2026
 - Route: Sardinia → Sicily → Calabria → Puglia → Umbria → Veneto (~30-40 days)
 - Goals: (1) live travel journal + charity fundraising (2) memoir source material
 - Charity: Hjärnfonden (Sweden) + AITC Italy — 100% of donations go directly
-- Live URL: https://biketoured.github.io/italy26
-- Repo: github.com/biketoured/italy26 (username: biketoured)
+- Live URL: https://bikepack.ed.github.io/italy26
+- Repo: github.com/bikepack.ed/italy26 (username: biketoured)
 
 ---
 
@@ -273,7 +273,7 @@ Sections: Hero → Map → Blog grid → Links → About
 - Cover probes: cover.jpg → cover.jpeg → cover.png → placehold.png via onerror
 
 ### SEO meta tags (all 4 main pages have these)
-- description, author, og:title/description/image/url, twitter:card/title/description/image
+- description, author, og:title/description/image/url
 - og:image → assets/images/profilepic.jpg across all pages
 
 ---
@@ -555,7 +555,6 @@ All four main pages have in <head>:
 <meta property="og:description" content="...">
 <meta property="og:image" content="https://biketoured.github.io/italy26/assets/images/profilepic.jpg">
 <meta property="og:url" content="...">
-<meta name="twitter:card" content="summary_large_image">
 ```
 sitemap.xml at repo root lists all main pages.
 Google Search Console: register site + submit sitemap (TODO).

@@ -295,10 +295,45 @@
         padding: 0 1.5rem 4rem;
         gap: 2rem;
       }
-      .contact-sidebar { position: static; }
-      .profile-wrap { margin-top: 1.5rem; }
+      .contact-sidebar {
+        position: static;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+          "tag   photo"
+          "name  photo"
+          "sub   photo"
+          "div   photo"
+          "det   det"
+          "div2  div2";
+        gap: 0 1.25rem;
+        align-items: start;
+      }
+      .profile-wrap {
+        grid-area: photo;
+        margin-top: 0;
+        margin-bottom: 0;
+        align-self: start;
+      }
+      .profile-img {
+        width: 100px;
+        height: 100px;
+      }
+      .profile-flower { display: none; }
+      .sidebar-tag    { grid-area: tag;  margin-top: 1.5rem; }
+      .sidebar-name   { grid-area: name; }
+      .sidebar-sub    { grid-area: sub;  margin-bottom: 0.75rem; }
+      .sidebar-divider:first-of-type { grid-area: div; margin-bottom: 1rem; }
+      .contact-details { grid-area: det; }
+      .sidebar-divider:last-of-type { grid-area: div2; }
       .contact-form { grid-template-columns: 1fr; }
-      .contact-banner { height: 220px; }
+      .contact-banner { height: 200px; }
+    }
+
+    @media (max-width: 400px) {
+      .profile-img { width: 80px; height: 80px; }
+      .sidebar-name { font-size: 1.2rem; }
+      .contact-layout { padding: 0 1rem 3rem; }
     }
   </style>
 </head>
@@ -367,7 +402,7 @@
         <div class="contact-detail-row">
           <span class="detail-icon">@</span>
           <span class="detail-text">
-            <a href="https://instagram.com/biketoured" target="_blank">@biketoured</a>
+            <a href="https://instagram.com/bikepack.ed" target="_blank">@bikepack.ed</a>
           </span>
         </div>
         <div class="contact-detail-row">

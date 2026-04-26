@@ -367,6 +367,9 @@
       text-decoration: none;
       letter-spacing: 0.04em;
       transition: color 0.2s;
+      overflow-wrap: break-word;
+      word-break: break-all;
+      min-width: 0;
     }
     .payment-link:hover { color: var(--white); }
 
@@ -523,6 +526,16 @@
     }
 
     /* ── RESPONSIVE ── */
+    @media (max-width: 480px) {
+      .payment-card { padding: 1.25rem; }
+      .payment-method-name { font-size: 1rem; }
+      .goal-current { font-size: 1.5rem; }
+      .goal-target { font-size: 1.1rem; }
+      .story h1 { font-size: 1.8rem; }
+      .org-card { flex-direction: column; }
+      .org-logo { width: 50px; height: 50px; }
+    }
+
     @media (max-width: 640px) {
       nav { padding: 1rem 1.5rem; }
       .page { padding: 6rem 1.25rem 4rem; }
@@ -690,11 +703,11 @@
                   data-en="Recommended" data-sv="Rekommenderas" data-it="Consigliato">Recommended</span>
           </div>
           <div class="payment-detail">
-            <a href="https://revolut.me/biketoured"
+            <a href="https://revolut.me/bikepacked"
                target="_blank"
                class="payment-link"
                id="revolut-link">
-              revolut.me/biketoured
+              revolut.me/bikepacked
             </a>
             <button class="copy-btn" onclick="copyLink('revolut-link')" title="Copy link">⧉</button>
           </div>
@@ -709,11 +722,11 @@
         <div class="payment-method">
           <div class="payment-method-name">PayPal</div>
           <div class="payment-detail">
-            <a href="https://paypal.me/biketoured"
+            <a href="https://paypal.me/bikepacked"
                target="_blank"
                class="payment-link"
                id="paypal-link">
-              paypal.me/biketoured
+              paypal.me/bikepacked
             </a>
             <button class="copy-btn" onclick="copyLink('paypal-link')" title="Copy link">⧉</button>
           </div>

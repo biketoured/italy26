@@ -15,6 +15,7 @@ function getCurrentPage() {
   if (path.includes('blog') && path.includes('post'))   return 'post';
   if (path.includes('blog'))                            return 'blog';
   if (path.includes('route'))                           return 'route';
+  if (path.includes('contact'))                         return 'contact';
   return 'index';
 }
 // ── NAV THEME CONFIG ─────────────────────────────────────────
@@ -62,6 +63,12 @@ const NAV_THEMES = {
     link:      '#8C7B65',
     linkHover: '#C4B49A',
   },
+  'contact': {
+    bg:        'rgba(30,61,47,0.96)',
+    border:    'rgba(196,180,154,0.15)',
+    link:      '#d4c5ac',
+    linkHover: '#FDFAF4',
+  },
 };
 
 function applyNavTheme(page) {
@@ -98,7 +105,6 @@ function injectNav(page) {
     { id: 'blog',       href: p + 'blog/index.html',   en: 'Blog',        sv: 'Blogg',       it: 'Blog'        },
     { id: 'route',      href: p + 'route.html',        en: 'Route',       sv: 'Färdplan',    it: 'Mappa'       },
     { id: 'sweden2024', href: p + 'sweden2024.html',   en: 'Sweden 2024', sv: 'Sverige 2024',it: 'Svezia 2024' },
-    { id: 'links',      href: p + 'index.html#links',  en: 'Links',       sv: 'Länkar',      it: 'Link'        },
     { id: 'contact',    href: p + 'contact.html',      en: 'Contact',     sv: 'Kontakt',     it: 'Contatto'    },
   ];
 
@@ -106,8 +112,8 @@ function injectNav(page) {
   const homeHidden = (page === 'index') ? 'hidden' : '';
   const homeHref   = p + 'index.html';
 
-  // Mobile links — same as desktop minus 'links'
-  const mobileLinks = links.filter(l => l.id !== 'links');
+  // Mobile links — same as desktop minus current page (filtered below)
+  const mobileLinks = links;
 
   const navHTML = `
     <a href="${homeHref}" class="nav-home ${homeHidden}"
