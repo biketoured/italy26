@@ -56,7 +56,7 @@ italy26/                          ← repo root
 │   ├── mayflower.png             ← scrollbar thumb on sweden2024
 │   ├── tomato.png                ← scrollbar thumb on route
 │   ├── flaskpost.png             ← scrollbar thumb on flaskpost
-│   ├── profilepic.jpg            ← Eddie's profile photo (used in contact + og:image)
+│   ├── profilepic.jpg            ← Edvard's profile photo (used in contact + og:image)
 │   ├── contact-banner.jpg        ← contact page banner photo 1
 │   ├── contact-banner2.jpg       ← contact page banner photo 2 (optional, add more)
 │   ├── flower.png                ← flower decoration on contact page
@@ -602,16 +602,13 @@ Google Search Console: register site + submit sitemap (TODO).
 
 9. NAV_THEMES in main.js controls all nav colours. Never set nav colours in HTML files.
 
-10. Recurring historical bug: Eddie uploads older cached main.js as base for edits,
-    overwriting recent fixes. Always ask for latest main.js before editing it.
-
-11. Scrollbar background is set dynamically in JS after nav injection:
+10. Scrollbar background is set dynamically in JS after nav injection:
     navTheme.bg with opacity forced to 1 (replaces last rgba value).
 
-12. Hamburger breakpoint: 1024px. .nav-links hidden, .nav-hamburger shown.
+11. Hamburger breakpoint: 1024px. .nav-links hidden, .nav-hamburger shown.
     Dropdown inherits --nav-bg + --nav-border → automatically matches page theme.
 
-13. contact.html profile photo: z-index:2 required to appear above banner ::after overlay (z-index:1).
+12. contact.html profile photo: z-index:2 required to appear above banner ::after overlay (z-index:1).
 
-14. Banner drift in contact.html: .banner-inner is 116% size (8% bleed).
+13. Banner drift in contact.html: .banner-inner is 116% size (8% bleed).
     overflow:hidden on .contact-banner clips the drift. Never remove overflow:hidden.

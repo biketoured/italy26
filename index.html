@@ -1063,10 +1063,39 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; }
+      /* Hero: single column but keep hero-right visible as a small photo strip */
       .hero { grid-template-columns: 1fr; }
-      .hero-left { padding: 7rem 2rem 3rem; }
+      .hero-left { padding: 6rem 1.5rem 3rem; }
       .hero-left::after { display: none; }
-      .hero-right { display: none; }
+      /* Show hero-right as a compact strip with photo only, no stats */
+      .hero-right {
+        display: block;
+        min-height: 140px;
+        height: 140px;
+        background: var(--green-mid);
+      }
+      .hero-right svg { display: none; }
+      .hero-stats { display: none; }
+      .hero-photo {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      /* Buttons: stay inline (flex-wrap) on mobile — short labels fit */
+      .hero-cta, .hero-map, .hero-flaskpost {
+        width: auto;
+        flex: 1 1 auto;
+        justify-content: center;
+        text-align: center;
+        font-size: 0.68rem;
+        padding: 0.75rem 1rem;
+      }
+      .hero-donate { width: 100%; justify-content: center; }
       .about-grid { grid-template-columns: 1fr; }
       .blog-grid  { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
       .blog-grid .blog-card:nth-child(n+4) { display: none; }
@@ -1076,21 +1105,23 @@
       .activities-header-row { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
       section { padding: 3rem 1.25rem; }
       footer { flex-direction: column; gap: 1rem; text-align: center; }
-      .hero-photo { width: 160px; height: 160px; top: 50%; left: 2rem; transform: translateY(-50%); }
       .about-image { width: 200px; height: 300px; }
       .donation-meter { max-width: 100%; }
-      .hero-donate, .hero-flaskpost { width: 100%; justify-content: center; }
-      .hero-cta, .hero-map, .hero-flaskpost {
-        width: 100%;
-        justify-content: center;
-        text-align: center;
-      }
-      .hero-left { padding: 6rem 1.5rem 3rem; }
       body { font-size: 0.9rem; }
       .hero-title { font-size: clamp(1.8rem, 6vw, 2.8rem); }
       .section-title { font-size: clamp(1.4rem, 5vw, 2rem); }
       .activity-stat-value { font-size: 0.9rem; }
       .blog-card-title { font-size: 0.95rem; }
+    }
+
+    /* Very small screens: stack buttons if still too tight */
+    @media (max-width: 380px) {
+      .hero-cta, .hero-map, .hero-flaskpost {
+        width: 100%;
+        font-size: 0.65rem;
+      }
+      .hero-right { height: 110px; min-height: 110px; }
+      .hero-photo { width: 90px; height: 90px; }
     }
   </style>
   <script src="manuals.js"></script>
@@ -1105,10 +1136,10 @@
   <div class="hero">
     <div class="hero-left">
       <h1 class="hero-title"
-          data-en="Exploring the regions of <em>Italy</em>for a good cause.<br><bo>Starting May 10th 2026</bo><br>"
+          data-en="Exploring the regions of <em>Italy</em> for a good cause.<br><bo>Starting May 10th 2026</bo><br>"
           data-sv="Cyklar genom <em>Italien</em> för välgörenhet.<br><bo>Startar 10 maj 2026</bo>"
           data-it="Esplorando le regioni <em>d'Italia</em> per una buona causa.<br><bo>Partenza 10 maggio 2026</bo>">
-        Exploring the regions of <em>Italy</em><br>for a good cause.<br><bo>Starting May 10th 2026</bo>
+        Exploring the regions of <em>Italy</em><br> for a good cause.<br><bo>Starting May 10th 2026</bo>
       </h1>
       <p class="hero-sub"
          data-en="My mission is to explore the Italian culture, nature, and people, while also collecting donations to brain cancer research. Join me!"
@@ -1117,23 +1148,23 @@
         My mission is to explore the Italian culture, nature, and people, while also spreading awareness of cancer research. Join me!
       </p>
   <div style="display:flex; flex-wrap:wrap; gap:1rem; align-items:center;">
-        <a href="#blog" class="hero-cta"
-           data-en="Read the journal →"
-           data-sv="Läs min blogg →"
-           data-it="Leggi il diario →">
-          Read the journal →
-        </a>
         <a href="#routes" class="hero-map"
-           data-en="See the roadmap"
-           data-sv="Se kartan"
-           data-it="Vedi la mappa">
-          See the map
+           data-en="Roadmap"
+           data-sv="Karta"
+           data-it="Mappa">
+          Roadmap
+        </a>
+        <a href="#blog" class="hero-cta"
+           data-en="Journal →"
+           data-sv="Blogg →"
+           data-it="Diario →">
+          Journal →
         </a>
         <a href="flaskpost.html" class="hero-flaskpost"
-           data-en="Send me a message"
-           data-sv="Skicka ett meddelande"
-           data-it="Mandami un Messaggio">
-          Send me a message
+           data-en="Send a note"
+           data-sv="Flaskpost"
+           data-it="Contattami">
+          Send a note
         </a>
       </div>
 

@@ -332,10 +332,25 @@ function injectPizzaScrollbar() {
   }
 
   // ── Scroll listener ──
+  // ── Scrollbar fade-out after 15s of inactivity ──
+  let fadeTimer = null;
+  function showScrollbar() {
+    scrollbar.style.transition = 'opacity 0.5s ease';
+    scrollbar.style.opacity    = '1';
+    clearTimeout(fadeTimer);
+    fadeTimer = setTimeout(() => {
+      scrollbar.style.transition = 'opacity 2s ease';
+      scrollbar.style.opacity    = '0';
+    }, 15000);
+  }
+  // Show on load, start the 15s countdown immediately
+  showScrollbar();
+
   window.addEventListener('scroll', () => {
     updateThumb();
     isScrolling = true;
     ensureSpinning();
+    showScrollbar();
     clearTimeout(scrollbar._stopTimer);
     scrollbar._stopTimer = setTimeout(() => { isScrolling = false; }, 120);
 

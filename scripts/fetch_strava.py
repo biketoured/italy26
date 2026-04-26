@@ -102,6 +102,8 @@ def merge_activities(existing, new_activities):
                 'moving_time': activity['moving_time'],                    # seconds
                 'calories':   round((activity.get('calories',0)) / 1500,1),                    #pizzas burned
                 'polyline':   activity.get('map', {}).get('summary_polyline', ''),
+                'avg_speed':  round(activity.get('average_speed', 0) * 3.6, 1),    # m/s → km/h
+                'avg_hr':     activity.get('average_heartrate', None),              # bpm, None if no HR monitor
             })
             existing_ids.add(activity['id'])
             added += 1

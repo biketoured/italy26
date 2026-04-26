@@ -61,7 +61,7 @@ body {
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
-  z-index: 100;
+  z-index: 1001;
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
@@ -136,6 +136,9 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;   /* ensures it breaks out of any stacking context */
 }
 
 footer .logo {
