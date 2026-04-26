@@ -14,6 +14,7 @@ const LIVE = "."
 
 // Skapa blogginlägg
 // Livelänk
+// Pizzor förbrända
 
 // Skapa klistermärken med QR
 // Skapa visitkort?

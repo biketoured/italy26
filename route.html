@@ -614,7 +614,12 @@
     fetch('/italy26/strava/routes.json')
       .then(r => {
         if (!r.ok) throw new Error('HTTP ' + r.status);
-        return r.json();
+        return r.text();
+      })
+      .then(text => {
+        // Strava IDs are too large for JS integers — quote them before parsing
+        const fixed = text.replace(/"id": *([0-9]{10,})/g, '"id": "$1"');
+        return JSON.parse(fixed);
       })
       .then(routes => {
         if (routes.length === 0) {
