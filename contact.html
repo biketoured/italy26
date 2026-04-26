@@ -70,7 +70,7 @@
       position: relative;
       margin-top: -80px;
       margin-bottom: 2rem;
-      z-index: 1;
+      z-index: 2;
     }
 
     .profile-img {
@@ -84,17 +84,19 @@
       z-index: 1;
     }
 
-    /* Flower decoration */
+    /* Flower decoration — centred, overlaps bottom third of profile pic */
     .profile-flower {
       position: absolute;
-      bottom: -10px;
-      right: 60px;
-      width: 130px;
-      height: 60px;
-      opacity: 0.9;
+      bottom: 10px;          /* sits at bottom third of 160px circle */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 80px;
+      opacity: 0.92;
       pointer-events: none;
-      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.35));
       animation: flowerSway 6s ease-in-out infinite;
+      z-index: 3;
     }
 
     @keyframes flowerSway {
