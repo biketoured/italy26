@@ -139,9 +139,9 @@ nav {
 
 @media (max-width: 768px) {
   .nav-badge { width: 44px; height: 44px; }
-  .nav-badge-day { font-size: 0.95rem; }
-  .nav-badge-label { font-size: 0.4rem; }
-  .nav-badge-total { font-size: 0.36rem; }
+  .nav-badge-day { font-size: 1rem; }
+  .nav-badge-label { font-size: 0.5rem; }
+  .nav-badge-total { font-size: 0.5rem; }
 }
 
 /* Home link — left slot */
