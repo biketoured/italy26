@@ -2,16 +2,14 @@
 type: blog
 date: 2026-03-01
 tag: Gear
-cover: ../../../assets/images/pizza.png
 title:
   en: What goes in the bags for a 40-day trip
   sv: Vad packar man för en 40-dagarsresa
   it: Cosa si mette nelle borse per un viaggio di 40 giorni
-photos:
-  - src: placehold.png
-    caption: The full kit laid out the night before departure
-  - src: placehold.png
-    caption: The full set of items I brought through Sweden in 2024. I had the same space, same bags, back then as I do for Italy. I will probably bring less warm clothes and more casual clothes. The biggest change is that I am leaving the cooking kit in favour for small luxuries such as casual clothing, notepad, and some creativity-inducing items. Read more below!
+captions:
+    photo1: The full set of items I brought through Sweden in 2024. I had the same space, same bags, back then as I do for Italy. I will probably bring less warm clothes and more casual clothes. The biggest change is that I am leaving the cooking kit in favour for small luxuries such as casual clothing, notepad, and some creativity-inducing items. Read more below!
+    photo2: My previous bike fully loaded, with Turning Torso, Malmö, in the background.
+
 ---
 
 # What do I pack for this adventure?
