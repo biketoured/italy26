@@ -439,10 +439,10 @@
       </h1>
 
       <p class="form-sub"
-         data-en="Questions about the trip, collaboration ideas, media enquiries — or just to say hello. I read everything."
-         data-sv="Frågor om resan, samarbetsidéer, mediefrågor — eller bara för att säga hej. Jag läser allt."
-         data-it="Domande sul viaggio, idee di collaborazione, richieste media — o solo per salutare. Leggo tutto.">
-        Questions about the trip, collaboration ideas, media enquiries — or just to say hello. I read everything.
+         data-en="Questions about the trip, collaboration ideas, media enquiries or just to say hello. I read everything."
+         data-sv="Frågor om resan, samarbetsidéer, mediefrågor eller bara för att säga hej. Jag läser allt."
+         data-it="Domande sul viaggio, idee di collaborazione, richieste media o solo per salutare. Leggo tutto.">
+        Questions about the trip, collaboration ideas, media enquiries or just to say hello. I read everything.
       </p>
 
       <form class="contact-form" id="contact-form" onsubmit="sendContact(event)">
@@ -569,8 +569,8 @@
     // Pick a new random drift target — small translate + tiny rotation
     function applyDrift() {
       const tx  = randBetween(-4, 4);   // % horizontal drift
-      const ty  = randBetween(-3, 3);   // % vertical drift
-      const rot = randBetween(-0.6, 0.6); // degrees rotation
+      const ty  = randBetween(-5, 5);   // % vertical drift
+      const rot = randBetween(-1, 1); // degrees rotation
       const dur = randBetween(5000, 9000); // ms for this move
 
       // Update transition duration to match chosen duration

@@ -223,10 +223,10 @@ function injectFooter() {
   if (!footer) return;
   footer.innerHTML = `
     <span class="logo">Edvard Appelberg</span>
-    <p data-en="Skellefteå, Sweden — Built with HTML &amp; CSS"
-       data-sv="Skellefteå, Sverige — Byggd med HTML &amp; CSS"
-       data-it="Skellefteå, Svezia — Costruito con HTML &amp; CSS">
-      Skellefteå, Sweden — Built with HTML &amp; CSS
+    <p data-en="Skellefteå, Sweden. Built with HTML &amp; CSS"
+       data-sv="Skellefteå, Sverige. Byggd med HTML &amp; CSS"
+       data-it="Skellefteå, Svezia. Costruito con HTML &amp; CSS">
+      Skellefteå, Sweden. Built with HTML &amp; CSS
     </p>
     <div id="footer-attribution"></div>`;
 }

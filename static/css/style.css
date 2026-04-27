@@ -75,8 +75,8 @@ nav {
 /* ── NAV BADGE (sun + day counter) ── */
 .nav-badge {
   /* Fill full nav height: padding 1.2rem top+bottom + content */
-  width: 95px;
-  height: 95px;
+  width: 92px;
+  height: 92px;
   margin: -1.2rem 0;        /* bleed into nav padding so it fills edge-to-edge */
   position: relative;
   display: flex;
@@ -88,7 +88,7 @@ nav {
 
 .nav-badge-sun {
   position: absolute;
-  inset: -25%;
+  inset: -40%;
   width: 150%;
   height: 150%;
   pointer-events: none;

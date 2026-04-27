@@ -100,7 +100,7 @@
       const grid     = document.getElementById('posts-grid');
       const filtered = allPosts.filter(p => p.type === type);
       if (filtered.length === 0) {
-        const labels = { en: 'No posts yet — check back soon.', sv: 'Inga inlägg ännu — kom tillbaka snart.', it: 'Nessun articolo ancora — torna presto.' };
+        const labels = { en: 'No posts yet, check back soon.', sv: 'Inga inlägg ännu, kom tillbaka snart.', it: 'Nessun articolo ancora, torna presto.' };
         grid.innerHTML = `<div class="empty-state">${labels[currentLang]}</div>`;
         return;
       }

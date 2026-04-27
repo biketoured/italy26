@@ -409,7 +409,7 @@
         <label for="fp-name"
                data-en="Your name, or nickname?"
                data-sv="Ditt namn?"
-               data-it="Il tuo nome — come ti chiamo?">
+               data-it="Il tuo nome?">
                Your name, or nickname?</label>
         <input type="text" id="fp-name" maxlength="80"
                data-placeholder-en="Julius Ceasar, or just your first name…"
@@ -420,10 +420,10 @@
 
       <div class="fp-field">
         <label for="fp-message"
-               data-en="Your message — ask, suggest, say anything (max 1 000 characters)"
-               data-sv="Ditt meddelande — fråga, tipsa, säg vad som helst (max 1 000 tecken)"
-               data-it="Il tuo messaggio — chiedi, suggerisci, di' qualsiasi cosa (max 1 000 caratteri)">
-          Your message — ask, suggest, say anything (max 1 000 characters)
+               data-en="Your message. Ask, suggest, say anything (max 1 000 characters)"
+               data-sv="Ditt meddelande. Fråga, tipsa, säg vad som helst (max 1 000 tecken)"
+               data-it="Il tuo messaggio. Chiedi, suggerisci, di' qualsiasi cosa (max 1 000 caratteri)">
+          Your message. Ask, suggest, say anything (max 1 000 characters)
         </label>
         <textarea id="fp-message" rows="7" maxlength="1000"
                   data-placeholder-en="Ask me a question, recommend an Italian dish I must try, send me a riddle, suggest a song for my playlist, tell me something about the region I'm cycling through… anything goes. Emojis welcome 🌊🚴🍕"
@@ -494,8 +494,7 @@
   const WEB3FORMS_KEY = '338ad75d-be30-474b-b848-3f339e64c66c';
 
   // ntfy.sh: free push notifications. Install the "ntfy" app on your phone,
-  // subscribe to this topic. Pick something secret so strangers can't spy.
-  // No account needed at all.
+  // subscribe to.
   const NTFY_TOPIC = 'italy26-bottlespin';
 
   // ══════════════════════════════════════════════════════
@@ -507,9 +506,9 @@
       it: 'Solo io vedrò questo messaggio.'
     },
     public: {
-      en: 'This message may appear publicly on the site — your contact details will never be shown.',
-      sv: 'Det här meddelandet kan visas offentligt på sajten — dina kontaktuppgifter visas aldrig.',
-      it: 'Questo messaggio potrebbe apparire sul sito — i tuoi contatti non saranno mai mostrati.'
+      en: 'This message may appear publicly on the site. Your contact details will never be shown.',
+      sv: 'Det här meddelandet kan visas offentligt på sajten. Dina kontaktuppgifter visas aldrig.',
+      it: 'Questo messaggio potrebbe apparire sul sito. I tuoi contatti non saranno mai mostrati.'
     }
   };
 
