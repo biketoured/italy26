@@ -88,7 +88,7 @@ nav {
 
 .nav-badge-sun {
   position: absolute;
-  inset: -30%;
+  inset: -25%;
   width: 150%;
   height: 150%;
   pointer-events: none;
@@ -105,8 +105,8 @@ nav {
 
 .nav-badge-label {
   display: block;
-  font-family: 'DM Mono', monospace;
-  font-size: 0.5rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.8rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--green);
@@ -116,7 +116,7 @@ nav {
 .nav-badge-day {
   display: block;
   font-family: 'Playfair Display', serif;
-  font-size: 1.45rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: var(--green);
   line-height: 1;
@@ -124,8 +124,8 @@ nav {
 
 .nav-badge-total {
   display: block;
-  font-family: 'DM Mono', monospace;
-  font-size: 0.44rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.8rem;
   letter-spacing: 0.1em;
   color: var(--green);
   font-weight: 700;
