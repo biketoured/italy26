@@ -1069,7 +1069,7 @@
       height: 280px;
       object-fit: cover;
       object-position: center top;
-      margin-top: var(--nav-height, 70px);
+      margin-top: 95px;
     }
     @media (max-width: 768px) {
       .hero-mobile-banner { display: block; }
@@ -1994,20 +1994,6 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
   </script>
 
   <script>
-  // ── NAV HEIGHT → CSS variable (used by hero-mobile-banner margin-top) ──
-  (function() {
-    function setNavHeight() {
-      const nav = document.querySelector('nav');
-      if (nav) {
-        document.documentElement.style.setProperty('--nav-height', nav.offsetHeight + 'px');
-      }
-    }
-    setNavHeight();
-    window.addEventListener('resize', setNavHeight);
-  })();
-  </script>
-
-    <script>
   // ── FOOTER ATTRIBUTION — index.html only ──
   (function() {
     const el = document.getElementById('footer-attribution');
