@@ -123,6 +123,7 @@ function injectNav(page) {
   const badgeDay  = (today >= tripStart && today <= tripEnd && tripDay >= 1 && tripDay <= 40)
                     ? tripDay : 0;
 
+  const lang = localStorage.getItem('preferred-lang') || 'en';
   const dayLabel = { en: 'Day', sv: 'Dag', it: 'Giorno' }[lang] || 'Day';
 
   const navHTML = `
@@ -131,7 +132,7 @@ function injectNav(page) {
         <div class="nav-badge-text">
           <span class="nav-badge-label">${dayLabel}</span>
           <span class="nav-badge-day">${badgeDay}</span>
-          <span class="nav-badge-total"> / 40</span>
+          <span class="nav-badge-total">// 40</span>
         </div>
       </div>
 

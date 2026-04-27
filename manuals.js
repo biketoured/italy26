@@ -14,14 +14,11 @@ const LIVE_URL      = 'https://www.strava.com/athletes/33737566'; // update dail
 // Automatisera journal: Markdown plus bilder kan uppladdas via webben github
 
 // Skapa blogginlägg
-// Livelänk
-// Pizzor förbrända
-// Admin-inlogg för att registrera donationer
+
 
 // Skapa klistermärken med QR
 // Skapa visitkort?
 // Se till att jag har all utrustning som krävs
-// Cykelköp
 // Tidning
 // Social media exponering
 //
