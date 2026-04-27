@@ -25,7 +25,8 @@
     },
     "captions": {
       "photo1": "Tent spot just outside of Abisko National Park. I fell asleep watching the midnight sun struggle to stay above the mountains on the other side of the lake."
-    }
+    },
+    "photos": 1
   },
   {
     "slug": "gear",
@@ -36,7 +37,8 @@
       "en": "What goes in the bags for a 40-day trip",
       "sv": "Vad packar man för en 40-dagarsresa",
       "it": "Cosa si mette nelle borse per un viaggio di 40 giorni"
-    }
+    },
+    "photos": 2
   },
   {
     "slug": "why",
