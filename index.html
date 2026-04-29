@@ -98,16 +98,15 @@
 
     /* ── HERO BUTTON PUZZLE ── */
     .hero-btn-puzzle {
+      position: relative;
       width: 100%;
       max-width: 700px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 52px 52px 52px;
-      gap: 0.5rem;
+      height: 116px;
       margin-bottom: 1rem;
     }
 
     .hero-btn-puzzle a {
+      position: absolute;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -121,44 +120,83 @@
     }
     .hero-btn-puzzle a:hover { filter: brightness(1.15); }
 
-    /* Parallelogram cuts — left buttons angle right, right buttons angle left */
+    /*
+      Geometry (% of container width × 116px height).
+      Left/centre seam: top=32%, mid=24%, bot=32%
+      Right/centre seam: top=68%, mid=76%, bot=68%
+      Centre hexagon spans full height, left:24%, width:52%
+      TL/TR: top half (0–58px). BL/BR: bottom half (58px–116px).
+    */
     .puzzle-tl {
-      clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
+      left: 0; width: 100%;
+      top: 0; height: 50%; bottom: auto;
+      clip-path: polygon(0% 0%, 32% 0%, 24% 100%, 0% 100%);
       background: var(--yellow); color: var(--black);
-      order: 1;
-    }
-    .puzzle-tr {
-      clip-path: polygon(14px 0, 100% 0, 100% 100%, 0 100%);
-      background: var(--stone); color: var(--green);
-      order: 2;
-    }
-    .puzzle-centre {
-      grid-column: 1 / -1;
-      background: var(--sky-deep); color: var(--white);
-      font-size: 0.82rem; letter-spacing: 0.18em;
-      clip-path: polygon(14px 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
-      order: 3;
+      z-index: 0;
+      padding-left: 2%; padding-right: 78%;
     }
     .puzzle-bl {
-      clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
+      left: 0; width: 100%;
+      top: 50%; height: 50%; bottom: auto;  /* explicit bottom:auto beats the base rule */
+      clip-path: polygon(0% 0%, 24% 0%, 32% 100%, 0% 100%);
       background: var(--red); color: var(--white);
-      order: 4;
+      z-index: 0;
+      padding-left: 2%; padding-right: 78%;
+    }
+    .puzzle-centre {
+      left: 24%; width: 52%;
+      top: 0; bottom: 0;
+      clip-path: polygon(15% 0%, 85% 0%, 100% 50%, 85% 100%, 15% 100%, 0% 50%);
+      background: var(--sky-deep); color: var(--white);
+      font-size: 0.82rem; letter-spacing: 0.18em;
+      z-index: 2;
+    }
+    .puzzle-tr {
+      left: 0; width: 100%;
+      top: 0; height: 50%; bottom: auto;
+      clip-path: polygon(68% 0%, 100% 0%, 100% 100%, 76% 100%);
+      background: var(--stone); color: var(--green);
+      z-index: 0;
+      padding-left: 78%; padding-right: 2%;
     }
     .puzzle-br {
-      clip-path: polygon(14px 0, 100% 0, 100% 100%, 0 100%);
+      left: 0; width: 100%;
+      top: 50%; height: 50%; bottom: auto;  /* explicit bottom:auto beats the base rule */
+      clip-path: polygon(76% 0%, 100% 0%, 100% 100%, 68% 100%);
       background: var(--red-warm); color: var(--white);
-      order: 5;
+      z-index: 0;
+      padding-left: 78%; padding-right: 2%;
     }
 
     /* ── HERO BUTTON ICONS (inline SVG) ── */
     .hero-btn-icon {
       width: 14px; height: 14px;
-      flex-shrink: 0;
-      display: block;
-      opacity: 0.75;
+      flex-shrink: 0; display: block; opacity: 0.75;
     }
 
-    /* No media query needed — grid always works correctly */
+    /* Below 900px: drop to clean grid — hexagon needs room to breathe */
+    @media (max-width: 900px) {
+      .hero-btn-puzzle {
+        height: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 52px 52px 52px;
+        gap: 0.5rem;
+      }
+      .hero-btn-puzzle a {
+        position: static;
+        clip-path: none !important;
+        width: auto; height: auto;
+        padding: 0 !important;
+      }
+      .puzzle-centre { grid-column: 1 / -1; font-size: 0.75rem; }
+      .puzzle-tl { order: 1; }
+      .puzzle-tr { order: 2; }
+      .puzzle-centre { order: 3; }
+      .puzzle-bl { order: 4; }
+      .puzzle-br { order: 5; }
+    }
+
     .hero-btn-pair { display: none; }
     .hero-donate   { display: none; }
 
