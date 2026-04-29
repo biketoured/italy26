@@ -98,15 +98,16 @@
 
     /* ── HERO BUTTON PUZZLE ── */
     .hero-btn-puzzle {
-      position: relative;
       width: 100%;
       max-width: 700px;
-      height: 108px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 52px 52px 52px;
+      gap: 0.5rem;
       margin-bottom: 1rem;
     }
 
     .hero-btn-puzzle a {
-      position: absolute;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -117,113 +118,47 @@
       text-transform: uppercase;
       text-decoration: none;
       transition: filter 0.18s;
-      top: 0; bottom: 0;
     }
-    .hero-btn-puzzle a:hover { filter: brightness(1.25); }
+    .hero-btn-puzzle a:hover { filter: brightness(1.15); }
 
-    /*
-      Geometry (% of 700×108 container). Key seam x-coords:
-        Left outer edge:  bows left  → top=4%,  mid=0%,  bot=4%
-        Left/centre seam: angles in  → top=32%, mid=24%, bot=32%
-        Right/centre seam:angles in  → top=68%, mid=76%, bot=68%
-        Right outer edge: bows right → top=96%, mid=100%,bot=96%
-      Centre is a hexagon: 32%→68% at top/bot, 24%→76% at mid.
-      TL/BL seam is horizontal at 50% height.
-      TR/BR seam is horizontal at 50% height.
-      1px visual gap: shared edge coords offset ±0.4%.
-    */
-
-    /* Top-left: spans full width so clip-path can butt up against centre */
+    /* Parallelogram cuts — left buttons angle right, right buttons angle left */
     .puzzle-tl {
-      left: 0; width: 100%;
-      top: 0; height: 50%; bottom: auto;
-      clip-path: polygon(0% 0%, 32% 0%, 24% 100%, 0% 100%);
-      background: var(--yellow);
-      color: var(--black);
-      z-index: 0;
-      /* Centre text in the middle of the wedge: avg x = (32%+24%)/2/2 = ~14% from left */
-      padding-left: 2%; padding-right: 78%;
+      clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
+      background: var(--yellow); color: var(--black);
+      order: 1;
     }
-    /* Bottom-left */
-    .puzzle-bl {
-      left: 0; width: 100%;
-      top: 50%; height: 50%; bottom: auto;
-      clip-path: polygon(0% 0%, 24% 0%, 32% 100%, 0% 100%);
-      background: var(--red);
-      color: var(--white);
-      z-index: 0;
-      padding-left: 2%; padding-right: 78%;
-    }
-    /* Centre hexagon — coords relative to this div (left:24%, width:52%) */
-    .puzzle-centre {
-      left: 24%; width: 52%;
-      top: 0; bottom: 0;
-      clip-path: polygon(15% 0%, 85% 0%, 100% 50%, 85% 100%, 15% 100%, 0% 50%);
-      background: var(--sky-deep);
-      color: var(--white);
-      font-size: 0.82rem;
-      letter-spacing: 0.18em;
-      z-index: 2;
-    }
-    /* Top-right */
     .puzzle-tr {
-      left: 0; width: 100%;
-      top: 0; height: 50%; bottom: auto;
-      clip-path: polygon(68% 0%, 100% 0%, 100% 100%, 76% 100%);
-      background: var(--stone);
-      color: var(--green);
-      z-index: 0;
-      /* Centre text in wedge: avg x = (68%+76%)/2 = 72% from left */
-      padding-left: 78%; padding-right: 2%;
+      clip-path: polygon(14px 0, 100% 0, 100% 100%, 0 100%);
+      background: var(--stone); color: var(--green);
+      order: 2;
     }
-    /* Bottom-right */
+    .puzzle-centre {
+      grid-column: 1 / -1;
+      background: var(--sky-deep); color: var(--white);
+      font-size: 0.82rem; letter-spacing: 0.18em;
+      clip-path: polygon(14px 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
+      order: 3;
+    }
+    .puzzle-bl {
+      clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
+      background: var(--red); color: var(--white);
+      order: 4;
+    }
     .puzzle-br {
-      left: 0; width: 100%;
-      top: 50%; height: 50%; bottom: auto;
-      clip-path: polygon(76% 0%, 100% 0%, 100% 100%, 68% 100%);
-      background: var(--red-warm);
-      color: var(--white);
-      z-index: 0;
-      padding-left: 78%; padding-right: 2%;
+      clip-path: polygon(14px 0, 100% 0, 100% 100%, 0 100%);
+      background: var(--red-warm); color: var(--white);
+      order: 5;
     }
 
     /* ── HERO BUTTON ICONS (inline SVG) ── */
     .hero-btn-icon {
-      width: 14px;
-      height: 14px;
+      width: 14px; height: 14px;
       flex-shrink: 0;
       display: block;
       opacity: 0.75;
     }
 
-    /* Mobile: drop clip-paths, stack as simple grid */
-    @media (max-width: 768px) {
-      .hero-btn-puzzle {
-        height: auto;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 48px 48px 48px;
-        gap: 0.5rem;
-      }
-      .hero-btn-puzzle a {
-        position: static;
-        clip-path: none !important;
-        width: auto; height: auto;
-        padding: 0 !important;
-      }
-      .puzzle-centre {
-        grid-column: 1 / -1;
-        font-size: 0.75rem;
-      }
-      /* Correct order: Map, Journal | Donate | Note, Gallery */
-      .puzzle-tl { order: 1; }
-      .puzzle-tr { order: 2; }
-      .puzzle-centre { order: 3; }
-      .puzzle-bl { order: 4; }
-      .puzzle-br { order: 5; }
-    }
-
-    /* Keep old classes so hero-donate below still works */
+    /* No media query needed — grid always works correctly */
     .hero-btn-pair { display: none; }
     .hero-donate   { display: none; }
 
