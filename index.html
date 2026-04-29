@@ -197,7 +197,7 @@
     }
 
     /* Mobile: drop clip-paths, stack as simple grid */
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       .hero-btn-puzzle {
         height: auto;
         display: grid;
@@ -209,6 +209,7 @@
         position: static;
         clip-path: none !important;
         width: auto; height: auto;
+        padding: 0 !important;
       }
       .puzzle-centre {
         grid-column: 1 / -1;
@@ -267,7 +268,7 @@
 
     .hero-photo {
       position: absolute;
-      top: 50%; left: 50%;
+      top: 40%; left: 50%;
       transform: translate(-50%, -50%);
       width: 500px;
       height: 500px;
@@ -1181,10 +1182,6 @@
         border: 2.5px solid rgba(196,180,154,0.35);
         z-index: 10;
       }
-      /* Push title text left so it doesn't run under the pic */
-      .hero-title {
-        padding-right: 108px;
-      }
     }
     @media (max-width: 480px) {
       .hero-mobile-profilepic {
@@ -1193,9 +1190,6 @@
         right: 1.25rem;
         width: 80px;
         height: 80px;
-      }
-      .hero-title {
-        padding-right: 90px;
       }
     }
 
@@ -1253,9 +1247,8 @@
       width: calc(100% + 8rem);
       margin-left: -4rem;
       margin-right: -4rem;
-      padding: 0 2.5rem 0;
+      padding: 0 2.5rem 1.6rem;  /* bottom padding = space for two label rows */
       margin-top: auto;
-      padding-bottom: 0;
     }
     /* Track — overflow visible so labels can extend beyond the bar width */
     .route-progress-track {
@@ -1264,7 +1257,7 @@
       height: 3px;
       background: rgba(196,180,154,0.2);
       margin-top: 1.6rem;
-      margin-bottom: 2rem;   /* enough for two label rows */
+      margin-bottom: 0;
       overflow: visible;
     }
     .route-progress-fill {
@@ -1354,10 +1347,10 @@
         width: calc(100% + 3rem);
         margin-left: -1.5rem;
         margin-right: -1.5rem;
-        padding: 0 1.5rem 0;
+        padding: 0 1.5rem 2.2rem;
       }
       .route-progress-track {
-        margin-bottom: 2rem;
+        margin-bottom: 0;
       }
     }
 

@@ -14,13 +14,13 @@ const DONATION_GOAL  = 50000;                          // SEK goal
 
 // ── LIVE TRACKING ──
 // Set LIVE_TRACKING to true and update LIVE_URL when actively tracking
-const LIVE_TRACKING = false;
+const LIVE_TRACKING = true;
 const LIVE_URL      = 'https://www.strava.com/athletes/33737566';
 
 // ── ROUTE PROGRESS ──
 // CURRENT_LOC: a number 0–100 for how far along the route you are.
 // Update this each day. The dot at that position lights up as "current".
-const CURRENT_LOC = 0;
+const CURRENT_LOC = 3;
 
 // LOC_POINTS: the marked dots on the bar, each with a position (0–100) and a label.
 // Labels appear below the dot in small caps. Leave label as '' to show dot only.
@@ -36,14 +36,14 @@ const LOC_POINTS = [
 // ── WORD OF THE DAY ──
 // Displayed as a strip between the map and blog sections on the homepage.
 // Leave WORD empty ('') to hide the strip entirely.
-const WORD    = '';        // e.g. 'Magari'
-const MEANING = '';        // e.g. 'Maybe, perhaps, if only — the most Italian word'
+const WORD    = 'Magari';        // e.g. 'Magari'
+const MEANING = 'Maybe, perhaps, if only. Carefully optimistic and thoughtful';        // e.g. 'Maybe, perhaps, if only — the most Italian word'
 
 // ── NOTE FROM THE ROAD ──
 // A short dispatch shown at the top of the blog/journal page.
 // Leave NOTE empty ('') to hide it.
-const NOTE      = '';      // e.g. 'Day 12 — somewhere in Calabria. The climbs here are serious.'
-const NOTE_DATE = '';      // e.g. '22 May'
+const NOTE      = 'Ten days until departure. Feeling surprisingly calm';      // e.g. 'Day 12 — somewhere in Calabria. The climbs here are serious.'
+const NOTE_DATE = '29 april';      // e.g. '22 May'
 
 
 // Utforska betalningssätt: Paypal och Revolut fixat. Behöver koppla konton bara...
