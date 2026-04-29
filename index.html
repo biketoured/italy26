@@ -1222,7 +1222,7 @@
       width: calc(100% + 8rem);
       margin-left: -4rem;
       margin-right: -4rem;
-      padding: 0 1.5rem 1.5rem;
+      padding: 0 1.2rem 1.2rem;
       margin-top: auto;
       overflow: visible;
     }
@@ -1271,7 +1271,7 @@
     }
     .route-progress-dot-label {
       position: absolute;
-      top: 10px;
+      top: 10px;                    /* default: below the bar */
       left: 50%;
       transform: translateX(-50%);
       font-family: 'DM Mono', monospace;
@@ -1284,12 +1284,17 @@
       pointer-events: none;
     }
     .route-progress-dot-label.label-low {
-      top: calc(10px + 1rem);
+      top: calc(10px + 1rem);       /* second row below */
+    }
+    .route-progress-dot-label.label-above {
+      top: auto;
+      bottom: 10px;                 /* above the bar */
     }
     .route-progress-dot.reached .route-progress-dot-label,
     .route-progress-dot.current .route-progress-dot-label {
       color: rgba(212,169,74,0.75);
     }
+    /* Profile pic sits centred on the bar line */
     .route-progress-avatar {
       position: absolute;
       top: 50%;
@@ -1297,7 +1302,7 @@
       border-radius: 50%;
       border: 1.5px solid var(--yellow);
       object-fit: cover;
-      transform: translate(-50%, calc(-50% - 14px));
+      transform: translate(-50%, -50%);
       transition: left 0.8s ease;
       pointer-events: none;
       z-index: 2;
@@ -1307,7 +1312,7 @@
         width: calc(100% + 3rem);
         margin-left: -1.5rem;
         margin-right: -1.5rem;
-        padding: 0 1.5rem 3rem;
+        padding: 2rem 1.5rem 2rem;
       }
       .route-progress-track { margin-bottom: 0; }
     }
@@ -2254,7 +2259,7 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
       dot.style.left = p.pos + '%';
       if (p.label) {
         const lbl = document.createElement('span');
-        lbl.className = 'route-progress-dot-label' + (i % 2 === 1 ? ' label-low' : '');
+        lbl.className = 'route-progress-dot-label' + (i % 2 === 0 ? ' label-above' : '');
         lbl.textContent = p.label;
         dot.appendChild(lbl);
       }
