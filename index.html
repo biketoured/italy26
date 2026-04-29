@@ -140,7 +140,7 @@
       left: 0; width: 100%;
       top: 50%; height: 50%; bottom: auto;  /* explicit bottom:auto beats the base rule */
       clip-path: polygon(0% 0%, 24% 0%, 32% 100%, 0% 100%);
-      background: var(--stone); color: var(--green);
+      background: var(--red); color: var(--stone);
       z-index: 0;
       font-size: 1;
       padding-left: 2%; padding-right: 78%;
@@ -157,7 +157,7 @@
       left: 0; width: 100%;
       top: 0; height: 50%; bottom: auto;
       clip-path: polygon(68% 0%, 100% 0%, 100% 100%, 76% 100%);
-      background: var(--stone); color: var(--green);
+      background: var(--red); color: var(--stone);
       z-index: 0;
       font-size: 1;
       padding-left: 78%; padding-right: 2%;
@@ -1222,7 +1222,7 @@
       width: calc(100% + 8rem);
       margin-left: -4rem;
       margin-right: -4rem;
-      padding: 0 1.2rem 1.2rem;
+      padding: 0 2rem 2rem;
       margin-top: auto;
       overflow: visible;
     }
@@ -1271,7 +1271,7 @@
     }
     .route-progress-dot-label {
       position: absolute;
-      top: 10px;                    /* default: below the bar */
+      top: 25px;                    /* default: below the bar */
       left: 50%;
       transform: translateX(-50%);
       font-family: 'DM Mono', monospace;
@@ -1288,7 +1288,7 @@
     }
     .route-progress-dot-label.label-above {
       top: auto;
-      bottom: 10px;                 /* above the bar */
+      bottom: 25px;                 /* above the bar */
     }
     .route-progress-dot.reached .route-progress-dot-label,
     .route-progress-dot.current .route-progress-dot-label {
@@ -1298,7 +1298,7 @@
     .route-progress-avatar {
       position: absolute;
       top: 50%;
-      width: 22px; height: 22px;
+      width: 30px; height: 30px;
       border-radius: 50%;
       border: 1.5px solid var(--yellow);
       object-fit: cover;
