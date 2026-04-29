@@ -136,8 +136,8 @@
     /* Top-left: spans full width so clip-path can butt up against centre */
     .puzzle-tl {
       left: 0; width: 100%;
-      top: 0; height: 50%;
-      clip-path: polygon(4% 0%, 32% 0%, 24% 100%, 0% 100%);
+      top: 0; height: 50%; bottom: auto;
+      clip-path: polygon(0% 0%, 32% 0%, 24% 100%, 0% 100%);
       background: var(--yellow);
       color: var(--black);
       z-index: 0;
@@ -145,8 +145,8 @@
     /* Bottom-left */
     .puzzle-bl {
       left: 0; width: 100%;
-      top: 50%; height: 50%;
-      clip-path: polygon(0% 0%, 24% 0%, 32% 100%, 4% 100%);
+      top: 50%; height: 50%; bottom: auto;
+      clip-path: polygon(0% 0%, 24% 0%, 32% 100%, 0% 100%);
       background: var(--red);
       color: var(--white);
       z-index: 0;
@@ -154,6 +154,7 @@
     /* Centre hexagon — coords relative to this div (left:24%, width:52%) */
     .puzzle-centre {
       left: 24%; width: 52%;
+      top: 0; bottom: 0;
       clip-path: polygon(15% 0%, 85% 0%, 100% 50%, 85% 100%, 15% 100%, 0% 50%);
       background: var(--sky-deep);
       color: var(--white);
@@ -164,8 +165,8 @@
     /* Top-right */
     .puzzle-tr {
       left: 0; width: 100%;
-      top: 0; height: 50%;
-      clip-path: polygon(68% 0%, 96% 0%, 100% 100%, 76% 100%);
+      top: 0; height: 50%; bottom: auto;
+      clip-path: polygon(68% 0%, 100% 0%, 100% 100%, 76% 100%);
       background: var(--stone);
       color: var(--green);
       z-index: 0;
@@ -173,18 +174,18 @@
     /* Bottom-right */
     .puzzle-br {
       left: 0; width: 100%;
-      top: 50%; height: 50%;
-      clip-path: polygon(76% 0%, 100% 0%, 96% 100%, 68% 100%);
+      top: 50%; height: 50%; bottom: auto;
+      clip-path: polygon(76% 0%, 100% 0%, 100% 100%, 68% 100%);
       background: var(--red-warm);
       color: var(--white);
       z-index: 0;
     }
 
     /* Text must sit inside the visible clipped region of each piece */
-    .puzzle-tl { padding-left: 6%;  padding-right: 70%; }
-    .puzzle-bl { padding-left: 6%;  padding-right: 70%; }
-    .puzzle-tr { padding-left: 70%; padding-right: 6%;  }
-    .puzzle-br { padding-left: 70%; padding-right: 6%;  }
+    .puzzle-tl { padding-left: 4%;  padding-right: 72%; }
+    .puzzle-bl { padding-left: 4%;  padding-right: 72%; }
+    .puzzle-tr { padding-left: 72%; padding-right: 4%;  }
+    .puzzle-br { padding-left: 72%; padding-right: 4%;  }
 
     /* Icon inside puzzle buttons */
     .hero-btn-icon {
@@ -1156,6 +1157,48 @@
       .hero-mobile-banner { height: 220px; }
     }
 
+    /* ── MOBILE HERO WRAPPER ── */
+    .hero-mobile-wrapper {
+      position: relative;  /* positioning context for the profile pic */
+    }
+
+    /* ── MOBILE PROFILE PIC — straddles banner/hero seam ── */
+    .hero-mobile-profilepic {
+      display: none;  /* hidden on desktop */
+    }
+    @media (max-width: 768px) {
+      .hero-mobile-profilepic {
+        display: block;
+        position: absolute;
+        /* Banner is 280px tall — centre pic on that seam */
+        top: calc(280px - 48px);   /* banner height minus half of pic height */
+        right: 1.5rem;
+        width: 96px;
+        height: 96px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center top;
+        border: 2.5px solid rgba(196,180,154,0.35);
+        z-index: 10;
+      }
+      /* Push title text left so it doesn't run under the pic */
+      .hero-title {
+        padding-right: 108px;
+      }
+    }
+    @media (max-width: 480px) {
+      .hero-mobile-profilepic {
+        /* Banner is 220px tall at phone size */
+        top: calc(220px - 40px);
+        right: 1.25rem;
+        width: 80px;
+        height: 80px;
+      }
+      .hero-title {
+        padding-right: 90px;
+      }
+    }
+
     /* ── HERO BUTTON ICONS ── */
     /* Icon inside puzzle buttons */
     .hero-btn-icon {
@@ -1207,22 +1250,22 @@
     }
     /* ── ROUTE PROGRESS BAR ── */
     .route-progress {
-      /* Bleed out of .hero-left's 4rem side padding to reach full green width */
       width: calc(100% + 8rem);
       margin-left: -4rem;
       margin-right: -4rem;
-      padding: 0 1.5rem 0;
-      margin-top: auto;        /* push to bottom of the green hero field */
+      padding: 0 2.5rem 0;
+      margin-top: auto;
       padding-bottom: 0;
     }
-    /* Extra space for the dot labels below the bar line */
+    /* Track — overflow visible so labels can extend beyond the bar width */
     .route-progress-track {
       position: relative;
       width: 100%;
       height: 3px;
       background: rgba(196,180,154,0.2);
-      margin-top: 1.6rem;      /* room for avatar sitting above */
-      margin-bottom: 1.4rem;   /* room for labels beneath */
+      margin-top: 1.6rem;
+      margin-bottom: 2rem;   /* enough for two label rows */
+      overflow: visible;
     }
     .route-progress-fill {
       position: absolute;
@@ -1246,6 +1289,7 @@
       transform: translate(-50%, -50%);
       transition: background 0.5s, border-color 0.5s;
       top: 50%;
+      overflow: visible;
     }
     .route-progress-dot.reached {
       background: var(--yellow);
@@ -1270,10 +1314,6 @@
       transition: color 0.5s;
       pointer-events: none;
     }
-    .route-progress-dot.reached .route-progress-dot-label,
-    .route-progress-dot.current .route-progress-dot-label {
-      color: rgba(212,169,74,0.75);
-    }
     /* Tiny profile pic on the progress bar — sits above the line */
     .route-progress-avatar {
       position: absolute;
@@ -1287,15 +1327,37 @@
       pointer-events: none;
       z-index: 2;
     }
+    .route-progress-dot-label {
+      position: absolute;
+      top: 10px;           /* default: first row below bar */
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.52rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(196,180,154,0.5);
+      white-space: nowrap;
+      transition: color 0.5s;
+      pointer-events: none;
+    }
+    /* Alternate row — 1rem lower than the default row */
+    .route-progress-dot-label.label-low {
+      top: calc(10px + 1rem);
+    }
+    .route-progress-dot.reached .route-progress-dot-label,
+    .route-progress-dot.current .route-progress-dot-label {
+      color: rgba(212,169,74,0.75);
+    }
     @media (max-width: 768px) {
       .route-progress {
         width: calc(100% + 3rem);
         margin-left: -1.5rem;
         margin-right: -1.5rem;
-        padding: 0 1rem 0;
+        padding: 0 1.5rem 0;
       }
       .route-progress-track {
-        margin-bottom: 1.2rem;
+        margin-bottom: 2rem;
       }
     }
 
@@ -1318,8 +1380,17 @@
   <!-- ══ NAV ══ -->
   <nav id="shared-nav"></nav>
 
-  <!-- ══ MOBILE HERO BANNER — profile photo, hidden on desktop ══ -->
+  <!-- ══ MOBILE HERO WRAPPER — banner + hero share a positioning context ══ -->
+  <div class="hero-mobile-wrapper">
+
+  <!-- ══ MOBILE HERO BANNER — hidden on desktop ══ -->
   <img class="hero-mobile-banner" src="assets/images/medit1.jpg" alt="Edvard Appelberg">
+
+  <!-- ══ MOBILE PROFILE PIC — straddles banner/hero seam, hidden on desktop ══ -->
+  <img class="hero-mobile-profilepic"
+       src="assets/images/profilepic.jpg"
+       alt="Edvard Appelberg"
+       onerror="this.style.display='none'">
 
   <!-- ══ HERO ══ -->
   <div class="hero">
@@ -1430,7 +1501,8 @@
         </div>
       </div>
     </div>
-  </div>
+  </div><!-- /.hero -->
+  </div><!-- /.hero-mobile-wrapper -->
 
   <!-- ══ ABOUT ══ -->
   <section id="about">
@@ -2225,8 +2297,8 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
     // Fill bar
     fill.style.width = loc + '%';
 
-    // Draw dots with optional labels
-    points.forEach(p => {
+    // Draw dots with optional labels — alternate label row to avoid overlap
+    points.forEach((p, i) => {
       const dot = document.createElement('div');
       dot.className = 'route-progress-dot'
         + (loc > p.pos  ? ' reached' : '')
@@ -2234,7 +2306,7 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
       dot.style.left = p.pos + '%';
       if (p.label) {
         const lbl = document.createElement('span');
-        lbl.className = 'route-progress-dot-label';
+        lbl.className = 'route-progress-dot-label' + (i % 2 === 1 ? ' label-low' : '');
         lbl.textContent = p.label;
         dot.appendChild(lbl);
       }
