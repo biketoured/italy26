@@ -354,14 +354,20 @@ function injectPizzaScrollbar() {
   // ── Scroll listener ──
   // ── Scrollbar fade-out after 15s of inactivity ──
   let fadeTimer = null;
+  let removeTimer = null;
   function showScrollbar() {
+    clearTimeout(fadeTimer);
+    clearTimeout(removeTimer);
+    scrollbar.style.display    = 'block';
     scrollbar.style.transition = 'opacity 0.5s ease';
     scrollbar.style.opacity    = '1';
-    clearTimeout(fadeTimer);
     fadeTimer = setTimeout(() => {
       scrollbar.style.transition = 'opacity 2s ease';
       scrollbar.style.opacity    = '0';
-    }, 15000);
+      removeTimer = setTimeout(() => {
+        scrollbar.style.display = 'none';
+      }, 2000);
+    }, 10000);
   }
   // Show on load, start the 15s countdown immediately
   showScrollbar();

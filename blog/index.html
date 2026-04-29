@@ -47,6 +47,51 @@
       .page-header { padding: 7rem 1.5rem 1.5rem; } .tabs-wrapper { padding: 0 1.5rem; }
       .posts-container { padding: 0 1.5rem 4rem; } .posts-grid { grid-template-columns: 1fr; }
     }
+
+    /* ── WORD OF THE DAY ── */
+    .word-strip {
+      background: var(--green);
+      padding: 1rem 3rem;
+      display: flex;
+      align-items: baseline;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .word-strip.hidden { display: none; }
+    .word-strip-word {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--yellow);
+      white-space: nowrap;
+    }
+    .word-strip-sep {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--stone-dark);
+      letter-spacing: 0.1em;
+    }
+    .word-strip-meaning {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      color: var(--stone);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+    .word-strip-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--stone-dark);
+      white-space: nowrap;
+      margin-left: auto;
+      padding-left: 1rem;
+    }
+    @media (max-width: 768px) {
+      .word-strip { padding: 0.9rem 1.5rem; gap: 0.75rem; }
+      .word-strip-label { margin-left: 0; }
+    }
   </style>
 </head>
 
@@ -70,6 +115,17 @@
   <div class="page-header">
     <p class="section-tag" data-en="// The blog" data-sv="// Bloggen" data-it="// Blog">// The journal</p>
     <h1 data-en="Blog &amp; Journal" data-sv="Blogg &amp; Dagbok" data-it="Blog &amp; Diario">Blog &amp; Journal</h1>
+  </div>
+
+  <!-- WORD OF THE DAY -->
+  <div class="word-strip" id="word-strip">
+    <span class="word-strip-word" id="word-strip-word"></span>
+    <span class="word-strip-sep">—</span>
+    <span class="word-strip-meaning" id="word-strip-meaning"></span>
+    <span class="word-strip-label"
+          data-en="Word of the day"
+          data-sv="Dagens ord"
+          data-it="Parola del giorno">Word of the day</span>
   </div>
 
   <!-- TABS -->
@@ -166,6 +222,21 @@
         document.getElementById('posts-grid').innerHTML =
           `<div class="empty-state">Fetch failed: ${err.message}</div>`;
       });
+  </script>  <script>
+  // ── WORD OF THE DAY — reads WORD and MEANING from manuals.js ──
+  (function() {
+    const strip     = document.getElementById('word-strip');
+    const wordEl    = document.getElementById('word-strip-word');
+    const meaningEl = document.getElementById('word-strip-meaning');
+    if (!strip) return;
+    if (typeof WORD === 'undefined' || !WORD) {
+      strip.classList.add('hidden');
+      return;
+    }
+    wordEl.textContent    = WORD;
+    meaningEl.textContent = MEANING || '';
+  })();
   </script>
+
 </body>
 </html>

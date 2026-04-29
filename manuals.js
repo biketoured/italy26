@@ -6,7 +6,7 @@ const SEK = 0;
 const EUR = 0;
 const DONATION_TOTAL = Math.round(SEK + (EUR*11));  // current total in SEK
 const DONATION_GOAL  = 40000;                       // goal in SEK
-const LIVE_TRACKING = false;           // true = show live banner on index page
+const LIVE_TRACKING = true;           // true = show live banner on index page
 const LIVE_URL      = 'https://www.strava.com/athletes/33737566'; // update daily with your live GPS link
 
 
