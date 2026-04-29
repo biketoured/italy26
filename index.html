@@ -124,7 +124,7 @@
     /* Left button: parallelogram — cut bottom-right, matches right button */
     .hero-btn-left {
       clip-path: polygon(0 0, 100% 0, calc(100% - 20px) 100%, 0 100%);
-      margin-right: 3px;
+      margin-right: 0.6rem;
     }
 
     /* Right button: parallelogram — cut top-left, interlocks with left */
@@ -1126,14 +1126,16 @@
     }
     /* ── ROUTE PROGRESS BAR ── */
     .route-progress {
-      width: 100%;
-      padding: 0 0 1.4rem;
-      /* sits at the very bottom of .hero-left's green field */
+      /* Bleed out of .hero-left's 4rem side padding to reach full green width */
+      width: calc(100% + 8rem);
+      margin-left: -4rem;
+      margin-right: -4rem;
+      padding: 0 1.5rem 1.8rem;
+      margin-top: 1rem;
     }
     .route-progress-track {
       position: relative;
       width: 100%;
-      max-width: 700px;
       height: 3px;
       background: rgba(196,180,154,0.2);
     }
@@ -1169,6 +1171,24 @@
       border-color: var(--yellow);
       box-shadow: 0 0 0 3px rgba(212,169,74,0.3);
     }
+    .route-progress-dot-label {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.52rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(196,180,154,0.5);
+      white-space: nowrap;
+      transition: color 0.5s;
+      pointer-events: none;
+    }
+    .route-progress-dot.reached .route-progress-dot-label,
+    .route-progress-dot.current .route-progress-dot-label {
+      color: rgba(212,169,74,0.75);
+    }
     /* Tiny profile pic on the progress bar */
     .route-progress-avatar {
       position: absolute;
@@ -1180,6 +1200,15 @@
       transform: translate(-50%, -50%);
       transition: left 0.8s ease;
       pointer-events: none;
+      z-index: 2;
+    }
+    @media (max-width: 768px) {
+      .route-progress {
+        width: calc(100% + 3rem);
+        margin-left: -1.5rem;
+        margin-right: -1.5rem;
+        padding: 0 1rem 1.5rem;
+      }
     }
 
   </style>
@@ -2103,19 +2132,29 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
     const avatar = document.getElementById('route-progress-avatar');
     if (!fill || typeof CURRENT_LOC === 'undefined') return;
 
-    const loc    = Math.min(100, Math.max(0, CURRENT_LOC));
-    const points = [10, 33, 45, 48, 88, 92]; // region markers (0–100 scale)
+    const loc = Math.min(100, Math.max(0, CURRENT_LOC));
+
+    // LOC_POINTS from manuals.js: array of {pos, label} objects
+    // Falls back to plain numbers for backwards compatibility
+    const rawPoints = (typeof LOC_POINTS !== 'undefined') ? LOC_POINTS : [10, 33, 45, 48, 88, 92];
+    const points = rawPoints.map(p => typeof p === 'object' ? p : { pos: p, label: '' });
 
     // Fill bar
     fill.style.width = loc + '%';
 
-    // Draw dots
+    // Draw dots with optional labels
     points.forEach(p => {
       const dot = document.createElement('div');
       dot.className = 'route-progress-dot'
-        + (loc > p  ? ' reached' : '')
-        + (loc === p ? ' current' : '');
-      dot.style.left = p + '%';
+        + (loc > p.pos  ? ' reached' : '')
+        + (loc === p.pos ? ' current' : '');
+      dot.style.left = p.pos + '%';
+      if (p.label) {
+        const lbl = document.createElement('span');
+        lbl.className = 'route-progress-dot-label';
+        lbl.textContent = p.label;
+        dot.appendChild(lbl);
+      }
       dots.appendChild(dot);
     });
 
