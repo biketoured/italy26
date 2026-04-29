@@ -1153,8 +1153,8 @@
         /* Banner is 280px tall — centre pic on that seam */
         top: calc(280px - 48px);   /* banner height minus half of pic height */
         right: 1.5rem;
-        width: 96px;
-        height: 96px;
+        width: 126px;
+        height: 126px;
         border-radius: 50%;
         object-fit: cover;
         object-position: center top;
@@ -1163,7 +1163,7 @@
       }
       /* Minimal right clearance — just enough not to overlap the pic */
       .hero-title {
-        padding-right: 112px;
+        padding-right: 115px;
       }
     }
     @media (max-width: 480px) {
@@ -1171,8 +1171,8 @@
         /* Banner is 220px tall at phone size */
         top: calc(220px - 40px);
         right: 1.25rem;
-        width: 80px;
-        height: 80px;
+        width: 100px;
+        height: 100px;
       }
       .hero-title {
         padding-right: 92px;
@@ -1217,14 +1217,15 @@
       .blog-card-title { font-size: 0.95rem; }
     }
     /* ── ROUTE PROGRESS BAR ── */
+    /* ── ROUTE PROGRESS BAR ── */
     .route-progress {
       width: calc(100% + 8rem);
       margin-left: -4rem;
       margin-right: -4rem;
-      padding: 0 1.5rem 1.5rem;  /* tight bottom — labels sit close to seam */
+      padding: 0 1.5rem 1.5rem;
       margin-top: auto;
+      overflow: visible;
     }
-    /* Track — overflow visible so labels can extend beyond the bar width */
     .route-progress-track {
       position: relative;
       width: 100%;
@@ -1246,6 +1247,7 @@
       left: 0;
       width: 100%;
       transform: translateY(-50%);
+      overflow: visible;
     }
     .route-progress-dot {
       position: absolute;
@@ -1281,34 +1283,6 @@
       transition: color 0.5s;
       pointer-events: none;
     }
-    /* Tiny profile pic on the progress bar — sits above the line */
-    .route-progress-avatar {
-      position: absolute;
-      top: 50%;
-      width: 22px; height: 22px;
-      border-radius: 50%;
-      border: 1.5px solid var(--yellow);
-      object-fit: cover;
-      transform: translate(-50%, calc(-50% - 14px));  /* lift above the bar */
-      transition: left 0.8s ease;
-      pointer-events: none;
-      z-index: 2;
-    }
-    .route-progress-dot-label {
-      position: absolute;
-      top: 10px;           /* default: first row below bar */
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: 'DM Mono', monospace;
-      font-size: 0.52rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: rgba(196,180,154,0.5);
-      white-space: nowrap;
-      transition: color 0.5s;
-      pointer-events: none;
-    }
-    /* Alternate row — 1rem lower than the default row */
     .route-progress-dot-label.label-low {
       top: calc(10px + 1rem);
     }
@@ -1316,16 +1290,26 @@
     .route-progress-dot.current .route-progress-dot-label {
       color: rgba(212,169,74,0.75);
     }
+    .route-progress-avatar {
+      position: absolute;
+      top: 50%;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      border: 1.5px solid var(--yellow);
+      object-fit: cover;
+      transform: translate(-50%, calc(-50% - 14px));
+      transition: left 0.8s ease;
+      pointer-events: none;
+      z-index: 2;
+    }
     @media (max-width: 768px) {
       .route-progress {
         width: calc(100% + 3rem);
         margin-left: -1.5rem;
         margin-right: -1.5rem;
-        padding: 0 1.5rem 2.2rem;
+        padding: 0 1.5rem 3rem;
       }
-      .route-progress-track {
-        margin-bottom: 0;
-      }
+      .route-progress-track { margin-bottom: 0; }
     }
 
   </style>
