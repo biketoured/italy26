@@ -627,7 +627,11 @@
           <span data-en="Swedish donors" data-sv="Svenska donationer" data-it="Donatori svedesi">Swedish donors</span></div>
 
         <div class="payment-method">
-          <div class="payment-method-name" data-en="Swish" data-sv="Swish" data-it="Swish">Swish</div>
+          <div class="payment-method-name" data-en="Swish" data-sv="Swish" data-it="Swish">Swish
+                        <span style="font-family:'DM Mono',monospace; font-size:0.55rem; letter-spacing:0.12em; text-transform:uppercase; background:var(--sky-deep); color:var(--white); padding:2px 7px; border-radius:2px;"
+                  data-en="Recommended" data-sv="Rekommenderas" data-it="Consigliato">Recommended</span>
+          </div>
+          
           <div class="swish-row">
             <!-- QR code — click opens Swish app on phone -->
             <a href="swish://payment?data=%7B%22version%22%3A1%2C%22payee%22%3A%7B%22value%22%3A%220725532011%22%7D%7D"
@@ -650,6 +654,26 @@
             </div>
           </div>
         </div>
+        <div>
+        <!-- PayPal -->
+        <div class="payment-method">
+          <div class="payment-method-name">Hjärnfonden Direkt</div>
+          <p class="payment-note"
+             data-en="You can also donate straight to Hjärnfonden if you prefer, with Visa or Mastercard."
+             data-sv="Du kan även donera direkt till hjärnfonden om du vill, de accepterar Visa och Mastercard."
+             data-it="Puoi anche donare diretto alla organisazione con Visa o Mastercard qui.">
+            Om du vill donera direkt till hjärnfonden kan du göra det här:</p>
+          <div class="payment-detail">
+            <a href="https://insamling.hjarnfonden.se/en/fundraisers/italien-runt-2026"
+               target="_blank"
+               class="payment-link"
+               id="hjarnfonden-link">
+              Hjärnfonden.se
+            </a>
+            <button class="copy-btn" onclick="copyLink('hjarnfonden-link')" title="Copy link">⧉</button>
+          </div>
+        </div>
+</div>
 
       </div>
 
