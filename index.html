@@ -70,7 +70,7 @@
 
     .hero-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.2rem, 5vw, 4.2rem);
+      font-size: clamp(2rem, 5vw, 4rem);
       line-height: 1.1;
       color: var(--stone);
       margin-bottom: 1.2rem;
@@ -1331,10 +1331,10 @@
   <div class="hero">
     <div class="hero-left">
       <h1 class="hero-title"
-          data-en="Exploring the regions of <em>Italy</em> for a good cause.<br><bo>Starting May 10th 2026</bo><br>"
-          data-sv="Cyklar genom hela <em>Italien</em> för välgörenhet.<br><bo>Startar 10 maj 2026</bo>"
-          data-it="Esplorando le regioni <em>d'Italia</em> per una buona causa.<br><bo>Partenza 10 maggio 2026</bo>">
-        Exploring the regions of <em>Italy</em><br> for a good cause.<br><bo>Starting May 10th 2026</bo>
+          data-en="Exploring the regions of <em>Italy</em> for a good cause.<br><bo>Starting May 10th</bo><br>"
+          data-sv="Cyklar genom hela <em>Italien</em> för välgörenhet.<br><bo>Startar 10 maj</bo>"
+          data-it="Esplorando le regioni <em>d'Italia</em> per una buona causa.<br><bo>Partenza 10 maggio</bo>">
+        Exploring the regions of <em>Italy</em><br> for a good cause.<br><bo>Starting May 10th</bo>
       </h1>
       <p class="hero-sub"
          data-en="My mission is to explore the Italian culture, nature, and people, while also collecting donations to brain cancer research. Join me!"
@@ -2292,8 +2292,8 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
   <script>
   // ── HERO WIDGET: pre / during / post trip ──
   (function() {
-    var TRIP_START = new Date('2026-04-10T08:00:00');
-    var TRIP_END   = new Date('2026-06-20T00:00:00');
+    var TRIP_START = new Date('2026-05-10T12:00:00');
+    var TRIP_END   = new Date('2026-06-24T00:00:00');
     var now        = new Date();
 
     var prEl  = document.getElementById('widget-pre');
