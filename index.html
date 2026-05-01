@@ -2435,13 +2435,19 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
     const countdownEl = document.getElementById('hero-countdown');
     const lastRideEl  = document.getElementById('hero-last-ride');
 
-    // ── PRE-TRIP: show countdown ──
     if (now < TRIP_START) {
+      // ── PRE-TRIP: show countdown, no reload ──
       if (countdownEl) countdownEl.style.display = 'block';
 
-      function updateCountdown() {
-        const diff = new Date('2026-04-10T08:00:00') - new Date();
-        if (diff <= 0) { location.reload(); return; }
+      const timer = setInterval(function() {
+        const diff = TRIP_START - new Date();
+        if (diff <= 0) {
+          clearInterval(timer);
+          // Swap to last-ride display without reloading
+          if (countdownEl) countdownEl.style.display = 'none';
+          if (lastRideEl)  lastRideEl.style.display  = 'block';
+          return;
+        }
         const days  = Math.floor(diff / 86400000);
         const hours = Math.floor((diff % 86400000) / 3600000);
         const mins  = Math.floor((diff % 3600000)  / 60000);
@@ -2453,32 +2459,39 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
           String(hours).padStart(2,'0') + ':' +
           String(mins).padStart(2,'0')  + ':' +
           String(secs).padStart(2,'0');
-      }
-      updateCountdown();
-      setInterval(updateCountdown, 1000);
+      }, 1000);
 
-    // ── DURING/AFTER TRIP: show last Strava activity ──
     } else {
+      // ── DURING/AFTER TRIP: show last Strava activity ──
       if (lastRideEl) lastRideEl.style.display = 'block';
+      loadLastRide();
+    }
 
+    function loadLastRide() {
       fetch('/italy26/strava/activities.json')
-        .then(r => { if (!r.ok) throw new Error('not found'); return r.json(); })
-        .then(data => {
-          if (!data || !data.length) return;
-          const last = data[0];
-          const nameEl = document.getElementById('last-ride-name');
-          const kmEl   = document.getElementById('last-ride-km');
-          const elevEl = document.getElementById('last-ride-elev');
-          const linkEl = document.getElementById('last-ride-link');
-          if (nameEl) nameEl.textContent = last.name || '—';
-          if (kmEl)   kmEl.textContent   = last.distance ? (last.distance / 1000).toFixed(1) : '—';
-          if (elevEl) elevEl.textContent = last.total_elevation_gain ? Math.round(last.total_elevation_gain) : '—';
-          if (linkEl && last.id) linkEl.href = 'https://www.strava.com/activities/' + last.id;
+        .then(function(r) {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.json();
         })
-        .catch(() => {
-          // activities.json missing or invalid — show placeholder silently
+        .then(function(data) {
+          if (!Array.isArray(data) || data.length === 0) return;
+          const last    = data[0];
+          const nameEl  = document.getElementById('last-ride-name');
+          const kmEl    = document.getElementById('last-ride-km');
+          const elevEl  = document.getElementById('last-ride-elev');
+          const linkEl  = document.getElementById('last-ride-link');
+          if (nameEl) nameEl.textContent = last.name || '—';
+          if (kmEl)   kmEl.textContent   = last.distance
+            ? (last.distance / 1000).toFixed(1) : '—';
+          if (elevEl) elevEl.textContent = last.total_elevation_gain
+            ? Math.round(last.total_elevation_gain) : '—';
+          if (linkEl && last.id)
+            linkEl.href = 'https://www.strava.com/activities/' + last.id;
+        })
+        .catch(function() {
+          // activities.json not found or empty — show nothing, no crash
           const nameEl = document.getElementById('last-ride-name');
-          if (nameEl) nameEl.textContent = 'No activity yet';
+          if (nameEl) nameEl.textContent = '—';
         });
     }
   })();
