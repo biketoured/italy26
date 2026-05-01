@@ -139,7 +139,7 @@ function injectNav(page) {
        data-en="Home" data-sv="Hem" data-it="Home">Home</a>
 
     <a href="https://www.instagram.com/bikepack.ed/" target="_blank" rel="noopener" class="nav-instagram" title="Instagram" aria-label="Instagram">
-      <svg class="nav-instagram-icon" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <svg class="nav-instagram-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
           <radialGradient id="ig-grad" cx="30%" cy="107%" r="150%">
             <stop offset="0%"   stop-color="#fdf497"/>
