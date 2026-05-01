@@ -301,69 +301,6 @@
       opacity: 0.6;
     }
 
-    /* Strava last ride (shown after trip starts) */
-    .hero-last-ride {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      z-index: 3;
-      width: 80%;
-      display: none;
-    }
-
-    .last-ride-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--stone-dark);
-      margin-bottom: 1rem;
-    }
-
-    .last-ride-stat {
-      margin-bottom: 0.75rem;
-    }
-
-    .last-ride-number {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      font-weight: 700;
-      color: var(--yellow);
-      line-height: 1;
-    }
-
-    .last-ride-unit {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--stone-dark);
-    }
-
-    .last-ride-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      font-style: italic;
-      color: var(--stone);
-      margin-bottom: 1rem;
-      opacity: 0.8;
-    }
-
-    .last-ride-link {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--yellow);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(212,169,74,0.3);
-      padding-bottom: 2px;
-      transition: opacity 0.2s;
-    }
-    .last-ride-link:hover { opacity: 0.7; }
-
     /* ── DONATE BUTTON ── */
     .hero-donate {
       display: flex;
@@ -1471,9 +1408,9 @@
   <div class="hero">
     <div class="hero-left">
       <h1 class="hero-title"
-          data-en="Exploring the regions of <em>Italy</em> for a good cause.<br><bo>Starting May 10th</bo><br>"
-          data-sv="Cyklar genom hela <em>Italien</em> för välgörenhet.<br><bo>Startar 10 maj</bo>"
-          data-it="Esplorando le regioni <em>d'Italia</em> per una buona causa.<br><bo>Partenza 10 maggio</bo>">
+          data-en="Exploring the regions of <em>Italy</em> for a good cause.<br><bo>Starting May 10th 2026</bo><br>"
+          data-sv="Cyklar genom hela <em>Italien</em> för välgörenhet.<br><bo>Startar 10 maj 2026</bo>"
+          data-it="Esplorando le regioni <em>d'Italia</em> per una buona causa.<br><bo>Partenza 10 maggio 2026</bo>">
         Exploring the regions of <em>Italy</em><br> for a good cause.<br><bo>Starting May 10th 2026</bo>
       </h1>
       <p class="hero-sub"
@@ -1554,26 +1491,6 @@
              data-sv="dagar"
              data-it="giorni">days</div>
         <div class="countdown-hms" id="countdown-hms">--:--:--</div>
-      </div>
-
-      <div class="hero-last-ride" id="hero-last-ride">
-        <div class="last-ride-label"
-             data-en="Last ride"
-             data-sv="Senaste etapp"
-             data-it="Ultima tappa">Last ride</div>
-        <div class="last-ride-name" id="last-ride-name">—</div>
-        <div class="last-ride-stat">
-          <div class="last-ride-number" id="last-ride-km">—</div>
-          <div class="last-ride-unit">km</div>
-        </div>
-        <div class="last-ride-stat">
-          <div class="last-ride-number" id="last-ride-elev">—</div>
-          <div class="last-ride-unit">m ↑</div>
-        </div>
-        <a href="#" id="last-ride-link" class="last-ride-link" target="_blank"
-           data-en="View on Strava →"
-           data-sv="Visa på Strava →"
-           data-it="Vedi su Strava →">View on Strava →</a>
       </div>
 
       <div class="hero-stats">
@@ -2430,69 +2347,48 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
   // ── COUNTDOWN / LAST RIDE WIDGET ──
   (function() {
     const TRIP_START = new Date('2026-05-10T08:00:00');
+    const TRIP_END   = new Date('2026-06-20T00:00:00');
     const now        = new Date();
 
     const countdownEl = document.getElementById('hero-countdown');
     const lastRideEl  = document.getElementById('hero-last-ride');
 
+    // ── PRE-TRIP: show countdown ──
     if (now < TRIP_START) {
-      // ── PRE-TRIP: show countdown, no reload ──
-      if (countdownEl) countdownEl.style.display = 'block';
+      countdownEl.style.display = 'block';
 
-      const timer = setInterval(function() {
-        const diff = TRIP_START - new Date();
-        if (diff <= 0) {
-          clearInterval(timer);
-          // Swap to last-ride display without reloading
-          if (countdownEl) countdownEl.style.display = 'none';
-          if (lastRideEl)  lastRideEl.style.display  = 'block';
-          return;
-        }
+      function updateCountdown() {
+        const diff = new Date('2026-04-10T08:00:00') - new Date();
+        if (diff <= 0) { location.reload(); return; }
         const days  = Math.floor(diff / 86400000);
         const hours = Math.floor((diff % 86400000) / 3600000);
         const mins  = Math.floor((diff % 3600000)  / 60000);
         const secs  = Math.floor((diff % 60000)    / 1000);
-        const dEl = document.getElementById('countdown-days');
-        const hEl = document.getElementById('countdown-hms');
-        if (dEl) dEl.textContent = days;
-        if (hEl) hEl.textContent =
+        document.getElementById('countdown-days').textContent = days;
+        document.getElementById('countdown-hms').textContent =
           String(hours).padStart(2,'0') + ':' +
           String(mins).padStart(2,'0')  + ':' +
           String(secs).padStart(2,'0');
-      }, 1000);
+      }
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
 
+    // ── DURING/AFTER TRIP: show last Strava activity ──
     } else {
-      // ── DURING/AFTER TRIP: show last Strava activity ──
-      if (lastRideEl) lastRideEl.style.display = 'block';
-      loadLastRide();
-    }
+      lastRideEl.style.display = 'block';
 
-    function loadLastRide() {
       fetch('/italy26/strava/activities.json')
-        .then(function(r) {
-          if (!r.ok) throw new Error('HTTP ' + r.status);
-          return r.json();
+        .then(r => r.json())
+        .then(data => {
+          if (!data || !data.length) return;
+          const last = data[0];
+          document.getElementById('last-ride-name').textContent  = last.name || '—';
+          document.getElementById('last-ride-km').textContent    = last.distance ? (last.distance / 1000).toFixed(1) : '—';
+          document.getElementById('last-ride-elev').textContent  = last.total_elevation_gain ? Math.round(last.total_elevation_gain) : '—';
+          const link = document.getElementById('last-ride-link');
+          if (last.id) link.href = 'https://www.strava.com/activities/' + last.id;
         })
-        .then(function(data) {
-          if (!Array.isArray(data) || data.length === 0) return;
-          const last    = data[0];
-          const nameEl  = document.getElementById('last-ride-name');
-          const kmEl    = document.getElementById('last-ride-km');
-          const elevEl  = document.getElementById('last-ride-elev');
-          const linkEl  = document.getElementById('last-ride-link');
-          if (nameEl) nameEl.textContent = last.name || '—';
-          if (kmEl)   kmEl.textContent   = last.distance
-            ? (last.distance / 1000).toFixed(1) : '—';
-          if (elevEl) elevEl.textContent = last.total_elevation_gain
-            ? Math.round(last.total_elevation_gain) : '—';
-          if (linkEl && last.id)
-            linkEl.href = 'https://www.strava.com/activities/' + last.id;
-        })
-        .catch(function() {
-          // activities.json not found or empty — show nothing, no crash
-          const nameEl = document.getElementById('last-ride-name');
-          if (nameEl) nameEl.textContent = '—';
-        });
+        .catch(() => {});
     }
   })();
   </script>
