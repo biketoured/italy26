@@ -24,8 +24,8 @@ const CURRENT_LOC = 0;
 // LOC_POINTS: the marked dots on the bar, each with a position (0–100) and a label.
 // Labels appear below the dot in small caps. Leave label as '' to show dot only.
 const LOC_POINTS = [
-  { pos:  0, label: 'Nice' },
-  { pos:  2, label: 'Liguria' },
+  { pos:  1, label: 'Nice' },
+  { pos:  3, label: 'Liguria' },
   { pos:  11, label: 'Sardinia' },
   { pos:  18, label: 'Sicily' },
   { pos:  28, label: 'Calabria' },
