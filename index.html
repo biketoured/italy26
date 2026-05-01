@@ -258,8 +258,8 @@
     /* ── COUNTDOWN / LAST RIDE WIDGET ── */
     .hero-countdown {
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: 80%;
+      left: 20%;
       transform: translate(-50%, -50%);
       text-align: center;
       z-index: 3;
@@ -2441,7 +2441,7 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
       countdownEl.style.display = 'block';
 
       function updateCountdown() {
-        const diff = new Date('2026-05-10T08:00:00') - new Date();
+        const diff = new Date('2026-04-10T08:00:00') - new Date();
         if (diff <= 0) { location.reload(); return; }
         const days  = Math.floor(diff / 86400000);
         const hours = Math.floor((diff % 86400000) / 3600000);
