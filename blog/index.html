@@ -92,6 +92,42 @@
       .word-strip { padding: 0.9rem 1.5rem; gap: 0.75rem; }
       .word-strip-label { margin-left: 0; }
     }
+
+    /* ── NOTE FROM THE ROAD ── */
+    .note-strip {
+      background: var(--red);
+      padding: 1rem 3rem;
+      display: flex;
+      align-items: baseline;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .note-strip.hidden { display: none; }
+    .note-strip-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(253,250,244,0.6);
+      white-space: nowrap;
+    }
+    .note-strip-date {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: var(--yellow);
+      white-space: nowrap;
+    }
+    .note-strip-text {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      color: var(--white);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+    @media (max-width: 768px) {
+      .note-strip { padding: 0.9rem 1.5rem; gap: 0.75rem; }
+    }
   </style>
 </head>
 
@@ -126,6 +162,14 @@
           data-en="Word of the day"
           data-sv="Dagens ord"
           data-it="Parola del giorno">Word of the day</span>
+  </div>
+
+  <!-- NOTE FROM THE ROAD -->
+  <div class="note-strip" id="note-strip">
+    <span class="note-strip-label" data-en="Note from the road" data-sv="Notering från vägen" data-it="Nota dalla strada">Note from the road</span>
+    <span class="note-strip-date" id="note-strip-date"></span>
+    <span class="note-strip-sep" style="font-family:'DM Mono',monospace;font-size:0.65rem;color:rgba(253,250,244,0.4);letter-spacing:0.1em;">—</span>
+    <span class="note-strip-text" id="note-strip-text"></span>
   </div>
 
   <!-- TABS -->
@@ -235,6 +279,22 @@
     }
     wordEl.textContent    = WORD;
     meaningEl.textContent = MEANING || '';
+  })();
+  </script>
+
+  <script>
+  // ── NOTE FROM THE ROAD — reads NOTE and NOTE_DATE from manuals.js ──
+  (function() {
+    const strip  = document.getElementById('note-strip');
+    const dateEl = document.getElementById('note-strip-date');
+    const textEl = document.getElementById('note-strip-text');
+    if (!strip) return;
+    if (typeof NOTE === 'undefined' || !NOTE) {
+      strip.classList.add('hidden');
+      return;
+    }
+    dateEl.textContent = (typeof NOTE_DATE !== 'undefined' && NOTE_DATE) ? NOTE_DATE : '';
+    textEl.textContent = NOTE;
   })();
   </script>
 

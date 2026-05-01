@@ -14,8 +14,8 @@ const DONATION_GOAL  = 40000;                          // SEK goal
 
 // ── LIVE TRACKING ──
 // Set LIVE_TRACKING to true and update LIVE_URL when actively tracking
-const LIVE_TRACKING = true;
-const LIVE_URL      = 'https://gar.mn/RzA1rd3WR';
+const LIVE_TRACKING = false;
+const LIVE_URL      = '';
 
 // ── ROUTE PROGRESS ──
 // CURRENT_LOC: a number 0–100 for how far along the route you are.
@@ -42,11 +42,11 @@ const LOC_POINTS = [
 // ── WORD OF THE DAY ──
 // Leave WORD empty ('') to hide the strip entirely.
 const WORD    = 'Magari';        // e.g. 'Magari'
-const MEANING = 'Maybe, perhaps, if only. Carefully optimistic and thoughtful';        // e.g. 'Maybe, perhaps, if only — the most Italian word'
+const MEANING = 'Maybe, perhaps, if only. Carefully optimistic and thoughtful';
 
 // ── NOTE FROM THE ROAD ──
 // Leave NOTE empty ('') to hide it.
-const NOTE      = 'Ten days until departure. Feeling surprisingly calm';      // e.g. 'Day 12 — somewhere in Calabria. The climbs here are serious.'
+const NOTE      = 'Ten days until departure. Feeling surprisingly calm';
 const NOTE_DATE = '29 april';      // e.g. '22 May'
 
 
