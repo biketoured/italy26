@@ -2430,7 +2430,6 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
   // ── COUNTDOWN / LAST RIDE WIDGET ──
   (function() {
     const TRIP_START = new Date('2026-05-10T08:00:00');
-    const TRIP_END   = new Date('2026-06-20T00:00:00');
     const now        = new Date();
 
     const countdownEl = document.getElementById('hero-countdown');
@@ -2438,7 +2437,7 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
 
     // ── PRE-TRIP: show countdown ──
     if (now < TRIP_START) {
-      countdownEl.style.display = 'block';
+      if (countdownEl) countdownEl.style.display = 'block';
 
       function updateCountdown() {
         const diff = new Date('2026-04-10T08:00:00') - new Date();
@@ -2447,8 +2446,10 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
         const hours = Math.floor((diff % 86400000) / 3600000);
         const mins  = Math.floor((diff % 3600000)  / 60000);
         const secs  = Math.floor((diff % 60000)    / 1000);
-        document.getElementById('countdown-days').textContent = days;
-        document.getElementById('countdown-hms').textContent =
+        const dEl = document.getElementById('countdown-days');
+        const hEl = document.getElementById('countdown-hms');
+        if (dEl) dEl.textContent = days;
+        if (hEl) hEl.textContent =
           String(hours).padStart(2,'0') + ':' +
           String(mins).padStart(2,'0')  + ':' +
           String(secs).padStart(2,'0');
@@ -2458,20 +2459,27 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
 
     // ── DURING/AFTER TRIP: show last Strava activity ──
     } else {
-      lastRideEl.style.display = 'block';
+      if (lastRideEl) lastRideEl.style.display = 'block';
 
       fetch('/italy26/strava/activities.json')
-        .then(r => r.json())
+        .then(r => { if (!r.ok) throw new Error('not found'); return r.json(); })
         .then(data => {
           if (!data || !data.length) return;
           const last = data[0];
-          document.getElementById('last-ride-name').textContent  = last.name || '—';
-          document.getElementById('last-ride-km').textContent    = last.distance ? (last.distance / 1000).toFixed(1) : '—';
-          document.getElementById('last-ride-elev').textContent  = last.total_elevation_gain ? Math.round(last.total_elevation_gain) : '—';
-          const link = document.getElementById('last-ride-link');
-          if (last.id) link.href = 'https://www.strava.com/activities/' + last.id;
+          const nameEl = document.getElementById('last-ride-name');
+          const kmEl   = document.getElementById('last-ride-km');
+          const elevEl = document.getElementById('last-ride-elev');
+          const linkEl = document.getElementById('last-ride-link');
+          if (nameEl) nameEl.textContent = last.name || '—';
+          if (kmEl)   kmEl.textContent   = last.distance ? (last.distance / 1000).toFixed(1) : '—';
+          if (elevEl) elevEl.textContent = last.total_elevation_gain ? Math.round(last.total_elevation_gain) : '—';
+          if (linkEl && last.id) linkEl.href = 'https://www.strava.com/activities/' + last.id;
         })
-        .catch(() => {});
+        .catch(() => {
+          // activities.json missing or invalid — show placeholder silently
+          const nameEl = document.getElementById('last-ride-name');
+          if (nameEl) nameEl.textContent = 'No activity yet';
+        });
     }
   })();
   </script>
