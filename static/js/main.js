@@ -149,7 +149,7 @@ function injectNav(page) {
             <stop offset="100%" stop-color="#285AEB"/>
           </radialGradient>
         </defs>
-        <rect width="24" height="24" rx="5.5" ry="5.5" fill="url(#ig-grad)"/>
+        <rect width="50" height="50" rx="5.5" ry="5.5" fill="url(#ig-grad)"/>
         <rect x="2.4" y="2.4" width="19.2" height="19.2" rx="4" ry="4" fill="none" stroke="white" stroke-width="1.6"/>
         <circle cx="12" cy="12" r="4.2" fill="none" stroke="white" stroke-width="1.6"/>
         <circle cx="17.5" cy="6.5" r="1.1" fill="white"/>
