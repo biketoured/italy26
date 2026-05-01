@@ -7,15 +7,15 @@
 // ══════════════════════════════════════════════════════════════
 
 // ── DONATIONS ──
-const SEK = 0;
+const SEK = 4000;
 const EUR = 0;
 const DONATION_TOTAL = Math.round(SEK + (EUR * 11));  // SEK total (EUR*11 ≈ conversion)
 const DONATION_GOAL  = 40000;                          // SEK goal
 
 // ── LIVE TRACKING ──
 // Set LIVE_TRACKING to true and update LIVE_URL when actively tracking
-const LIVE_TRACKING = false;
-const LIVE_URL      = 'https://www.strava.com/athletes/33737566';
+const LIVE_TRACKING = true;
+const LIVE_URL      = 'https://gar.mn/RzA1rd3WR';
 
 // ── ROUTE PROGRESS ──
 // CURRENT_LOC: a number 0–100 for how far along the route you are.

@@ -1,14 +1,14 @@
 [
   {
-    "name": "Test & Test",
-    "amount": 1000,
+    "name": "Edvard",
+    "amount": 4000,
     "currency": "kr",
-    "message": "Vilken resa! Rulla försiktigt och ät pasta varje dag!"
+    "message": "I pledge to donate 1 SEK for each kilometer. Jag binder mig vid att donera en krona för varje kilometer. Mi impegno a donare 1 SEK per ogni chilometro."
   },
   {
     "name": "Test",
-    "amount": 40,
+    "amount": 0,
     "currency": "€",
-    "message": "In bocca al lupo, Edvard! Forza dalla Calabria 🇮🇹"
+    "message": "Test"
   }
 ]
