@@ -138,6 +138,24 @@ function injectNav(page) {
     <a href="${homeHref}" class="nav-home ${homeHidden}"
        data-en="Home" data-sv="Hem" data-it="Home">Home</a>
 
+    <a href="https://www.instagram.com/bikepack.ed/" target="_blank" rel="noopener" class="nav-instagram" title="Instagram" aria-label="Instagram">
+      <svg class="nav-instagram-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <radialGradient id="ig-grad" cx="30%" cy="107%" r="150%">
+            <stop offset="0%"   stop-color="#fdf497"/>
+            <stop offset="10%"  stop-color="#fdf497"/>
+            <stop offset="50%"  stop-color="#fd5949"/>
+            <stop offset="68%"  stop-color="#d6249f"/>
+            <stop offset="100%" stop-color="#285AEB"/>
+          </radialGradient>
+        </defs>
+        <rect width="24" height="24" rx="5.5" ry="5.5" fill="url(#ig-grad)"/>
+        <rect x="2.4" y="2.4" width="19.2" height="19.2" rx="4" ry="4" fill="none" stroke="white" stroke-width="1.6"/>
+        <circle cx="12" cy="12" r="4.2" fill="none" stroke="white" stroke-width="1.6"/>
+        <circle cx="17.5" cy="6.5" r="1.1" fill="white"/>
+      </svg>
+    </a>
+
     <div class="lang-switcher">
       <button class="lang-btn active" data-lang="en" title="English">
         <img src="${p}assets/images/flaguk.png" alt="English" width="50" height="50">
@@ -354,20 +372,14 @@ function injectPizzaScrollbar() {
   // ── Scroll listener ──
   // ── Scrollbar fade-out after 15s of inactivity ──
   let fadeTimer = null;
-  let removeTimer = null;
   function showScrollbar() {
-    clearTimeout(fadeTimer);
-    clearTimeout(removeTimer);
-    scrollbar.style.display    = 'block';
     scrollbar.style.transition = 'opacity 0.5s ease';
     scrollbar.style.opacity    = '1';
+    clearTimeout(fadeTimer);
     fadeTimer = setTimeout(() => {
       scrollbar.style.transition = 'opacity 2s ease';
       scrollbar.style.opacity    = '0';
-      removeTimer = setTimeout(() => {
-        scrollbar.style.display = 'none';
-      }, 2000);
-    }, 10000);
+    }, 8000);
   }
   // Show on load, start the 15s countdown immediately
   showScrollbar();
@@ -547,6 +559,12 @@ function injectPizzaScrollbar() {
               el.style.left = posX  + 'px';
               appleImg.style.transform = `rotate(${Math.round(angle)}deg)`;
               appleDropState.settled.push(el);
+              // Fade out and remove after 10 seconds
+              setTimeout(() => {
+                el.style.transition = 'opacity 1.5s ease';
+                el.style.opacity = '0';
+                setTimeout(() => el.remove(), 1500);
+              }, 10000);
               return;
             }
 

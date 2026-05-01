@@ -21,7 +21,6 @@ const LIVE_URL      = 'https://www.strava.com/athletes/33737566';
 // CURRENT_LOC: a number 0–100 for how far along the route you are.
 // Update this each day. The dot at that position lights up as "current".
 const CURRENT_LOC = 0;
-
 // LOC_POINTS: the marked dots on the bar, each with a position (0–100) and a label.
 // Labels appear below the dot in small caps. Leave label as '' to show dot only.
 const LOC_POINTS = [

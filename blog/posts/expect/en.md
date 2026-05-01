@@ -23,8 +23,8 @@ I want to try something new along the way, and I also want to try some competiti
 [photo:2]
 
 ## Special expectations
-Perhaps I will be invited to someones home and experience something authentic. Hopefully I will experience Italy for real, see both good and bad.
-When passing by Monaco I want to take a couple laps around the streets, and possibly capture a photo of luxury cars stalled on the roadsides and the boats docked at the harbour. Hopefully I will experience the contrast between rural countryside and bustling cities, between beaches and mountains, between the old and the new whatever that means... To get new perspectives.
+Perhaps I will be invited to someones home and experience something authentic. Hopefully I will experience Italy for real, see the contrasts.
+When passing by Monaco I want to take a couple laps around the streets, and possibly capture a photo of luxury cars stalled on the roadsides and boats docked at the harbour. Hopefully I will experience the contrast between rural countryside and bustling cities, between beaches and mountains, between the old and the new whatever that means... To get new perspectives.
 When passing through the countryside I would be very honored to share a dinner with the locals and experience a glimpse of their everyday life.
 If possible, I would ride up part of the Etna vulcano on Sicily.
 Spend a day in Naples to see Pompeii.
@@ -35,5 +35,6 @@ I do not expect this adventure to be life-changing, but I will do what I can to 
 
 ## Difficulties
 
-I expect to face challenges, some of them self-imposed, some of them unforeseen. I will have to make tough decisions and prioritisations, and there will always be something more I wish I had packed for the journey. I will certainly not enjoy every moment. At times I will stress myself up even though I decide my own schedule. Not all people are well-meaning, and I need to keep my guard up and keep full attention to my belongings at all times. I expect myself to push the limits and suffer at times, but also relax and heal. I will feel stressed, nervous, and lost at times. I will lose motivation and scream out in frustration. The weather will not always cooperate well. Some areas may become overwhelming, some areas may be dangerous.<br>
+I expect to face challenges, some of them self-caused, some of them unforeseen. I will have to make tough decisions and prioritisations, and there will always be something more I wish I had packed for the journey. I will certainly not enjoy every moment. At times I will stress myself up even though I decide my own schedule. Not all people are well-meaning, and I need to keep my guard up and keep full attention to my belongings at all times. I expect myself to push the limits and suffer at times, but also relax and heal. I will feel stressed, nervous, and lost at times. I will lose motivation and scream out in frustration. The weather will not always cooperate well. Some areas may become overwhelming, some areas may be dangerous. I might get sick or injured, and I might have to face the decision to cancel the journey.<br>
+
 However, these <bo>difficulties add contrast</bo> to the journey. No good story was ever monotone and peaceful. And who doesn't love a good story?
