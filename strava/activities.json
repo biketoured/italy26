@@ -1,5 +1,18 @@
 [
   {
+    "id": 18348053443,
+    "name": "BRM Bjurholm 200km",
+    "type": "Ride",
+    "date": "2026-05-02T08:02:05Z",
+    "distance": 203.5,
+    "elevation": 1815,
+    "moving_time": 27189,
+    "polyline": "ydqdKadrzBba@p^}Fly@nQluEqBng@da@|kA`M}GxInIfHlz@zg@j}@d\\dsBlj@d`ArOfc@rLdx@tQzbDtaAb{G`@nc@{JvoB~IhuBjEtrD}VntByInfDnKdhDaUpdDrDb~CgF|]sd@tx@s`@x}Ak_@hiBaFd}@pCbp@xZrvAl\\fwCpl@duAr`@jhAnMhp@nBrj@iDrsBeUvvDfW|hEzNzf@~HkBfzCooDnj@qPvy@jP~x@tuAnx@xa@fk@r{@l^_Clj@ya@huAgf@vz@rUdSb^dl@|f@vRwCbm@gb@lWtHtcC`|FjcAbgB|VrVrr@~pAhYpIhq@hjAnRzGvWtp@bf@jPjKvnBcGjm@_LfRiGb_@}l@tb@wRriE{VpKi_AnfAo`@loAmYpe@}u@~H}UgVq`@{PwhAbZchB`pBg\\fpAwh@jh@{u@jYcrAmAoUvMiyAxhBgeAb_CklA~bAk[z`@mu@|WqTcEyl@rZaZkDg`Ank@aoBzJmp@n`@uf@bg@qZvl@yZjdA{^lYcXmFcj@{p@wwAfm@m[ft@ib@|K}LzT}[lWm[bImQhh@uHzFy^tOsp@uW_^lb@_YyEcW`Tm_B~@g}@rbAco@zZom@lr@yHaQlHq_ABurCtMacBTyyBiDcv@iTisAsFcz@R}w@bQ{fFqZawEeBgmAhb@evIxA_dFl\\m`ElAm`Hbk@inJ||AaoFfDw\\_Aqa@lf@o{@b_@}uCmAgg@uNcWsAcd@{Ksd@kUod@m^y@cDofAaIac@uZQ{IyXc]ec@u@k]bIo\\hDq|@rVsmB`C}~@yZamBuUkEiFcoA_[dSo_@Xc]qc@qYg~@onBu~@kyA{c@}n@k`@gUm`@{cAc`A_My_@c_@w\\{[}F}^sr@ucCw^}h@nJyy@y\\osCtGwQaMcYyv@{g@{YaJoXdKqEda@_v@~WeMz\\ut@bS{bA`Ygf@bsBss@p~BqhCjbBalAf_AeA|[}IvKyPh^]xLvOx\\dVjThNxiBhGllC|{BffApn@lWkKjUiXh]}x@lE{b@dYgf@zeAePx{@km@p^kaA|HwBvG{\\vI~H~Qmn@`FnDfMe[vLqI|XqbA|Lcv@hOeOfJVnWwt@xNyNvLos@jMkVjc@khBp^iYhVu_@dGcnByGsdBkSygA|\\sgGdL}g@lRolB",
+    "avg_speed": 26.9,
+    "avg_hr": 141.1,
+    "heartbeats": 63939
+  },
+  {
     "id": 18335573676,
     "name": "Afternoon Ride",
     "type": "Ride",
