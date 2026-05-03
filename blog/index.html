@@ -222,13 +222,13 @@
         const title     = post.title[currentLang] || post.title.en;
         const date      = formatDate(post.date, currentLang);
         const rt        = readTime(post);
-        const coverSrc = '/italy26/blog/posts/' + post.slug + '/cover.jpg';
+        const coverSrc = '/italy26/blog/posts/' + post.slug + '/cover_thumb.jpg';
         const coverHTML = `<img class="post-card-cover"
           src="${coverSrc}"
           alt="${title}"
           loading="lazy"
           onerror="
-            const t=['cover.jpeg','cover.png','cover.webp'];
+            const t=['cover.jpg','cover.png','cover.webp','cover.jpeg'];
             const i=parseInt(this.dataset.try||0);
             if(i<t.length){this.dataset.try=i+1;this.src='/italy26/blog/posts/${post.slug}/'+t[i];}
             else{this.onerror=null;this.src='/italy26/assets/images/placehold.png';}
