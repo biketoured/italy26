@@ -41,13 +41,13 @@ const LOC_POINTS = [
 
 // ── WORD OF THE DAY ──
 // Leave WORD empty ('') to hide the strip entirely.
-const WORD    = 'Magari';        // e.g. 'Magari'
+const WORD    = 'Magari';
 const MEANING = 'Maybe, perhaps, if only. Carefully optimistic and thoughtful';
 
 // ── NOTE FROM THE ROAD ──
 // Leave NOTE empty ('') to hide it.
-const NOTE      = 'Ten days until departure. Feeling surprisingly calm';
-const NOTE_DATE = '29 april';      // e.g. '22 May'
+const NOTE      = 'ONE WEEK LEFT! I tried the bikepacking setup on a 200km event this weekend. I did not feel too slow, managed to keep 25km/h despite the weight and drag.';
+const NOTE_DATE = '3 may';
 
 
 // Utforska betalningssätt: Paypal och Revolut fixat. Behöver koppla konton bara...
