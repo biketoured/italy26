@@ -3,12 +3,6 @@
     "name": "Edvard",
     "amount": 4000,
     "currency": "kr",
-    "message": "I pledge to donate 1 SEK for each kilometer. Jag binder mig vid att donera en krona för varje kilometer. Mi impegno a donare 1 SEK per ogni chilometro."
-  },
-  {
-    "name": "Test",
-    "amount": 0,
-    "currency": "€",
-    "message": "Test"
+    "message": "I pledge to donate 1 SEK for each kilometer. <br> Jag binder mig vid att donera en krona för varje kilometer. Mi impegno a donare 1 SEK per ogni chilometro."
   }
 ]
