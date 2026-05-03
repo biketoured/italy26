@@ -28,10 +28,10 @@ When passing by Monaco I want to take a couple laps around the streets, and poss
 When passing through the countryside I would be very honored to share a dinner with the locals and experience a glimpse of their everyday life.
 If possible, I would ride up part of the Etna vulcano on Sicily.
 Spend a day in Naples to see Pompeii.
-Complete an epic climb up a 2000m mountain.
-Try something new (via ferrata, horseback riding, or surfing?)...
+Complete an epic climb up a 2000m mountain, or a bunch of them!
+Try something new (via ferrata, horseback riding, or birdwatching?)...
 Bike in the Dolomites, Sardinia, and many other breathtaking locations.
-I do not expect this adventure to be life-changing, but I will do what I can to make it memorable.
+I do not expect this adventure to be life-changing, but I will do what I can to make it memorable. Keep my mind open.
 
 ## Difficulties
 
