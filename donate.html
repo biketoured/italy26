@@ -13,7 +13,7 @@
   <title>Donate — Edvard Appelberg</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-
+  <link rel="canonical" href="https://biketoured.github.io/italy26/index.html">
   <script src="manuals.js"></script>
   <link rel="stylesheet" href="/italy26/static/css/style.css">
   <script src="/italy26/static/js/main.js" defer></script>
@@ -402,6 +402,121 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
+    /* ── DIAGNOSES SECTION ── */
+    .diagnoses-section {
+      margin: 3rem 0;
+    }
+
+    .diagnoses-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 1rem;
+    }
+
+    .diagnoses-intro {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--stone-dark);
+      line-height: 1.7;
+      max-width: 620px;
+      margin-bottom: 1.5rem;
+    }
+
+    .diagnoses-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.5rem;
+    }
+
+    /* ── COLLAPSED STATE: name pill only ── */
+    .diagnosis-card {
+      background: var(--green);
+      border: 1px solid rgba(212,169,74,0.35);
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .diagnosis-card:hover {
+      background: var(--green-mid);
+      border-color: rgba(212,169,74,0.7);
+    }
+
+    .diagnosis-card.expanded {
+      border-color: var(--yellow);
+      background: var(--green-mid);
+    }
+
+    .diagnosis-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.85rem;
+      color: var(--yellow);
+      text-align: center;
+      padding: 0.75rem 0.5rem;
+      line-height: 1.2;
+      flex-shrink: 0;
+    }
+
+    /* ── EXPANDED STATE: description slides in ── */
+    .diagnosis-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.25s ease;
+      padding: 0 0.75rem;
+      border-top: 0px solid rgba(212,169,74,0.2);
+    }
+
+    .diagnosis-card.expanded .diagnosis-body {
+      max-height: 200px;
+      padding: 0.6rem 0.75rem 0.75rem;
+      border-top-width: 1px;
+    }
+
+    .diagnosis-desc {
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: var(--stone-dark);
+      line-height: 1.55;
+    }
+
+    /* ── "AND MORE" CARD ── */
+    .diagnosis-card.more-card {
+      border-style: dashed;
+      border-color: rgba(212,169,74,0.25);
+    }
+    .diagnosis-card.more-card .diagnosis-name {
+      color: rgba(212,169,74,0.55);
+      font-style: italic;
+    }
+    .diagnosis-card.more-card:hover .diagnosis-name {
+      color: var(--yellow);
+    }
+    .diagnosis-more-link {
+      display: block;
+      text-align: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      opacity: 0.6;
+      text-decoration: none;
+      padding: 0 0.5rem 0.65rem;
+    }
+    .diagnosis-more-link:hover { opacity: 1; }
+
+    @media (max-width: 768px) {
+      .diagnoses-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .diagnoses-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
     /* ── DONOR WALL ── */
     .donor-label {
       font-family: 'DM Mono', monospace;
@@ -534,20 +649,20 @@
           data-it="Pedalando per la ricerca<br>che <em>salva le vite</em>">
           Riding for research<br>that <em>save lives</em></h1>
         <p>
-        <span data-en="I ride this journey partly in memory of my father, partly for everyone else fighting brain cancer."
-              data-sv="Det här äventyret cyklar jag delvis i minne av min far, delvis för alla andra som kämpar, här kämpat, eller kommer att kämpa mot hjärncancer."
-              data-it="Questo viaggio lo percorro in parte in memoria di mio padre, e per tutti coloro che combattono, combattavano e combatteranno il cancro al cervello.">
-              This journey I ride partly in memory of my father, and for everyone else fighting brain cancer.</span>
+        <span data-en="The brain is the most complex structure in the known universe. Each day people around us are affected by different kinds of brain diseases. While some of them are rather unassuming, other are fatal or incurable. They all have real impact on people we care about."
+              data-sv="Hjärnan är det mest komplexa vi känner till. Varje dag drabbas människor runtom oss av mer eller mindre allvarliga hjärnsjukdomar. Vissa av dem är vardagliga och går över, medan andra är ärftliga eller obotliga. Gemensamt är att de angriper vårt mest vitala organ och påverkar oss kraftigt."
+              data-it="Il cervello è la struttura più complessa dell'universo conosciuto. Ogni giorno, molte persone intorno a noi sono colpite da diverse patologie cerebrali. Alcune sono piuttosto insidiose, altre fatali o incurabili. Tutte hanno un impatto reale sulle persone a cui teniamo.">
+              The brain is the most complex structure in the known universe. Each day people around us are affected by different kinds of brain diseases. While some of them are rather unassuming, other are fatal or incurable. They all have real impact on people we care about.</span>
       </p><p>
-        <span data-en="When he was diagnosed in 2017, everything changed."
-              data-sv="När han fick sin diagnos 2017 förändrades allt."
-              data-it="Quando ha ricevuto la diagnosi nel 2017, tutto è cambiato.">
-          When he was diagnosed in 2017, everything changed.</span>
+        <span data-en="I ride this journey partly in memory of my father and everyone else fighting brain cancer. When he was diagnosed in 2017, everything changed."
+              data-sv="Det här äventyret cyklar jag delvis i minne av min far, delvis för alla andra som kämpar, här kämpat, eller kommer att kämpa mot hjärncancer.När han fick sin diagnos 2017 förändrades allt."
+              data-it="Questo viaggio lo percorro in parte in memoria di mio padre, e per tutti coloro che combattono, combattavano e combatteranno il cancro al cervello.Quando ha ricevuto la diagnosi nel 2017, tutto è cambiato.">
+          I ride this journey partly in memory of my father and everyone else fighting brain cancer. When he was diagnosed in 2017, everything changed.</span>
         <span class="story-expand-btn" onclick="toggleStory(this)"
               data-en=" See more…" data-sv=" Läs mer…" data-it=" Leggi tutto…"> See more…</span>
         <span class="story-full" style="display:none;"
-              data-en="<br> The surgeries, the rehabilitation, and the constant uncertainty about the future were not only hard on him, but on all of us close to him.<br>My family and I are forever grateful that research extended the time we had together. This collection is my way of giving back, and hopefully creating the conditions for more people to survive brain cancer today and in the future."
-              data-sv="<br> Operationer, rehabilitering, och den ständiga ovissheten om framtiden var inte enbart jobbig för honom, men även för oss närstående.<br>Jag och min familj är evigt tacksamma för att forskningen förlängde tiden vi fick tillsammans. Den här insamlingen är mitt sätt att ge tillbaka, och förhoppningsvis ge förutsättningar för fler att överleva hjärncancer, idag och i framtiden."
+              data-en="<br> The surgeries, the rehabilitation, and the constant uncertainty about the future were not only hard on him, but on all of us close to him. The fight against cancer lasted for seven years, many more years than would have been possible without the advancements in cancer treatments.<br>My family and I are forever grateful that research extended the time we had together. This collection is my way of giving back, and hopefully creating the conditions for more people to survive brain cancer today and in the future."
+              data-sv="<br> Operationer, rehabilitering, och den ständiga ovissheten om framtiden var inte enbart jobbig för honom, men även för oss närstående. Min far kämpade sju år, men det har varit betydligt färre utan de avancerade metoderna som finns idag.<br>Jag och min familj är evigt tacksamma för att forskningen förlängde tiden vi fick tillsammans. Den här insamlingen är mitt sätt att ge tillbaka, och förhoppningsvis ge förutsättningar för fler att överleva hjärncancer, idag och i framtiden."
               data-it="<br> Gli interventi, la riabilitazione e la costante incertezza sul futuro non erano difficili solo per lui, ma per tutti noi che gli volevamo bene.<br>La mia famiglia ed io siamo eternamente grati che la ricerca abbia prolungato il tempo che abbiamo avuto insieme. Questa raccolta è il mio modo di ricambiare, e di creare le condizioni affinché sempre più persone sopravvivano al cancro al cervello, oggi e in futuro.">
         </span>
       </p>
@@ -563,7 +678,7 @@
     <div class="goal-block">
       <div class="goal-row">
         <span class="goal-current" id="donate-current">0 kr</span>
-        <span class="goal-target" id="donate-goal">Goal: 50 000 kr</span>
+        <span class="goal-target" id="donate-goal"></span>
       </div>
       <div class="goal-bar">
         <div class="goal-fill" id="donate-fill" style="width:0%"></div>
@@ -587,7 +702,6 @@
                 data-it="La principale fondazione svedese che finanzia la ricerca sulle malattie cerebrali. Quelli inclusa la diagnostica precoce, la biologia tumorale e lo sviluppo di nuovi trattamente. Tutte le donazioni vanno direttamente a progetti di ricerca svedesi.">
                 Sweden's leading foundation funding research into brain diseases, including early diagnostics, tumour biology, and the development of new treatments. All donations go directly to Swedish research projects.</span>
         </p>
-        <!-- INSERT: replace # with Hjärnfonden's official website URL -->
         <a href="https://www.hjarnfonden.se/" class="org-link" target="_blank">hjarnfonden.se →</a>
       </div>
 
@@ -602,10 +716,178 @@
                 data-it="Associazione Italiana Tumori Cerebrali — un'organizzazione non profit italiana dedicata esclusivamente alla ricerca sui tumori cerebrali, che finanzia studi sulla diagnosi precoce e terapie migliorate. Donazioni accettate anche in memoria di persone care.">
                 Associazione Italiana Tumori Cerebrali — an Italian non-profit dedicated exclusively to brain tumour research, funding studies into earlier diagnostics and improved therapies. Donations also accepted in memory of loved ones.</span>
         </p>
-        <!-- INSERT: replace # with AITC's official website URL -->
         <a href="https://www.aitc.it/" class="org-link" target="_blank">aitc.it →</a>
       </div>
 
+    </div>
+
+    <!-- ══ DIAGNOSES ══ -->
+    <div class="diagnoses-section">
+      <p class="diagnoses-label"
+         data-en="// What we are fighting"
+         data-sv="// Det vi kämpar mot"
+         data-it="// Cosa stiamo combattendo">// What we are fighting</p>
+      <p class="diagnoses-intro"
+         data-en="The brain is the most complex structure in the known universe. Each day people around us are affected by different kinds of brain diseases — some common, some rare, all with real impact on people we care about. Tap any to learn more."
+         data-sv="Hjärnan är den mest komplexa struktur vi känner till. De allra flesta av oss påverkas av diagnoser eller drabbas av någon hjärnsjukdom någon gång i livet. Somliga vanliga, andra ovanliga, alla med verklig påverkan på de vi bryr oss om. Klicka för att läsa mer."
+         data-it="Il cervello è la struttura più complessa che conosciamo. Ogni giorno persone intorno a noi sono colpite da malattie cerebrali. Alcune comuni, alcune rare, tutte con un impatto reale. Clicca per saperne di più.">
+        The brain is the most complex structure in the known universe. Each day people around us are affected by different kinds of brain diseases. Tap any to learn more.
+      </p>
+
+      <div class="diagnoses-grid" id="diagnoses-grid">
+
+        <div class="diagnosis-card" onclick="toggleDiagnosis(this)">
+          <div class="diagnosis-name"
+               data-en="Brain tumours"
+               data-sv="Hjärntumörer"
+               data-it="Tumori cerebrali">Brain tumours</div>
+          <div class="diagnosis-body">
+            <div class="diagnosis-desc"
+                 data-en="Abnormal growths in or around the brain. Range from slow-growing benign tumours to aggressive glioblastomas with a median survival of under 15 months."
+                 data-sv="Onormala tillväxter i eller runt hjärnan. Sträcker sig från långsamtväxande godartade tumörer till aggressiva glioblastom med en medianöverlevnad på under 15 månader."
+                 data-it="Crescite anomale nel cervello o intorno ad esso. Variano da tumori benigni a glioblastomi aggressivi con una sopravvivenza mediana inferiore a 15 mesi.">
+              Abnormal growths in or around the brain — from slow-growing benign tumours to aggressive glioblastomas with median survival under 15 months.
+            </div>
+          </div>
+        </div>
+
+        <div class="diagnosis-card" onclick="toggleDiagnosis(this)">
+          <div class="diagnosis-name"
+               data-en="ADHD"
+               data-sv="ADHD"
+               data-it="ADHD">ADHD</div>
+          <div class="diagnosis-body">
+            <div class="diagnosis-desc"
+                 data-en="A neurodevelopmental condition affecting attention and impulse control. One of the most common brain-based diagnoses, affecting both children and adults."
+                 data-sv="Ett neuroutvecklingstillstånd som påverkar uppmärksamhet och impulskontroll. En av de vanligaste diagnoserna, som drabbar både barn och vuxna."
+                 data-it="Una condizione del neurosviluppo che influisce sull'attenzione e il controllo degli impulsi. Una delle diagnosi cerebrali più comuni, che colpisce bambini e adulti.">
+              A neurodevelopmental condition affecting attention and impulse control. One of the most common brain-based diagnoses, affecting children and adults alike.
+            </div>
+          </div>
+        </div>
+
+        <div class="diagnosis-card" onclick="toggleDiagnosis(this)">
+          <div class="diagnosis-name"
+               data-en="Addiction"
+               data-sv="Beroende"
+               data-it="Dipendenza">Addiction</div>
+          <div class="diagnosis-body">
+            <div class="diagnosis-desc"
+                 data-en="A chronic brain disorder involving compulsive substance use or behaviours despite their harmful consequences. Research links it to disrupted reward pathways in the brain."
+                 data-sv="En kronisk hjärnstörning som innebär tvångsmässigt bruk av substanser eller beteenden trots skadliga konsekvenser. Forskning kopplar det till störda belöningssystem i hjärnan."
+                 data-it="Un disturbo cerebrale cronico che coinvolge l'uso compulsivo di sostanze o comportamenti nonostante le conseguenze dannose. La ricerca lo collega a percorsi di ricompensa cerebrali alterati.">
+              A chronic brain disorder involving compulsive substance use or behaviours despite their harmful consequences. Research links it to disrupted reward pathways in the brain.
+            </div>
+          </div>
+        </div>
+
+        <div class="diagnosis-card" onclick="toggleDiagnosis(this)">
+          <div class="diagnosis-name"
+               data-en="Stroke"
+               data-sv="Stroke"
+               data-it="Ictus">Stroke</div>
+          <div class="diagnosis-body">
+            <div class="diagnosis-desc"
+                 data-en="The second leading cause of death globally. Occurs when blood supply to the brain is interrupted. Every minute without blood flow costs approximately 2 million neurons."
+                 data-sv="Den näst vanligaste dödsorsaken globalt. Uppstår när blodtillförseln till hjärnan avbryts. Varje minut utan blodflöde kostar cirka 2 miljoner nervceller."
+                 data-it="Seconda causa di morte a livello mondiale. Avviene quando l'afflusso di sangue al cervello viene interrotto. Ogni minuto senza flusso costa circa 2 milioni di neuroni.">
+              The second leading cause of death globally. Every minute without blood flow costs ~2 million neurons.
+            </div>
+          </div>
+        </div>
+
+        <div class="diagnosis-card" onclick="toggleDiagnosis(this)">
+          <div class="diagnosis-name"
+               data-en="Multiple Sclerosis"
+               data-sv="MS"
+               data-it="Sclerosi multipla">Multiple Sclerosis</div>
+          <div class="diagnosis-body">
+            <div class="diagnosis-desc"
+                 data-en="An autoimmune disease where the immune system attacks myelin (the protective sheath around nerve fibres) disrupting signals between brain and body."
+                 data-sv="En autoimmun sjukdom där immunsystemet angriper myelin (det skyddande hölje som omger nervfibrer) och stör signalerna mellan hjärna och kropp."
+                 data-it="Una malattia autoimmune in cui il sistema immunitario attacca la mielina (il rivestimento protettivo attorno alle fibre nervose) interrompendo i segnali.">
+              An autoimmune disease attacking the myelin sheath around nerve fibres, disrupting signals between brain and body.
+            </div>
+          </div>
+        </div>
+
+        <div class="diagnosis-card" onclick="toggleDiagnosis(this)">
+          <div class="diagnosis-name"
+               data-en="Depression"
+               data-sv="Depression"
+               data-it="Depressione">Depression</div>
+          <div class="diagnosis-body">
+            <div class="diagnosis-desc"
+                 data-en="A mood disorder affecting hundreds of millions worldwide. Involves changes in brain chemistry, structure, and function."
+                 data-sv="En stämningsstörning som drabbar många runtom oss. Involverar förändringar i hjärnkemi, struktur och funktion."
+                 data-it="Un disturbo dell'umore che colpisce centinaia di milioni di persone. Coinvolge cambiamenti nella chimica, struttura e funzione del cervello.">
+              A mood disorder affecting hundreds of millions worldwide. Involves changes in brain chemistry and structure.
+            </div>
+          </div>
+        </div>
+
+        <div class="diagnosis-card" onclick="toggleDiagnosis(this)">
+          <div class="diagnosis-name"
+               data-en="Alzheimer's"
+               data-sv="Alzheimers"
+               data-it="Alzheimer">Alzheimer's</div>
+          <div class="diagnosis-body">
+            <div class="diagnosis-desc"
+                 data-en="The leading cause of dementia. Gradually destroys memory and cognitive function. No cure exists — early diagnostics and prevention research are the frontline."
+                 data-sv="Den vanligaste orsaken till demens. Förstör gradvis minne och kognitiva funktioner. Ingen bot finns — tidig diagnostik och förebyggande forskning är avgörande."
+                 data-it="La principale causa di demenza. Distrugge gradualmente memoria e funzione cognitiva. Non esiste cura — la ricerca diagnostica precoce è fondamentale.">
+              The leading cause of dementia. Gradually destroys memory and cognitive function. No cure exists yet.
+            </div>
+          </div>
+        </div>
+
+        <div class="diagnosis-card" onclick="toggleDiagnosis(this)">
+          <div class="diagnosis-name"
+               data-en="Dementia"
+               data-sv="Demens"
+               data-it="Demenza">Dementia</div>
+          <div class="diagnosis-body">
+            <div class="diagnosis-desc"
+                 data-en="An umbrella term for loss of memory, language, and reasoning severe enough to interfere with daily life. Alzheimer's accounts for 60–70% of cases. Over 55 million people are affected globally."
+                 data-sv="Ett samlingsbegrepp för förlust av minne, språk och omdöme som stör vardagslivet. Alzheimers utgör 60–70% av fallen. Över 55 miljoner drabbade globalt."
+                 data-it="Un termine ombrello per perdita di memoria, linguaggio e ragionamento abbastanza grave da interferire con la vita quotidiana. L'Alzheimer rappresenta il 60–70% dei casi.">
+              Loss of memory, language, and reasoning severe enough to affect daily life. Over 55 million people are affected globally.
+            </div>
+          </div>
+        </div>
+
+        <div class="diagnosis-card" onclick="toggleDiagnosis(this)">
+          <div class="diagnosis-name"
+               data-en="ALS"
+               data-sv="ALS"
+               data-it="SLA">ALS</div>
+          <div class="diagnosis-body">
+            <div class="diagnosis-desc"
+                 data-en="Amyotrophic lateral sclerosis. Rapidly destroys the motor neurons controlling muscles. Most people survive 2–5 years after diagnosis. No cure exists."
+                 data-sv="Amyotrofisk lateralskleros. Förstör snabbt de motoriska nervcellerna som styr musklerna. De flesta överlever 2–5 år efter diagnos. Ingen bot finns."
+                 data-it="Sclerosi laterale amiotrofica. Distrugge rapidamente i neuroni motori che controllano i muscoli. La maggior parte sopravvive 2–5 anni dopo la diagnosi.">
+              Rapidly destroys motor neurons controlling muscles. Most people survive 2–5 years after diagnosis. No cure exists.
+            </div>
+          </div>
+        </div>
+
+        <div class="diagnosis-card more-card" onclick="window.open('https://www.hjarnfonden.se/om-hjarnan/diagnos/','_blank')">
+          <div class="diagnosis-name"
+               data-en="And more…"
+               data-sv="Och mer…"
+               data-it="E altro…">And more…</div>
+          <a class="diagnosis-more-link"
+             href="https://www.hjarnfonden.se/om-hjarnan/diagnos/"
+             target="_blank"
+             rel="noopener"
+             data-en="All diagnoses A–Z →"
+             data-sv="Alla diagnoser A–Ö →"
+             data-it="Tutte le diagnosi A–Z →">
+            All diagnoses A–Z →
+          </a>
+        </div>
+
+      </div>
     </div>
 
     <!-- ══ PAYMENT ══ -->
@@ -785,7 +1067,14 @@
       const pct = Math.min((DONATION_TOTAL / DONATION_GOAL) * 100, 100);
       fill.style.width = pct + '%';
       current.textContent = DONATION_TOTAL.toLocaleString('sv-SE') + ' kr';
-      goal.textContent    = 'Goal: ' + DONATION_GOAL.toLocaleString('sv-SE') + ' kr';
+      const labels = { en: 'Goal', sv: 'Mål', it: 'Obiettivo' };
+      function updateGoalLabel() {
+        const lang = (typeof currentLang !== 'undefined' ? currentLang : null)
+                  || localStorage.getItem('preferred-lang') || 'en';
+        goal.textContent = (labels[lang] || labels.en) + ': ' + DONATION_GOAL.toLocaleString('sv-SE') + ' kr';
+      }
+      updateGoalLabel();
+      document.addEventListener('langchange', updateGoalLabel);
     })();
 
     // ── COPY TO CLIPBOARD ──
@@ -849,6 +1138,27 @@
   </script>
  
   <footer id="shared-footer"></footer>
+
+  <script>
+  // ── DIAGNOSIS CARDS — expand/collapse ──
+  function toggleDiagnosis(card) {
+    if (card.classList.contains('more-card')) return; // handled by onclick directly
+    const isOpen = card.classList.contains('expanded');
+    // Close all others
+    document.querySelectorAll('.diagnosis-card.expanded').forEach(c => c.classList.remove('expanded'));
+    // Toggle this one
+    if (!isOpen) card.classList.add('expanded');
+  }
+
+  // Re-apply translations to dynamically rendered diagnosis text on lang change
+  document.addEventListener('langchange', function(e) {
+    const lang = e.detail;
+    document.querySelectorAll('.diagnosis-name[data-' + lang + '], .diagnosis-desc[data-' + lang + '], .diagnosis-more-link[data-' + lang + ']').forEach(el => {
+      const t = el.getAttribute('data-' + lang);
+      if (t) el.innerHTML = t;
+    });
+  });
+  </script>
 
 </body>
 </html>
