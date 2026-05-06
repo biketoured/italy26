@@ -93,7 +93,7 @@
       font-weight: 300;
       color: var(--white);
       line-height: 1.7;
-      max-width: 600px;
+      max-width: 700px;
       margin-bottom: 2rem;
     }
 
@@ -114,7 +114,7 @@
       gap: 0.35em;
       font-family: 'DM Mono', monospace;
       font-size: clamp(0.78rem, 1.8vw, 0.95rem);
-      letter-spacing: 0.13em;
+      letter-spacing: 0.10em;
       text-transform: uppercase;
       text-decoration: none;
       transition: filter 0.18s;
@@ -131,7 +131,7 @@
     .puzzle-tl {
       left: 0; width: 100%;
       top: 0; height: 50%; bottom: auto;
-      clip-path: polygon(0% 0%, 32% 0%, 24% 100%, 0% 100%);
+      clip-path: polygon(0% 0%, 40% 0%, 24% 100%, 0% 100%);
       background: var(--yellow); color: var(--black);
       z-index: 0;
       font-size: 1;
@@ -140,14 +140,14 @@
     .puzzle-bl {
       left: 0; width: 100%;
       top: 50%; height: 50%; bottom: auto;  /* explicit bottom:auto beats the base rule */
-      clip-path: polygon(0% 0%, 24% 0%, 32% 100%, 0% 100%);
+      clip-path: polygon(0% 0%, 28% 0%, 40% 100%, 0% 100%);
       background: var(--red); color: var(--stone);
       z-index: 0;
       font-size: 1;
       padding-left: 2%; padding-right: 78%;
     }
     .puzzle-centre {
-      left: 24%; width: 52%;
+      left: 28%; width: 52%;
       top: 0; bottom: 0;
       clip-path: polygon(15% 0%, 85% 0%, 100% 50%, 85% 100%, 15% 100%, 0% 50%);
       background: var(--sky-deep); color: var(--white);
@@ -157,7 +157,7 @@
     .puzzle-tr {
       left: 0; width: 100%;
       top: 0; height: 50%; bottom: auto;
-      clip-path: polygon(68% 0%, 100% 0%, 100% 100%, 76% 100%);
+      clip-path: polygon(60% 0%, 100% 0%, 100% 100%, 72% 100%);
       background: var(--red); color: var(--stone);
       z-index: 0;
       font-size: 1;
@@ -166,7 +166,7 @@
     .puzzle-br {
       left: 0; width: 100%;
       top: 50%; height: 50%; bottom: auto;  /* explicit bottom:auto beats the base rule */
-      clip-path: polygon(76% 0%, 100% 0%, 100% 100%, 68% 100%);
+      clip-path: polygon(72% 0%, 100% 0%, 100% 100%, 60% 100%);
       background: var(--yellow); color: var(--black);
       z-index: 0;
       font-size: 1;
@@ -1186,6 +1186,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      background-color: var(--green);
     }
 
     .strip-right {
@@ -1194,6 +1195,7 @@
       flex-direction: column;
       justify-content: center;
       gap: 0.35rem;
+      background-color: var(--green);
     }
 
     .strip-tag {
@@ -1446,9 +1448,9 @@
   <div class="hero">
     <div class="hero-left">
       <h1 class="hero-title"
-          data-en="Exploring the regions of <em>Italy</em> for a good cause.<br><bo>Starting May 10th</bo><br>"
-          data-sv="Cyklar genom hela <em>Italien</em> för välgörenhet.<br><bo>Startar 10 maj</bo>"
-          data-it="Esplorando le regioni <em>d'Italia</em> per una buona causa.<br><bo>Partenza 10 maggio</bo>">
+          data-en="Exploring the <br> regions of <em>Italy</em> for a good cause.<br><bo>Starting May 10th</bo><br>"
+          data-sv="Cyklar genom <br> hela <em>Italien</em> för välgörenhet.<br><bo>Startar 10 maj</bo>"
+          data-it="Esplorando le <br> regioni <em>d'Italia</em> per una buona causa.<br><bo>Partenza 10 maggio</bo>">
         Exploring the regions of <em>Italy</em><br> for a good cause.<br><bo>Starting May 10th</bo>
       </h1>
       <p class="hero-sub"
