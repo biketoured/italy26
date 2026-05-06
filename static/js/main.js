@@ -24,8 +24,8 @@ const NAV_THEMES = {
   'index': {
     bg:        'rgba(30,61,47,0.96)',
     border:    'rgba(196,180,154,0.15)',
-    link:      '#8C7B65',
-    linkHover: '#C4B49A',
+    link:      '#C4B49A',
+    linkHover: '#E8DCC8',
   },
   'sweden2024': {
     bg:        'rgba(74,122,150,0.97)',
@@ -48,20 +48,20 @@ const NAV_THEMES = {
   'route': {
     bg:        'rgba(30,61,47,0.96)',
     border:    'rgba(196,180,154,0.15)',
-    link:      '#8C7B65',
-    linkHover: '#C4B49A',
+    link:      '#C4B49A',
+    linkHover: '#E8DCC8',
   },
   'blog': {
     bg:        'rgba(30,61,47,0.96)',
     border:    'rgba(196,180,154,0.15)',
-    link:      '#8C7B65',
-    linkHover: '#C4B49A',
+    link:      '#C4B49A',
+    linkHover: '#E8DCC8',
   },
   'post': {
     bg:        'rgba(30,61,47,0.96)',
     border:    'rgba(196,180,154,0.15)',
-    link:      '#8C7B65',
-    linkHover: '#C4B49A',
+    link:      '#C4B49A',
+    linkHover: '#E8DCC8',
   },
   'contact': {
     bg:        'rgba(30,61,47,0.96)',

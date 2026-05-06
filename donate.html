@@ -24,11 +24,60 @@
       min-height: 100vh;
     }
 
+    /* ── DONATE HERO ── */
+    .donate-hero {
+      position: relative;
+      width: 100%;
+      margin-bottom: 0;
+    }
+
+    .donate-banner {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      object-position: center 35%;
+      display: block;
+    }
+
+    /* Profile pic — oval, straddles banner bottom */
+    .donate-profilepic {
+      position: absolute;
+      right: 3rem;
+      top: calc(340px - 64px);
+      width: 250px;
+      height: 270px;           /* taller than wide = oval */
+      border-radius: 50% / 45%;
+      object-fit: cover;
+      object-position: center top;
+      border: 3px solid rgba(212,169,74,0.4);
+      z-index: 10;
+    }
+
+    @media (max-width: 768px) {
+      .donate-banner  { height: 260px; }
+      .donate-profilepic {
+        top: calc(260px - 52px);
+        right: 1.5rem;
+        width: 150px;
+        height: 170px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .donate-banner  { height: 200px; }
+      .donate-profilepic {
+        top: calc(200px - 44px);
+        right: 1.25rem;
+        width: 96px;
+        height: 120px;
+      }
+    }
+
     /* ── PAGE WRAPPER ── */
     .page {
       max-width: 860px;
       margin: 0 auto;
-      padding: 7rem 2rem 5rem;
+      padding: 4rem 2rem 5rem;
     }
 
     /* ── STORY SECTION ── */
@@ -55,6 +104,14 @@
       line-height: 1.15;
       color: var(--white);
       margin-bottom: 1.5rem;
+      padding-right: 180px;
+    }
+
+    @media (max-width: 768px) {
+      .story h1 { padding-right: 130px; }
+    }
+    @media (max-width: 480px) {
+      .story h1 { padding-right: 110px; }
     }
 
     .story h1 em {
@@ -195,7 +252,7 @@
       font-size: 0.88rem;
       font-weight: 300;
       line-height: 1.7;
-      color: var(--stone);
+      color: var(--cream);
       margin-bottom: 1.5rem;
     }
 
@@ -323,7 +380,7 @@
     .payment-note {
       font-size: 0.8rem;
       font-weight: 300;
-      color: var(--stone);
+      color: var(--cream);
       line-height: 1.6;
       margin-top: 0.6rem;
     }
@@ -562,7 +619,7 @@
     .donor-message {
       font-size: 0.8rem;
       font-weight: 300;
-      color: var(--stone);
+      color: var(--cream);
       line-height: 1.6;
     }
 
@@ -638,12 +695,21 @@
   <!-- ══ NAV ══ -->
   <nav id="shared-nav"></nav>
 
+  <!-- ══ DONATE HERO ══ -->
+  <div class="donate-hero">
+    <img class="donate-banner"
+         src="assets/images/donbanner.jpg"
+         alt="Edvard Appelberg cycling Italy">
+    <img class="donate-profilepic"
+         src="assets/images/donprofile.jpg"
+         alt="Edvard Appelberg">
+  </div>
 
   <div class="page">
 
     <!-- ══ STORY ══ -->
     <div class="story">
-      <p class="story-tag" data-en="// Donate" data-sv="// Donera" data-it="// Dona">// Why this matters</p>
+      <p class="story-tag" data-en="// Donate" data-sv="// Donera" data-it="// Dona">// Donate</p>
       <h1 data-en="Riding for research<br>that <em>save lives</em>"
           data-sv="Cyklar för forskning<br>som <em>räddar liv</em>"
           data-it="Pedalando per la ricerca<br>che <em>salva le vite</em>">
