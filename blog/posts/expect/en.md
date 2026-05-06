@@ -10,7 +10,6 @@ captions:
   photo1: Tent spot just outside of Abisko National Park. I fell asleep watching the midnight sun struggle to stay above the mountains on the other side of the lake.
 ---
 
-# What do I expect from this project?
 Less than a month to departure, I still cannot fully comprehend it is actually happening.
 
 [photo:1]
