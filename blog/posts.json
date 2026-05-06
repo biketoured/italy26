@@ -1,5 +1,20 @@
 [
   {
+    "slug": "Dag 4",
+    "type": "blog",
+    "date": "2026-04-30",
+    "tag": "Reflections",
+    "title": {
+      "en": "My father and I",
+      "sv": "Jag och min far",
+      "it": "Mio padre caro"
+    },
+    "captions": {
+      "photo1": "Bildtext för andra bilden (valfri)",
+      "photo2": "Bildtext för tredje bilden (valfri)"
+    }
+  },
+  {
     "slug": "motiv",
     "type": "blog",
     "date": "2026-04-23",
