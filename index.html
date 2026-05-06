@@ -127,29 +127,29 @@
       Right/centre seam: top=68%, mid=76%, bot=68%
       Centre hexagon spans full height, left:24%, width:52%
       TL/TR: top half (0–58px). BL/BR: bottom half (58px–116px).
-    */
-    .puzzle-tl {
+        */
+      .puzzle-tl {
       left: 0; width: 100%;
       top: 0; height: 50%; bottom: auto;
-      clip-path: polygon(0% 0%, 40% 0%, 24% 100%, 0% 100%);
+      clip-path: polygon(0% 0%, 40% 0%, 28% 100%, 0% 100%);
       background: var(--yellow); color: var(--black);
       z-index: 0;
       font-size: 1;
-      padding-left: 2%; padding-right: 78%;
+      padding-left: 2%; padding-right: 62%;
     }
     .puzzle-bl {
       left: 0; width: 100%;
-      top: 50%; height: 50%; bottom: auto;  /* explicit bottom:auto beats the base rule */
+      top: 50%; height: 50%; bottom: auto;
       clip-path: polygon(0% 0%, 28% 0%, 40% 100%, 0% 100%);
       background: var(--red); color: var(--stone);
       z-index: 0;
       font-size: 1;
-      padding-left: 2%; padding-right: 78%;
+      padding-left: 2%; padding-right: 62%;
     }
     .puzzle-centre {
-      left: 28%; width: 52%;
+      left: 28%; width: 44%;
       top: 0; bottom: 0;
-      clip-path: polygon(15% 0%, 85% 0%, 100% 50%, 85% 100%, 15% 100%, 0% 50%);
+      clip-path: polygon(22% 0%, 78% 0%, 100% 50%, 78% 100%, 22% 100%, 0% 50%);
       background: var(--sky-deep); color: var(--white);
       font-size: clamp(1.7rem, 3vw, 2rem); letter-spacing: 0.10em;
       z-index: 2;
@@ -161,16 +161,16 @@
       background: var(--red); color: var(--stone);
       z-index: 0;
       font-size: 1;
-      padding-left: 78%; padding-right: 2%;
+      padding-left: 58%; padding-right: 2%;
     }
     .puzzle-br {
       left: 0; width: 100%;
-      top: 50%; height: 50%; bottom: auto;  /* explicit bottom:auto beats the base rule */
+      top: 50%; height: 50%; bottom: auto;
       clip-path: polygon(72% 0%, 100% 0%, 100% 100%, 60% 100%);
       background: var(--yellow); color: var(--black);
       z-index: 0;
       font-size: 1;
-      padding-left: 78%; padding-right: 2%;
+      padding-left: 70%; padding-right: 2%;
     }
 
     /* ── HERO BUTTON ICONS (inline SVG) ── */
