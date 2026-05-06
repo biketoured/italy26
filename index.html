@@ -1658,10 +1658,10 @@
         <div class="strip-stat-lbl">km</div>
       </div>
       <div class="strip-stat">
-        <div class="strip-stat-num" style="font-size:0.95rem;"
-             data-en="Sardinia → Veneto"
-             data-sv="Sardinien → Veneto"
-             data-it="Sardegna → Veneto">Sardinia → Veneto</div>
+        <div class="strip-stat-lbl"
+             data-en="to discover the true Italy"
+             data-sv="för att upptäcka Italien på riktigt"
+             data-it="per esplorare la vera faccia d'Italia">to discover the true face fo Italy</div>
       </div>
     </div>
 
@@ -2498,7 +2498,7 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
   (function() {
     var TRIP_START = new Date('2026-05-10T12:00:00');
     var TRIP_END   = new Date('2026-06-24T00:00:00');
-    var now        = new Date('2026-05-12T00:00:00');
+    var now        = new Date();
 
     var prEl  = document.getElementById('widget-pre');
     var durEl = document.getElementById('widget-during');
@@ -2572,7 +2572,7 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
   (function() {
     var TRIP_START = new Date('2026-05-10T12:00:00');
     var TRIP_END   = new Date('2026-06-24T00:00:00');
-    var now        = new Date('2026-05-12T00:00:00');
+    var now        = new Date();
 
     var mPre    = document.getElementById('m-pre');
     var mDuring = document.getElementById('m-during');
@@ -2609,9 +2609,8 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
           var last   = data[0];
           var rideEl = document.getElementById('m-ride');
           var linkEl = document.getElementById('m-stravalink');
-          var km     = last.distance ? (last.distance / 1000).toFixed(1) : '—';
-          var elev   = last.total_elevation_gain ? Math.round(last.total_elevation_gain) + 'm↑' : '';
-          if (rideEl) rideEl.textContent = (last.name || '—') + ' · ' + km + ' km ' + elev;
+          var km     = last.distance ? (last.distance).toFixed(1) : '—';
+          if (rideEl) rideEl.textContent = (last.name || '—') + ' · ' + km + ' km ';
           if (linkEl && last.id) linkEl.href = 'https://www.strava.com/activities/' + last.id;
         })
         .catch(function() {});
