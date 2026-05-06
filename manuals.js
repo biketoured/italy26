@@ -46,8 +46,8 @@ const MEANING = 'Maybe, perhaps, if only. Carefully optimistic and thoughtful';
 
 // ── NOTE FROM THE ROAD ──
 // Leave NOTE empty ('') to hide it.
-const NOTE      = 'ONE WEEK LEFT! I tried the bikepacking setup on a 200km event this weekend. I did not feel too slow, managed to keep 25km/h despite the weight and drag.';
-const NOTE_DATE = '3 may';
+const NOTE      = 'Three days left! Calm before the storm. I have checked the equipment. I got it all ready!';
+const NOTE_DATE = '6 may';
 
 
 // Utforska betalningssätt: Paypal och Revolut fixat. Behöver koppla konton bara...
