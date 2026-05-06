@@ -1158,6 +1158,121 @@
       }
     }
 
+    /* ── MOBILE COUNTDOWN STRIP ──
+       Sits below the banner+profile-pic, above the live banner.
+       Only visible on mobile. Two columns: widget left, stats right.
+    ── */
+    .hero-mobile-strip {
+      display: none;
+    }
+    @media (max-width: 768px) {
+      .hero-mobile-strip {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        background: rgba(0,0,0,0.28);
+        border-bottom: 1px solid rgba(196,180,154,0.1);
+        padding-right: 80px;
+      }
+    }
+    @media (max-width: 480px) {
+      .hero-mobile-strip {
+        padding-right: 60px;
+      }
+    }
+
+    .strip-left {
+      padding: 0.6rem 1.2rem;
+      border-right: 1px solid rgba(196,180,154,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .strip-right {
+      padding: 0.6rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.35rem;
+    }
+
+    .strip-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.52rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--stone-dark);
+      margin-bottom: 0.15rem;
+    }
+
+    .strip-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--yellow);
+      line-height: 1;
+    }
+
+    .strip-unit {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.52rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--stone-dark);
+      margin-top: 0.1rem;
+    }
+
+    .strip-hms {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      color: rgba(196,180,154,0.5);
+      letter-spacing: 0.06em;
+      margin-top: 0.2rem;
+    }
+
+    .strip-ride {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.52rem;
+      letter-spacing: 0.06em;
+      color: rgba(196,180,154,0.45);
+      line-height: 1.5;
+      margin-top: 0.25rem;
+    }
+
+    .strip-strava {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.5rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      opacity: 0.7;
+      text-decoration: none;
+      margin-top: 0.3rem;
+      display: inline-block;
+    }
+    .strip-strava:hover { opacity: 1; }
+
+    .strip-stat {
+      display: flex;
+      align-items: baseline;
+      gap: 0.25rem;
+    }
+
+    .strip-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: var(--stone);
+      line-height: 1;
+    }
+
+    .strip-stat-lbl {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.5rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      opacity: 0.8;
+    }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
@@ -1477,6 +1592,79 @@
     </div>
   </div><!-- /.hero -->
   </div><!-- /.hero-mobile-wrapper -->
+
+  <!-- ══ MOBILE COUNTDOWN STRIP — hidden on desktop ══ -->
+  <div class="hero-mobile-strip">
+
+    <!-- Left col: countdown / day counter / post-trip -->
+    <div class="strip-left">
+
+      <!-- Pre-trip -->
+      <div id="m-pre" style="display:none">
+        <div class="strip-tag"
+             data-en="Trip starts in"
+             data-sv="Resan börjar om"
+             data-it="Il viaggio inizia tra">Trip starts in</div>
+        <div class="strip-number" id="m-days">--</div>
+        <div class="strip-unit"
+             data-en="days"
+             data-sv="dagar"
+             data-it="giorni">days</div>
+        <div class="strip-hms" id="m-hms">--:--:--</div>
+      </div>
+
+      <!-- During trip -->
+      <div id="m-during" style="display:none">
+        <div class="strip-tag"
+             data-en="Day"
+             data-sv="Dag"
+             data-it="Giorno">Day</div>
+        <div class="strip-number" id="m-tripday">--</div>
+        <div class="strip-unit"
+             data-en="on the road"
+             data-sv="på vägen"
+             data-it="in viaggio">on the road</div>
+        <div class="strip-ride" id="m-ride">—</div>
+        <a class="strip-strava" id="m-stravalink" href="#" target="_blank"
+           data-en="Strava →" data-sv="Strava →" data-it="Strava →">Strava →</a>
+      </div>
+
+      <!-- Post-trip -->
+      <div id="m-post" style="display:none">
+        <div class="strip-tag"
+             data-en="Trip completed"
+             data-sv="Resan avslutad"
+             data-it="Viaggio completato">Trip completed</div>
+        <div class="strip-number" id="m-postdays">--</div>
+        <div class="strip-unit"
+             data-en="days of adventure"
+             data-sv="äventyrsdagar"
+             data-it="giorni d'avventura">days of adventure</div>
+      </div>
+
+    </div>
+
+    <!-- Right col: trip stats -->
+    <div class="strip-right">
+      <div class="strip-stat">
+        <div class="strip-stat-num">~40</div>
+        <div class="strip-stat-lbl"
+             data-en="days" data-sv="dagar" data-it="giorni">days</div>
+      </div>
+      <div class="strip-stat">
+        <div class="strip-stat-num">~4000</div>
+        <div class="strip-stat-lbl">km</div>
+      </div>
+      <div class="strip-stat">
+        <div class="strip-stat-num" style="font-size:0.95rem;"
+             data-en="Sardinia → Veneto"
+             data-sv="Sardinien → Veneto"
+             data-it="Sardegna → Veneto">Sardinia → Veneto</div>
+      </div>
+    </div>
+
+  </div>
+  <!-- ══ END MOBILE STRIP ══ -->
 
   <!-- ══ LIVE TRACKING BANNER ══
       Set LIVE_TRACKING to true/false in the script below.
@@ -2376,5 +2564,64 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
     }
   })();
   </script>
+
+  <script>
+  // ── MOBILE STRIP WIDGET ──
+  (function() {
+    var TRIP_START = new Date('2026-05-10T12:00:00');
+    var TRIP_END   = new Date('2026-06-24T00:00:00');
+    var now        = new Date('2026-05-01T12:00:00');
+
+    var mPre    = document.getElementById('m-pre');
+    var mDuring = document.getElementById('m-during');
+    var mPost   = document.getElementById('m-post');
+
+    if (now < TRIP_START) {
+      if (mPre) mPre.style.display = 'block';
+      var t = setInterval(function() {
+        var diff = TRIP_START - new Date();
+        if (diff <= 0) { clearInterval(t); return; }
+        var d = Math.floor(diff / 86400000);
+        var h = Math.floor((diff % 86400000) / 3600000);
+        var m = Math.floor((diff % 3600000)  / 60000);
+        var s = Math.floor((diff % 60000)    / 1000);
+        var dEl = document.getElementById('m-days');
+        var hEl = document.getElementById('m-hms');
+        if (dEl) dEl.textContent = d;
+        if (hEl) hEl.textContent =
+          String(h).padStart(2,'0') + ':' +
+          String(m).padStart(2,'0') + ':' +
+          String(s).padStart(2,'0');
+      }, 1000);
+
+    } else if (now <= TRIP_END) {
+      if (mDuring) mDuring.style.display = 'block';
+      var tripDay = Math.floor((now - TRIP_START) / 86400000) + 1;
+      var tdEl = document.getElementById('m-tripday');
+      if (tdEl) tdEl.textContent = tripDay;
+
+      fetch('/italy26/strava/activities.json')
+        .then(function(r) { if (!r.ok) throw 0; return r.json(); })
+        .then(function(data) {
+          if (!Array.isArray(data) || !data.length) return;
+          var last   = data[0];
+          var rideEl = document.getElementById('m-ride');
+          var linkEl = document.getElementById('m-stravalink');
+          var km     = last.distance ? (last.distance / 1000).toFixed(1) : '—';
+          var elev   = last.total_elevation_gain ? Math.round(last.total_elevation_gain) + 'm↑' : '';
+          if (rideEl) rideEl.textContent = (last.name || '—') + ' · ' + km + ' km ' + elev;
+          if (linkEl && last.id) linkEl.href = 'https://www.strava.com/activities/' + last.id;
+        })
+        .catch(function() {});
+
+    } else {
+      if (mPost) mPost.style.display = 'block';
+      var totalDays = Math.round((TRIP_END - TRIP_START) / 86400000);
+      var pdEl = document.getElementById('m-postdays');
+      if (pdEl) pdEl.textContent = totalDays;
+    }
+  })();
+  </script>
+
 </body>
 </html>
