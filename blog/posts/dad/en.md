@@ -15,7 +15,6 @@ Today marks three years since I lost my father to brain cancer. This post is qui
 
 [photo:1]
 
-# Life is strange.
 In 2017 my father was diagnosed with brain tumors. Years later we learned they were malignant and spreading. In April 2023 I sat by the hospice bed for several days. Held his hand, slowly said goodbye, and grieved that his life was almost over. We had known for a long time that his time with us was limited. It never made it easier.
 
 ## Lost in sight, but not in my mind
