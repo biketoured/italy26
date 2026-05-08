@@ -13,6 +13,19 @@
     "heartbeats": 4829
   },
   {
+    "id": 18401340409,
+    "name": "Afternoon Run",
+    "type": "Run",
+    "date": "2026-05-06T17:22:39Z",
+    "distance": 9.2,
+    "elevation": 45,
+    "moving_time": 3125,
+    "polyline": "i{ejKqz}~BKjD@ZFRRLRAnAs@VSHd@Pn@Lr@FNRLL@FCJOHGHDFNnAdGFXFHh@NL@HE\\c@HGH?JXNp@FJ\\Vp@LzAHd@L\\NDDP^DRF|ALtADpAYlHIxGCdDSbJHrCClCMvEOfIHzBEvBI`ICdMEPKBKCS@_@Eg@KGHYxG_@`G]bCi@lBOx@EfBHhBBrAIxDHb@f@l@HLDT@X?h@Ed@ETGNEBG?a@_@GCc@@IIGUA[De@NcAPq@CTGl@[hBDi@^uC@YE]?SRgADk@Am@Ca@Ec@K[E@ELc@dBSn@m@jASRQLCJE`BBjFCdB@xABjHBj@D\\d@jBHp@Dn@?|AIbAOhAaBlJwBhLeAnGU~AM~AGxBKpOG`CQxEFxG?bFD`@`@bCDL`AnA`@t@X`A^x@hAzCfDdI`BjEz@lBZ^h@B`@KHGd@i@R]jA}Bf@s@H_@`AcDt@}Cz@uCVgJV}MXgHp@aUl@}Jd@gDTgAX_AxCmGj@sAd@mAbAoBf@kAb@sA`@gBRsAV{Ct@mN`@yGHoD?qAEkBOyCKs@sAwD[wDKw@{BwJmBgJMeAUuDSmAMiBESEE[Gw@]m@KeBk@mKwBUKk@GQp@S~I]nIKhGOhEk@lHUtAo@lCIhAJtEGfEH`@t@`A@LIGADKQg@c@IOEY?]HgEOyCFsBHo@l@qCNy@^cDTqELaF`@mLF_@LMV@r@RFADUB{HJeBIuA?q@RoK\\aNCk@Ik@?e@J}HHsHPuFF}@AYUaCEaBEIEEi@QIIBMA@AC@CIG?B?_@?dBEbACBEh@E~A@\\^fEc@cBIZGJEt@?zAEX@VJJp@o@UKOJJNDdABJBAHQj@cDKb@RyAHuAAOCAGJK~@DmACEIv@?gAIuCAICn@?iACO?JC_@Ko@Ew@CCEFI@QIQCy@@MEMSu@kBKQEAKH_@l@ONQFQBa@Kg@Uk@Qm@Km@WMKIMCKCc@JmEAs@Gq@G[IMI@MJgAlAKFa@BKDGPEX_@tDCLIs@",
+    "avg_speed": 10.6,
+    "avg_hr": 138.6,
+    "heartbeats": 7219
+  },
+  {
     "id": 18348053443,
     "name": "BRM Bjurholm 200km",
     "type": "Ride",
