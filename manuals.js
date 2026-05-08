@@ -7,7 +7,7 @@
 // ══════════════════════════════════════════════════════════════
 
 // ── DONATIONS ──
-const SEK = 4000;
+const SEK = 4250;
 const EUR = 0;
 const DONATION_TOTAL = Math.round(SEK + (EUR * 11));  // SEK total (EUR*11 ≈ conversion)
 const DONATION_GOAL  = 40000;                          // SEK goal
@@ -46,8 +46,8 @@ const MEANING = 'Maybe, perhaps, if only. Carefully optimistic and thoughtful';
 
 // ── NOTE FROM THE ROAD ──
 // Leave NOTE empty ('') to hide it.
-const NOTE      = 'Three days left! Calm before the storm. I have checked the equipment. I got it all ready!';
-const NOTE_DATE = '6 may';
+const NOTE      = 'Two days left! Last day at work before vacation. Tonight I will check the equipment and pack it up. Starting to feel excited!';
+const NOTE_DATE = '8 may';
 
 
 // Utforska betalningssätt: Paypal och Revolut fixat. Behöver koppla konton bara...
