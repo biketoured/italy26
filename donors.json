@@ -16,5 +16,11 @@
     "amount": 50,
     "currency": "kr",
     "message": ""
+  },
+  {
+    "name": "William J. Ögren",
+    "amount": 100,
+    "currency": "kr",
+    "message": "Lycklig resa!"
   }
 ]
