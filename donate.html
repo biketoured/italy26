@@ -80,6 +80,76 @@
       padding: 1rem 2rem 2rem;
     }
 
+    /* ── HJÄRNFONDEN TOP BANNER ── */
+    .hjarn-banner {
+      background: var(--green-mid);
+      border-left: 4px solid var(--yellow);
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .hjarn-banner-text { flex: 1; }
+    .hjarn-banner-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 0.4rem;
+    }
+    .hjarn-banner-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--white);
+      font-weight: 400;
+      margin-bottom: 0.3rem;
+    }
+    .hjarn-banner-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      color: var(--stone);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+    .hjarn-banner-btn {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      background: var(--sky-deep);
+      color: var(--white);
+      padding: 0.9rem 2rem;
+      text-decoration: none;
+      white-space: nowrap;
+      border-radius: 3px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+      transition: background 0.2s, transform 0.15s, box-shadow 0.15s;
+      flex-shrink: 0;
+    }
+    .hjarn-banner-btn:hover {
+      background: var(--sky);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+    }
+    .payment-disclaimer {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      color: var(--stone-dark);
+      font-style: italic;
+      line-height: 1.6;
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(196,180,154,0.15);
+    }
+    @media (max-width: 600px) {
+      .hjarn-banner { flex-direction: column; align-items: flex-start; }
+      .hjarn-banner-btn { width: 100%; text-align: center; }
+    }
+
     /* ── STORY SECTION ── */
     .story {
       border-left: 3px solid var(--sky-deep);
