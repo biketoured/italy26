@@ -8,7 +8,7 @@
 
 // ── DONATIONS ──
 const SEK = 4350;
-const EUR = 0;
+const EUR = 12;
 const DONATION_TOTAL = Math.round(SEK + (EUR * 11));  // SEK total (EUR*11 ≈ conversion)
 const DONATION_GOAL  = 40000;                          // SEK goal
 
@@ -46,7 +46,7 @@ const MEANING = 'Lucky you! or I am happy for you!';
 
 // ── NOTE FROM THE ROAD ──
 // Leave NOTE empty ('') to hide it.
-const NOTE      = '12:15 I just assembled my bike and Im officially starting the journey right now. So excited!!';
+const NOTE      = 'Sleeping at Guillhommes cozy guest room. This guy has cycled through Morocco and works as a music teacher.';
 const NOTE_DATE = '10 may';
 
 
