@@ -22,5 +22,11 @@
     "amount": 100,
     "currency": "kr",
     "message": "Lycklig resa!"
-  }
+  },
+    {
+    "name": "Samuel Wharry",
+    "amount": 133,
+    "currency": "kr",
+    "message": "It's a pleasure to support this project!"
+    }
 ]
