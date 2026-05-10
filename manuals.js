@@ -7,7 +7,7 @@
 // ══════════════════════════════════════════════════════════════
 
 // ── DONATIONS ──
-const SEK = 4250;
+const SEK = 4350;
 const EUR = 0;
 const DONATION_TOTAL = Math.round(SEK + (EUR * 11));  // SEK total (EUR*11 ≈ conversion)
 const DONATION_GOAL  = 40000;                          // SEK goal
@@ -20,7 +20,7 @@ const LIVE_URL      = '';
 // ── ROUTE PROGRESS ──
 // CURRENT_LOC: a number 0–100 for how far along the route you are.
 // Update this each day. The dot at that position lights up as "current".
-const CURRENT_LOC = 0;
+const CURRENT_LOC = 1;
 // LOC_POINTS: the marked dots on the bar, each with a position (0–100) and a label.
 // Labels appear below the dot in small caps. Leave label as '' to show dot only.
 const LOC_POINTS = [
@@ -41,13 +41,13 @@ const LOC_POINTS = [
 
 // ── WORD OF THE DAY ──
 // Leave WORD empty ('') to hide the strip entirely.
-const WORD    = 'Magari';
-const MEANING = 'Maybe, perhaps, if only. Carefully optimistic and thoughtful';
+const WORD    = 'Beato te / Beata te!';
+const MEANING = 'Lucky you! or I am happy for you!';
 
 // ── NOTE FROM THE ROAD ──
 // Leave NOTE empty ('') to hide it.
-const NOTE      = 'Two days left! Last day at work before vacation. Tonight I will check the equipment and pack it up. Starting to feel excited!';
-const NOTE_DATE = '8 may';
+const NOTE      = '12:15 I just assembled my bike and Im officially starting the journey right now. So excited!!';
+const NOTE_DATE = '10 may';
 
 
 // Utforska betalningssätt: Paypal och Revolut fixat. Behöver koppla konton bara...
