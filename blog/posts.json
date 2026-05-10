@@ -1,5 +1,23 @@
 [
   {
+    "slug": "dag1",
+    "type": "journal",
+    "date": "2026-05-10",
+    "day": 1,
+    "location": "Menton 🇫🇷",
+    "km": 53,
+    "elevation": 820,
+    "title": {
+      "en": "Day 1 - Nice, France",
+      "sv": "Dag 1 — Nice, Fankrike",
+      "it": "Giorno 1 - Nizza, Francia"
+    },
+    "captions": {
+      "photo1": "Bildtext för andra bilen",
+      "photo2": "Bildtext för tredje bilden (valfri)"
+    }
+  },
+  {
     "slug": "dad",
     "type": "blog",
     "date": "2026-04-30",
@@ -76,19 +94,5 @@
       "photo3": "An enchanting view along the Flåm railway. The mist over the snow-capped mountain, the bright autumn foliage, and the coarse mountainside... Love this photo."
     },
     "photos": 3
-  },
-  {
-    "slug": "dag1",
-    "type": "journal",
-    "date": "2026-01-10",
-    "day": 1,
-    "location": "Genova, Liguria",
-    "km": 87,
-    "elevation": 1240,
-    "title": {
-      "en": "Day 1 — Test, Liguria",
-      "sv": "Dag 1 — Test, Ligurien",
-      "it": "Giorno 1 — Test, Liguria"
-    }
   }
 ]
