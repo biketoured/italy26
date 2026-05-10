@@ -7,7 +7,7 @@ CLIENT_ID     = os.environ['STRAVA_CLIENT_ID']
 CLIENT_SECRET = os.environ['STRAVA_CLIENT_SECRET']
 REFRESH_TOKEN = os.environ['STRAVA_REFRESH_TOKEN']
 
-TRIP_START_TIMESTAMP = int(datetime(2026, 5, 1).timestamp())
+TRIP_START_TIMESTAMP = int(datetime(2026, 5, 10).timestamp())
 TRIP_END_TIMESTAMP = int(datetime(2026,6, 30).timestamp())
 
 # Absolute path — works regardless of where script is called from
