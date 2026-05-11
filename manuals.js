@@ -7,7 +7,7 @@
 // ══════════════════════════════════════════════════════════════
 
 // ── DONATIONS ──
-const SEK = 4350;
+const SEK = 4750;
 const EUR = 12;
 const DONATION_TOTAL = Math.round(SEK + (EUR * 11));  // SEK total (EUR*11 ≈ conversion)
 const DONATION_GOAL  = 40000;                          // SEK goal
@@ -20,7 +20,7 @@ const LIVE_URL      = '';
 // ── ROUTE PROGRESS ──
 // CURRENT_LOC: a number 0–100 for how far along the route you are.
 // Update this each day. The dot at that position lights up as "current".
-const CURRENT_LOC = 1;
+const CURRENT_LOC = 4;
 // LOC_POINTS: the marked dots on the bar, each with a position (0–100) and a label.
 // Labels appear below the dot in small caps. Leave label as '' to show dot only.
 const LOC_POINTS = [
@@ -46,8 +46,8 @@ const MEANING = 'Lucky you! or I am happy for you!';
 
 // ── NOTE FROM THE ROAD ──
 // Leave NOTE empty ('') to hide it.
-const NOTE      = 'Sleeping at Guillhommes cozy guest room. This guy has cycled through Morocco and works as a music teacher.';
-const NOTE_DATE = '10 may';
+const NOTE      = 'Tonight Im tenting up in the mountains. Monaco was marvellous, the French Riviera was lovely. But from now on its only Italy, the most beautiful country :).';
+const NOTE_DATE = '11 may';
 
 
 // Utforska betalningssätt: Paypal och Revolut fixat. Behöver koppla konton bara...
