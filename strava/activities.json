@@ -1,5 +1,18 @@
 [
   {
+    "id": 18464559746,
+    "name": "#2.1 Italy26🇮🇹: Monaco Loop 🇲🇨",
+    "type": "Ride",
+    "date": "2026-05-11T10:12:38Z",
+    "distance": 34.7,
+    "elevation": 686,
+    "moving_time": 9518,
+    "polyline": "sodjG{fvl@rCrBp@rAbFkItAeHzBuAO{@|DxJzIpN`X`Y~SpOrU~LdAMv@{BdC}C~JoJlARJb@_EzAcGzGiErND~Hp@nC^?w@~@iEvPeDnAc@v@AbMxAfKE|Bi@pBuEjJcG`JaB|@}IlNSfEtAvELlM|ApBTpCuArCmEfBc@jDjAd@bGo@jA^~FzM~QfUt@zBxFpFnAObAv@Lx\\fDlUoC~LR~Al@zAc@LLf@Gi@ZAfCpF`G_BvA|CvDb@bAnAb@fBE~DgBtJv@dF|AKbBoDjE@vCiBrCpBoB`J^rAz@E~BsCpCu@hB^rDbCnLjNz@i@x@mBxB`Bz@YrC~C~ApH_@aAJq@^xAvAsAbBJ`@rMkBbD^`BdCn@bC{Dx@lAOrBrAzAV|E~CbD`J`BbI|IrAAhB}Bl@DdA|KvABtA`A|@|Cf@_@Mv@ZpAiAh@n@vA~BN|BhCfHoCp@dBVvCUa@dAzBpCSv@{@rBtA}AkCyBcAkAgEkJcFFg@lAUt@kHtDgIbCvETlDrADj@sExCkGUa@Fd@uBjF\\eAq@dBi@lEwAKG_CsBgF~GoPwFvNWd@kAeAFsGc@iCk@aBoAMaBkCNkCtBc@HfAm@dAf@aACoA~AoBaByFmAeBqBzC_C`AHvJqAVE`C{D\\TzEvDsBdCJTdEQl@c@SrBfNmFkEuDqIkFmIz@~CuIqZcJbE_IZsDwAg@oAaBiRcAcEGaCv@RMk@iCa@uB~DEXlAp@y@lGv@tBt@aAIu@aJqEeAiBhFiK_IeC_@]IsA~D{AGo@wBtAiHoFuC]eMaFeDyCyGaM_CuAwAmCoAwCcAqDAaFkC{GeEkFsBaEjAjF~AhCKbA~BnD_JgPoAuMk@aDYy@iAj@IvAc@}@gExAQqAXyBc@w@ST?|EXxTrC~TuA~FcCYfBdCU`FhBfFF|BMqAGIaA\\yAy@x@zBsAjHp@~@tB`@mAf@cC[aAcCb@yCMcBaI_LwAuEXgIz@_ArCCzAeDE}AkA_CU{E}AwHIiFu@kBmFl@mB{@_BuFsC_D_AaE{JwF{KgL}DcBcGz@gFqAyE|@{@}@I_BhAcArBeFpCsApBwBz@sBhFqEjF{CK_AgJaInEsAt@h@cDRpAo@Ev@sBfApHvGGr@aAn@vB{@@}@yCiCIw@nB}@zCaHkA}Ej@qBSgDlIgKhBiEtMgMpCiGGyCaByB{BqAcI_AiE~@kAkBPiDv@gDbCuBf@uCvEuI|CoC?{@m@_A{FqEaBu@gD\\}@gAlDqNzFuKP^",
+    "avg_speed": 13.1,
+    "avg_hr": 122.5,
+    "heartbeats": 19433
+  },
+  {
     "id": 18456793734,
     "name": "#2 Italy26🇮🇹Nice - Menton",
     "type": "Ride",
