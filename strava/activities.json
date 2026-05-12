@@ -1,5 +1,18 @@
 [
   {
+    "id": 18467996328,
+    "name": "#2.2 Italy26🇮🇹 Menton - San Remo",
+    "type": "Ride",
+    "date": "2026-05-11T16:55:21Z",
+    "distance": 49.2,
+    "elevation": 496,
+    "moving_time": 8592,
+    "polyline": "mdbjGixtl@gHqEkEgEwGoIuImHcEqFeKsQkLoX]sCuCaGaCsHqEmU~@yCRoDS{AeBgFqAo@yBA_EvBgJfByFwEmFcGwGkOcDyNwEy[SyEVsBo@iAkAqS\\aP`CoIe@oMy@gAIREhBJsA|@Fb@wCs@pD^jG]bA?bDeBrIOxCCfJdArVq@aHwA_Cc@eDsCsKfAyGFmHk@yBjBiIx@wGnAcEdBkBtAmGKm@_Bk@u@aAUaD}@kAyGmPP{ONkCbBcHlI}Y^{FWk@g@DeCnEgGvHu@E[yAdA_DhFgJl@wDM_G`@uA`AoALiB{EwBeBsBJY}ChASq@RkDUqAkEiAwEyFeASOqBa@m@gDW_B}EwG}Ci@aAw@gDcAa@sEFi@aBlEeJRiByAkZm@kAwDsBSaAVy@fDyB_@mEHmBjCgMjAoKd@sACq@oAcCv@cISoL`@mBgAmGDoJfC}J~B{TpG}LZkAWyJgDsJCoApEoM|BcD~@qHWmAy@O}HpF{AkAaBmEIeAdJyIiFhEw@rAcAx@QOr@Ji@B[cAbDmJJoEnDmM|My}@kB_d@yBqE@cAbAyCc@qLHmBjPyf@k@OV@FtAlE~@`AtBfJtBZc@|@{SjFui@UgBJfBi@QhYclB`@_@l@kEp@cIlBoc@cBqFkEgCwEo@sFoDqEuFkH_CqHgQoBoJeAkIeJgYO~AiAmAw@_C[kCaAiB{@_A{I}Dg@aFs@mAmCo@qBj@qCYgI{G_Ee@mEeCoC}DqA{CoAkAw@yEqCa@k@o@[{G{@gFqCsFn@qDPkG}BaDW{@OuETkEa@aJoDwWO{Eh@yON_ChEqVXADZw@xGr@Tv@uDf@@LZa@`HtATLyAYK@gBb@sF~AaEdE{TjAoJaf@uvB_KsR}G{O{AkJk@kX_ByLyHaT}I{MuGeQa@uAmBw\\o@oEmB_H}DoF|EbHoBiDgH{HfCrBbAzAc@dA\\oAg@m@aMiKwAcCuB}GgG}o@@gFbBgRWmKmBuIqKqVeB}LF_HdCw`@jCwYdDiPvD{M~HaThBsJ~CcIfA}EuAkT^eCIi@qCuGuIeJwE_KkDwEuGeD{JsAwEwCkBaCuMqWy@{FgCeAuEmJiB_Fy@oF_AiAeCkQy@g@wIZ}@q@_AiMtA_CAwAe@_@cIrA_G~BeE\\aMo@uOcGsB[aQfAog@~F_GpBuJvFaN|DsAfAqTnDwFc@_C\\mCw@}EoC}F_@uM{DgIn@qE`A_KnGyC~FwE~MwBtEoFjHuDlByCNeGm@wA|AsACU\\qBzLx@iD",
+    "avg_speed": 20.6,
+    "avg_hr": 128.7,
+    "heartbeats": 18430
+  },
+  {
     "id": 18464559746,
     "name": "#2.1 Italy26🇮🇹: Monaco Loop 🇲🇨",
     "type": "Ride",
