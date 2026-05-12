@@ -1,5 +1,18 @@
 [
   {
+    "id": 18480560613,
+    "name": "Morning Ride",
+    "type": "Ride",
+    "date": "2026-05-12T07:41:26Z",
+    "distance": 105.2,
+    "elevation": 1718,
+    "moving_time": 22685,
+    "polyline": "g{xjGg`|n@aLpLsQx@aI~UmLmN{Dv@kJrOkKcAcDyIkF`ImI_GcIdKcPnCsI{GcK|Q{GfCeFeFbAyVqB{EkDPoGnKcJeHaPpBgIoDgByOuBVjFKaNAaHxKaHFoEhOaErCoWaFqSfOwG{OqJjNoX`DcA|OgN`MoDpM_FaNiQjBgMiPyLtMe@vF_ElBeJuD_@lDd@kDjItDpEiBl@aGnLmM|LzObQ}BrF~N`EiNvKsH`CsSnYwDlCcUnGr@lEjMjNcOuKrI_FyMsb@{O_Uu[{J`AOqE_H_B_DwLsNkBuEsM}EmB_EuVsFqDsDpBk@gHqS{DaIaPy^gAjTrMlFiAyEjDiOeAbAjAlT|@kLpDoH|Gg@pFcLqHeBrMoG~IcOeN_[fWwFwLjAhF}Fg@yLuLwTiArDbJxG]sYzJkDmG}@aOlEwNAwKwGyGm@}GvFoFgEjGmL_BsNjKuHqBeCaHgLpI{^cPqGr@{MiLcDyYT_P~DkHcF}LzByQ_Mmo@xDyQdCkAf@gUdR{IuAcL|BoQ`IkAtCsFqJs_@hJuc@pNqMHuLwDyNhDsE{DqWbGmr@gP{CcMsTen@kJmGgKoJeBaKmKaCiPnCkHs@ePqOwF{Foc@aGxAqF{Ex@aGmCwFzEuFiG{P~@wDlKnAjDqHzGlJ|M}IlFrB{E_OtBkVcAoKxByWdMiWkU~DUrVoYhWmNmQyInOyJQoJ}}@{XdC~F_[m@kEhGmHeEqIvCwJeCoJtEaCuB_SuLs@`CsJwBgBfA}JwF{IAaHeSzHrC_V`GoMcHuGmEiPoHbAEmLyHuEhCqCyBoIhU_FeG}OdIeF}BcW|D}JgDqDnCsYaDkGcAkQiF~CeCuOyFi@~KgVcD}CbAoIyHaPZwVqDcCd@wOxEcEgA}HlEcE_I_VdK}OsGe]pGqGB{u@bHmEaHuIdBcr@mA}{@yKm]o]yf@gNwKo@yZmGiKmOseAoN_PsGx@qCmP}Zei@aH_v@|Dug@eH_c@kNoYwKfLxAqGkCoHnE{O\\sY~P{QrC{NtJnDbAoG`JAnB}_@~Dk]bGqPlBeZxHsKhIhF~Cme@bJrDpLi\\eGwHaOsBsqBvGqnBeLoi@eMUiD_[eKqc@yVR}B?~CsEuAcUwQqLnA{QySqA}IqH}HfAiEuAfEcWkNyy@__AyPmXiJ{EaRtAk[iW{u@w`AgKaFmOqc@a@cS}O{e@uQ}{@ge@ikEkU}HqSc[kAtNmWbn@kNzRWpGVyFuYlYkQVoIoHpIvHnSm@lW{Y_MMlGoAdOhQvBwMvSid@`EeS_CiDtBcLrJuEcOyf@lKvFmKmC|CHjJtc@iFdFp@~CgEoEW~GaWhm@qDrB",
+    "avg_speed": 16.7,
+    "avg_hr": 118.6,
+    "heartbeats": 44841
+  },
+  {
     "id": 18467996328,
     "name": "#2.2 Italy26🇮🇹 Menton - San Remo",
     "type": "Ride",
