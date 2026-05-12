@@ -1,5 +1,23 @@
 [
   {
+    "slug": "dag3",
+    "type": "journal",
+    "date": "2026-05-12",
+    "day": 3,
+    "location": "Finale Ligure",
+    "km": 110,
+    "elevation": 1720,
+    "title": {
+      "en": "Day 3 - Finale Ligure",
+      "sv": "Dag 3 - Finale Ligure",
+      "it": "Giorno 3 - Finale Ligure"
+    },
+    "captions": {
+      "photo1": "",
+      "photo2": "Bildtext för tredje bilden (valfri)"
+    }
+  },
+  {
     "slug": "dag2",
     "type": "journal",
     "date": "2026-05-11",
@@ -15,7 +33,8 @@
     "captions": {
       "photo1": "Bildtext för andra bilden (valfri)",
       "photo2": "Bildtext för tredje bilden (valfri)"
-    }
+    },
+    "photos": 1
   },
   {
     "slug": "dag1",
