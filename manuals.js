@@ -7,7 +7,7 @@
 // ══════════════════════════════════════════════════════════════
 
 // ── DONATIONS ──
-const SEK = 5750;
+const SEK = 6850;
 const EUR = 12;
 const DONATION_TOTAL = Math.round(SEK + (EUR * 11));  // SEK total (EUR*11 ≈ conversion)
 const DONATION_GOAL  = 40000;                          // SEK goal
@@ -20,7 +20,7 @@ const LIVE_URL      = '';
 // ── ROUTE PROGRESS ──
 // CURRENT_LOC: a number 0–100 for how far along the route you are.
 // Update this each day. The dot at that position lights up as "current".
-const CURRENT_LOC = 4;
+const CURRENT_LOC = 8;
 // LOC_POINTS: the marked dots on the bar, each with a position (0–100) and a label.
 // Labels appear below the dot in small caps. Leave label as '' to show dot only.
 const LOC_POINTS = [
@@ -41,13 +41,13 @@ const LOC_POINTS = [
 
 // ── WORD OF THE DAY ──
 // Leave WORD empty ('') to hide the strip entirely.
-const WORD    = 'Beato te / Beata te!';
-const MEANING = 'Lucky you! or I am happy for you!';
+const WORD    = 'Mi piace / A me piace';
+const MEANING = 'Instead of saying "I like it", italians tend to say Mi piace, meaning "It gives me pleasure/joy".';
 
 // ── NOTE FROM THE ROAD ──
 // Leave NOTE empty ('') to hide it.
-const NOTE      = 'Tonight Im tenting up in the mountains. Monaco was marvellous, the French Riviera was lovely. But from now on its only Italy, the most beautiful country :).';
-const NOTE_DATE = '11 may';
+const NOTE      = 'Weather was splendid, Ligirian foresty hills and mountain villages were lovely. I want more tomorrow!';
+const NOTE_DATE = '12 may';
 
 
 // Utforska betalningssätt: Paypal och Revolut fixat. Behöver koppla konton bara...
