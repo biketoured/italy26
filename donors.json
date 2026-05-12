@@ -6,6 +6,66 @@
     "message": "I pledge to donate 1 SEK for each kilometer. <br> Jag binder mig vid att donera en krona för varje kilometer.  <br> Mi impegno a donare 1 SEK per ogni chilometro."
   },
   {
+    "name": "Håkan E",
+    "amount": 300,
+    "currency": "kr",
+    "message": "Hejja Edvard!! Bra initiativ å ha en bra resa!"
+  },
+  {
+    "name": "Kajsa",
+    "amount": 100,
+    "currency": "kr",
+    "message": "Lycka till och njut av färden!"
+  },
+  {
+    "name": "Camilla S",
+    "amount": 500,
+    "currency": "kr",
+    "message": ""
+  },
+  {
+    "name": "Britt-Marie A",
+    "amount": 300,
+    "currency": "kr",
+    "message": ""
+  },
+  {
+    "name": "Emil H",
+    "amount": 100,
+    "currency": "kr",
+    "message": ""
+  },
+  {
+    "name": "Lolav",
+    "amount": 100,
+    "currency": "kr",
+    "message": "Starkt och fint initiativ. Heja dig!"
+  },
+  {
+    "name": "Johan A",
+    "amount": 200,
+    "currency": "kr",
+    "message": ""
+  },
+  {
+    "name": "Braxtorp",
+    "amount": 500,
+    "currency": "kr",
+    "message": ""
+  },
+  {
+    "name": "André G",
+    "amount": 100,
+    "currency": "kr",
+    "message": ""
+  },
+  {
+    "name": "Erik N",
+    "amount": 100,
+    "currency": "kr",
+    "message": ""
+  },
+  {
     "name": "Karin A",
     "amount": 200,
     "currency": "kr",
@@ -23,10 +83,28 @@
     "currency": "kr",
     "message": "Lycklig resa!"
   },
+  {
+    "name": "Olle",
+    "amount": 100,
+    "currency": "kr",
+    "message": ""
+  },
     {
-    "name": "Samuel Wharry",
+    "name": "Samuel W",
     "amount": 133,
     "currency": "kr",
     "message": "It's a pleasure to support this project!"
     }
+  {
+    "name": "DP",
+    "amount": 100,
+    "currency": "kr",
+    "message": ""
+  },
+  {
+    "name": "Anonym",
+    "amount": 300,
+    "currency": "kr",
+    "message": ""
+  },
 ]
