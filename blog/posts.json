@@ -1,5 +1,23 @@
 [
   {
+    "slug": "dag2",
+    "type": "journal",
+    "date": "2026-05-11",
+    "day": 2,
+    "location": "Menton, France",
+    "km": 84,
+    "elevation": 1186,
+    "title": {
+      "en": "Day 2 - Menton 🇫🇷 - Taggia 🇮🇹",
+      "sv": "Dag 2 - Menton 🇫🇷 - Taggia 🇮🇹",
+      "it": "Giorno 2 - Menton 🇫🇷 - Taggia 🇮🇹"
+    },
+    "captions": {
+      "photo1": "Bildtext för andra bilden (valfri)",
+      "photo2": "Bildtext för tredje bilden (valfri)"
+    }
+  },
+  {
     "slug": "dag1",
     "type": "journal",
     "date": "2026-05-10",
