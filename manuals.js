@@ -20,15 +20,16 @@ const LIVE_URL      = '';
 // ── ROUTE PROGRESS ──
 // CURRENT_LOC: a number 0–100 for how far along the route you are.
 // Update this each day. The dot at that position lights up as "current".
-const CURRENT_LOC = 8;
+const CURRENT_LOC = 10;
 // LOC_POINTS: the marked dots on the bar, each with a position (0–100) and a label.
 // Labels appear below the dot in small caps. Leave label as '' to show dot only.
 const LOC_POINTS = [
   { pos:  1, label: 'Nice' },
   { pos:  3, label: 'Liguria' },
-  { pos:  11, label: 'Sardinia' },
-  { pos:  18, label: 'Sicily' },
-  { pos:  28, label: 'Calabria' },
+  { pos:  9, label: 'Tuscany' },
+  { pos:  15, label: 'Sardinia' },
+  { pos:  22, label: 'Sicily' },
+  { pos:  30, label: 'Calabria' },
   { pos:  38, label: 'Apulia' },
   { pos:  48, label: 'Naples' },
   { pos:  59, label: 'Abruzzo' },
@@ -46,8 +47,8 @@ const MEANING = 'Instead of saying "I like it", italians tend to say Mi piace, m
 
 // ── NOTE FROM THE ROAD ──
 // Leave NOTE empty ('') to hide it.
-const NOTE      = 'Weather was splendid, Ligirian foresty hills and mountain villages were lovely. I want more tomorrow!';
-const NOTE_DATE = '12 may';
+const NOTE      = 'Yesterday was one of the toughest ride I have ever done. 2400m elevation gain. Ended at la casa di Stefano with 2 pizzas and a very warm hosting. Grazie mille Stefano❣️';
+const NOTE_DATE = '14 may';
 
 
 // Utforska betalningssätt: Paypal och Revolut fixat. Behöver koppla konton bara...
