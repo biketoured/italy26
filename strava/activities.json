@@ -1,5 +1,18 @@
 [
   {
+    "id": 18507066987,
+    "name": "Lunch Ride",
+    "type": "Ride",
+    "date": "2026-05-14T11:28:12Z",
+    "distance": 84.1,
+    "elevation": 1072,
+    "moving_time": 15556,
+    "polyline": "ucunGct`u@dAtFsC~HgBJjEpBvA}BrA`PgAlG|A|@xBaHeBmJdEwM[{Iz@yMbB{BNqFnMaY{AaP_NwXgJsOjEe[xFmGhCgYnDp@rFoAhCmCFcLtKiG]gK`IeTp@aJnGyFvCeMdS_QnNqAvEyFa@iAjN`FhUtTxWtEbo@aHhA}EtJ|Bpn@ge@xHbEaGcDiClFHgD{GmKi@|AbSlb@~P`Q~KgAbBkCWqH~EuC|\\~NxApOzOrLz\\fBtIxElY~DjElDnOkElOwBxYbDzLgG|eArp@bToH{Gxb@jBuE|D~D`KnC`CaMiCoEpAcF~AKdRgpAcCeDiEk]yGkZbAkFUpCqCYyF}F{Lo]ZoHmDua@nCaMlKsP|NsHa@}DpEd@tAzHvEvFpFwFvEDzOgRpW_SbMiq@_C}FmLsG`TlFtFoa@tL{OfFyWJqFgGqh@VhCVeIvFqG\\{I`FuRd@cMoBkFa[kIXi[bOo_@`Hm\\hF_IDaJjF_C|E}J_@oIfF}AaDcL`DuH_AyHxCaCn@cHeAyGnC{WmAsKzFid@qHhlA~BoYiAaMvQqwAuCwSkJaQ|GwW^q`@~La`@|Bug@eAeEzB{EhAyYxDyRSaI_EwHSyDbJ}PnG}t@fE_IbD}NdM{QoAcH~Gi_@uB}LdDw`@wA_KrHkIvD}IfGyXxCuYdFgLjE_[?mHhKsN@eHdHyXa@kWtFaH|@kH_AeFuGqNpFaLpFZxGkI~EbAp@mDrE}ChBaRzGnHfD{BxCkTnDiHhCe@pFeHtIaOl@}GdLgErByGc@uGxHrEdBqFhD[NyBvDCfHdC}JuBnDKgKkF}AiFgFcFsMtBqHzPdGyYhE{E|DEfHuFbAwKrLqKiCyBeFBoD}J`Ase@zBYbGdGhKr@jA_Dp@gTiBiONyTyD}^nA_KaEuO_AkOGoo@xAaOyEc@sKhFqCiZxEof@vCsLmIbCqAxDkGj@kBsE}CR{H}VgHiIdEeMpFk@tBgHq@yJdD}FGmM~FeEfBdDnFZjFeLUeGnE{BEkF}C{KbAy@lHhEd@cQjCsCiNeP@kEpG_@cAkMvHsXQgCzDsA~KsO_BqGaKyIGoC~BoAnPjEc@mLpFgAjDcHzC}[|CN~KiMeJqG_D}IfFUsAqKhE{BvCqOpFe@xImNLsIrCwK_@cE~H{_@jNm_AKim@vBeCvAvPvD~KByKfF_IlJvDrCqFbFnC~Pef@nGyWbCa^wIgPvUyv@hBaAtIxH~AgEtAvAKjC_AgGpUql@`Oah@}Ntf@eAiCn@eDlAJd^cfAde@_jApU{]bMqDrIsYpV__@t]qQgHtDtEgCAyBwCbB{@_C~CkFx@mFIkA",
+    "avg_speed": 19.5,
+    "avg_hr": 117.9,
+    "heartbeats": 30568
+  },
+  {
     "id": 18495292129,
     "name": "#4.1 Italy26🇮🇹 Ventimiglia - Genoa",
     "type": "Ride",
