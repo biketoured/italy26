@@ -20,13 +20,12 @@ const LIVE_URL      = '';
 // ── ROUTE PROGRESS ──
 // CURRENT_LOC: a number 0–100 for how far along the route you are.
 // Update this each day. The dot at that position lights up as "current".
-const CURRENT_LOC = 10;
+const CURRENT_LOC = 12;
 // LOC_POINTS: the marked dots on the bar, each with a position (0–100) and a label.
 // Labels appear below the dot in small caps. Leave label as '' to show dot only.
 const LOC_POINTS = [
   { pos:  1, label: 'Nice' },
   { pos:  3, label: 'Liguria' },
-  { pos:  9, label: 'Tuscany' },
   { pos:  15, label: 'Sardinia' },
   { pos:  22, label: 'Sicily' },
   { pos:  30, label: 'Calabria' },
@@ -42,13 +41,13 @@ const LOC_POINTS = [
 
 // ── WORD OF THE DAY ──
 // Leave WORD empty ('') to hide the strip entirely.
-const WORD    = 'Mi piace / A me piace';
-const MEANING = 'Instead of saying "I like it", italians tend to say Mi piace, meaning "It gives me pleasure/joy".';
+const WORD    = 'Amo';
+const MEANING = 'Every time you say a verb involving *we*, you add -amo in the end (parliamo, mangiamo, stiamo, etc...). Amo happens to mean *I love*. That is a poetic coincidence!.';
 
 // ── NOTE FROM THE ROAD ──
 // Leave NOTE empty ('') to hide it.
-const NOTE      = 'Yesterday was one of the toughest ride I have ever done. 2400m elevation gain. Ended at la casa di Stefano with 2 pizzas and a very warm hosting. Grazie mille Stefano❣️';
-const NOTE_DATE = '14 may';
+const NOTE      = 'Yesterday was a weird day. Very windy and I was confused whether to take the ferry for Sardinia or not. Im going to Livorno. Had the pleasure to stay at casa di Raul. Wonderful man 71 years strong';
+const NOTE_DATE = '15 may';
 
 
 // Utforska betalningssätt: Paypal och Revolut fixat. Behöver koppla konton bara...
