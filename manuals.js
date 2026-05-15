@@ -20,7 +20,7 @@ const LIVE_URL      = '';
 // ── ROUTE PROGRESS ──
 // CURRENT_LOC: a number 0–100 for how far along the route you are.
 // Update this each day. The dot at that position lights up as "current".
-const CURRENT_LOC = 12;
+const CURRENT_LOC = 15;
 // LOC_POINTS: the marked dots on the bar, each with a position (0–100) and a label.
 // Labels appear below the dot in small caps. Leave label as '' to show dot only.
 const LOC_POINTS = [
@@ -46,8 +46,8 @@ const MEANING = 'Every time you say a verb involving *we*, you add -amo in the e
 
 // ── NOTE FROM THE ROAD ──
 // Leave NOTE empty ('') to hide it.
-const NOTE      = 'Yesterday was a weird day. Very windy and I was confused whether to take the ferry for Sardinia or not. Im going to Livorno. Had the pleasure to stay at casa di Raul. Wonderful man 71 years strong';
-const NOTE_DATE = '15 may';
+const NOTE      = 'Going to Livorno today by train for a ferry to Corsica(!)';
+const NOTE_DATE = '16 may';
 
 
 // Utforska betalningssätt: Paypal och Revolut fixat. Behöver koppla konton bara...
