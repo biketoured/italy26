@@ -1,5 +1,18 @@
 [
   {
+    "id": 18507809934,
+    "name": "#5.2 Italy26🇮🇹 La Spezia🚵🏼‍♂️",
+    "type": "Ride",
+    "date": "2026-05-14T19:30:38Z",
+    "distance": 10.1,
+    "elevation": 344,
+    "moving_time": 2329,
+    "polyline": "opflGck{z@CZGFCR]l@QPgAv@k@V[VuAhAoBxAc@d@i@L]N]b@Yj@m@fBeApAk@d@OFGCSOw@a@EASFCN?VJh@IpAEPKNa@F]^w@lAUp@YnAo@nBy@hDm@dBo@rAyClEMZYlCOZY^wA~@yC`BgBfAUNU`@QLS@{@C_BBiCQgA@SRAb@BHn@fATx@RvCPjA?HKRUAQi@o@aDQQQLGJIf@?n@H^DJNR\\TNZ@HIXMFM?OQe@w@o@wAW_@EAULC`@BPXdAF^Bl@?\\Ej@k@vBQ~@Ez@F^LZHDP@pAUDB@NEJcAr@i@PEJBVBBN@l@G^@BLIHm@Pe@RO@[@]OCEIg@PcABc@GSGESBMZMrB?f@Ln@Vj@RZLHV\\@DANs@rBK`@Ez@?rB@r@KvB@VHHD?XCf@MRM~@kALKZIpD_@^I\\QZi@Pk@Jw@JW\\IDBLVCh@Sj@Gd@GjBUx@Ub@W^QHm@N]V}@rA_@NaBPYJ]Z_BfBa@r@[pA_@`CKZWd@oA~@qC~Bg@FsBOgASiA]cBq@s@Ks@FWLUPSVa@x@_CtHa@dAi@x@WXwDrD_Ar@UHk@@e@Oa@CMHa@f@_@LOEw@e@u@_@YEKDILMd@AZD`@\\fAVp@R`@TXz@x@FHJ^Db@Ab@]rBGTSb@k@x@Q`@s@lCy@vEWXi@TCDIj@HrAATe@|@STKXETAXBXPfBAXIVMJQDi@Sw@DYK_@e@QKSK[AED]rAYr@Ib@OlB[jAc@tAM~A_@tA[`CMXm@|@a@|@YvAWbAIb@C\\IXKT@h@DRXj@?TMTUVOFs@IaBLUHGVEdAMVKFe@Jc@CMBOL_@b@{@j@a@P_B`@iDzAm@d@q@t@}At@Ub@Y|@UZc@Ru@j@WJkA\\eAP_@V{BfCgAfA_@p@Sl@Sb@i@r@k@TsAbA_Ab@qBhAqAd@c@`@aBn@QZW~@IHWD[KMK_@y@]WmAg@YGmAZa@DgAg@KOC@?^FP\\d@lGhJbAhAhA|ANf@NvAv@tCRZx@n@TZFPB\\@~AZhCF`ANfECXQp@w@hCMVGFo@REFAH@RRRKQMc@_Bw@}AeBOAEDIJCPD`@p@~Cb@~ADzABTDF@AF~@RFN?@NBKECAQCX@BCBBEANO`@",
+    "avg_speed": 15.7,
+    "avg_hr": 135.2,
+    "heartbeats": 5248
+  },
+  {
     "id": 18507066987,
     "name": "Lunch Ride",
     "type": "Ride",
