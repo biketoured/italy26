@@ -52,7 +52,8 @@
     "captions": {
       "photo1": "",
       "photo2": "Bildtext för tredje bilden (valfri)"
-    }
+    },
+    "photos": 1
   },
   {
     "slug": "dag2",
