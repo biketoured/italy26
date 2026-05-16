@@ -1,5 +1,23 @@
 [
   {
+    "slug": "dag6",
+    "type": "journal",
+    "date": "2026-05-15",
+    "day": 6,
+    "location": "Viareggio",
+    "km": 122,
+    "elevation": 1230,
+    "title": {
+      "en": "Day 6 — Viareggio, Tuscany",
+      "sv": "Dag 6 — Viareggio, Toskana",
+      "it": "Giorno 6 — Viareggio, Toscania"
+    },
+    "captions": {
+      "photo1": "",
+      "photo2": "Bildtext för tredje bilden (valfri)"
+    }
+  },
+  {
     "slug": "dag5",
     "type": "journal",
     "date": "2026-05-14",
