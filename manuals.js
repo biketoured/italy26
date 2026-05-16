@@ -26,7 +26,7 @@ const CURRENT_LOC = 14;
 const LOC_POINTS = [
   { pos:  1, label: 'Nice' },
   { pos:  3, label: 'Liguria' },
-  { pos:  13, label: 'Corsica+Sardinia' },
+  { pos:  13, label: 'Corsica,Sardinia' },
   { pos:  22, label: 'Sicily' },
   { pos:  30, label: 'Calabria' },
   { pos:  38, label: 'Apulia' },
