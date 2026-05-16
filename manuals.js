@@ -46,7 +46,7 @@ const MEANING = 'Taking a piece of bread to clean the sauce off the plate, leavi
 
 // ── NOTE FROM THE ROAD ──
 // Leave NOTE empty ('') to hide it.
-const NOTE      = 'Corsica was a plan B but I'm so happy I'm here, it's a cycling paradise! I need to reach South Sardinia by May 23.';
+const NOTE      = 'Corsica was a plan B but Im so happy Im here, it is a cycling paradise! I need to reach South Sardinia by May 23.';
 const NOTE_DATE = '17 may';
 
 
