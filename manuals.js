@@ -7,7 +7,7 @@
 // ══════════════════════════════════════════════════════════════
 
 // ── DONATIONS ──
-const SEK = 6850;
+const SEK = 7450;
 const EUR = 12;
 const DONATION_TOTAL = Math.round(SEK + (EUR * 11));  // SEK total (EUR*11 ≈ conversion)
 const DONATION_GOAL  = 40000;                          // SEK goal
@@ -20,13 +20,13 @@ const LIVE_URL      = '';
 // ── ROUTE PROGRESS ──
 // CURRENT_LOC: a number 0–100 for how far along the route you are.
 // Update this each day. The dot at that position lights up as "current".
-const CURRENT_LOC = 15;
+const CURRENT_LOC = 14;
 // LOC_POINTS: the marked dots on the bar, each with a position (0–100) and a label.
 // Labels appear below the dot in small caps. Leave label as '' to show dot only.
 const LOC_POINTS = [
   { pos:  1, label: 'Nice' },
   { pos:  3, label: 'Liguria' },
-  { pos:  15, label: 'Sardinia' },
+  { pos:  13, label: 'Corsica+Sardinia' },
   { pos:  22, label: 'Sicily' },
   { pos:  30, label: 'Calabria' },
   { pos:  38, label: 'Apulia' },
@@ -41,13 +41,13 @@ const LOC_POINTS = [
 
 // ── WORD OF THE DAY ──
 // Leave WORD empty ('') to hide the strip entirely.
-const WORD    = 'Amo';
-const MEANING = 'Every time you say a verb involving *we*, you add -amo in the end (parliamo, mangiamo, stiamo, etc...). Amo happens to mean *I love*. That is a poetic coincidence!.';
+const WORD    = 'Fare la scarpetta';
+const MEANING = 'Taking a piece of bread to clean the sauce off the plate, leaving it practically clean';
 
 // ── NOTE FROM THE ROAD ──
 // Leave NOTE empty ('') to hide it.
-const NOTE      = 'Going to Livorno today by train for a ferry to Corsica(!)';
-const NOTE_DATE = '16 may';
+const NOTE      = 'Corsica was a plan B but I'm so happy I'm here, it's a cycling paradise! I need to reach South Sardinia by May 23.';
+const NOTE_DATE = '17 may';
 
 
 // Utforska betalningssätt: Paypal och Revolut fixat. Behöver koppla konton bara...
