@@ -1,5 +1,18 @@
 [
   {
+    "id": 18520683706,
+    "name": "#6.1 Italy26🇮🇹 La Spezia - Viareggio",
+    "type": "Ride",
+    "date": "2026-05-15T10:46:38Z",
+    "distance": 122.2,
+    "elevation": 1230,
+    "moving_time": 24029,
+    "polyline": "qymlG{toz@q@sFzGxBtAwK_FeVaL{WsHwJ`IoH{ZxGwq@~h@oJqLkHlGqIw@}BzIyEu@{FjJaNxFqUcWel@qh@ai@qF}KqPkFm@oLfEwTrY{OlHaKdAqi@gMoJtVEng@uUdIeIwArIpA`W_L`RjR~FwAvGhGdKqH`DdSqQ~l@hUdVhSyMr^gGdLhLpI|XpKy@vB~Gj\\qIhNpFjHtYhOt`@D|OfH`GlNzh@fM|H\\`WoAlV~NpPeA~UnF`Sx@b\\fb@|y@tQD`TsPxDrAd@~HwD~O}GdG~CzKsKrEoAdOvFcM`DrFvGgDrOlIrGqAzFeIjCiUdQfH~A{\\xJoEqFgKaTaGQqHmBaEpBmIfDOv@oM{EsJnHqL{@wDgGqDbLmVuFoEx@oKgKmGxFoM`OjC\\_XzH{BfDpJbGeDt@fVbPzKvEiDXuLrGpA~@{HhIbB|DlKpFhCrCcOy@uZxIuB{D_YzK_Fr@_NhT|HhA_IuFaOjAaElFrBnBaEjFhKrMpDbBuQnSuEtDuNaCcBhBkTtFuLqK_FfRkGwClEzFr@B`NdH|GtEgMnFaClHxIpS}VbLeF~Eql@gFqNbGoOfFbBtMxYWvQzStE|Ba^mBis@rYeM~@oCmQoGzHkNlPi@BwHzE{IsC{FlBqIkV{sAhAaLmd@_UuFq{@hMiHOuQnCoFzUd@rLbHkBcOJoMqHkUdPiJxQjAi^qCaPoWyHhNqPpJuPjYwg@sl@pEo@nGcLlIkXmCsAhBK{@vGdCqEwBoClD_Hag@_p@aIjLnA|LuJz]`AeGEm@gOal@fAoDsK_GxNqWgDmE`CaDDeL`G}@JmHfEFEer@zCkNvIeKlWqGeBgUfDgEvKtFtOen@YpH`JoV}@oH|BfDgBuGfBdEhDe@aDKy@iF|BmTpGeNiJqBbIqJxCwYYcVmDuMgSgIoNeOsk@}SuJlDmFsc@eH_DpDxHgIaGcCkHbAwHoEeB[eWlBwEth@ij@eBgo@nQ_d@nKseA{K{_AxLfJ|GcFbK`F|GcPzGjDtIoJvGsUwE{GnFeC}@mChWu_@iBtAy@}FxGsPlsAybAl[mHls@oeAxh@{PuW{v@\\yZpKpAfA_DhAcd@}UkNrC{IaDyIn@cGuEuFbCgT}CqWpNlAdb@pMhNos@p[|e@bs@`U`Omc@_EwE|A{Gvr@sdCqIjW|@}KuBwChm@wfBhj@epAnW}d@tJjGrpB_sDlN{TroA_pB|wBsnCpCsC~KdWsLiU~@qCp|BgfCfcA_~@`cAiz@rqEa`DpgBs}@jAdCy@uLnEgCpBo@pCtL_CmLuIbDr@fMsCsLmG~B",
+    "avg_speed": 18.3,
+    "avg_hr": 113.1,
+    "heartbeats": 45295
+  },
+  {
     "id": 18507809934,
     "name": "#5.2 Italy26🇮🇹 La Spezia🚵🏼‍♂️",
     "type": "Ride",
