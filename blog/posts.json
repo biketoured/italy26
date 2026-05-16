@@ -1,5 +1,23 @@
 [
   {
+    "slug": "dag5",
+    "type": "journal",
+    "date": "2026-05-14",
+    "day": 5,
+    "location": "Valdipino",
+    "km": 95,
+    "elevation": 1400,
+    "title": {
+      "en": "Day 5 - La Spezia, Liguria",
+      "sv": "Dag 5 — La Spezia, Ligurien",
+      "it": "Giorno 5 — La Spezia, Liguria"
+    },
+    "captions": {
+      "photo1": "Bildtext för andra bilden (valfri)",
+      "photo2": "Bildtext för tredje bilden (valfri)"
+    }
+  },
+  {
     "slug": "dag4",
     "type": "journal",
     "date": "2026-05-13",
