@@ -1,5 +1,23 @@
 [
   {
+    "slug": "dag4",
+    "type": "journal",
+    "date": "2026-05-13",
+    "day": 4,
+    "location": "Ventimiglia",
+    "km": 125,
+    "elevation": 2430,
+    "title": {
+      "en": "Day 4 - Ceranesi, Liguria",
+      "sv": "Dag 4 — Ceranesi, Ligurien",
+      "it": "Giorno 4 — Ceranesi, Liguria"
+    },
+    "captions": {
+      "photo1": "Bildtext för andra bilden (valfri)",
+      "photo2": "Bildtext för tredje bilden (valfri)"
+    }
+  },
+  {
     "slug": "dag3",
     "type": "journal",
     "date": "2026-05-12",
