@@ -13,12 +13,13 @@ captions:
   photo1: The roads were marvelous with steep cliffs and deep blue water.
   photo2: Bildtext för tredje bilden (valfri)
 ---
+...
 
 This day started in Viareggio and ended on Corsican cape peninsula. I woke up at 5 to bike to the train to catch the ferry from Livorno to Corsica. On my way there I took a quick stop in Pisa, and snapped a few pictures with the help of the sole three tourists at the entire Piazza del Duomo. 
-When I arrived in Livorno I was super stressed and powered down the streets to the harbour on the heavy rain only to get met by a long queue of motorbikes and camper vans... I almost forgot, I am in southern Europe, so if I am two minutes late I'm practically early, even for a ferry this size! 
-Three people were controlling tickets, bikers were rummaging their bags to find the passports and it was just so messy. The food at the ferry was delicious and I caught some sleep. Once I arrived to Bastia the rainy humid air was long gone and my socks dried immediately (what a relief!).
-I met an Italian bikepacker who I might cross oaths with again (she's also heading for Sardinia) and got help by a kind German to oil my chain. Time to go!!<br>
-I decided to binge Cape Corse because it was said to be beautiful, and I cannot disagree! See my Instagram or photo gallery, I can't describe it in words!
+When I arrived in Livorno I was super stressed and powered down the streets to the harbour in the heavy rain only to get met by a long queue of motorbikes and camper vans... I almost forgot, I am in southern Europe, so if I am two minutes late I'm practically early, even for a ferry of this size! 
+Only two people were controlling tickets, bikers were rummaging their bags to find the passports, motorists even opened their rooftop boxes to get their documents (wasting everyomes time by not preparing) and it was just so messy. The food at the ferry was delicious and I caught some sleep. Once I arrived to Bastia the rainy humid air was long gone and my socks dried immediately (what a relief!).
+I met an Italian bikepacker who I might cross paths with again (she's also heading for Sardinia) and got help by a kind German to oil my chain since I seem to have lost my wax. Time to go!!<br>
+I decided to binge Cape Corse because it was said to be beautiful, and I cannot disagree! See my Instagram or videos in my photo gallery, I can't describe it in words!
 The village where I ended the trip, Nonza, is famous for it's asbestos mine, apparently it was the biggest in the entire world. They shut off and sealed the mine completely and there is a beach with asbestos mining residue washed up at the entire shore. I think I'll skip taking a bath tomorrow morning!
 
 ## How did my body feel?
