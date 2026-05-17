@@ -1,5 +1,23 @@
 [
   {
+    "slug": "dag7",
+    "type": "journal",
+    "date": "2026-05-16",
+    "day": 7,
+    "location": "Nonza, Corsica",
+    "km": 90,
+    "elevation": 1400,
+    "title": {
+      "en": "Day 7 — Corsican winds of change",
+      "sv": "Dag 7 — Kors i taket!",
+      "it": "Giorno 7 — Corsica"
+    },
+    "captions": {
+      "photo1": "The roads were marvelous with steep cliffs and deep blue water.",
+      "photo2": "Bildtext för tredje bilden (valfri)"
+    }
+  },
+  {
     "slug": "dag6",
     "type": "journal",
     "date": "2026-05-15",
