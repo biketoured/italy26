@@ -15,7 +15,8 @@
     "captions": {
       "photo1": "The roads were marvelous with steep cliffs and deep blue water.",
       "photo2": "Bildtext för tredje bilden (valfri)"
-    }
+    },
+    "photos": 1
   },
   {
     "slug": "dag6",
