@@ -1,5 +1,18 @@
 [
   {
+    "id": 18534248828,
+    "name": "#7.1 Italy26🇮🇹 Cap Corse🇫🇷",
+    "type": "Ride",
+    "date": "2026-05-16T13:59:20Z",
+    "distance": 90.2,
+    "elevation": 1434,
+    "moving_time": 15676,
+    "polyline": "qhscGy`vx@iLfEuHDu@\\wBjQvAcAoSeHiGc@_FlE_WeK{RpCwHnDeVcVsJBwQeL}FlBoMkLeFbByIaF{W|Gwc@sN}Wi@uSa[kRpDcElJ_N}FcQc@eSoM_Lg@sA}FwM{F_EhAuAsGy]e^uI_F_JzCeDyEWgK_JeH{J?eTyDcBiOuTaKiFh@yEaH{Fp@eHyHqTvBeMgH}L|AuHgGkE`CyBhRwa@kHof@xUiQi@aKnFeJmGsMnFeE}AmEnImG_GcHdB{LvMdC`PqSrIgLs@wDs]_LlF{HgDyNzFiO}EqE}K_QlO{Gw@ePvHaHjJuDaJ{QoCaJdFaH}@aLvQ{C\\e@jGgGmFuFlRkKzOaSoG`@iMeHqLmNpBuUdVml@uCyZnKwPsEyNxCwPp]yEpBiOqOuDmKoM`Lwe@{CsG}FkJtNyM}MaLv^aP}BmNpOaQk@kDgTuCcCc`@zWqFWwDvSyHgDiZhe@mJvEqFgGiKx@qQzEqIlJKhGpSxy@?~Sl@nN|AfBwBlKtC~EcFhOrCvB@|GgGjG{ImEgExC{NgD]nOmD~I_FyEqCxDqJuCmJp_@jB`YwAjHzFvGaAlFbCzJxHrEtOrZzDhSrChCfBhXsDvJnFfIdMjKgTdFwJuDqOgKeDjEyFoFiKtJL~Ooj@lUbAdSpMrPtDpSsBfKvBtQ}AvNdBrAlEgJlGo@tQs`@rNjA`OuIg@pR|D|LjF\\~BpLtFwDbH}F|DkLnFjDnHcOpGrTbFwCjCfVxJpA|BvGfEcBgEbByA{FxAfJbQv@xS_f@UlTpDxFKfIrD|B?nHdLbAj@|FoCbFdFbKhLhSlHfD`DjJ|IlAhAmQ`EwGGwHnIaBwHiNbD_Eq@aFpAoAjHxKzCLfFc[zATbAhKzG{AyBrEvAtIpJuAV~F`FCkJtK|HlBrB~EdHu@bKsQj@dJjOaOeElMY|JbCrE{FpNnKzClF}FvTi@WrHvBlD`Du@oAt@xB~JrG~@sKj^lIdCiAdR~ObBcApHXzGtE`]hIdL~KwAlBxa@xXbHxWodAlN]tFwEnJzLnGkHhGdQxJxFzNTlP}OxEvEhDqHxDD]eNlJ_MGuWtCaBy@sJzBk@}@{FjDmFyCsDzIkDv@sGtAhOvMoAO`WdFbM_CjDA~M`Ex@v@jQlD|BrHwJ~I|KjI_@TzFfFdEvPb@jM~ShMpNxLhDpLzLlIfThHyEvGrUpOa@n\\vTlPoQ\\_IhGiAdEiJpRqOhGbDjRsCbXoN`QiB|Byb@iD_c@lTv@fA~KvFxEjHqOIyKjP{DnB{MpEgD|GoBhBm`@jI~F|EfN`NcJ|FfBjE_EjD_N`HiD~FtKxSjGbB|PdIhBfDbMhIoB{En@",
+    "avg_speed": 20.7,
+    "avg_hr": 119.9,
+    "heartbeats": 31326
+  },
+  {
     "id": 18520683706,
     "name": "#6.1 Italy26🇮🇹 La Spezia - Viareggio",
     "type": "Ride",
