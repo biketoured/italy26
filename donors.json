@@ -18,6 +18,12 @@
     "message": "Lycka till och njut av färden!"
   },
   {
+    "name": "Gösta",
+    "amount": 300,
+    "currency": "kr",
+    "message": "Edvard is a great guy. Great mission!"
+  },
+  {
     "name": "Camilla S",
     "amount": 500,
     "currency": "kr",
@@ -44,6 +50,12 @@
   {
     "name": "Johan A",
     "amount": 200,
+    "currency": "kr",
+    "message": ""
+  },
+    {
+    "name": "Inger J",
+    "amount": 100,
     "currency": "kr",
     "message": ""
   },
@@ -102,9 +114,33 @@
     "message": ""
   },
   {
+    "name": "Anonym 1",
+    "amount": 300,
+    "currency": "kr",
+    "message": ""
+  },
+  {
+    "name": "Anonym 2",
+    "amount": 300,
+    "currency": "kr",
+    "message": ""
+  },
+    {
+    "name": "Tabita H",
+    "amount": 20,
+    "currency": "kr",
+    "message": ""
+  },
+  {
     "name": "Anonym",
     "amount": 300,
     "currency": "kr",
     "message": ""
+  },
+    {
+    "name": "Håkan E",
+    "amount": 300,
+    "currency": "kr",
+    "message": "Hejja Edvard!! Bra initiativ å ha en bra resa!"
   },
 ]
