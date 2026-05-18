@@ -1,5 +1,18 @@
 [
   {
+    "id": 18547213280,
+    "name": "#8.1 Italy26🇮🇹 Korsika🚵🏼‍♂️⛱️",
+    "type": "Ride",
+    "date": "2026-05-17T09:12:36Z",
+    "distance": 180.1,
+    "elevation": 2708,
+    "moving_time": 33371,
+    "polyline": "ugcdGmf`x@|HrRzg@}PdLpV~YcNf`@hb@dQwNnCme@fKhl@`zBiz@rAfV`_@hE~WsH|YxeAlVq[bOjU~VaFn}@ml@pQ{g@`XoE`Rd[uCvwA|_A~{Cd_@de@hr@VoFnj@dJ|]dl@fm@tTxs@f]xH`ElZh]xD{h@pvAnAbf@c\\fZsDh[rRn]ab@bTbKlw@{TrY~I|H{@f]v^pOnj@x\\aOvfAuRcSaPlm@tWbh@zN_BkIx^dOpnA{NgCaWjg@cf@lSqF~\\~J|{@pYnj@zPd_AoAzh@lc@vHSjl@fUuIvRb_@cJdU|F~c@eUrXmSlpD{Uhi@l\\nlAtA|lA|s@dg@`ToCz[fxAm`@vg@lPdkAmEj_AhKdUuI`Sdm@pqAfBju@}IpsAiKqJuNlSpPtDfk@`rAxQpKrCveBnUtmAdf@eI|RtMhYzjDgJ~d@vOt[mA|n@reApr@pYe@pM|s@rMbDvEeXbr@yOnc@zSjYf}@~R|`Brr@hxA|`@rXyPbaAnE|}@}eAtdA{_@iVeElKtZlcAnNfaAre@x~@~g@`[|H{MuCsWjU}M~Cnx@|a@{`@rb@ng@hS_Lc@yf@nZ{HrLdi@vR~HkTfp@r^lh@iQjBaIlU~Xb_@rFza@xy@``A``@hMtl@wa@jaAjCrh@mg@tMpa@bXpPxo@wJwB|e@dj@za@|oAsP|LpkA|\\sA~Fcu@vRr]bg@~@|I_c@|Li\\WoRhVzRtPyg@n\\zGzI_d@fn@u_Adm@pAt^te@lQyBxTyl@aSvkAzQnRdP{F~IjPnCpQGhNtRoIjK|MwNzRtTxVrY{SeHjh@x_@jCoJt\\~LdZc@dn@nN@jKsa@~Rfl@z\\tNdJy^}SmNxJeS{Jk[pZdDj@{h@vTf\\pF{J`A`U`P}F?rTda@bd@iCp^nDvz@pb@gDtOt\\zUcl@uDyKdLgCyL{V|OkHlEq_@i]aC_NuW~RgQ`VuHx[bEgGmf@kW{Gh[_XwMa`@nXnHaIuZ`RgNls@fItPds@|j@}Xu@aRnY`JrOuQeKq`@s\\jEn[on@qAkRub@iMdOkO`m@fWxMoIpArW|MgIpP|^`d@fAjTeTza@_zAbKmA}C~tB`QpLmEt_@vVdj@yDfPtTtNgP|ObR|a@bFcc@hAthAtXwTtGzd@pl@vG",
+    "avg_speed": 19.4,
+    "avg_hr": 111.5,
+    "heartbeats": 62014
+  },
+  {
     "id": 18534248828,
     "name": "#7.1 Italy26🇮🇹 Cap Corse🇫🇷",
     "type": "Ride",
