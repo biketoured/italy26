@@ -7,7 +7,7 @@
 // ══════════════════════════════════════════════════════════════
 
 // ── DONATIONS ──
-const SEK = 7450;
+const SEK = 7550;
 const EUR = 12;
 const DONATION_TOTAL = Math.round(SEK + (EUR * 11));  // SEK total (EUR*11 ≈ conversion)
 const DONATION_GOAL  = 40000;                          // SEK goal
@@ -24,9 +24,9 @@ const CURRENT_LOC = 14;
 // LOC_POINTS: the marked dots on the bar, each with a position (0–100) and a label.
 // Labels appear below the dot in small caps. Leave label as '' to show dot only.
 const LOC_POINTS = [
-  { pos:  1, label: 'Nice' },
-  { pos:  3, label: 'Liguria' },
-  { pos:  13, label: 'Corsica,Sardinia' },
+  { pos:  2, label: 'Liguria' },
+  { pos:  9, label: 'Corsica' },
+  { pos:  14, label: 'Sardinia' },
   { pos:  22, label: 'Sicily' },
   { pos:  30, label: 'Calabria' },
   { pos:  38, label: 'Apulia' },
@@ -46,8 +46,8 @@ const MEANING = 'Taking a piece of bread to clean the sauce off the plate, leavi
 
 // ── NOTE FROM THE ROAD ──
 // Leave NOTE empty ('') to hide it.
-const NOTE      = 'Corsica was a plan B but Im so happy Im here, it is a cycling paradise! I need to reach South Sardinia by May 23.';
-const NOTE_DATE = '17 may';
+const NOTE      = 'Corsica is far more mountainous than I knew. Sardinia is flatter but still a lot of elevation for 4 days. I take the ferry tomorrow';
+const NOTE_DATE = '18 may';
 
 
 // Utforska betalningssätt: Paypal och Revolut fixat. Behöver koppla konton bara...
