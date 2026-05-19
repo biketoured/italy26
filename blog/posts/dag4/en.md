@@ -6,13 +6,15 @@ location: Ventimiglia
 km: 125
 elevation: 2430
 title:
-  en: Day 4 - Ceranesi, Liguria 
-  sv: Dag 4 — Ceranesi, Ligurien
-  it: Giorno 4 — Ceranesi, Liguria
+  en: Day 4 - A special meeting
+  sv: Dag 4 — Ett speciellt möte
+  it: Giorno 4 — Un incontro speciale 
 captions:
   photo1: Bildtext för andra bilden (valfri)
   photo2: Bildtext för tredje bilden (valfri)
 ---
+
+The day was enriched by a new friendship, Stefano. We have many things in common, he also lost his father to cancer and he has done inspiring things such as completing an Ironman and building various amenities in his house. It all started with me getting on the road at the same time as he rolled by, and after talking for a while we agreed to take a lunch. Thereafter he invited me for dinner. This means a lot to me and I am grateful that we met. Thank you Stefano!
 
 ## How did my body feel?
 Body felt fairly good but at the end of the day I was completely exhausted!
