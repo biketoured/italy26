@@ -34,7 +34,8 @@
     "captions": {
       "photo1": "Det finns gott om fina vyer längs kustvägen",
       "photo2": "Bildtext för tredje bilden (valfri)"
-    }
+    },
+    "photos": 1
   },
   {
     "slug": "dag7",
