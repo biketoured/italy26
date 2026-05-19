@@ -1,5 +1,23 @@
 [
   {
+    "slug": "dag10",
+    "type": "journal",
+    "date": "2026-05-19",
+    "day": 10,
+    "location": "Tempiu Pausano, Sardinia",
+    "km": 95,
+    "elevation": 1200,
+    "title": {
+      "en": "Day 10 — A new chapter",
+      "sv": "Dag 10 — Ett nytt kapitel",
+      "it": "Giorno 10 — Un capitolo nuovo"
+    },
+    "captions": {
+      "photo1": "Bildtext för andra bilden (valfri)",
+      "photo2": "Bildtext för tredje bilden (valfri)"
+    }
+  },
+  {
     "slug": "dag9",
     "type": "journal",
     "date": "2026-05-18",
