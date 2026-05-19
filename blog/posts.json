@@ -1,5 +1,23 @@
 [
   {
+    "slug": "dag9",
+    "type": "journal",
+    "date": "2026-05-18",
+    "day": 9,
+    "location": "Sórtene, Corsica",
+    "km": 150,
+    "elevation": 2500,
+    "title": {
+      "en": "Day 9 - Of Corse it's possible!",
+      "sv": "Dag 9 - Att korsa Korsika kostar kalorier",
+      "it": "Giorno 9 - Attraversare Corsica costa"
+    },
+    "captions": {
+      "photo1": "Bildtext för andra bilden (valfri)",
+      "photo2": "Bildtext för tredje bilden (valfri)"
+    }
+  },
+  {
     "slug": "dag8",
     "type": "journal",
     "date": "2026-05-17",
