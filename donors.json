@@ -101,12 +101,12 @@
     "currency": "kr",
     "message": ""
   },
-    {
+  {
     "name": "Samuel W",
     "amount": 133,
     "currency": "kr",
     "message": "It's a pleasure to support this project!"
-    }
+  },
   {
     "name": "DP",
     "amount": 100,
@@ -125,22 +125,10 @@
     "currency": "kr",
     "message": ""
   },
-    {
+  {
     "name": "Tabita H",
     "amount": 20,
     "currency": "kr",
     "message": ""
-  },
-  {
-    "name": "Anonym",
-    "amount": 300,
-    "currency": "kr",
-    "message": ""
-  },
-    {
-    "name": "Håkan E",
-    "amount": 300,
-    "currency": "kr",
-    "message": "Hejja Edvard!! Bra initiativ å ha en bra resa!"
-  },
+  }
 ]
