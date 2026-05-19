@@ -14,13 +14,13 @@ const DONATION_GOAL  = 40000;                          // SEK goal
 
 // ── LIVE TRACKING ──
 // Set LIVE_TRACKING to true and update LIVE_URL when actively tracking
-const LIVE_TRACKING = false;
-const LIVE_URL      = '';
+const LIVE_TRACKING = true;
+const LIVE_URL      = 'https://www.strava.com/beacon/KJOKJOK05lZ ';
 
 // ── ROUTE PROGRESS ──
 // CURRENT_LOC: a number 0–100 for how far along the route you are.
 // Update this each day. The dot at that position lights up as "current".
-const CURRENT_LOC = 14;
+const CURRENT_LOC = 16;
 // LOC_POINTS: the marked dots on the bar, each with a position (0–100) and a label.
 // Labels appear below the dot in small caps. Leave label as '' to show dot only.
 const LOC_POINTS = [
@@ -46,8 +46,8 @@ const MEANING = 'Taking a piece of bread to clean the sauce off the plate, leavi
 
 // ── NOTE FROM THE ROAD ──
 // Leave NOTE empty ('') to hide it.
-const NOTE      = 'Corsica is far more mountainous than I knew. Sardinia is flatter but still a lot of elevation for 4 days. I take the ferry tomorrow';
-const NOTE_DATE = '18 may';
+const NOTE      = 'Just arrived in Sardinia! <br>Ill try to make the translation for the blog posts when I have time. Until then, it is all in English.';
+const NOTE_DATE = '19 may';
 
 
 // Utforska betalningssätt: Paypal och Revolut fixat. Behöver koppla konton bara...
