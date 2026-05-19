@@ -10,7 +10,7 @@ title:
   sv: Dag 9 - Att korsa Korsika kostar kalorier
   it: Giorno 9 - Attraversare Corsica costa
 captions:
-  photo1: Bildtext för andra bilden (valfri)
+  photo1: Unnade mig en liten öl när jag hade 20km kvar till hotellet. Vad räknas som fyllekörning på cykel?
   photo2: Bildtext för tredje bilden (valfri)
 ---
 
