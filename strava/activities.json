@@ -1,5 +1,18 @@
 [
   {
+    "id": 18578191326,
+    "name": "#10.2 Italy26🇮🇹 Sardinien 🐄🌳☀️",
+    "type": "Ride",
+    "date": "2026-05-19T17:00:40Z",
+    "distance": 45.4,
+    "elevation": 733,
+    "moving_time": 8330,
+    "polyline": "_evzFg~aw@_@~BvHbBVNCl@vbAtWx@v@ZKTyAvNgZhBcBdBBhRxF~@i@|FgMvG{X@iCm@yJ{@aG@uD{CgEe@iA?y@r@eCOsGoBaG{BsEiMkFiDcEiAcC_EkQD}EfBgY@qKk@yUp@cG~EaU@aHjEgKDoAe@gJj[if@zG}GlEmAjKkUfGoRtUoZfGaB~FC`AoApCmJpEiFdI{ArLmIvCKzOfB|@UvKyHn@eAf@{B{AoIt@kHtD}KhBsCbBgPdA}ArGiB~M~C|MRnShDp@a@`BuCwBfDB^dSfM~XjE|DdAtHjEpUvCfDbCxCt@bBhAzAzC|FxC|G|HbCbBlCpJzE`AjBhGbFrGnHvFbBTfBzGl@LXc@q@uCNe@lHzFvBdFvBjLrA|CZ|CfARbAaAK{DU{CvBYnCj@d@^|IvQPt@ShDdEk@tBzAhJfAzCpD~BqAvFpHjDbAH\\a@~ANnA|EfFbL{CvCyAxHuFpBwDPyArAYRi@tAmLWoFhFsZo@oE}C{Ef@kEGuDyAaAQ_Bb@c@`BLnFw@pAw@b@mE[{LVyAfAmAdF\\lInD|EfCbIx@lHcApGbCvE|CvE^vB|BzAv@xF\\nAsAjDwANqG\\oBfO}RdCa@Ne@OoB`@q@vCgApEtBrBcBhAQ~WfC`DlAD|@@WUNFSNZXUq@Cb@?WFZWUIKd@p@Am@E\\a@jCxAvD?`UhRpQdItG~DhBzIx@r@tBh@t@|@tHtWbNln@\\lJRt@lChBtFrMrG|IfEtIdPdT~@dEhA~B|X|c@~LzPj@~AZ`Gn@bBhBvB~B|@pCxDbDIv@d@fA|IZj@dMxH`E|FlHwAnEYdGhEjFt@tChE^hCdEArChFxC|@Nv@KhH`ClFrErFzH~FbFp@xDKv@zAzANvBdDvDdDhAf@rCGh@zAvArApC|LzKxCXrLlBrC`IvCfTpQzLlHtHzAnJfDrDPRd@Un@kE~@MjAb@vCdFbDnAvBpFhBzANtArDnCRhCy@fBh@xBO]rFcCp@q@~@En@fEjIxB|@dC`HfA^tAg@`C`CdHu@vBzHf@J|Au@n@nDrB\\|AnB`BVB`C\\p@fF[nA|Dd@DxAc@^bEdAjBlItFdANtBnBdBDj@|A~BnCbFdCdLtJ@dBb@v@bEbB~El@R`BnDlDpDdBlBLbA~BbA`AnEbBSBbBvAvLhGrDt@t@uAZElCxEjAjCh@~BpDfDpCz@FxAt@zB~KfER~Ct@rBfBbElEbHfFrFvEvC|BbFdD`C~kA~oAeAsA",
+    "avg_speed": 19.6,
+    "avg_hr": 114.8,
+    "heartbeats": 15938
+  },
+  {
     "id": 18566700345,
     "name": "#10.1 Italy26🇮🇹 Korsika",
     "type": "Ride",
