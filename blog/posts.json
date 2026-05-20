@@ -1,5 +1,23 @@
 [
   {
+    "slug": "dag11",
+    "type": "journal",
+    "date": "2026-05-20",
+    "day": 11,
+    "location": "Nuoro, Sardinia",
+    "km": 130,
+    "elevation": 2200,
+    "title": {
+      "en": "Day 11 - Cork, cows, and cactus 🍾🐄🌵",
+      "sv": "Dag 11 — Korkek, kor och kaktus 🍾🐄🌵",
+      "it": "Giorno 11 - Quercia, mucche e cactus 🍾🐄🌵"
+    },
+    "captions": {
+      "photo1": "Bildtext för andra bilden (valfri)",
+      "photo2": "Bildtext för tredje bilden (valfri)"
+    }
+  },
+  {
     "slug": "dag10",
     "type": "journal",
     "date": "2026-05-19",
