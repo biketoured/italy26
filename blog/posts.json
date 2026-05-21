@@ -1,5 +1,23 @@
 [
   {
+    "slug": "dag12",
+    "type": "journal",
+    "date": "2026-05-21",
+    "day": 12,
+    "location": "Elini, Sardinia",
+    "km": 100,
+    "elevation": 1000,
+    "title": {
+      "en": "Day 12 - Masks and murals🎭",
+      "sv": "Dag 12 - Masker, muraler och mumsiga bakverk🎭",
+      "it": "Giorno 12 - Maschere, murale e mucche 🎭"
+    },
+    "captions": {
+      "photo1": "Bildtext för andra bilden (valfri)",
+      "photo2": "Bildtext för tredje bilden (valfri)"
+    }
+  },
+  {
     "slug": "dag11",
     "type": "journal",
     "date": "2026-05-20",
