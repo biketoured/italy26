@@ -1,5 +1,18 @@
 [
   {
+    "id": 18600934300,
+    "name": "#12.1 Italy26🇮🇹 Sardinia 🎭🐄",
+    "type": "Ride",
+    "date": "2026-05-21T09:39:36Z",
+    "distance": 100.2,
+    "elevation": 1877,
+    "moving_time": 20368,
+    "polyline": "qgkuFwpvw@@hL`Gh@jExMbCj_@lI|DhMuI`JrVjHmZnSaMtGtKfG}MVrFxJzHrGzHrKk`@FiSfCoCdd@pEjDfNfQjOnArOnCjCja@kVbBcSrNBhJ|FuDgM}MaMaGci@dFa`@~Wa}@xNsKvGaM@kK{GuBcBoVqOaQjDrAvD_@vBsEvBjGzOuG`PbA~FtC|@mEsBwCbDt@_CeFfAkLnAjDhIuc@vS{`@fH_E{AlFvJJlX{V`OTp@vZxS}\\tJzUzTpC`GvOhLwO|CrIh_@fN`G~[pLrHtOqA`b@c]hm@tHrKvGxJiAboAjSvO}@tI|Khe@fBrEsU|IoElR`AoCwP`I{AfM{L^yN|MfApOnQuDuEa@wHpMqUpNmHf@sMlGcRvMgFbCsFUtI{ErDh\\`LnNuC|EmGzEpChByBo@kHDbHeEtKeHnCwBbKrc@~T@xEkOjIgEbO{FJaEnH\\lHeHnAwIvRaLjD]tR`GdV{@xC{PhJuIqDsKlByItQaHfVdDnIiMdHhFt_@uIvQxUM_G|BeQhs@pJdUnPrErAtSrR~VKfHbVIJ}DlBYlNrFzMuF|OxGvFgQzMqC_@_IdM{OvBaJrBvEhKXtFt\\lLqBfNwJzCoObJcDlFwJ|e@aUpDZwApEpLjDjLeKlNeWd[uEh~BcfAxFaLddAoz@rW}HxImMzKdBpd@_QsBnEdK}MhU_FvKgQlo@g`@hJ}BrEbEpZyIlCzB`FsBxC|EtHiFzA{K`@xTeFxJ_G`EaHn^`KoZnRiKvAcFbMzGpC~ItNfDfD}FpS|DgQ_n@~N}BLiIlKcJKyOlKaLhMaE`EeOjCmCbDgQRyHjL{VrE_@hD~IjNsEfByNpNuMnFjG|DcAnLzNzD}FxQg@rHoPnLkDzMfGtHoJ`HpF~NsCjKkKvGrBxKmUlJn@xe@ePhCcHcBaJfOmHtBlC_@wJnFuKbOrAy@{KnCqF`UjFdGeLjLpChC_EhB}[yFaCq@cK`EyNuGqFdKu@dL_S`ZkLnj@{GLmCqDkBuEmG_AgF|B_EsD{JtHiKnHkF|J`IjSoLtHh@`LgMhMo_@tFoGhHmDvA}IxL{CG}NrPuElC{Fm@wJtGdApGgLfRe@~TcJ|IgFrDsMn[ePtC}NoMyHUyCxOkL~Hia@~NqAhFqU|FoD^|CnHqL|Y_Kr_@o[|EtC`DyGb[iT~KnKvh@gSxAzFnJyApNjNBvGzClCg@lEbOa@nMwVfb@eMReNrE\\xMqLoA_EsBhDbBcDhDnCzNuL`F}SxOuM?_PbPg`@kCsRrE}i@lSmY`I?~A`G|H`AtH{@rC{G~D`IqBjO~BzD",
+    "avg_speed": 17.7,
+    "avg_hr": 116.1,
+    "heartbeats": 39412
+  },
+  {
     "id": 18586131077,
     "name": "11.1 Italy26 🇮🇹 Sardinia☀️🌵🐄🌳",
     "type": "Ride",
