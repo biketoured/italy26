@@ -1,5 +1,18 @@
 [
   {
+    "id": 18620762325,
+    "name": "#14.1🇮🇹 Sardinia",
+    "type": "Ride",
+    "date": "2026-05-23T11:30:08Z",
+    "distance": 11.2,
+    "elevation": 98,
+    "moving_time": 1739,
+    "polyline": "ufgqFognw@@Jz@ABDv@Ij@O\\@RNJBjDDG@A?AGBExBBtDCnA@dAElA[zEuBlI{DzBqAjHuFbJiHr@q@T]b@cAlCsIjB{Fv@gBfAmBdUu^\\o@`BoITaBLcAHwBHm@\\kBX{Ct@qBZiAH}@j@wG?{AOmASgCByA^iBt@oBHc@@c@BoBKsBUoBEsAEYMc@q@kAg@gAM_@c@eCCa@Bs@VqAN]nAaBFOb@}Az@aER_BPkDDoAMkBDoBNqCJw@P]bA{AJIt@]pBu@~HaDlAo@v@e@TKhA[ZCfBP~GfAZ?XKlCwAzBgAh@OjAKrAY^ERKHMLs@CIC@?RKf@[PSEEEJWHIFAF@EH@ABBiDhAOBy@R{FvC]N]FeIqAe@EWAo@Do@LiIxD_I`DULk@p@q@|AI~@S`FLpBCpAOrCGp@cAjFw@hCm@r@g@~@W|@EZCx@B\\V`BT~@jBzDBLDhAb@pEAfCCh@EZQp@_@t@Sn@SnACXAx@d@tFAfAUhDa@jDiAbDG`@QnBm@nESdDa@fC_A`FY`AIP[`@sCpE{L~RuCxEq@jAkA~CcErMQf@i@hAy@`AuObM}BbBeB~@oQrIaAN}@@_@Dw@@_F?eFDKAg@SOAUJM@QJc@Do@AwAFs@HQDJEOFkAE",
+    "avg_speed": 23.3,
+    "avg_hr": 116.3,
+    "heartbeats": 3371
+  },
+  {
     "id": 18611992237,
     "name": "#13.1 Italy26🇮🇹Sardinia 🚵🏼‍♂️🏚️☀️🥵",
     "type": "Ride",
