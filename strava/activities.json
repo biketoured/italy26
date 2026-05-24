@@ -1,5 +1,18 @@
 [
   {
+    "id": 18630538400,
+    "name": "Morning Ride",
+    "type": "Ride",
+    "date": "2026-05-24T05:54:24Z",
+    "distance": 23.2,
+    "elevation": 369,
+    "moving_time": 7121,
+    "polyline": "qhwgFa{ppAcA{GSQsBr@_Dl@aInCsFr@gBz@oCHyN~AMLEb@bAxL^jIKTiWvBk@Q{ByB]}A_@sDqBk@}Fi]@yAVgArFsI@i@MYi@QiJdBmEhCmAd@kGm@}A]cPkJSNC`@jDjBfHbIfKbD`FId@nADrAPt@UfBc@~AgBlDqAfBc@@Ck@~AoAb@eAnAeIBc@KWU?QRO|BsA~EgE~BSh@MpAU?IQB]h@{A|AqAIa@i@FgCvCK`@UrDWPIQLiBn@eEKa@_@BiAvDPpJQd@SAGUOqB}AyEMgA@{Dr@oAn@_@@]UQWHqAvAm@lBU~Ao@nJG`Fx@hE|ApBB`@UT}@[s@g@Wo@YIEr@VpDHb@VVWc@a@iELqAq@qCy@eHGoCT_B?s@W~BFdD~@`IlAfEhBhAh@ED[KY}AyBs@{D@cEl@gJZ_Cn@wBxA_B`@JKl@o@Vk@fAGhEFj@`B~EPjCTRTCNi@U}INaAv@gC^ADd@a@~B@~@W~@BNXL_@GOTd@TP[ZiEP_@bCkCZ@@j@sA|@k@vAIt@PRXEHG?gA`@}@~CwAb@c@hAqERoCVGPR?\\k@hCg@dEo@lAcAp@SZJl@VBjBgCfBmDj@yDUkAE_AYeAWMuETmJuCq@e@sFwGmA}@eBe@QY?QTYVBrObJvI|@t@EfEgClA]tI}AZNL`@Kn@yFxIO`CtHrc@h@bAv@p@?p@PPPEBUc@mAwAwNPKdN`@LOTcGLQlKTNJl@[hS{B~@i@vEy@dJgCRWvGeBp@nF|EjXTHzCcB~MaGZMnBBfC_BrAc@|BeAjM{GdB_@~C{BzH_ELnAzAp@p@jADxBVpDpAdHIf@FIHFh@dCn@lHp@fCPLz@Sx@o@DRu@Lr@Kd@e@Fa@YMb@]VBnBgAx@SdMsHWH?KVDh@WjFcDDRCW?Jp@w@fBq@`]iRTjAPrCq@d@_@Kk@d@SEPf@CRe@~@Gr@i@~@RHL^_@NOZKCOT_@nAGA?x@UPCMYp@OARBGTC_@Yp@e@`@AKo@zAIJCQFFELYCDLg@^FfB_DjBk@UoAJm@_@@HcA^WKr@xAhDlLKlAj@SDV?Q]@HAIFHHFMLBgCH_CjDdC}DBzBjBpAwAiEc@n@l@e@tAG|@vArAv@t@X~Cb@L`@STj@ZWDc@b@KVFNy@i@UDaAt@Gf@",
+    "avg_speed": 11.7,
+    "avg_hr": 96.3,
+    "heartbeats": 11429
+  },
+  {
     "id": 18620762325,
     "name": "#14.1🇮🇹 Sardinia",
     "type": "Ride",
