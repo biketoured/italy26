@@ -1,5 +1,23 @@
 [
   {
+    "slug": "dag13",
+    "type": "journal",
+    "date": "2026-05-22",
+    "day": 13,
+    "location": "Orroli, Sardinia",
+    "km": 112,
+    "elevation": 2300,
+    "title": {
+      "en": "Day 13 - The blue zone viklages",
+      "sv": "Dag 13 - Byarna i den blå zonen",
+      "it": "Giorno 13 - I villaggi nella zona blu"
+    },
+    "captions": {
+      "photo1": "Bildtext för andra bilden (valfri)",
+      "photo2": "Bildtext för tredje bilden (valfri)"
+    }
+  },
+  {
     "slug": "dag12",
     "type": "journal",
     "date": "2026-05-21",
