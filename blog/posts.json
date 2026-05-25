@@ -1,5 +1,23 @@
 [
   {
+    "slug": "dag15",
+    "type": "journal",
+    "date": "2026-05-24",
+    "day": 15,
+    "location": "Comitini, Sicilia",
+    "km": 130,
+    "elevation": 2100,
+    "title": {
+      "en": "Day 15 - 25-årsfirande på italienskt vis",
+      "sv": "Dag 15 — Celebrating 25 years the italian way",
+      "it": "Giorno 15 — Celebrazione per il 25 compleanno"
+    },
+    "captions": {
+      "photo1": "",
+      "photo2": "Bildtext för tredje bilden (valfri)"
+    }
+  },
+  {
     "slug": "dag13",
     "type": "journal",
     "date": "2026-05-22",
