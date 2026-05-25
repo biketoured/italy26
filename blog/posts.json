@@ -15,7 +15,8 @@
     "captions": {
       "photo1": "",
       "photo2": "Bildtext för tredje bilden (valfri)"
-    }
+    },
+    "photos": 2
   },
   {
     "slug": "dag13",
