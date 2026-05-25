@@ -7,7 +7,7 @@
 // ══════════════════════════════════════════════════════════════
 
 // ── DONATIONS ──
-const SEK = 7550;
+const SEK = 8400;
 const EUR = 12;
 const DONATION_TOTAL = Math.round(SEK + (EUR * 11));  // SEK total (EUR*11 ≈ conversion)
 const DONATION_GOAL  = 40000;                          // SEK goal
@@ -20,7 +20,7 @@ const LIVE_URL      = '';
 // ── ROUTE PROGRESS ──
 // CURRENT_LOC: a number 0–100 for how far along the route you are.
 // Update this each day. The dot at that position lights up as "current".
-const CURRENT_LOC = 20;
+const CURRENT_LOC = 24;
 // LOC_POINTS: the marked dots on the bar, each with a position (0–100) and a label.
 // Labels appear below the dot in small caps. Leave label as '' to show dot only.
 const LOC_POINTS = [
@@ -46,8 +46,8 @@ const MEANING = '{To make a Brindisi}, meaning to celebrate someone with a cheer
 
 // ── NOTE FROM THE ROAD ──
 // Leave NOTE empty ('') to hide it.
-const NOTE      = 'Sardinia is such a beautiful region with lots of secrets I never knew about. Both cultural and culinary experience, but most of all the gentle people.';
-const NOTE_DATE = '22 may';
+const NOTE      = 'Today is my 25th birthday! 🎂';
+const NOTE_DATE = '25 may';
 
 
 // Utforska betalningssätt: Paypal och Revolut fixat. Behöver koppla konton bara...
