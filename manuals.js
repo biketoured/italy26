@@ -7,47 +7,46 @@
 // ══════════════════════════════════════════════════════════════
 
 // ── DONATIONS ──
-const SEK = 8400;
+const SEK = 12100;
 const EUR = 12;
 const DONATION_TOTAL = Math.round(SEK + (EUR * 11));  // SEK total (EUR*11 ≈ conversion)
 const DONATION_GOAL  = 40000;                          // SEK goal
 
 // ── LIVE TRACKING ──
 // Set LIVE_TRACKING to true and update LIVE_URL when actively tracking
-const LIVE_TRACKING = false;
-const LIVE_URL      = '';
+const LIVE_TRACKING = true;
+const LIVE_URL      = 'https://gar.mn/6pXQ3G9Rk';
 
 // ── ROUTE PROGRESS ──
 // CURRENT_LOC: a number 0–100 for how far along the route you are.
 // Update this each day. The dot at that position lights up as "current".
-const CURRENT_LOC = 24;
+const CURRENT_LOC = 33;
 // LOC_POINTS: the marked dots on the bar, each with a position (0–100) and a label.
 // Labels appear below the dot in small caps. Leave label as '' to show dot only.
 const LOC_POINTS = [
   { pos:  2, label: 'Liguria' },
-  { pos:  9, label: 'Corsica' },
-  { pos:  14, label: 'Sardinia' },
-  { pos:  22, label: 'Sicily' },
-  { pos:  30, label: 'Calabria' },
-  { pos:  38, label: 'Apulia' },
-  { pos:  48, label: 'Naples' },
-  { pos:  59, label: 'Abruzzo' },
-  { pos:  70, label: 'Umbria' },
-  { pos:  78, label: 'Veneto' },
-  { pos:  83, label: 'Dolomiti' },
-  { pos:  94, label: 'TBD' },
+  { pos:  12, label: 'Corsica' },
+  { pos:  19, label: 'Sardinia' },
+  { pos:  28, label: 'Sicily' },
+  { pos:  40, label: 'Calabria' },
+  { pos:  52, label: 'Apulia' },
+  { pos:  59, label: 'Naples' },
+  { pos:  67, label: 'Abruzzo' },
+  { pos:  78, label: 'Umbria' },
+  { pos:  86, label: 'Veneto' },
+  { pos:  91, label: 'Dolomiti' },
   { pos:  100, label: 'End' },
 ];
 
 // ── WORD OF THE DAY ──
 // Leave WORD empty ('') to hide the strip entirely.
-const WORD    = 'Fare un Brindisi';
-const MEANING = '{To make a Brindisi}, meaning to celebrate someone with a cheer 🥂🍻. Actually doesnt stem from the town Brindisi but from German {Bring dir`s} meaning {I bring it for you}';
+const WORD    = 'Capolavoro';
+const MEANING = 'Literally Head + Work. The word means masterwork';
 
 // ── NOTE FROM THE ROAD ──
 // Leave NOTE empty ('') to hide it.
-const NOTE      = 'Today is my 25th birthday! 🎂';
-const NOTE_DATE = '25 may';
+const NOTE      = 'Today Im going to be the most south on the whole trip, visiting Ragusa and Modica.';
+const NOTE_DATE = '26 may';
 
 
 // Utforska betalningssätt: Paypal och Revolut fixat. Behöver koppla konton bara...
