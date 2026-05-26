@@ -1,5 +1,23 @@
 [
   {
+    "slug": "dag17",
+    "type": "journal",
+    "date": "2026-05-26",
+    "day": 17,
+    "location": "Noto, Sicily",
+    "km": 153,
+    "elevation": 1790,
+    "title": {
+      "en": "Day 17 - Groundbreaking cuisine 🍫🍋🍇🥐",
+      "sv": "Dag 17 - I Italien äter man bra! 🍫🍋🥐🍇",
+      "it": "Giorno 17 - In Italia si mangia bene"
+    },
+    "captions": {
+      "photo1": "Bildtext för andra bilden (valfri)",
+      "photo2": "Bildtext för tredje bilden (valfri)"
+    }
+  },
+  {
     "slug": "dag15",
     "type": "journal",
     "date": "2026-05-24",
