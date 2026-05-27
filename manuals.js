@@ -45,8 +45,8 @@ const MEANING = 'Literally Head + Work. The word means masterwork';
 
 // ── NOTE FROM THE ROAD ──
 // Leave NOTE empty ('') to hide it.
-const NOTE      = 'Today Im going to be the most south on the whole trip, visiting Ragusa and Modica.';
-const NOTE_DATE = '26 may';
+const NOTE      = 'Today I visit Syracusa, the town of Saint Lucia 🕯️.';
+const NOTE_DATE = '27 may';
 
 
 // Utforska betalningssätt: Paypal och Revolut fixat. Behöver koppla konton bara...
