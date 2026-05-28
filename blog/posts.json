@@ -1,5 +1,23 @@
 [
   {
+    "slug": "dag18",
+    "type": "journal",
+    "date": "2026-05-27",
+    "day": 18,
+    "location": "Catania, Sicilia",
+    "km": 126,
+    "elevation": 620,
+    "title": {
+      "en": "Day 18 - The mighty volcano 🌋",
+      "sv": "Dag 18 - Den enorma vulkanen 🌋",
+      "it": "Giorno 18 - l'enorme vulcano Etna 🌋"
+    },
+    "captions": {
+      "photo1": "Bildtext för andra bilden (valfri)",
+      "photo2": "Bildtext för tredje bilden (valfri)"
+    }
+  },
+  {
     "slug": "dag17",
     "type": "journal",
     "date": "2026-05-26",
