@@ -3,7 +3,7 @@
     "name": "Edvard A",
     "amount": 4000,
     "currency": "kr",
-    "message": "I pledge to donate 1 SEK for each kilometer. <br> Jag binder mig vid att donera en krona för varje kilometer.  <br> Mi impegno a donare 1 SEK per ogni chilometro."
+    "message": "Jag binder mig vid att donera en krona för varje kilometer.  <br> I pledge to donate 1 SEK for each kilometer. <br> Mi impegno a donare 1 SEK per ogni chilometro."
   },
   {
     "name": "Håkan E",
@@ -24,8 +24,32 @@
     "message": "Edvard is a great guy. Great mission!"
   },
   {
+    "name": "Malin, Gabriel och lilla Rut",
+    "amount": 1000,
+    "currency": "kr",
+    "message": "Tack för att du bidrar med underhållning till vår bäbisbubbla! 🇮🇹 Fortsätt att inspirera och njuta av livet. Din resa påminner oss om att livet är skört och hur viktigt det är att ta vara på den tid som var och en har ❤️‍🩹"
+  },
+  {
+    "name": "Anton",
+    "amount": 500,
+    "currency": "kr",
+    "message": ""
+  },
+  {
+    "name": "Ebba",
+    "amount": 100,
+    "currency": "kr",
+    "message": ""
+  },
+  {
     "name": "Camilla S",
     "amount": 500,
+    "currency": "kr",
+    "message": ""
+  },
+  {
+    "name": "Anton S",
+    "amount": 300,
     "currency": "kr",
     "message": ""
   },
@@ -34,6 +58,12 @@
     "amount": 300,
     "currency": "kr",
     "message": ""
+  },
+  {
+    "name": "Märta",
+    "amount": 200,
+    "currency": "kr",
+    "message": "Grattis på födelsedagen! Så kul att följa din resa!"
   },
   {
     "name": "Emil H",
@@ -48,14 +78,32 @@
     "message": "Starkt och fint initiativ. Heja dig!"
   },
   {
+    "name": "Elisabeth",
+    "amount": 500,
+    "currency": "kr",
+    "message": ""
+  },
+  {
     "name": "Johan A",
     "amount": 200,
     "currency": "kr",
     "message": ""
   },
-    {
+  {
+    "name": "Emma & Niklas",
+    "amount": 300,
+    "currency": "kr",
+    "message": ""
+  },
+  {
     "name": "Inger J",
     "amount": 100,
+    "currency": "kr",
+    "message": ""
+  },
+  {
+    "name": "Anna",
+    "amount": 300,
     "currency": "kr",
     "message": ""
   },
@@ -64,6 +112,30 @@
     "amount": 500,
     "currency": "kr",
     "message": ""
+  },
+  {
+    "name": "Per O",
+    "amount": 500,
+    "currency": "kr",
+    "message": ""
+  },
+  {
+    "name": "Anonym",
+    "amount": 500,
+    "currency": "kr",
+    "message": ""
+  },
+  {
+    "name": "Inger J",
+    "amount": 300,
+    "currency": "kr",
+    "message": ""
+  },
+  {
+    "name": "Niki G",
+    "amount": 100,
+    "currency": "kr",
+    "message": "Heja dig Ed!"
   },
   {
     "name": "André G",
@@ -109,6 +181,12 @@
   },
   {
     "name": "DP",
+    "amount": 100,
+    "currency": "kr",
+    "message": ""
+  },
+  {
+    "name": "Anna-Karin J",
     "amount": 100,
     "currency": "kr",
     "message": ""
