@@ -7,8 +7,8 @@
 // ══════════════════════════════════════════════════════════════
 
 // ── DONATIONS ──
-const SEK = 12100;
-const EUR = 12;
+const SEK = 14253;
+const EUR = 0;
 const DONATION_TOTAL = Math.round(SEK + (EUR * 11));  // SEK total (EUR*11 ≈ conversion)
 const DONATION_GOAL  = 40000;                          // SEK goal
 
@@ -20,7 +20,7 @@ const LIVE_URL      = 'https://gar.mn/6pXQ3G9Rk';
 // ── ROUTE PROGRESS ──
 // CURRENT_LOC: a number 0–100 for how far along the route you are.
 // Update this each day. The dot at that position lights up as "current".
-const CURRENT_LOC = 33;
+const CURRENT_LOC = 37;
 // LOC_POINTS: the marked dots on the bar, each with a position (0–100) and a label.
 // Labels appear below the dot in small caps. Leave label as '' to show dot only.
 const LOC_POINTS = [
@@ -45,8 +45,8 @@ const MEANING = 'Literally Head + Work. The word means masterwork';
 
 // ── NOTE FROM THE ROAD ──
 // Leave NOTE empty ('') to hide it.
-const NOTE      = 'Today I visit Syracusa, the town of Saint Lucia 🕯️.';
-const NOTE_DATE = '27 may';
+const NOTE      = 'Last day on Sicily, think I need to escape the heat into the Calabrian foothills.';
+const NOTE_DATE = '28 may';
 
 
 // Utforska betalningssätt: Paypal och Revolut fixat. Behöver koppla konton bara...
