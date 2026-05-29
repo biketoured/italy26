@@ -1,5 +1,18 @@
 [
   {
+    "id": 18692965155,
+    "name": "#19.1 Italy26🇮🇹 Sicilia 🌋☀️🌊",
+    "type": "Ride",
+    "date": "2026-05-28T12:52:12Z",
+    "distance": 107.4,
+    "elevation": 1208,
+    "moving_time": 19114,
+    "polyline": "iw{cFwva{AuAcUnDWtEuB[oJeByFuD{EsLuG{KmRsCzA_NoMmR_Jc@sDmRwE}@cJuGfCuD_AeEuHkH{b@}EwHyLaA}QrCuJvSuKdAoHaYgIa|@{FmWkX{MoOes@kJqQcY_EeOgQ}Fg@iCbK{OeFeFsGoQqq@y@}N}AeFz@}@~CbElAiHkGsD_B|ByFw@oEoDcQyDkBgDkM]gNuFoL}JoZqA_a@uJmcApEcVvG{`@yKsNxAel@aNyUrHeRr@gV[mT|BsNrIkDg@dD~@eGwAkWxD_WhYcPxEmb@p[{h@eVqMmAwAoBD{JsEaCqJhA{gAuf@yTkI_PcBkIuEsNhAaObHsLwCmIp@cd@gK}[mBih@xAyXkCwZ{KsVyPLlBEJyC}EaW_QcQwGyHHc@}C\\zClAj@wu@{H_E_EeE`Ea^kFqHmCoFuFmJeXkF\\mQsD_c@mQuMY}\\jKkHBey@kf@}Sm@qN}Dyo@yHwDkGud@k`@uUyD_N_Oa]ej@t@yNsBuUmAe@bB~CY}BwFaDs]gp@_GiYgUu^mDgQoM{[e@aFrBwa@oGgZiJyKwYwLaSyBiH{DyJuHmW__@qJoGoGyL_DsBlNdRqIqN{D{BsCfBaYu[cEmJg@aVhC_Ky@}GbIcMgAiIuKtGuB]jBvAlI]cG~GcAcCAdGyAvFj@~C_A{Hc@hF]wDv@oB{@oD_DwA}@wEg@pBnA~DeC{GmEfB_F|IQ_BcE|KcCtBoEUqEjMyJeEyHz@tH_CxFbCXaJyAlFsEaF}EXyFnI`@uImAmIxBmJkBuEuA_A_FpBiNmGrKjGn@wA{MoFkDuEmHZaNuD{_@cQeSmLe`@yj@{QyQqKaRi\\ma@cYaW{FoJuRkMcFiRiKcKaFgAoLaYaH_XeGyJsIYyG|PnBuKwD~HeBn@oY}I{TqQyZkYkQiKkDZDwDyDoCj@cH{j@gc@ojAoiA}WgQaKtLyF{CDmHnDoJkDiFo^o\\kDrH|@hCcIkB`@mS_b@o^q~@{w@oe@gf@_d@cj@cH_FwAd@oE|JjFhGa@zAkRoMuCcFjByNs_@o_@vA}CiZ_[cCn@_JkR{NeQeNaMkDoGkGqDyE{Iu_@~@aM}Fm_@yd@iRmOqSaWcIaO_Cc@uI}JuiAskBqIgEe]uEm`@qTg^}g@gCaK_LgLmM}Gyg@_Noq@sh@oq@yOqN`BmQkDku@w`@qViBsQqMyToJiLaPoX}MeW_IyTOyl@yOkd@kWm_@oOaLeK}KuEqG_L}JuJuyCikCcCIoEtQuDjD_YGnAR",
+    "avg_speed": 20.2,
+    "avg_hr": 114.4,
+    "heartbeats": 36444
+  },
+  {
     "id": 18678331498,
     "name": "#18.1 Italy26 🇮🇹 Sicilia 🌋🍋☀️🏭",
     "type": "Ride",
