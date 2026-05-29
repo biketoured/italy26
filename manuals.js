@@ -15,12 +15,12 @@ const DONATION_GOAL  = 40000;                          // SEK goal
 // ── LIVE TRACKING ──
 // Set LIVE_TRACKING to true and update LIVE_URL when actively tracking
 const LIVE_TRACKING = true;
-const LIVE_URL      = 'https://gar.mn/6pXQ3G9Rk';
+const LIVE_URL      = 'https://gar.mn/OoObGprKz3';
 
 // ── ROUTE PROGRESS ──
 // CURRENT_LOC: a number 0–100 for how far along the route you are.
 // Update this each day. The dot at that position lights up as "current".
-const CURRENT_LOC = 37;
+const CURRENT_LOC = 41;
 // LOC_POINTS: the marked dots on the bar, each with a position (0–100) and a label.
 // Labels appear below the dot in small caps. Leave label as '' to show dot only.
 const LOC_POINTS = [
@@ -40,13 +40,13 @@ const LOC_POINTS = [
 
 // ── WORD OF THE DAY ──
 // Leave WORD empty ('') to hide the strip entirely.
-const WORD    = 'Capolavoro';
-const MEANING = 'Literally Head + Work. The word means masterwork';
+const WORD    = 'Dolce far niente';
+const MEANING = 'The sweetness of doing nothing.';
 
 // ── NOTE FROM THE ROAD ──
 // Leave NOTE empty ('') to hide it.
-const NOTE      = 'Last day on Sicily, think I need to escape the heat into the Calabrian foothills.';
-const NOTE_DATE = '28 may';
+const NOTE      = 'Calabria, a less known region of Italy. Lets see what there is!';
+const NOTE_DATE = '29 may';
 
 
 // Utforska betalningssätt: Paypal och Revolut fixat. Behöver koppla konton bara...
