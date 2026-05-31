@@ -10,7 +10,7 @@ title:
   sv: Dag 21 - Nordiskt klimat i södra Italien? 🌲❄️
   it: Giorno 21 - Clima Nordica in Calabria? 🌲❄️
 captions:
-  photo1: Bildtext för andra bilden (valfri)
+  photo1: A typical roadside view on the high plateau. The yellow flowery plants are everywhere!
   photo2: Bildtext för tredje bilden (valfri)
 ---
 
