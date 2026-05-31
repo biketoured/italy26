@@ -1,6 +1,6 @@
 ---
 type: journal
-date: 2026-23
+date: 2026-05-23
 day: 14
 location: Ferry to Sicily
 km: 11
