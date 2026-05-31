@@ -17,15 +17,17 @@ captions:
 # The day in short
 
 
+## Weather
+
+
 ## How did my body feel?
 
 
 ## Best moment of the day
 
-
 [photo:1]
 
-## Person I met
+## People I met
 
 
 ## What did I eat?
@@ -40,4 +42,3 @@ captions:
 
 
 ## How do I feel overall?
-
