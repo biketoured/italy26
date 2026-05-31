@@ -1,5 +1,23 @@
 [
   {
+    "slug": "dag21",
+    "type": "journal",
+    "date": "2026-05-30",
+    "day": 21,
+    "location": "Lago Cecita, Calabria",
+    "km": 107,
+    "elevation": 2400,
+    "title": {
+      "en": "Day 21 - Nordic climate in Southern Italy? 🌲❄️",
+      "sv": "Dag 21 - Nordiskt klimat i södra Italien? 🌲❄️",
+      "it": "Giorno 21 - Clima Nordica in Calabria? 🌲❄️"
+    },
+    "captions": {
+      "photo1": "Bildtext för andra bilden (valfri)",
+      "photo2": "Bildtext för tredje bilden (valfri)"
+    }
+  },
+  {
     "slug": "dag20",
     "type": "journal",
     "date": "2026-05-29",
