@@ -1,5 +1,23 @@
 [
   {
+    "slug": "dag20",
+    "type": "journal",
+    "date": "2026-05-29",
+    "day": 20,
+    "location": "Amato, Calabria",
+    "km": 177,
+    "elevation": 2780,
+    "title": {
+      "en": "Day 20 - Hot, hilly and heavy day in Calabria 🌶️⛰️🚴🏼‍♂️",
+      "sv": "Dag 20 - Kryddigt, kuperat och krävande 🌶️⛰️🚴🏼‍♂️",
+      "it": "Giorno 20 - Un giorno impegnativo e caldo 🌶️⛰️🚴🏼‍♂️"
+    },
+    "captions": {
+      "photo1": "Tropea",
+      "photo2": "Bildtext för tredje bilden (valfri)"
+    }
+  },
+  {
     "slug": "dag19",
     "type": "journal",
     "date": "2026-05-28",
