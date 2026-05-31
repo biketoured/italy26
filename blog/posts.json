@@ -1,24 +1,5 @@
 [
   {
-    "slug": "dag14",
-    "type": "journal",
-    "date": "2026-23",
-    "day": 14,
-    "location": "Ferry to Sicily",
-    "km": 11,
-    "elevation": 100,
-    "title": {
-      "en": "Day 14 - Rest day",
-      "sv": "Dag 14 - Vilodag",
-      "it": "Giorno 14 - Una pausa"
-    },
-    "captions": {
-      "photo1": "Bildtext för andra bilden (valfri)",
-      "photo2": "Bildtext för tredje bilden (valfri)"
-    },
-    "photos": 1
-  },
-  {
     "slug": "dag21",
     "type": "journal",
     "date": "2026-05-30",
@@ -131,6 +112,25 @@
       "photo2": "Bildtext för tredje bilden (valfri)"
     },
     "photos": 2
+  },
+  {
+    "slug": "dag14",
+    "type": "journal",
+    "date": "2026-05-23",
+    "day": 14,
+    "location": "Ferry to Sicily",
+    "km": 11,
+    "elevation": 100,
+    "title": {
+      "en": "Day 14 - Rest day",
+      "sv": "Dag 14 - Vilodag",
+      "it": "Giorno 14 - Una pausa"
+    },
+    "captions": {
+      "photo1": "Bildtext för andra bilden (valfri)",
+      "photo2": "Bildtext för tredje bilden (valfri)"
+    },
+    "photos": 1
   },
   {
     "slug": "dag13",
