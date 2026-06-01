@@ -1,5 +1,18 @@
 [
   {
+    "id": 18746828813,
+    "name": "#23.1 Italy26🇮🇹 Basilicata⛱️🛣️",
+    "type": "Ride",
+    "date": "2026-06-01T09:11:58Z",
+    "distance": 129.1,
+    "elevation": 867,
+    "moving_time": 23385,
+    "polyline": "m}|sFmaqdBeJmEcXr{@ueAsg@`BR|BwKcDdXwC~C_Q_Y{JiDqOhAo@mBvBSmCq@bI`CdDqG|BFB~AwASybA_c@qe@wWmqA{rAanByeA?cGbAc@XxBgKf]kAnWoSaOyChE{PgKgDbCgDuAgAhFcEqAJnHiA_YgEuACuMwM`]}BlHtPge@zAe@JyG`BE|@gIkRoRuB_F|@gA^bCqBTuT}EgXeMnVrLlRbEbCkAhGdKeHsE{WsBmx@se@w]uIwDlAtCoDwA_FgCf@{cAsa@hBgMmHvByBgG{OcMuGmKiLoGkB`@eKj]k]aQlBcMaAlAgPwGevCuuAl@gH^oBuFqHmA`CyEScFtJtFsJzEzAe@hDoBJwR_Xi_@qF{NiI{aBqdAdEt@lCeOcEuR_EXvBdBmAfIjCoMiLdCsFxNqBAcdA}_AeCzCnEaHbC~@pFsOuz@mr@sB~D{Eg@}IfFceAiaAhE|G{g@uc@iTcEyFuG_CrAoBjKhCyKvDSKfD{EaB{RaRgu@me@a@wLbg@g}BEoNuk@pStQsFcDwOmUon@o`@}i@sZnw@qXl}@ehAtZvCaDmA{Fep@ub@mOw_@_F`JjFeHYuAkIwNkUqIPgKyA}Cgk@e^iSIaHmMKiIkGsJ}FyBsKaSyBiKmFmDuOgYW{MwLuFot@isAm@sJmR_a@_JyCyq@ynAco@eaAiC{E_@uGkDkGmMkNs`A}oBn@aFuBuIpPqNyAoL{{@ccCiAgDtAxKaMfAnBsSuA{OkUov@yOk`@}^icBwDuCDgLgFwUcFcF{AmGw@eFbAcGcw@{qD_HaJsAcL|@{LkEeLFwD@CLyE}SetAuIEkDya@xGsEoIRZeFmBeJzGiE_Cid@yCoEW{HrBoPkBimA_CsMlByNmBynCfXgmBxIm_@lG{HdHsAvGuLzZqy@xFkc@bQoT~X_y@oDbIkAfN`@jCpB]hKma@c@mC`DgEpDuQvHcGdEJhYcVrQcd@lGbDdBiCf@kC{AjD{A_B`CoQtLw^nNyRn]ayAtEor@lMia@y@mTxBqKxGiEjDbE|Il@xJgYnJoQsAoBdAaMtFr@qEwA|GIfd@ws@td@wd@p^yXz_AiSxKzCuGkD|@_@bP~NJ_OhMIwB_Qxa@sPrDF]`DMwCna@yLvQiJnt@m`@eyDojJ}LwRsM{@~Igt@lVe_AbJ{a@gB_JuEoEsJcBQs]_nAsSmAcJrAqDq@eK}EAE{RrLm\\oBgGaGhAeHaf@qNme@rAoA{A|@cD_KlHuErAaIjIeLrMmCJqLzHmD|PaTpKkNjB{IbPsANcC",
+    "avg_speed": 19.9,
+    "avg_hr": 105.2,
+    "heartbeats": 41002
+  },
+  {
     "id": 18733365061,
     "name": "#22.1 Italy26🇮🇹 Kalabrien 🍋☀️⛱️",
     "type": "Ride",
