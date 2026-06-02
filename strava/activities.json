@@ -1,5 +1,18 @@
 [
   {
+    "id": 18757968998,
+    "name": "#24.1 Italy26🇮🇹 Apulien⛱️🫒⛪",
+    "type": "Ride",
+    "date": "2026-06-02T09:15:14Z",
+    "distance": 135.4,
+    "elevation": 679,
+    "moving_time": 23743,
+    "polyline": "azwuFaitiBrDBhB|VnGOaD~OkQiMiChEyGKv@{]{LaCyFiDgK{_@OcOeCiG_CoPs]wq@cBgJ_EiInR}`@xn@}{@xdAcjAjb@mZpb@sBjAuHlEmKzK_b@hAgAZwEhMqe@bMtC`EkRbEs^aDcGXmUzPovGr@qD]sDdFgtBxFir@nE_Ez@cIiE{@yIsK_OwlDjGjBzDwKhIpDSlClBdA~ShDnJ{WbTm^vQ}e@lOkY`Uoi@pd@qt@vCkBr^cExMyGpHuJbTyTvTqSxDyA|WmXdO}\\r@oGOcMxMc@xI`H`AyHaAuGnJwDz[sWjRuTlh@{b@nMeBvY`CtVoE`m@aBj^{FrZrAs@mBh@aUhOozAJs_@fFo{@jSkzAh[}cDdGa`@lKu`AOgkBbMjEmMkFvUsbAhPoa@vs@ohAzTmn@zBeAMgDfFk_@nBuFdReYdJuGmYa{@yBoKcD_`@ekBcsHeNqoAkDmlAqDyVzIoEFgFs@oHqCm@{L`G}QsHoDgE{EuN{CeCaToEsRy@jDaNrJcJmh@om@iTqc@gMylASyf@aAcHiTcu@k@cv@wPye@DkC_D_E_CaViKeVsO}UyIoUoAo@kCmLgPeg@eF_LgEs`@uEcL?eLuFe[iTogD_Qua@yJ_`@gDaPlEsC_FvB_GuW|E}EfIgOq@XcQoPuF{GAeDjF{M_HuIuIvOqE{Br@NRsAc@kGcDaP}BeOAgEvC?ZsH}PGKvE_GhApAyDa@uJp@kDtGo@ZrMyHz@iFAq@}@kLlG}PtYaCx@c@`DmLzQ}JjV_Cb@a@mCxBq@dN~JnXvMBpBkQlu@_BxEgBp@PfDwMzg@yiAzmBsB|J_BlX{BvI{X|ZiBh@oRhWybBpmEeOlO{_CfcBie@p_@MlCxF~YQ`Bw]jWv@_@|K|QaCdEfGvMsAnB_Gu@uDkCwL}VtAq@oAn@KkDBz@mxAveAynCplBis@zi@sMnYySzDa@uHgCn@q@eJuB`@qb@bLjA`Pe@d@esKnlC{dDb`Aq~Bvk@}g@|NB|Ad@e@k@o@kIl@eEpEiAdGkAj]~@~JsAlPgY~DoF{D{GqKyB^y@kAm@n@VlBsIrLcAv@_BaDpCpIxo@h_Ba@zj@uBaIP~@f@fDuCdCyD}HhAcCALsArAs@{A`IyGvEAHaPgAgHqw@}lBeY{UuCmNaFAm@fBy@m@eDjDlA|OvEnR{HrEzB`r@gAlIsE`G{GbA[cCiIyKmI_QuCm@q@rAa@dEr@gEGd@",
+    "avg_speed": 20.5,
+    "avg_hr": 107.9,
+    "heartbeats": 42698
+  },
+  {
     "id": 18746828813,
     "name": "#23.1 Italy26🇮🇹 Basilicata⛱️🛣️",
     "type": "Ride",
