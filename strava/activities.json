@@ -1,5 +1,18 @@
 [
   {
+    "id": 18774973926,
+    "name": "Cykeltur på morgonen",
+    "type": "Ride",
+    "date": "2026-06-03T09:53:08Z",
+    "distance": 126.8,
+    "elevation": 1384,
+    "moving_time": 27031,
+    "polyline": "mlawFkhmlBlDoBhKlR}C{Iy@qV{EoHp@iVaH}FsBu^zG_Ceb@`RfB|R`KtQoA_BsHtIyGtPaQlGVzBkWdOai@vn@cFzAkDtIqz@|\\w\\qA_Fx{@F`YxCrs@uR`eAaCtr@}IjY~Gfh@sNf_@}MbhBcQxh@{C`V`AtNlMhHlOdTaJm@wDbPmFlDmdBjmDa`@xl@kRnaBR`P}FqCsAzCGbUgKl{@kn@|qAcNLkh@iMoBnIkAiDaG}@yC`I|@pAyAcAqExOiSlJo@xXzKpFcKp\\|KzDcH~Li@lLyInSjO|Kyp@nnAMpN_XnnBgq@_a@vDyNkCsPrCdP}DfObq@ha@mOhgA}EbMlFdDo@nIuEdHiCtRja@xTnJdc@tO`^h@rs@~S|]~KfwAtFfPnZ|b@zMd`AvI~WpDxUJ`u@jCdCDnHtObClCtHaAnFzIzQ{VkC{@wDgAgMjb@R_Xf@}LgB_BoDcEzBpApDoAoCbAkBvBw@~EfD|RyMrV}BuPds@\\nTjEhQqEdNbGvx@dKdZw@~YlCj_@wBvl@l@fa@iIre@s@vb@vAbNaCpXbBznA{JlWcWrZuEfXgNl[}Ljt@aFzQyBjq@wHdQdI~RiDvy@kH`d@zEtc@V|LqKvS}C~Z~BxM{GbSiAlYcN~Ns@`OnPj\\}@~[eb@|yAkHt|AmH`QpCprAlBdVnCR`@xQQtE{DmBsL`I~G`O|AbLcDp[qJbn@jNoE\\qEmCgClAiBrAOt@|J_BdB}IdF_E`s@bDj_@uHjh@nDh`AmAx[`BfI]da@_OlUq\\ppAuN|O}[fcAsSxTsUZgBlH{s@jz@nF|KpBC}ElQiD}GUsI~CkAXlFdJgDuCoV}KbQzBaHa`@eM_LoVe@qS{D}M_`@{]gJ{^qTeOmd@{SyQ}d@mOaAo]mMaJhg@s@rTDeK{[kWuG}]qVk`@oBwJwJj@{NgOmk@iShD_`@kCuKyKaPsaAjg@ua@tK_BtH|@pOmG|HgNfa@_i@vVwGnIeHhXiLuEmRaXyGjMiS{B}E}OkKcBsJiRmJi`@qSvBkBdJz@bKwJrKqBzWcO~MaEpM_Mt@yMyDgTqQuUmEi^eZyr@_g@iPmGqTqTsfA}r@}PqN_EaViDy@o@dFrBlGcPjL\\hJkD{G\\sJ}BaCdFkChHdG`AdFyObPiJfEuc@lz@k@rD~FdUqqAbwCiKxGzA~D{ClHq[dm@a_@~`AuInJeBpOco@dyAbIzDHrGgFrIkA_G",
+    "avg_speed": 16.9,
+    "avg_hr": 108.3,
+    "heartbeats": 48791
+  },
+  {
     "id": 18757968998,
     "name": "#24.1 Italy26🇮🇹 Apulien⛱️🫒⛪",
     "type": "Ride",
