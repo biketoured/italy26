@@ -20,7 +20,7 @@ const LIVE_URL      = '';
 // ── ROUTE PROGRESS ──
 // CURRENT_LOC: a number 0–100 for how far along the route you are.
 // Update this each day. The dot at that position lights up as "current".
-const CURRENT_LOC = 47;
+const CURRENT_LOC = 55;
 // LOC_POINTS: the marked dots on the bar, each with a position (0–100) and a label.
 // Labels appear below the dot in small caps. Leave label as '' to show dot only.
 const LOC_POINTS = [
@@ -40,13 +40,13 @@ const LOC_POINTS = [
 
 // ── WORD OF THE DAY ──
 // Leave WORD empty ('') to hide the strip entirely.
-const WORD    = 'Madonna';
-const MEANING = 'As of my understanding, it can be used to express impression. But I am still not sure why😅';
+const WORD    = 'Pomodoro';
+const MEANING = 'Pomo + di Oro = Golden apple. The tonato was introduced to Europe in the medieval era and the first ones were yellow. Therefore they looked a bit like golden apples.';
 
 // ── NOTE FROM THE ROAD ──
 // Leave NOTE empty ('') to hide it.
-const NOTE      = 'Today I will go north towards Apulia, the flat and dry region famous for their Trulli!';
-const NOTE_DATE = '31 may';
+const NOTE      = 'Today I will leave Apulia and explore some places in the Basilicata region!';
+const NOTE_DATE = '4 june';
 
 
 // Utforska betalningssätt: Paypal och Revolut fixat. Behöver koppla konton bara...
