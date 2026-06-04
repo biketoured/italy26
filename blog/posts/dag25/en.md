@@ -10,7 +10,7 @@ title:
   sv: Dag 25 - Inte helt o-trulligt!
   it: Giorno 25 - Tra i trulli
 captions:
-  photo1: Bildtext för andra bilden (valfri)
+  photo1: Trulli, the traditional Pugliese buildings, in abundance in Alberobello.
   photo2: Bildtext för tredje bilden (valfri)
 ---
 
