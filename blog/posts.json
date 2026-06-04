@@ -1,5 +1,23 @@
 [
   {
+    "slug": "dag25",
+    "type": "journal",
+    "date": "2026-06-03",
+    "day": 25,
+    "location": "Polignano al mare, Puglia",
+    "km": 128,
+    "elevation": 1340,
+    "title": {
+      "en": "Day 25 - Trulli",
+      "sv": "Dag 25 - Inte helt o-trulligt!",
+      "it": "Giorno 25 - Tra i trulli"
+    },
+    "captions": {
+      "photo1": "Bildtext för andra bilden (valfri)",
+      "photo2": "Bildtext för tredje bilden (valfri)"
+    }
+  },
+  {
     "slug": "dag21",
     "type": "journal",
     "date": "2026-05-30",
