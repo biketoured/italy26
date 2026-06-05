@@ -37,6 +37,24 @@
     "photos": 1
   },
   {
+    "slug": "dag22",
+    "type": "journal",
+    "date": "2026-05-31",
+    "day": 22,
+    "location": "Nova Siri Scalo, Basilicata",
+    "km": 131,
+    "elevation": 1130,
+    "title": {
+      "en": "Day 22 - Down into the heat again...",
+      "sv": "Dag 22 - Ner i värmen igen...",
+      "it": "Giorno 22 - Riscaldamento, ancora..."
+    },
+    "captions": {
+      "photo1": "Bildtext för andra bilden (valfri)",
+      "photo2": "Bildtext för tredje bilden (valfri)"
+    }
+  },
+  {
     "slug": "dag21",
     "type": "journal",
     "date": "2026-05-30",
