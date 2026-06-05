@@ -1,5 +1,23 @@
 [
   {
+    "slug": "dag26",
+    "type": "journal",
+    "date": "2026-06-04",
+    "day": 26,
+    "location": "Matera, Basilicata",
+    "km": 118,
+    "elevation": 1232,
+    "title": {
+      "en": "Day 26 - Matera: The oldest city",
+      "sv": "Dag 26 - Matera: Den äldsta staden",
+      "it": "Giorno 26 - Matera: La città più vecchia"
+    },
+    "captions": {
+      "photo1": "Bildtext för andra bilden (valfri)",
+      "photo2": "Bildtext för tredje bilden (valfri)"
+    }
+  },
+  {
     "slug": "dag25",
     "type": "journal",
     "date": "2026-06-03",
