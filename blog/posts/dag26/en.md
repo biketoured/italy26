@@ -6,9 +6,9 @@ location: Matera, Basilicata
 km: 118
 elevation: 1232
 title:
-  en: Day 26 - Matera: The oldest city
-  sv: Dag 26 - Matera: Den äldsta staden
-  it: Giorno 26 - Matera: La città più vecchia 
+  en: Day 26 - Matera, The oldest city
+  sv: Dag 26 - Matera, Den äldsta staden
+  it: Giorno 26 - Matera, La città più vecchia 
 captions:
   photo1: Bildtext för andra bilden (valfri)
   photo2: Bildtext för tredje bilden (valfri)
