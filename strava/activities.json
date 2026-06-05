@@ -1,5 +1,18 @@
 [
   {
+    "id": 18788086273,
+    "name": "#26.1 Italy26🇮🇹 Puglia 🍞🫒🌰🌊",
+    "type": "Ride",
+    "date": "2026-06-04T11:09:01Z",
+    "distance": 118.5,
+    "elevation": 1232,
+    "moving_time": 22577,
+    "polyline": "k~eyFwxahB{DvDsSfu@}Rde@lCiHBdEia@~bAiJxKkDT{JlO{D[yD|DaBrBQfE{Yp[if@xdAuFfRuc@`cCsHlGd@hF|@?iAi@wm@jfAi`AzsCc[dn@fAx@iAi@kIrOkFzCqHtNoJq@wA|AVdQ_ExMkFtr@_s@|~BmDfD\\lD}Qln@sCpR{AdB^fImKzmAaDlKh@bJme@zsFsG[cB|CaOfDeLzMuAzGwA`OxA~GgDvL}AhYeCfHSnXuBvUf@nJpU|AVfC_J|TaYtHgJxI_@`TsN~`@sNno@iPz`@yJlJmE|IcAliAmQvm@_Ir\\XzZcItq@aIpLwUjhAgKpUkEvIoHOeDgHeIfOyOSoClBAnFnGvIkAiC`AqBfIrDAnDjE~CjDsD?qCAtCaDlClEni@fSsBVmSfi@_C{BgYDwJdBq@YcI~@s@jbAyFbB`Bhc@G~@l@BpLf~A|NvYyAfOeEjUAbGlCViDeDmAcAdDq@d@pAi@tSnKnQdNhCnObS~Jd[tEnKzG|NdDl]|OvR`X|LpKpGx@xTkD`b@xGpWmExN`@dKlAvOnMnH~@bHeA`TaLxRwM~OeFdGsJnHsEpPaWxn@yDhD_HR{Uv^li@rWxRpNlb@|ZrZp[vNr`@bJlKHlWrLlPjCpE|IvJnGhP`RtQ~ItYtEdGzFni@|VhPzPn\\tQfPlPdc@jLlUfL|NtUdHjEpJ`Oj_@zY`Xta@zM`L`b@j{@vKdPzHrSwE`GiArGv\\zE~CvRpLiA{@cJ}NLjC|KlEYO_IR~HpNy@vVvOLdKlBh@vAlFdMnQ`ItE`EbRpFp]|GzPz`@hp@zLt]jIjLbXdV~IhUhUrT|IvRvJdLfCvKpFrd@~Bd]bFpR`AxPhFlRe@zFpD~OUrLtA|N~Kvc@qDlO`@rMaAjFjGnf@w@jVjBrD|Mbt@lZn`AcEdVpA|YxBzQhK|Y~CrV[vs@{EjzAmBbQyLnd@`Fj\\fNva@jLvh@h@tGwD`[rGhUDbPfWvb@sGrXv@BgCtClUfDZyCWlAnA]_@zBfCRUzIjA~@lCsJjU_Hdi@Tl]gKngAtMvAxJlJDnF_DdFoNnL_B|IkIjFxI`I{@fCoAUqHpB{AbBZdAhGhBVnxCcv@n[FjQpExHyF`OgD~MuMlId@`q@sK~yAkg@rDyJdF~Cr]eI}J|A~N}g@fIeq@`D}ExUcKtTuHha@vDpi@sV`j@}Q|PmCr@n@y@nNnDdCxI}Cb@~MdKjD`QmIdHyIvDgNxEmFnKUpFjIpDA~GsQxTsP}AkB",
+    "avg_speed": 18.9,
+    "avg_hr": 115.0,
+    "heartbeats": 43273
+  },
+  {
     "id": 18774973926,
     "name": "Cykeltur på morgonen",
     "type": "Ride",
