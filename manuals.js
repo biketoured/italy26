@@ -7,7 +7,7 @@
 // ══════════════════════════════════════════════════════════════
 
 // ── DONATIONS ──
-const SEK = 16067;
+const SEK = 16867;
 const EUR = 0;
 const DONATION_TOTAL = Math.round(SEK + (EUR * 11));  // SEK total (EUR*11 ≈ conversion)
 const DONATION_GOAL  = 40000;                          // SEK goal
@@ -20,7 +20,7 @@ const LIVE_URL      = '';
 // ── ROUTE PROGRESS ──
 // CURRENT_LOC: a number 0–100 for how far along the route you are.
 // Update this each day. The dot at that position lights up as "current".
-const CURRENT_LOC = 56;
+const CURRENT_LOC = 65;
 // LOC_POINTS: the marked dots on the bar, each with a position (0–100) and a label.
 // Labels appear below the dot in small caps. Leave label as '' to show dot only.
 const LOC_POINTS = [
@@ -30,11 +30,11 @@ const LOC_POINTS = [
   { pos:  28, label: 'Sicily' },
   { pos:  40, label: 'Calabria' },
   { pos:  50, label: 'Apulia' },
-  { pos:  59, label: 'Naples' },
-  { pos:  67, label: 'Abruzzo' },
-  { pos:  80, label: 'Umbria' },
-  { pos:  88, label: 'Veneto' },
-  { pos:  92, label: 'TBD' },
+  { pos:  63, label: 'Naples' },
+  { pos:  72, label: 'Abruzzo' },
+  { pos:  82, label: 'Umbria' },
+  { pos:  93, label: 'Veneto' },
+  { pos:  100, label: 'TBD' },
   { pos:  100, label: 'End' },
 ];
 
@@ -45,8 +45,8 @@ const MEANING = 'Pomo + di Oro = Golden apple. The tonato was introduced to Euro
 
 // ── NOTE FROM THE ROAD ──
 // Leave NOTE empty ('') to hide it.
-const NOTE      = 'Today I stay in Matera to relax!';
-const NOTE_DATE = '5 june';
+const NOTE      = 'Today I go towards central Italy. Special thanks to Michele for repairing the tyre! It was extraordinary of you!';
+const NOTE_DATE = '10 june';
 
 
 // Utforska betalningssätt: Paypal och Revolut fixat. Behöver koppla konton bara...
