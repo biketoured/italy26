@@ -1,5 +1,18 @@
 [
   {
+    "id": 18854808715,
+    "name": "#31🇮🇹 Napoli 🛵🏛️🌋",
+    "type": "Ride",
+    "date": "2026-06-09T10:12:43Z",
+    "distance": 50.0,
+    "elevation": 469,
+    "moving_time": 12589,
+    "polyline": "sk_wF}tzvAxCgDmCqG}B}IS_@wCEu@i@qCgDIcDWc@cBo@gATsE}Do@sFaBD{DqJIoAyCeKoA}HwCoG{ApDs@hDqLbJeAXyJkBI^JL@a@XA~HtAbDiAzC{ChFmDTqBfAmC\\o@XXIRW_Aa@SoBC_JxD]S{@iBk@aCqAMqBs@Re@_C@v@}@iCnBcBCqBhCoC|BgAC{Av@{AQqA|B]rA_Cb@{B~DcBfA{@`D}DrD}D|@iCBy@UqDyDU}@Q{E^cFBeEo@mJxB}HcByE[uEr@{EdC_BAaEbBuFbAyABs@Y}DgAiCFmHaAAsAjGi@z@c@Fc@u@eAgIZm@`CSP}AWuBx@iAh@oBpAcAb@cBIeAeFgIifE_{EGwDd@s@F~JSdBeDtGmB~BnCgIQeAwAuCFkVeDqM@aWwA_C{DyJyDaD^TeF_CyFiIDqDqBcHaAmA~AuCeBwCyBpEzB`Bq@pBg@TsDmAkHw@}Ng@}QF_Fq@oOfCaJzCc@iAs@oFMDTGk@eFNUDVuCXeWtHqS`KwP~Ff@d@BDm@ZTk@KOqDf@sDxAgX~L}d@dV{BXmG_@iDwGkDiEgGmFcD_B{McAyEkAmA{@oAAmJuBqB`@gG|CwGdBKi@tDcZ~BkLs@_@i@}HLbQ_ArEqAzJ}@hAXfACpAoBbN@iALh@m@lD}@|[g@bIHj@Ga@?xAYdAR\\lEbAtBJTj@}E`K{@f@JdAK`CaBhPuHxYaEbVHd@lBtAB`@sO~YsC~H@hC|BfHBhEwD|M_AvFMlCUi@JeDOUUhFe@h@pDfXaDlR^xL{@fDWJ_YeKg@k@YPuAdJoJf`@_CnKNJg@GJTh@SUCJKSXVfCIeBm@eA^`BCw@MC_Jn_@aEzLLi@K?RL}I|YgYnv@ILq@g@e@QIt@b@m@z@x@yJhZcEjKo@jC_Who@}@tD{ElN}BvF}Ll`@iAnBmAjE}B`FcClHaI`Fp@c@fBvEJDODHSAPo@iAy@sCg@NwCpDcFxKLIa@l@mKeJ[pE^dSOfAev@h{@s[v\\iUhNqJ`UcGrHmExKcBdCsDdB{@`APdDGfCa@zEm@zCsInKiP`]sKbOmCbIaKhT_GtV{@hBoI`JgJ|IuItPi_@tk@gDtE_Aj@@d@sInRgKnc@eJxZ{DvQ}D~KgBdDsIrVyArFSfIVdPfCpt@p@bLuHxDc@AAGLMMOcAa@Hx@]zAcCd@wAh@sAvA{e@|TWKsAaEoAqB",
+    "avg_speed": 14.3,
+    "avg_hr": 105.7,
+    "heartbeats": 22178
+  },
+  {
     "id": 18841295468,
     "name": "#30🇮🇹 Amalfi 🌊🪨🍋🏵️",
     "type": "Ride",
