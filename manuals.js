@@ -14,13 +14,13 @@ const DONATION_GOAL  = 40000;                          // SEK goal
 
 // ── LIVE TRACKING ──
 // Set LIVE_TRACKING to true and update LIVE_URL when actively tracking
-const LIVE_TRACKING = false;
-const LIVE_URL      = '';
+const LIVE_TRACKING = true;
+const LIVE_URL      = 'https://gar.mn/xd4VJ4GeJ';
 
 // ── ROUTE PROGRESS ──
 // CURRENT_LOC: a number 0–100 for how far along the route you are.
 // Update this each day. The dot at that position lights up as "current".
-const CURRENT_LOC = 65;
+const CURRENT_LOC = 69;
 // LOC_POINTS: the marked dots on the bar, each with a position (0–100) and a label.
 // Labels appear below the dot in small caps. Leave label as '' to show dot only.
 const LOC_POINTS = [
@@ -40,13 +40,13 @@ const LOC_POINTS = [
 
 // ── WORD OF THE DAY ──
 // Leave WORD empty ('') to hide the strip entirely.
-const WORD    = 'Pomodoro';
-const MEANING = 'Pomo + di Oro = Golden apple. The tonato was introduced to Europe in the medieval era and the first ones were yellow. Therefore they looked a bit like golden apples.';
+const WORD    = 'Confetti';
+const MEANING = 'Confectionery. Betyder alltså inte konfetti utan det betyder konfektyr. Konfetti på italienska är Coriandoli.🎉';
 
 // ── NOTE FROM THE ROAD ──
 // Leave NOTE empty ('') to hide it.
-const NOTE      = 'Today I go towards central Italy. Special thanks to Michele for repairing the tyre! It was extraordinary of you!';
-const NOTE_DATE = '10 june';
+const NOTE      = 'Today Ill try to reach Blockhaus, a famous climb from Giro dItalia. Special thanks to Michele for repairing the tyre! It was extraordinary of you!';
+const NOTE_DATE = '11 june';
 
 
 // Utforska betalningssätt: Paypal och Revolut fixat. Behöver koppla konton bara...
