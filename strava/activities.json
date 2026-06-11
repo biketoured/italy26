@@ -1,5 +1,18 @@
 [
   {
+    "id": 18870089483,
+    "name": "#32 🇮🇹 Molise ⛰️🌳🫒",
+    "type": "Ride",
+    "date": "2026-06-10T11:56:11Z",
+    "distance": 114.9,
+    "elevation": 1306,
+    "moving_time": 20270,
+    "polyline": "aqixFcq~uAiR|@wFuLaJgY{d@}o@@_DmBoBeB`@qKwLsWzE{G{BwPaLiItBsd@kEcDcD_LvNw|Bj`CB`B\\}Ao@OAnAJcA{pAz{Ae\\dVgEpK_{EhpB}jAoTef@?oFvAcg@|_@csA@{{Ae_AeCsCqA{HyHsFu@uBiB@aLeGqI`@sF{BwzA_~@i@_CuBN}n@u_@{AxCak@hPyvDh`A{zBb{@Y|AgR`WkQ`Mo@fCcDZiDaDeG|J}B`TiFlSc\\EcSfBeb@|Rq]fGmrHhmFmDbAuEhFc{B|~AmB`CgBvLj@qA}F|N{D~]{JzO_FbN}D~P}M|^{DvVkBhQwGrL_SpTwQ|FmNh@o[sHqRxBoxAmGujAil@o`@Nce@kQoVpCg@Eg_BqScP{IaGoOyC{AiWtP_j@dTah@tb@Ye@^l@wAkA~@~AkjAr}@s@~BOxH|@{K|MsKeBuI{r@cF{uBbJsXK}QlAs[jQ{t@uWq]pD_RmCeb@|CoLhCyXkB_RVXnBqArAoA}A[oFvCeJgMgAoM|GBjGmVjBog@vToc@|UwXjYqRdGy@nAd@{@McHiC@aFgD{IvFei@rM_FfE}JrQuC|ExB~JkOpOyZxRa`@lJic@kLmHyD{Mq@{KhCiOtTsAh@mYiZgToCqJpBeG{B_aAy{@oQsVaHkGke@uGucAwZub@gdABsCI|B]s@_BgSkI]wGyFwZmm@mGgQsAHiP{MiWkFm\\S}KuEwR{@_eBzz@uXtGaJ|HsFbLeClJcBp@sDsAh@iRg@yCyBcB_MtAiJcKuM{BiAr@}B~GmMzDkChIqBp@iHeBgA{BlAaVa@yBqEuA_HkG{HlC_I[}JvIcApDnAsD]aA^l@uE~Nq`@hNoOxNsN~Xw@zLkKh[}A~@gC}ByAZcCfP}AfCcR`AwFhB{DvAiHqCqJ|CeEo@}IjKcF}B`OfLtE~GvBbQhBAvGwFrFpCO`EgBvFh@zA~DxALbFqEdDc@hMwDx@qDzC_DvJyEjDkBbFaDvFwDlAsDdNwBbDd@hFaEfPt@pI_F~Kf@`EM`S`B`H{@WeBqE[aEiCoE}CBuDtGxCuAl@VQxFn@lCkDs@KfAoFjCi@nCuEnEiFzCaEVaCvFqEg@gBgDaPhDk@pIgC`Dv@xYzAfE|JdHeAjRmAEuCcKuKuKoDyIsAu@mFd@qDdE_Pt@oGvDeSkFcRuB}G{FsLrHkOvQiL|Aw@dJ_Ax@{KgT|@mFgAc@tAE",
+    "avg_speed": 20.4,
+    "avg_hr": 123.9,
+    "heartbeats": 41858
+  },
+  {
     "id": 18854808715,
     "name": "#31🇮🇹 Napoli 🛵🏛️🌋",
     "type": "Ride",
