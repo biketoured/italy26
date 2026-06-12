@@ -7,7 +7,7 @@
 // ══════════════════════════════════════════════════════════════
 
 // ── DONATIONS ──
-const SEK = 16867;
+const SEK = 17367;
 const EUR = 0;
 const DONATION_TOTAL = Math.round(SEK + (EUR * 11));  // SEK total (EUR*11 ≈ conversion)
 const DONATION_GOAL  = 40000;                          // SEK goal
@@ -20,7 +20,7 @@ const LIVE_URL      = 'https://gar.mn/xd4VJ4GeJ';
 // ── ROUTE PROGRESS ──
 // CURRENT_LOC: a number 0–100 for how far along the route you are.
 // Update this each day. The dot at that position lights up as "current".
-const CURRENT_LOC = 69;
+const CURRENT_LOC = 75;
 // LOC_POINTS: the marked dots on the bar, each with a position (0–100) and a label.
 // Labels appear below the dot in small caps. Leave label as '' to show dot only.
 const LOC_POINTS = [
@@ -45,8 +45,8 @@ const MEANING = 'Confectionery. Betyder alltså inte konfetti utan det betyder k
 
 // ── NOTE FROM THE ROAD ──
 // Leave NOTE empty ('') to hide it.
-const NOTE      = 'Today Ill try to reach Blockhaus, a famous climb from Giro dItalia. Special thanks to Michele for repairing the tyre! It was extraordinary of you!';
-const NOTE_DATE = '11 june';
+const NOTE      = 'Today Ill try to reach Blockhaus, a famous climb from Giro dItalia. I have been bad at updating the blog lately because lack of time.';
+const NOTE_DATE = '12 june';
 
 
 // Utforska betalningssätt: Paypal och Revolut fixat. Behöver koppla konton bara...
