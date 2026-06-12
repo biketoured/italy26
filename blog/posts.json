@@ -1,5 +1,23 @@
 [
   {
+    "slug": "dag33",
+    "type": "journal",
+    "date": "2026-06-11",
+    "day": 33,
+    "location": "Roccamorice",
+    "km": 155,
+    "elevation": 2600,
+    "title": {
+      "en": "Day 33 - Persistence beats force",
+      "sv": "Dag 33 - Uthållighet slår kraft",
+      "it": "Giorno 33 - La resistenza vince sulla forza"
+    },
+    "captions": {
+      "photo1": "Bildtext för andra bilden (valfri)",
+      "photo2": "Bildtext för tredje bilden (valfri)"
+    }
+  },
+  {
     "slug": "dag26",
     "type": "journal",
     "date": "2026-06-04",
