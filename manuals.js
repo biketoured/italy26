@@ -34,7 +34,6 @@ const LOC_POINTS = [
   { pos:  72, label: 'Abruzzo' },
   { pos:  82, label: 'Umbria' },
   { pos:  93, label: 'Veneto' },
-  { pos:  100, label: 'TBD' },
   { pos:  100, label: 'End' },
 ];
 
