@@ -15,12 +15,12 @@ const DONATION_GOAL  = 40000;                          // SEK goal
 // ── LIVE TRACKING ──
 // Set LIVE_TRACKING to true and update LIVE_URL when actively tracking
 const LIVE_TRACKING = true;
-const LIVE_URL      = 'https://gar.mn/xd4VJ4GeJ';
+const LIVE_URL      = 'https://gar.mn/49OVG9R7k';
 
 // ── ROUTE PROGRESS ──
 // CURRENT_LOC: a number 0–100 for how far along the route you are.
 // Update this each day. The dot at that position lights up as "current".
-const CURRENT_LOC = 75;
+const CURRENT_LOC = 78;
 // LOC_POINTS: the marked dots on the bar, each with a position (0–100) and a label.
 // Labels appear below the dot in small caps. Leave label as '' to show dot only.
 const LOC_POINTS = [
@@ -44,8 +44,8 @@ const MEANING = 'Confectionery. Betyder alltså inte konfetti utan det betyder k
 
 // ── NOTE FROM THE ROAD ──
 // Leave NOTE empty ('') to hide it.
-const NOTE      = 'Today Ill try to reach Blockhaus, a famous climb from Giro dItalia. I have been bad at updating the blog lately because lack of time.';
-const NOTE_DATE = '12 june';
+const NOTE      = 'Today Ill cross the appenine mountains for the third time to go towards Perugia. I have been bad at updating the blog lately because lack of time.';
+const NOTE_DATE = '15 june';
 
 
 // Utforska betalningssätt: Paypal och Revolut fixat. Behöver koppla konton bara...
