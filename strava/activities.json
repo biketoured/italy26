@@ -1,5 +1,18 @@
 [
   {
+    "id": 18948030502,
+    "name": "Cykeltur på morgonen",
+    "type": "Ride",
+    "date": "2026-06-16T09:49:15Z",
+    "distance": 122.7,
+    "elevation": 1257,
+    "moving_time": 22744,
+    "polyline": "a`ldGyeroAnF_GjAaKoK_e@zGSrn@nJxR`NppCpuDhTuGra@tDtIiLps@sFxPrL~c@w@pAnHcC|K|F{A~K~S`G_YjF_BQlKfHhT|IjDyIgD}KkS_Eza@iP{DoGhMuInCpGlSvNhSj@nJoVf@pB|Q_AzNwRfd@y\\bC_KqGkKpOwh@bZqClVaFvMoRvGs]~^h`@eUbVyDj[}^ha@eKbPs@bN|Bz@bPjEhLzNvKvAfIfXlZtGhUkBnFux@ji@mAzRjEvPrDdDxC|SUjWsEvLqxBjn@k@dN}CzDjDkEjA_NiMtDsApDeC}Au@dJeHpAdMeBQCv@oDcAxEyR~CjFh]}Gh{@pC~l@t`@xlAWnq@jEhWmBxXvJfg@xJ|}@?bVcT`Hh@|SmGvK}J`~@`K`hB{D`PhE|GfF`d@cChL?rQcHxLm@vHbD|LdXhPTpDybAns@_TvCaQ~Qac@`PadArnAyFtX|E~]|GvPsAnPzLnAhBxO`RH}BUsDfKx\\lQKrLbIv[B|f@f^|DhGbJzPt@`D~FnD~[x`@fPzGpHj@jObPtQnHf`@nQdGdCxSpE`Fx\\jEdr@fUmCfIhHzHvVjEbWxNGpF|DpGxHyCdMnJv@|Q}OrEl@vH_I~HfBbJkBlPlTk@rAnEoDtFdRzNkBnZjCbKxHnIcH`InLnj@iPbFyE~UiI~JdIzHpBgFfIsAzEjIgJpo@jRvd@|B`[pKbThDdR`Iq@zNrMnP_EYiIzBfHqIhMyG^~GvDbEbR[vd@zEh{@]nHoAmGwC`SqIbFvODrFiBuBdGoWnOtF`DkDrK_c@dF`UdJeCjIvDvFQrJdFnPiNsKwAbAjFzAwCzJtd@fa@xOmGqAnQjC~AjJnCiEuCZqLxAbEvLbDdAcGoEoQtG_G{KoU_ClRdHnNyAe@{AfJhJjC_BtFuLeE\\vEeC|@tE|C{NgFLcSeL~GcI{F}b@fKjBDeFjXma@tWalAf_@eO{BgFvKmDt@jD_@hEsKoQaMkBgI_k@g^aQsAixAclAfDo[akAcb@kuB_fAjB~BuGhd@j@lMsMEyx@fp@wn@dXqEu@mc@tXubHdpFoZlOoQvU_HnYHqDiFkAiPzh@y~@_^iVvI_Gd[sb@{Do]gPmB`GlDxEeEmDm\\dByM{E_OyS{G}A{Os_@}SbMqHwQzK_L{DwG`AmEsAkA{Er@mInMk@aFjArDyK|H{HgBh@oJeDmEoI`O{VpFuCkHiJtG@vK}Gf]_I~TsItAoC`MnA~HoKvXy|@vu@aEuBcA`F{\\jIiK{I{NwG",
+    "avg_speed": 19.4,
+    "avg_hr": 112.3,
+    "heartbeats": 42569
+  },
+  {
     "id": 18939290742,
     "name": "#37🇮🇹 Sibillini❤️‍🔥⛰️🌼",
     "type": "Ride",
