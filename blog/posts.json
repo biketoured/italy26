@@ -1,5 +1,23 @@
 [
   {
+    "slug": "dag37",
+    "type": "journal",
+    "date": "2026-06-15",
+    "day": 37,
+    "location": "Castelluccio, Umbria",
+    "km": 147,
+    "elevation": "3230 (NEW PR)",
+    "title": {
+      "en": "Day 37 - Rise & Shine!❤️‍🔥",
+      "sv": "Dag 37 - Upp å hoppa!",
+      "it": "Giorno 37 - Le salite grande"
+    },
+    "captions": {
+      "photo1": "Bildtext för andra bilden (valfri)",
+      "photo2": "Bildtext för tredje bilden (valfri)"
+    }
+  },
+  {
     "slug": "dag33",
     "type": "journal",
     "date": "2026-06-11",
