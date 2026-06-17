@@ -1,5 +1,18 @@
 [
   {
+    "id": 18960805383,
+    "name": "Cykeltur på morgonen",
+    "type": "Ride",
+    "date": "2026-06-17T08:21:11Z",
+    "distance": 100.8,
+    "elevation": 1479,
+    "moving_time": 22724,
+    "polyline": "yaleGa}ilAiYA_GgFs[in@}E}QScLkN}RgI{BvIsFnDoLmEgb@w`@{IiE|@gGhJ_CwJcPYyJiI}FnA[wRoLtSuEm\\uQkAcn@oWyAsDkIdBoBoGgHgAmRaAoIlKsOeCmF~S_MAqIiSdAe@H~OaChKoMA_K|NnFvVLvPgDNwFnMcHkOmOwJuBn@u@xI{IuGmGdCcBnIkGaDqKtAeJkFOkF~BNe@pFxCtGiAtKgLpAs@nKcFzDuO_ByCzXkEmAsIjE}@rEvApE{HpD{DtEWbO~BhKiDbA_PzYkAlWpAnIaE`m@dDhL{JhEo@~HvDhSxCt@lDxMIlErZfOnJzKm@tc@nE`M`JhBpFlG~R|vAzIbJ~AgA_GaCyDdFpBlG}BrFs@gIkFdRcFjDxDqAFsHx@jCfDaOmBCxDoGdDzI~FqC}J|HqGrc@sDnImCAtA|HmAxD~GeBpReLvAbJ_GzIkb@xVaClIdJhuHqF~j@`RrIeBy@fAgDgBiEcKmHiFt^}Ih`DT|bA_EdKoKht@gHvGgCtU{Bf@fH|L_VjmA?va@kNznAlCzU{FhAAbDZkDeAoAeH|EsT`CuKeXiIqA_Nt_@_StOeUfFqMnV_^tPaAhE|Cfe@uIqQwL|O}OvCt@fBfNhF`FdLaHfIzFtJmFfKeDdYxH|Ki@tQzEdKsJhm@^dWnFmObFQxIjKaCzNpI~Q`IeBjHzJo@lH`QG|B~Fc@wEhb@gXy`@zVeAvAl@vCfGzDoApEiEsFgEdNnCuK_Aa@eDi@uSlAcAoFkMyAsIrQmBzLVoEpChWaGt@bCvV{BnKuIdM_F{BwBjEuF_@eC|OwK~EuE`RgHp@uCnMkOxGlD~SiBl[sG?uKpNcR_LcB}MeMz@uJrKiIiJuC\\O|MgH~KcPtFmVvXmCfMaOfV}Ohg@cLtS|EdOgBr[r@zRaKtUeA~NbBvUcDbB_AhH|B|b@{@bj@nNtS{Cv_@dNjNeB@pA~QpDsB~NxTnR|D?nEvBjA`P{FrDpOdKlDg@j^`JpKdGl@ySfZwG|TmElYrFbY_FxJ|BnKqEnIpD|J|E`f@tDfD^~XxKha@bG`EcQbtAxJtRb\\`FcChHkSsAG~MaF~EaQ|@cAbLmHWoBzIcEzBb@bOsAdBiW}@aDqM}^xAiInRgAdWsn@|BgEhCh@`D]yCwUlL}`@va@uJn[aBfg@eC~]qMlx@fDfc@}Er[c@fHnAR{@qCnFq^u@mKfK{pAiAlYqCoBlGkk@kPlkAdDpd@aFt[aAn[pAbIfKlKgP`NtO_NmC{G{FwCu@}F`Aa\\|Ei[yCgf@rEaZDr@",
+    "avg_speed": 16.0,
+    "avg_hr": 109.3,
+    "heartbeats": 41396
+  },
+  {
     "id": 18948030502,
     "name": "Cykeltur på morgonen",
     "type": "Ride",
