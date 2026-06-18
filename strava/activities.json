@@ -1,5 +1,18 @@
 [
   {
+    "id": 18973253393,
+    "name": "#40 Italy26 🇮🇹🏁 Toscana 🏁",
+    "type": "Ride",
+    "date": "2026-06-18T09:33:28Z",
+    "distance": 124.1,
+    "elevation": 1171,
+    "moving_time": 21117,
+    "polyline": "{iqfG_}eiAiDbXfDtb@_Hbw@`M|UoT`SiGiAqKhGkLnTcGzi@bCjPoGzu@kZ~VyGlOsDjl@{Ntq@gDpb@nFjWYdu@zRtqAJ`b@rHdIpf@tJ|Lpv@gUsKuLfAwTh[_XxNoEbs@gFjJiWdEk[hQmFlRgVd]aF`Ye\\~Ssl@xF}hCz_Cge@dYeQ`Usn@~Cw^~Tyg@nB{E|Ga\\lqAqAhn@gV|Buk@vz@cLfUcu@|p@a~@n\\cmB}Feg@r|@q\\hMga@hs@kt@`|@kOnWuF|^}w@d_B_b@~h@idAhj@aaAv\\_bAtIkh@yCeaA~d@qIwFcZ_j@y^_R_oAi`Bi@cHt@zGoe@{o@oD~F}IwKbIxLeGzLmg@oH{d@zQskCjsGY`NaG~P~Gne@k@rTuIbO{Grn@kLbAgN|GNvNsF|BKpa@fI~OIjHaY~d@_[bXqL~^i[zKy`@vx@cKpTqF|a@CtUq[||@em@~j@cVmF}Zfl@iR`MaGWiLbz@rCvX`LrB?nLbSxd@nHhc@cJp\\}DbDcVly@uVn_@@|IeIbBHhm@oEfMiJ|EaEhRu[tV~@xI_G`MyGk@q@rJaKlFuCnReIfP_O`EgDd]kFjM{MvIaW}EuDtH}PjDFdKzLrGw@`OnEtSuD~]|@rV{GbIjHbJgJlXkIg@DpJcFhIiAjJfEfMsHbPjDrH}EbGp@hHgGjOa@fNmIIcNnQsAtOyHcFrAtM{AbEiIdAqFfNoFQ}@~GiLdIg@xJiQxBiDcLoBdNmMzJiDwAkBzRkKlJsMbGuIbTmDV{PqTySrJaEyN_DlQkIvK{JwIyEnKwI~IuFsBeDnG_Je@{BvOsEnAgLt_@eH}FyGiRgKiH|@x\\eOuDgChWyGn@sEjNeGvD{EcNgBvN_McEu@vK}MeAqAhLeHs@sDlN}I|FuLeCqJqN}AnJBdS{IdDwKsC_BfEob@mY{E`EkAlXmKxHaIqYkJxG{RsPYpHoD|CvAbLkK|RsFoG_K~D_AiUwMi_@CfPkCSnCZG}OrCnArI|]d@zRvBX{GuCLlQqD`HiMwA}NdPmHmGwEhJoQrDLhH{EvBg@hI{FeDqDbEw@mDdAxCaEnHkIdA{Bfe@cOlAWjIyEwFM`FgFoDs@tN}M|EmVjC}FaFcIjHuEaFuDp[tDrdAmArMwG`HM~VuI{CtC|DyBfMcSjInA|HbFyAkLjb@c_@nBa\\gKsVvIkTwCcNdFuBfRqTvEyQn[oa@jLiHrH{Pzv@gMbMgF|NrTzQ`@zNj@P",
+    "avg_speed": 21.2,
+    "avg_hr": 114.9,
+    "heartbeats": 40439
+  },
+  {
     "id": 18960805383,
     "name": "Cykeltur på morgonen",
     "type": "Ride",
