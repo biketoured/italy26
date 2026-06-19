@@ -20,32 +20,31 @@ const LIVE_URL      = 'https://gar.mn/49OVG9R7k';
 // ── ROUTE PROGRESS ──
 // CURRENT_LOC: a number 0–100 for how far along the route you are.
 // Update this each day. The dot at that position lights up as "current".
-const CURRENT_LOC = 86;
+const CURRENT_LOC = 99;
 // LOC_POINTS: the marked dots on the bar, each with a position (0–100) and a label.
 // Labels appear below the dot in small caps. Leave label as '' to show dot only.
 const LOC_POINTS = [
   { pos:  2, label: 'Liguria' },
   { pos:  12, label: 'Corsica' },
-  { pos:  19, label: 'Sardinia' },
-  { pos:  28, label: 'Sicily' },
-  { pos:  40, label: 'Calabria' },
-  { pos:  50, label: 'Apulia' },
-  { pos:  63, label: 'Naples' },
-  { pos:  72, label: 'Abruzzo' },
-  { pos:  82, label: 'Umbria' },
-  { pos:  93, label: 'Veneto' },
-  { pos:  100, label: 'End' },
+  { pos:  20, label: 'Sardinia' },
+  { pos:  32, label: 'Sicily' },
+  { pos:  47, label: 'Calabria' },
+  { pos:  60, label: 'Apulia' },
+  { pos:  70, label: 'Campania' },
+  { pos:  78, label: 'Abruzzo' },
+  { pos:  90, label: 'Umbria' },
+  { pos:  100, label: 'Firenze' },
 ];
 
 // ── WORD OF THE DAY ──
 // Leave WORD empty ('') to hide the strip entirely.
-const WORD    = 'Brillare';
-const MEANING = 'Shine. Maybe there is a connection to sunglasses "brillor" in Swedish?';
+const WORD    = 'Mancare';
+const MEANING = 'In Italian, they dont say I miss you, but instead they say mi manchi: You are missing to me. I think it is interesting how it changes perspective.;
 
 // ── NOTE FROM THE ROAD ──
 // Leave NOTE empty ('') to hide it.
-const NOTE      = 'I just ate the best sandwich I ever had, in Norcia. Now Ill go towards Perugia. I have been bad at updating the blog lately because lack of time.';
-const NOTE_DATE = '16 june';
+const NOTE      = 'I am very very tired from a stressful evening to get the bike packed in a very strange bike box. Hopefully I and the bike get home today. I have been bad at updating the blog lately because lack of time.';
+const NOTE_DATE = '20 june';
 
 
 // Utforska betalningssätt: Paypal och Revolut fixat. Behöver koppla konton bara...
