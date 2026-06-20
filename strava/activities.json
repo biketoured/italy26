@@ -1,5 +1,18 @@
 [
   {
+    "id": 18995458216,
+    "name": "Cykeltur på morgonen",
+    "type": "Ride",
+    "date": "2026-06-20T10:47:18Z",
+    "distance": 33.2,
+    "elevation": 307,
+    "moving_time": 5830,
+    "polyline": "yiakJybmlBXy@@u@g@qH@kF^zAG~CJz@|Ah@tAGbAqBfAe@Rd@L|D_@~BNy@XWzAhA`DGbCn@hCuAZyEzC\\ZYh@}Ed@u@}@gCKuAJ_At@mAhFuCpDg@zEY`FpAdBbBfAxE^n@bEhEnDfF~DvELlAkBzH@rAZjA~AxC~D~NjB|EfDrEpItFt@z@hAbCp@pC`@fDHrDSnF{CdTsBtUcAlEsDbJUtCCdEzApHIfEvAr@l@z@vCfNhAbMv@dHzD`W~BrRjAhPxArf@hB`WGbB{NvI]m@u@mNRkV_@yCs@mCoBpAkGP}Ah@yCtEo@UYqAg@k@{Ci@yBzAsOlAcBc@]oHa@{BiAy@oBc@mAuGcA}BcEp@yFqBiK|@k@MqAsBo@Y{MnAi@nA@vDcEvBkBrCiA`E[hCQlEk@rDoDtI{AbBiNhL_B~EgDzG}@vCeBnA}@|EoBhH[@uCsHO?yArDwG|JcCxFcAxGgCfYcCrA_E~CkAfCu@lCG|Gi@zEZfDd@zNWhCs@L\\tA?rDc@xFEdEYdCk@lBc@n@aBx@wAbC{@rBy@vFw@~A_A|@mBt@_D`EwDvB{B|C}FxB}DjEi@lBa@hHcB~Is@xA{@~@qCt@_A|AeAhDkC~LoBjEwB|BmAf@iFGw@^yBnF}AxJmAtCkBbC{FtTkCjIsDdK}C`FgCbBeCd@kBMqLuEeFHeDpAeBnA{ApBsQn]{DfGkHrHwLvHmDf@iBQeDsAgAqAi@eCgAgCeAu@gAGsCjDiCx@iBbBeDlF_EbJqBYy@J_JzFwDh@oEmCwAY{FvByESwGaBwGvAkBvD{A`OiAjDaBxAwElAeCnAuBjCkP|WuBzByEtCsEsAaIaEu@AsCfAMbAAzHO^aBhAe@|@a@zCC|Cp@?HsB\\OBc@PPMf@@oAGfAG]VASADQ_@|@ElBMHK[EsCt@eD|@q@n@Zd@dWp@tGxA|HJjCcGvAiBOc@\\_DbK_A|AiC|BuExPkDxKi@bDs@nKgHfd@gAdE}EbLqDdTcC~S{@vKKbESvc@jBf^v@zG`@zGZpS^hDxErTzCxVhBjRjGtVn@fGT~GGvB[|@{BnBYfDf@zHx@jA`Bx@b@bB?~NTdMl@`M_@vPt@bSBtYf@|V?jHg@zGeNhi@qBlJmEzUoAzQe@hD{C~MgBjGwAvBqGjEwDrDcJ~RmBvL}AlU{@hDqAtAcI~D}GvBwLdFgWtHoGxG_JzL_C`B}K~BuGqB{IHwCfVvG|HFPKD",
+    "avg_speed": 20.5,
+    "avg_hr": 109.3,
+    "heartbeats": 10620
+  },
+  {
     "id": 18993452397,
     "name": "#41 Italy26🇮🇹 Florence ⚜️⛪😍",
     "type": "Ride",
