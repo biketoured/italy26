@@ -40,6 +40,103 @@
       position: relative;
     }
 
+    /* ── ROUTE PROGRESS BAR ── */
+    .route-progress {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      position: relative;
+      padding: 1rem 3rem 2rem;
+      overflow: visible;
+      background: var(--green);
+      z-index: 10;
+    }
+    .route-progress-track {
+      position: relative;
+      width: 100%;
+      height: 3px;
+      background: rgba(196,180,154,0.2);
+      margin-top: 1rem;
+      margin-bottom: 0.2rem;
+      overflow: visible;
+    }
+    .route-progress-fill {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      background: var(--yellow);
+      transition: width 0.8s ease;
+    }
+    .route-progress-dots {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      transform: translateY(-50%);
+      overflow: visible;
+    }
+    .route-progress-dot {
+      position: absolute;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: rgba(196,180,154,0.35);
+      border: 1.5px solid rgba(196,180,154,0.4);
+      transform: translate(-50%, -50%);
+      transition: background 0.5s, border-color 0.5s;
+      top: 50%;
+      overflow: visible;
+    }
+    .route-progress-dot.reached {
+      background: var(--yellow);
+      border-color: var(--yellow);
+    }
+    .route-progress-dot.current {
+      background: var(--yellow);
+      border-color: var(--yellow);
+      box-shadow: 0 0 0 3px rgba(212,169,74,0.3);
+    }
+    .route-progress-dot-label {
+      position: absolute;
+      top: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.52rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(196,180,154,0.5);
+      white-space: nowrap;
+      transition: color 0.5s;
+      pointer-events: none;
+    }
+    .route-progress-dot-label.label-low {
+      top: calc(10px + 1rem);
+    }
+    .route-progress-dot-label.label-above {
+      top: auto;
+      bottom: 25px;
+    }
+    .route-progress-dot.reached .route-progress-dot-label,
+    .route-progress-dot.current .route-progress-dot-label {
+      color: rgba(212,169,74,0.75);
+    }
+    .route-progress-avatar {
+      position: absolute;
+      top: 50%;
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      border: 1.5px solid var(--yellow);
+      object-fit: cover;
+      transform: translate(-50%, -50%);
+      transition: left 0.8s ease;
+      pointer-events: none;
+      z-index: 2;
+    }
+    @media (max-width: 768px) {
+      .route-progress {
+        padding: 1rem 1.5rem 2rem;
+      }
+      .route-progress-track { margin-bottom: 0; }
+    }
+
     .hero-left {
       background: var(--green);
       display: flex;
@@ -1020,7 +1117,7 @@
     @media (max-width: 768px) {
       .strava-grid { grid-template-columns: 1fr; }
       .strava-inner { padding: 0 1.5rem; }
-      .strava-map { height: 300px; }
+      .strava-map { height: 600px; }
       .live-banner { padding: 0.9rem 1.5rem; flex-direction: column; align-items: flex-start; }
       .strava-header-row { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
       .donation-meter { max-width: 100%; }
@@ -1337,6 +1434,17 @@
         <div class="donation-meter-bar">
           <div class="donation-meter-fill" id="meter-fill" style="width:0%"></div>
         </div>
+      </div>
+    </div>
+
+    <!-- ── ROUTE PROGRESS BAR ── -->
+    <div class="route-progress">
+      <div class="route-progress-track" id="route-progress-track">
+        <div class="route-progress-fill" id="route-progress-fill"></div>
+        <div class="route-progress-dots" id="route-progress-dots"></div>
+        <img class="route-progress-avatar" id="route-progress-avatar"
+             src="assets/images/profilepic.jpg" alt=""
+             onerror="this.style.display='none'">
       </div>
     </div>
 
@@ -2208,6 +2316,41 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
     }
     updateGoalLabel();
     document.addEventListener('langchange', updateGoalLabel);
+  })();
+  </script>
+
+  <script>
+  // ── ROUTE PROGRESS BAR ──
+  // Reads CURRENT_LOC and LOC_POINTS from manuals.js
+  (function() {
+    const fill   = document.getElementById('route-progress-fill');
+    const dots   = document.getElementById('route-progress-dots');
+    const avatar = document.getElementById('route-progress-avatar');
+    if (!fill || typeof CURRENT_LOC === 'undefined') return;
+
+    const loc = Math.min(100, Math.max(0, CURRENT_LOC));
+
+    const rawPoints = (typeof LOC_POINTS !== 'undefined') ? LOC_POINTS : [10, 33, 45, 48, 88, 92];
+    const points = rawPoints.map(p => typeof p === 'object' ? p : { pos: p, label: '' });
+
+    fill.style.width = loc + '%';
+
+    points.forEach((p, i) => {
+      const dot = document.createElement('div');
+      dot.className = 'route-progress-dot'
+        + (loc > p.pos  ? ' reached' : '')
+        + (loc === p.pos ? ' current' : '');
+      dot.style.left = p.pos + '%';
+      if (p.label) {
+        const lbl = document.createElement('span');
+        lbl.className = 'route-progress-dot-label' + (i % 2 === 0 ? ' label-above' : '');
+        lbl.textContent = p.label;
+        dot.appendChild(lbl);
+      }
+      dots.appendChild(dot);
+    });
+
+    if (avatar) avatar.style.left = loc + '%';
   })();
   </script>
 
