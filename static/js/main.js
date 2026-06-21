@@ -9,6 +9,7 @@
 // Used to hide the active page link and set the home href.
 function getCurrentPage() {
   const path = window.location.pathname;
+  if (path.includes('italy2026'))                       return 'italy2026';
   if (path.includes('sweden2024'))                      return 'sweden2024';
   if (path.includes('donate'))                          return 'donate';
   if (path.includes('flaskpost'))                       return 'flaskpost';
@@ -22,6 +23,12 @@ function getCurrentPage() {
 // Edit these to control nav bg and link colours per page.
 const NAV_THEMES = {
   'index': {
+    bg:        'rgba(30,61,47,0.96)',
+    border:    'rgba(196,180,154,0.15)',
+    link:      '#C4B49A',
+    linkHover: '#E8DCC8',
+  },
+  'italy2026': {
     bg:        'rgba(30,61,47,0.96)',
     border:    'rgba(196,180,154,0.15)',
     link:      '#C4B49A',
@@ -105,6 +112,7 @@ function injectNav(page) {
     { id: 'donate',     href: p + 'donate.html',       en: 'Donate',      sv: 'Donera',      it: 'Dona'        },
     { id: 'blog',       href: p + 'blog/index.html',   en: 'Blog',        sv: 'Blogg',       it: 'Blog'        },
     { id: 'route',      href: p + 'route.html',        en: 'Route',       sv: 'Färdplan',    it: 'Mappa'       },
+    { id: 'italy2026',  href: p + 'italy2026.html',    en: 'Italy 2026',  sv: 'Italien 2026',it: 'Italia 2026' },
     { id: 'sweden2024', href: p + 'sweden2024.html',   en: 'Sweden 2024', sv: 'Sverige 2024',it: 'Svezia 2024' },
     { id: 'contact',    href: p + 'contact.html',      en: 'Contact',     sv: 'Kontakt',     it: 'Contatto'    },
   ];
@@ -290,6 +298,7 @@ function injectPizzaScrollbar() {
   // ── Per-page thumb image ──
   const PAGE_IMAGES = {
     'index':      'pizza.png',
+    'italy2026':  'pizza.png',
     'donate':     'heart.png',
     'blog':       'wheel.png',
     'post':       'sun.png',
