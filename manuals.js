@@ -39,7 +39,7 @@ const LOC_POINTS = [
 // ── WORD OF THE DAY ──
 // Leave WORD empty ('') to hide the strip entirely.
 const WORD    = 'Mancare';
-const MEANING = 'In Italian, they dont say I miss you, but instead they say mi manchi: You are missing to me. I think it is interesting how it changes perspective.;
+const MEANING = 'In Italian, they dont say I miss you, but instead they say mi manchi: You are missing to me. I think it is interesting how it changes perspective.';
 
 // ── NOTE FROM THE ROAD ──
 // Leave NOTE empty ('') to hide it.
