@@ -7,7 +7,7 @@
 // ══════════════════════════════════════════════════════════════
 
 // ── DONATIONS ──
-const SEK = 20967;
+const SEK = 21967;
 const EUR = 0;
 const DONATION_TOTAL = Math.round(SEK + (EUR * 11));  // SEK total (EUR*11 ≈ conversion)
 const DONATION_GOAL  = 40000;                          // SEK goal
