@@ -506,44 +506,6 @@
       clear: both;
     }
 
-    /* ── ITALY BANNER ── */
-    .italy-banner {
-      background: var(--red);
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-
-    .italy-banner h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3vw, 2.8rem);
-      color: var(--white);
-      margin-bottom: 1rem;
-    }
-
-    .italy-banner p {
-      color: rgba(253,250,244,0.8);
-      font-weight: 300;
-      font-size: 1rem;
-      max-width: 600px;
-      margin: 0 auto 2rem;
-      line-height: 1.7;
-    }
-
-    .italy-banner a {
-      display: inline-block;
-      border: 1px solid var(--white);
-      color: var(--white);
-      text-decoration: none;
-      padding: 0.8rem 2rem;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      transition: background 0.2s;
-    }
-
-    .italy-banner a:hover { background: rgba(253,250,244,0.1); }
-
     /* ── ACTIVITIES ── */
     .activities-section {
       background: var(--red);
@@ -1573,7 +1535,7 @@
              data-en="Trip completed"
              data-sv="Resan avslutad"
              data-it="Viaggio completato">Trip completed</div>
-        <div class="countdown-number" id="post-days">45</div>
+        <div class="countdown-number" id="post-days">41</div>
         <div class="countdown-unit"
              data-en="days of adventure"
              data-sv="äventyrsdagar"
@@ -1582,7 +1544,7 @@
 
       <div class="hero-stats">
         <div class="stat">
-          <div class="stat-number">~40</div>
+          <div class="stat-number" id="hero-stat-days">—</div>
           <div class="stat-label"
                data-en="days on the road"
                data-sv="dagar på vägen"
@@ -1591,7 +1553,7 @@
           </div>
         </div>
         <div class="stat">
-          <div class="stat-number">+4000</div>
+          <div class="stat-number" id="hero-stat-km">—</div>
           <div class="stat-label"
                data-en="km"
                data-sv="km"
@@ -1600,13 +1562,7 @@
           </div>
         </div>
         <div class="stat">
-          <div class="stat-number"
-               data-en="Millions"
-               data-sv="Miljoner"
-               data-it="Millioni">
-               Millions
-            </div>
-          </div>
+          <div class="stat-number" id="hero-stat-beats">—</div>
           <div class="stat-label"
                data-en="of heartbeats"
                data-sv="hjärtslag"
@@ -1745,26 +1701,6 @@
         </div>
       </div>
     </div>
-  </div>
-  
-  <!-- ══ ITALY BANNER ══ -->
-  <div class="italy-banner">
-    <h2 data-en="Italy 2026 — 4,000 km"
-        data-sv="Italien 2026 — 4 000 km"
-        data-it="Italia 2026 — 4.000 km">
-      Italia 2026 — 4,000 km
-    </h2>
-    <p data-en="Starting 'Nicely', France, I'll ride along the Ligurian coast to Genoa, then island-hop through Sardinia and Sicily before snaking my way north via Calabria, Apulia, Campania, Abruzzo, Marche to Veneto and Lombardy. I make changes along the way though."
-       data-sv="Resan startar i Nice, Frankrike, vidare längs den liguriska kusten till Genoa, där jag tar färjor för att korsa Sardinien och Sicilien innan jag sick-sackar mig norrut via Kalabrien, Apulien, Kampanien, Abruzzo, och Marche till Veneto och Lombardiet. Jag har dock gjort flera ändringar under vägen."
-       data-it="Comincierò in Nizza, andando lungo la costa ligure fino a Genova, poi saltando tra Sardegna e Sicilia prima di risalire verso nord attraverso Calabria, Puglia, Campania, Abruzzo, Marche fino a Veneto e Lombardia.">
-      Starting in Nice, France, I'll ride along the Ligurian coast to Genoa, then island-hop through Sardinia and Sicily before snaking my way north via Calabria, Apulia, Campania, Abruzzo, Marche to Veneto and Lombardy.
-    </p>
-    <a href="route.html"
-       data-en="See the preliminary route →"
-       data-sv="Se preliminära rutten →"
-       data-it="Vedi il percorso preliminario →">
-      See the preliminary route →
-    </a>
   </div>
 
   <!-- ══ STRAVA SECTION ══ -->
@@ -2358,6 +2294,17 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
           if (tEl) tEl.textContent = totalH + 'h ' + totalM + 'm';
           if (hEl) hEl.textContent = totalBeats > 0
             ? (totalBeats / 1000).toFixed(0) + 'k'
+            : '—';
+
+          // ── Hero stats (mirror the real totals above) ──
+          const heroDaysEl  = document.getElementById('hero-stat-days');
+          const heroKmEl    = document.getElementById('hero-stat-km');
+          const heroBeatsEl = document.getElementById('hero-stat-beats');
+          const tripDayCount = new Set(activities.map(a => a.date)).size;
+          if (heroDaysEl)  heroDaysEl.textContent  = tripDayCount > 0 ? tripDayCount : activities.length;
+          if (heroKmEl)    heroKmEl.textContent    = totalDist.toFixed(0);
+          if (heroBeatsEl) heroBeatsEl.textContent = totalBeats > 0
+            ? (totalBeats / 1000000).toFixed(1)
             : '—';
           console.log('[Map] Drew', drawn, 'routes. Total coord points:', allCoords.length);
           if (allCoords.length > 0) {
