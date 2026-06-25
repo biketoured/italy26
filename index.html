@@ -5,11 +5,11 @@
   <link rel="icon" href="/italy26/assets/images/flagit.png" type="image/png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Edvard Appelberg bikes 40 days through Italy, from Sicily to the Alps, raising money for brain research. Follow the journey and read the blog.">
+  <meta name="description" content="Edvard Appelberg bikes 40 days through Southern Italy, raising money for brain research. Follow the journey and read the blog.">
   <meta name="author" content="Edvard Appelberg">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Edvard Appelberg | Bikepacking Italy 2026">
-  <meta property="og:description" content="Edvard Appelberg cycles 40 days through Italy, from Sicily to the Alps, raising money for brain research. Follow the journey and read the blog.">
+  <meta property="og:description" content="Edvard Appelberg bikes 40 days through Southern Italy, raising money for brain research. Follow the journey and read the blog.">
   <meta property="og:image" content="https://biketoured.github.io/italy26/assets/images/profilepic.jpg">
   <meta property="og:url" content="https://biketoured.github.io/italy26/">
   <title>Bikepacking Italy 2026 | Edvard Appelberg</title>
@@ -1500,6 +1500,7 @@
       </svg>
       <img src="assets/images/profilepic.jpg" alt="Profile photo" class="hero-photo" />      <!-- COUNTDOWN / LAST RIDE -->
             <!-- COUNTDOWN / LAST RIDE -->
+
       <!-- STATE 1: pre-trip countdown -->
       <div class="hero-countdown" id="widget-pre" style="display:none;">
         <div class="countdown-label"
@@ -1564,10 +1565,10 @@
         <div class="stat">
           <div class="stat-number" id="hero-stat-beats">—</div>
           <div class="stat-label"
-               data-en="of heartbeats"
-               data-sv="hjärtslag"
-               data-it="battiti cardiaci">
-            of heartbeats
+               data-en="million heartbeats"
+               data-sv="miljoner hjärtslag"
+               data-it="millioni battiti cardiaci">
+            million heartbeats
           </div>
         </div>
       </div>
@@ -1796,7 +1797,8 @@
         <!-- Injected by JavaScript -->
       </div>
       <div id="strava-grid-more" class="activities-grid" style="display:none; margin-top:1rem;"></div>
-    <div style="text-align:center; margin-top:1.5rem;">
+      <div id="strava-grid-all" class="activities-grid" style="display:none; margin-top:1rem;"></div>
+    <div style="text-align:center; margin-top:1.5rem; display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap;">
       <button id="toggle-more" onclick="
         const g = document.getElementById('strava-grid-more');
         const open = g.style.display !== 'none';
@@ -1814,6 +1816,26 @@
         cursor: pointer;
         transition: border-color 0.2s;
       ">Show more</button>
+      <button id="toggle-all" onclick="
+        const g = document.getElementById('strava-grid-all');
+        const open = g.style.display !== 'none';
+        if (!open && g.innerHTML.trim() === '' && typeof allRemainingActivities !== 'undefined') {
+          g.innerHTML = allRemainingActivities.map((activity, i) => buildActivityCardHTML(activity, i + 15)).join('');
+        }
+        g.style.display = open ? 'none' : 'grid';
+        this.textContent = open ? 'Show all' : 'Show less';
+      " style="
+        background: none;
+        border: 1px solid rgba(253,250,244,0.3);
+        color: var(--white);
+        font-family: 'DM Mono', monospace;
+        font-size: 0.75rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 0.7rem 1.8rem;
+        cursor: pointer;
+        transition: border-color 0.2s;
+      ">Show all</button>
     </div>
       
       <!-- See more link -->
@@ -2085,11 +2107,50 @@
   // RENDER ACTIVITY CARDS
   // Shows the 3 most recent activities
   // ══════════════════════════════════════════
+  let allRemainingActivities = []; // populated below, used by "Show all" button
+
+  function buildActivityCardHTML(activity, colourIndex) {
+    if (!activity) return `<div class="activity-card placeholder"><p>—</p></div>`;
+    const colour  = routeColour(colourIndex);
+    const date    = formatDate(activity.date);
+    const time    = formatMovingTime(activity.moving_time);
+    const lang    = localStorage.getItem('preferred-lang') || 'en';
+    const distLabel = { en: 'Distance', sv: 'Distans',    it: 'Distanza' };
+    const timeLabel = { en: 'Moving time', sv: 'Rörlig tid', it: 'Tempo' };
+    const elevLabel = { en: 'Elevation', sv: 'Höjdmeter', it: 'Dislivello' };
+    return `
+      <a href="https://www.strava.com/activities/${activity.id}" target="_blank" style="text-decoration:none; display:block;">
+      <div class="activity-card" style="cursor:pointer;">
+        <div class="activity-header">
+          <div class="activity-color-dot" style="background:${colour}"></div>
+          <span class="activity-date">${date}</span>
+        </div>
+        <h3 class="activity-title">${activity.name}</h3>
+        <div class="activity-stats">
+          <div class="activity-stat">
+            <span class="activity-stat-value">${activity.distance} km</span>
+            <span class="activity-stat-label">${distLabel[lang] || distLabel.en}</span>
+          </div>
+          <div class="activity-stat">
+            <span class="activity-stat-value">${time}</span>
+            <span class="activity-stat-label">${timeLabel[lang] || timeLabel.en}</span>
+          </div>
+          <div class="activity-stat">
+            <span class="activity-stat-value">${activity.elevation} m</span>
+            <span class="activity-stat-label">${elevLabel[lang] || elevLabel.en}</span>
+          </div>
+        </div>
+      </div>
+   </a>`;
+  }
+
   function renderCards(activities) {
     const grid = document.getElementById('strava-grid');
     const isMobile = window.innerWidth < 768;
     const latest = activities.slice(0, isMobile ? 1 : 3);
     const more = activities.slice(isMobile ? 1 : 3, isMobile ? 6 : 15);
+    // Everything beyond the "more" cap — used by the "Show all" button
+    allRemainingActivities = activities.slice(isMobile ? 6 : 15);
   
     if (latest.length === 0) {
       grid.innerHTML = `
@@ -2152,40 +2213,8 @@
   if (more.length === 0) return;
 
       const moreGrid = document.getElementById('strava-grid-more');
-      moreGrid.innerHTML = more.map((activity, i) => {
-        if (!activity) return '';
-        const colour = routeColour(i + 3);
-        const date   = formatDate(activity.date);
-        const time   = formatMovingTime(activity.moving_time);
-        const lang   = localStorage.getItem('preferred-lang') || 'en';
-        const distLabel = { en: 'Distance', sv: 'Distans',   it: 'Distanza' };
-        const timeLabel = { en: 'Moving time', sv: 'Rörlig tid', it: 'Tempo' };
-        const elevLabel = { en: 'Elevation', sv: 'Höjdmeter', it: 'Dislivello' };
-        return `
-          <a href="https://www.strava.com/activities/${activity.id}" target="_blank" style="text-decoration:none; display:block;">
-          <div class="activity-card" style="cursor:pointer;">
-            <div class="activity-header">
-              <div class="activity-color-dot" style="background:${colour}"></div>
-              <span class="activity-date">${date}</span>
-            </div>
-            <h3 class="activity-title">${activity.name}</h3>
-            <div class="activity-stats">
-              <div class="activity-stat">
-                <span class="activity-stat-value">${activity.distance} km</span>
-                <span class="activity-stat-label">${distLabel[lang]}</span>
-              </div>
-              <div class="activity-stat">
-                <span class="activity-stat-value">${time}</span>
-                <span class="activity-stat-label">${timeLabel[lang]}</span>
-              </div>
-              <div class="activity-stat">
-                <span class="activity-stat-value">${activity.elevation} m</span>
-                <span class="activity-stat-label">${elevLabel[lang]}</span>
-              </div>
-            </div>
-          </div>
-       </a>`;
-      }).join('');}
+      moreGrid.innerHTML = more.map((activity, i) => buildActivityCardHTML(activity, i + 3)).join('');
+  }
   
       // ── Init map immediately — independent of activities ──
     if (typeof L !== 'undefined') {
@@ -2489,7 +2518,7 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
   // ── HERO WIDGET: pre / during / post trip ──
   (function() {
     var TRIP_START = new Date('2026-05-10T12:00:00');
-    var TRIP_END   = new Date('2026-06-24T00:00:00');
+    var TRIP_END   = new Date('2026-06-20T00:00:00');
     var now        = new Date();
 
     var prEl  = document.getElementById('widget-pre');
