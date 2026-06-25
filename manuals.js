@@ -10,7 +10,7 @@
 const SEK = 21967;
 const EUR = 0;
 const DONATION_TOTAL = Math.round(SEK + (EUR * 11));  // SEK total (EUR*11 ≈ conversion)
-const DONATION_GOAL  = 40000;                          // SEK goal
+const DONATION_GOAL  = 25000;                          // SEK goal
 
 // ── LIVE TRACKING ──
 // Set LIVE_TRACKING to true and update LIVE_URL when actively tracking
@@ -38,7 +38,7 @@ const LOC_POINTS = [
 
 // ── WORD OF THE DAY ──
 // Leave WORD empty ('') to hide the strip entirely.
-const WORD    = 'Mancare';
+const WORD    = 'Mancare (Verb)';
 const MEANING = 'In Italian, they dont say I miss you, but instead they say mi manchi: You are missing to me. I think it is interesting how it changes perspective.';
 
 // ── NOTE FROM THE ROAD ──
