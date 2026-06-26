@@ -2353,20 +2353,20 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
             { from: [44.2727, 9.3958],  to: [44.1067, 9.8281] },  // Sestri Levante → La Spezia (train)
             { from: [43.7762, 11.4364], to: [43.7764, 11.2486] }, // Pontassieve → Florence (train)
             { from: [43.8739, 10.2526], to: [43.5511, 10.3247] }, // Viareggio → Livorno (train)
-            { from: [42.5093, 14.1488], to: [42.5258, 13.7714] }, // Montesilvano → Arsita (car)
+            { from: [42.5401, 14.1249], to: [42.5026, 13.7846] }, // Montesilvano → Arsita (car)
             { from: [39.6933, 9.2503],  to: [39.2305, 9.1192] }   // Orroli → Cagliari (car)
           ];
           greyTracks.forEach(t => {
             L.polyline([t.from, t.to], {
               color:    '#8C8C8C',
-              weight:   4,
-              opacity:  0.7,
+              weight:   3,
+              opacity:  0.55,
               smoothFactor: 1,
               lineCap:  'round'
             }).addTo(map);
             allCoords.push(t.from, t.to);
           });
-          
+
 
           // ── START / END MARKERS ──
           if (activities.length > 0) {
