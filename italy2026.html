@@ -5,11 +5,11 @@
   <link rel="icon" href="/italy26/assets/images/flagit.png" type="image/png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Edvard Appelberg bikes 40 days through Italy, from Sicily to the Alps, raising money for brain research. Follow the journey and read the blog.">
+  <meta name="description" content="Edvard Appelberg bikes 40 days through Southern Italy, raising money for brain research. Follow the journey and read the blog.">
   <meta name="author" content="Edvard Appelberg">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Edvard Appelberg | Bikepacking Italy 2026">
-  <meta property="og:description" content="Edvard Appelberg cycles 40 days through Italy, from Sicily to the Alps, raising money for brain research. Follow the journey and read the blog.">
+  <meta property="og:description" content="Edvard Appelberg bikes 40 days through Southern Italy, raising money for brain research. Follow the journey and read the blog.">
   <meta property="og:image" content="https://biketoured.github.io/italy26/assets/images/profilepic2.jpg">
   <meta property="og:url" content="https://biketoured.github.io/italy26/">
   <title>Bikepacking Italy 2026 | Edvard Appelberg</title>
@@ -38,103 +38,6 @@
       grid-template-rows: 1fr auto;
       min-height: 100vh;
       position: relative;
-    }
-
-    /* ── ROUTE PROGRESS BAR ── */
-    .route-progress {
-      grid-column: 1 / -1;
-      grid-row: 2;
-      position: relative;
-      padding: 1rem 3rem 2rem;
-      overflow: visible;
-      background: var(--green);
-      z-index: 10;
-    }
-    .route-progress-track {
-      position: relative;
-      width: 100%;
-      height: 3px;
-      background: rgba(196,180,154,0.2);
-      margin-top: 1rem;
-      margin-bottom: 0.2rem;
-      overflow: visible;
-    }
-    .route-progress-fill {
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      background: var(--yellow);
-      transition: width 0.8s ease;
-    }
-    .route-progress-dots {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      width: 100%;
-      transform: translateY(-50%);
-      overflow: visible;
-    }
-    .route-progress-dot {
-      position: absolute;
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: rgba(196,180,154,0.35);
-      border: 1.5px solid rgba(196,180,154,0.4);
-      transform: translate(-50%, -50%);
-      transition: background 0.5s, border-color 0.5s;
-      top: 50%;
-      overflow: visible;
-    }
-    .route-progress-dot.reached {
-      background: var(--yellow);
-      border-color: var(--yellow);
-    }
-    .route-progress-dot.current {
-      background: var(--yellow);
-      border-color: var(--yellow);
-      box-shadow: 0 0 0 3px rgba(212,169,74,0.3);
-    }
-    .route-progress-dot-label {
-      position: absolute;
-      top: 25px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: 'DM Mono', monospace;
-      font-size: 0.52rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: rgba(196,180,154,0.5);
-      white-space: nowrap;
-      transition: color 0.5s;
-      pointer-events: none;
-    }
-    .route-progress-dot-label.label-low {
-      top: calc(10px + 1rem);
-    }
-    .route-progress-dot-label.label-above {
-      top: auto;
-      bottom: 25px;
-    }
-    .route-progress-dot.reached .route-progress-dot-label,
-    .route-progress-dot.current .route-progress-dot-label {
-      color: rgba(212,169,74,0.75);
-    }
-    .route-progress-avatar {
-      position: absolute;
-      top: 50%;
-      width: 30px; height: 30px;
-      border-radius: 50%;
-      border: 1.5px solid var(--yellow);
-      object-fit: cover;
-      transform: translate(-50%, -50%);
-      transition: left 0.8s ease;
-      pointer-events: none;
-      z-index: 2;
-    }
-    @media (max-width: 768px) {
-      .route-progress {
-        padding: 1rem 1.5rem 2rem;
-      }
-      .route-progress-track { margin-bottom: 0; }
     }
 
     .hero-left {
@@ -376,6 +279,52 @@
       height: 500px;
       object-fit: cover;
       border-radius: 50%;
+    }
+
+    /* ── COUNTDOWN / LAST RIDE WIDGET ── */
+    .hero-countdown {
+      position: absolute;
+      top: 80%;
+      left: 20%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 3;
+      width: 80%;
+    }
+
+    .countdown-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 0.5rem;
+    }
+
+    .countdown-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      font-weight: 700;
+      color: var(--yellow);
+      line-height: 1;
+    }
+
+    .countdown-unit {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-top: 0.3rem;
+    }
+
+    .countdown-hms {
+      font-family: 'DM Mono', monospace;
+      font-size: 1.1rem;
+      color: var(--yellow);
+      letter-spacing: 0.1em;
+      margin-top: 0.4rem;
+      opacity: 0.6;
     }
 
     /* ── DONATE BUTTON ── */
@@ -763,7 +712,7 @@
       Hidden completely when false — no layout impact
     ── */
     .live-banner {
-      background: var(--red);
+      background: var(--green);
       padding: 0.9rem 3rem;
       display: flex;
       align-items: center;
@@ -1117,7 +1066,7 @@
     @media (max-width: 768px) {
       .strava-grid { grid-template-columns: 1fr; }
       .strava-inner { padding: 0 1.5rem; }
-      .strava-map { height: 600px; }
+      .strava-map { height: 300px; }
       .live-banner { padding: 0.9rem 1.5rem; flex-direction: column; align-items: flex-start; }
       .strava-header-row { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
       .donation-meter { max-width: 100%; }
@@ -1351,6 +1300,106 @@
       .blog-card-title { font-size: 0.95rem; }
     }
     
+    /* ── ROUTE PROGRESS BAR ── */
+    .route-progress {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      position: relative;
+      padding: 1rem 0.2rem 1rem;
+      overflow: visible;
+      background: var(--green);
+      z-index: 10;
+      margin-top: 1rem;
+    }
+    .route-progress-track {
+      position: relative;
+      width: 100%;
+      height: 3px;
+      background: rgba(196,180,154,0.2);
+      margin-top: 1rem;
+      margin-bottom: 0.2rem;
+      overflow: visible;
+    }
+    .route-progress-fill {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      background: var(--yellow);
+      transition: width 0.8s ease;
+    }
+    .route-progress-dots {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      transform: translateY(-50%);
+      overflow: visible;
+    }
+    .route-progress-dot {
+      position: absolute;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: rgba(196,180,154,0.35);
+      border: 1.5px solid rgba(196,180,154,0.4);
+      transform: translate(-50%, -50%);
+      transition: background 0.5s, border-color 0.5s;
+      top: 50%;
+      overflow: visible;
+    }
+    .route-progress-dot.reached {
+      background: var(--yellow);
+      border-color: var(--yellow);
+    }
+    .route-progress-dot.current {
+      background: var(--yellow);
+      border-color: var(--yellow);
+      box-shadow: 0 0 0 3px rgba(212,169,74,0.3);
+    }
+    .route-progress-dot-label {
+      position: absolute;
+      top: 25px;                    /* default: below the bar */
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.52rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(196,180,154,0.5);
+      white-space: nowrap;
+      transition: color 0.5s;
+      pointer-events: none;
+    }
+    .route-progress-dot-label.label-low {
+      top: calc(10px + 1rem);       /* second row below */
+    }
+    .route-progress-dot-label.label-above {
+      top: auto;
+      bottom: 25px;                 /* above the bar */
+    }
+    .route-progress-dot.reached .route-progress-dot-label,
+    .route-progress-dot.current .route-progress-dot-label {
+      color: rgba(212,169,74,0.75);
+    }
+    /* Profile pic sits centred on the bar line */
+    .route-progress-avatar {
+      position: absolute;
+      top: 50%;
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      border: 1.5px solid var(--yellow);
+      object-fit: cover;
+      transform: translate(-50%, -50%);
+      transition: left 0.8s ease;
+      pointer-events: none;
+      z-index: 2;
+    }
+    @media (max-width: 768px) {
+      .route-progress {
+        width: calc(100%);
+        padding: 2rem 0.5rem 3rem;
+      }
+      .route-progress-track { margin-bottom: 0; }
+    }
+
   </style>
   <script src="manuals.js"></script>
 </head>
@@ -1378,7 +1427,7 @@
 
   <!-- ══ MOBILE PROFILE PIC — straddles banner/hero seam, hidden on desktop ══ -->
   <img class="hero-mobile-profilepic"
-       src="assets/images/profilepic2.jpg"
+       src="assets/images/profilepic.jpg"
        alt="Edvard Appelberg"
        onerror="this.style.display='none'">
 
@@ -1435,16 +1484,16 @@
           <div class="donation-meter-fill" id="meter-fill" style="width:0%"></div>
         </div>
       </div>
-    </div>
 
-    <!-- ── ROUTE PROGRESS BAR ── -->
-    <div class="route-progress">
-      <div class="route-progress-track" id="route-progress-track">
-        <div class="route-progress-fill" id="route-progress-fill"></div>
-        <div class="route-progress-dots" id="route-progress-dots"></div>
-        <img class="route-progress-avatar" id="route-progress-avatar"
-             src="assets/images/profilepic.jpg" alt=""
-             onerror="this.style.display='none'">
+      <!-- ── ROUTE PROGRESS BAR ── -->
+      <div class="route-progress">
+        <div class="route-progress-track" id="route-progress-track">
+          <div class="route-progress-fill" id="route-progress-fill"></div>
+          <div class="route-progress-dots" id="route-progress-dots"></div>
+          <img class="route-progress-avatar" id="route-progress-avatar"
+               src="assets/images/profilepic.jpg" alt=""
+               onerror="this.style.display='none'">
+        </div>
       </div>
     </div>
 
@@ -1454,20 +1503,63 @@
         <path d="M0,450 Q150,350 250,380 Q350,410 450,280 Q550,150 600,250 L600,600 L0,600 Z" fill="none" stroke="#C4B49A" stroke-width="1"/>
         <path d="M0,500 Q100,420 200,440 Q300,460 420,340 Q520,220 600,300 L600,600 L0,600 Z" fill="none" stroke="#C4B49A" stroke-width="0.5"/>
       </svg>
-      <img src="assets/images/profilepic.jpg" alt="Profile photo" class="hero-photo" />
+      <img src="assets/images/profilepic.jpg" alt="Profile photo" class="hero-photo" />      <!-- COUNTDOWN / LAST RIDE -->
+            <!-- COUNTDOWN / LAST RIDE -->
+
+      <!-- STATE 1: pre-trip countdown -->
+      <div class="hero-countdown" id="widget-pre" style="display:none;">
+        <div class="countdown-label"
+             data-en="Trip starts in"
+             data-sv="Resan börjar om"
+             data-it="Il viaggio inizia tra">Trip starts in</div>
+        <div class="countdown-number" id="countdown-days">--</div>
+        <div class="countdown-unit"
+             data-en="days"
+             data-sv="dagar"
+             data-it="giorni">days</div>
+        <div class="countdown-hms" id="countdown-hms">--:--:--</div>
+      </div>
+
+      <!-- STATE 2: during trip — day counter + last ride -->
+      <div class="hero-countdown" id="widget-during" style="display:none;">
+        <div class="countdown-number" id="trip-day-number">--</div>
+        <div class="countdown-unit"
+             data-en="days on the road"
+             data-sv="dagar på vägen"
+             data-it="giorni in viaggio">days on the road</div>
+        <div class="countdown-hms" id="last-ride-summary" style="font-size:0.6rem;margin-top:0.6rem;line-height:1.4;">—</div>
+        <a href="#" id="last-ride-link" target="_blank"
+           style="display:block;margin-top:0.5rem;font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.10em;text-transform:uppercase;color:var(--yellow);text-decoration:none;opacity:0.8;"
+           data-en="View on Strava →"
+           data-sv="Visa på Strava →"
+           data-it="Vedi su Strava →">View on Strava →</a>
+      </div>
+
+      <!-- STATE 3: post-trip -->
+      <div class="hero-countdown" id="widget-post" style="display:none;">
+        <div class="countdown-label"
+             data-en="Trip completed"
+             data-sv="Resan avslutad"
+             data-it="Viaggio completato">Trip completed</div>
+        <div class="countdown-number" id="post-days">41</div>
+        <div class="countdown-unit"
+             data-en="days of adventure"
+             data-sv="äventyrsdagar"
+             data-it="giorni di avventura">days of adventure</div>
+      </div>
 
       <div class="hero-stats">
         <div class="stat">
-          <div class="stat-number">~40</div>
+          <div class="stat-number" id="hero-stat-elevation">—</div>
           <div class="stat-label"
-               data-en="days on the road"
-               data-sv="dagar på vägen"
-               data-it="giorni in viaggio">
-            days on the road
+               data-en="meters climbed"
+               data-sv="höjdmeter"
+               data-it="metri di dislivello">
+            meters climbed
           </div>
         </div>
         <div class="stat">
-          <div class="stat-number">+4000</div>
+          <div class="stat-number" id="hero-stat-km">—</div>
           <div class="stat-label"
                data-en="km"
                data-sv="km"
@@ -1476,18 +1568,12 @@
           </div>
         </div>
         <div class="stat">
-          <div class="stat-number"
-               data-en="Millions"
-               data-sv="Miljoner"
-               data-it="Millioni">
-               Millions
-            </div>
-          </div>
+          <div class="stat-number" id="hero-stat-beats">—</div>
           <div class="stat-label"
-               data-en="of heartbeats"
-               data-sv="hjärtslag"
-               data-it="battiti cardiaci">
-            of heartbeats
+               data-en="million heartbeats"
+               data-sv="miljoner hjärtslag"
+               data-it="millioni battiti cardiaci">
+            million heartbeats
           </div>
         </div>
       </div>
@@ -1622,26 +1708,6 @@
       </div>
     </div>
   </div>
-  
-  <!-- ══ ITALY BANNER ══ -->
-  <div class="italy-banner">
-    <h2 data-en="Italy 2026 — 4,000 km"
-        data-sv="Italien 2026 — 4 000 km"
-        data-it="Italia 2026 — 4.000 km">
-      Italia 2026 — 4,000 km
-    </h2>
-    <p data-en="Starting 'Nicely', France, I'll ride along the Ligurian coast to Genoa, then island-hop through Sardinia and Sicily before snaking my way north via Calabria, Apulia, Campania, Abruzzo, Marche to Veneto and Lombardy. I make changes along the way though."
-       data-sv="Resan startar i Nice, Frankrike, vidare längs den liguriska kusten till Genoa, där jag tar färjor för att korsa Sardinien och Sicilien innan jag sick-sackar mig norrut via Kalabrien, Apulien, Kampanien, Abruzzo, och Marche till Veneto och Lombardiet. Jag har dock gjort flera ändringar under vägen."
-       data-it="Comincierò in Nizza, andando lungo la costa ligure fino a Genova, poi saltando tra Sardegna e Sicilia prima di risalire verso nord attraverso Calabria, Puglia, Campania, Abruzzo, Marche fino a Veneto e Lombardia.">
-      Starting in Nice, France, I'll ride along the Ligurian coast to Genoa, then island-hop through Sardinia and Sicily before snaking my way north via Calabria, Apulia, Campania, Abruzzo, Marche to Veneto and Lombardy.
-    </p>
-    <a href="route.html"
-       data-en="See the preliminary route →"
-       data-sv="Se preliminära rutten →"
-       data-it="Vedi il percorso preliminario →">
-      See the preliminary route →
-    </a>
-  </div>
 
   <!-- ══ STRAVA SECTION ══ -->
   <div class="strava-section" id="routes">
@@ -1736,12 +1802,13 @@
         <!-- Injected by JavaScript -->
       </div>
       <div id="strava-grid-more" class="activities-grid" style="display:none; margin-top:1rem;"></div>
-    <div style="text-align:center; margin-top:1.5rem;">
+      <div id="strava-grid-all" class="activities-grid" style="display:none; margin-top:1rem;"></div>
+    <div style="text-align:center; margin-top:1.5rem; display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap;">
       <button id="toggle-more" onclick="
         const g = document.getElementById('strava-grid-more');
-        const open = g.style.display !== 'none';
-        g.style.display = open ? 'none' : 'grid';
-        this.textContent = open ? 'Show more' : 'Show less';
+        const moreOpen = g.style.display !== 'none';
+        g.style.display = moreOpen ? 'none' : 'grid';
+        this.textContent = moreOpen ? 'Show more' : 'Show less';
       " style="
         background: none;
         border: 1px solid rgba(253,250,244,0.3);
@@ -1754,6 +1821,26 @@
         cursor: pointer;
         transition: border-color 0.2s;
       ">Show more</button>
+      <button id="toggle-all" onclick="
+        const g = document.getElementById('strava-grid-all');
+        const allOpen = g.style.display !== 'none';
+        if (!allOpen && g.innerHTML.trim() === '' && typeof allRemainingActivities !== 'undefined') {
+          g.innerHTML = allRemainingActivities.map((activity, i) => buildActivityCardHTML(activity, i + 15)).join('');
+        }
+        g.style.display = allOpen ? 'none' : 'grid';
+        this.textContent = allOpen ? 'Show all' : 'Show less';
+      " style="
+        background: none;
+        border: 1px solid rgba(253,250,244,0.3);
+        color: var(--white);
+        font-family: 'DM Mono', monospace;
+        font-size: 0.75rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 0.7rem 1.8rem;
+        cursor: pointer;
+        transition: border-color 0.2s;
+      ">Show all</button>
     </div>
       
       <!-- See more link -->
@@ -1904,6 +1991,26 @@
     </div>
   </section>
 
+  <!-- ══ ITALY BANNER ══ -->
+  <div class="italy-banner">
+    <h2 data-en="Italy 2026 — 4,000 km"
+        data-sv="Italien 2026 — 4 000 km"
+        data-it="Italia 2026 — 4.000 km">
+      Italia 2026 — 4,000 km
+    </h2>
+    <p data-en="Starting 'Nicely', France, I'll ride along the Ligurian coast to Genoa, then island-hop through Sardinia and Sicily before snaking my way north via Calabria, Apulia, Campania, Abruzzo, Marche to Veneto and Lombardy. I make changes along the way though."
+       data-sv="Resan startar i Nice, Frankrike, vidare längs den liguriska kusten till Genoa, där jag tar färjor för att korsa Sardinien och Sicilien innan jag sick-sackar mig norrut via Kalabrien, Apulien, Kampanien, Abruzzo, och Marche till Veneto och Lombardiet. Jag har dock gjort flera ändringar under vägen."
+       data-it="Comincierò in Nizza, andando lungo la costa ligure fino a Genova, poi saltando tra Sardegna e Sicilia prima di risalire verso nord attraverso Calabria, Puglia, Campania, Abruzzo, Marche fino a Veneto e Lombardia.">
+      Starting in Nice, France, I'll ride along the Ligurian coast to Genoa, then island-hop through Sardinia and Sicily before snaking my way north via Calabria, Apulia, Campania, Abruzzo, Marche to Veneto and Lombardy.
+    </p>
+    <a href="route.html"
+       data-en="See the preliminary route →"
+       data-sv="Se preliminära rutten →"
+       data-it="Vedi il percorso preliminario →">
+      See the preliminary route →
+    </a>
+  </div>
+
   <!-- ══ FOOTER ══ -->
   <footer id="shared-footer"></footer>
 
@@ -1984,11 +2091,50 @@
   // RENDER ACTIVITY CARDS
   // Shows the 3 most recent activities
   // ══════════════════════════════════════════
+  let allRemainingActivities = []; // populated below, used by "Show all" button
+
+  function buildActivityCardHTML(activity, colourIndex) {
+    if (!activity) return `<div class="activity-card placeholder"><p>—</p></div>`;
+    const colour  = routeColour(colourIndex);
+    const date    = formatDate(activity.date);
+    const time    = formatMovingTime(activity.moving_time);
+    const lang    = localStorage.getItem('preferred-lang') || 'en';
+    const distLabel = { en: 'Distance', sv: 'Distans',    it: 'Distanza' };
+    const timeLabel = { en: 'Moving time', sv: 'Rörlig tid', it: 'Tempo' };
+    const elevLabel = { en: 'Elevation', sv: 'Höjdmeter', it: 'Dislivello' };
+    return `
+      <a href="https://www.strava.com/activities/${activity.id}" target="_blank" style="text-decoration:none; display:block;">
+      <div class="activity-card" style="cursor:pointer;">
+        <div class="activity-header">
+          <div class="activity-color-dot" style="background:${colour}"></div>
+          <span class="activity-date">${date}</span>
+        </div>
+        <h3 class="activity-title">${activity.name}</h3>
+        <div class="activity-stats">
+          <div class="activity-stat">
+            <span class="activity-stat-value">${activity.distance} km</span>
+            <span class="activity-stat-label">${distLabel[lang] || distLabel.en}</span>
+          </div>
+          <div class="activity-stat">
+            <span class="activity-stat-value">${time}</span>
+            <span class="activity-stat-label">${timeLabel[lang] || timeLabel.en}</span>
+          </div>
+          <div class="activity-stat">
+            <span class="activity-stat-value">${activity.elevation} m</span>
+            <span class="activity-stat-label">${elevLabel[lang] || elevLabel.en}</span>
+          </div>
+        </div>
+      </div>
+   </a>`;
+  }
+
   function renderCards(activities) {
     const grid = document.getElementById('strava-grid');
     const isMobile = window.innerWidth < 768;
     const latest = activities.slice(0, isMobile ? 1 : 3);
     const more = activities.slice(isMobile ? 1 : 3, isMobile ? 6 : 15);
+    // Everything beyond the "more" cap — used by the "Show all" button
+    allRemainingActivities = activities.slice(isMobile ? 6 : 15);
   
     if (latest.length === 0) {
       grid.innerHTML = `
@@ -2051,40 +2197,8 @@
   if (more.length === 0) return;
 
       const moreGrid = document.getElementById('strava-grid-more');
-      moreGrid.innerHTML = more.map((activity, i) => {
-        if (!activity) return '';
-        const colour = routeColour(i + 3);
-        const date   = formatDate(activity.date);
-        const time   = formatMovingTime(activity.moving_time);
-        const lang   = localStorage.getItem('preferred-lang') || 'en';
-        const distLabel = { en: 'Distance', sv: 'Distans',   it: 'Distanza' };
-        const timeLabel = { en: 'Moving time', sv: 'Rörlig tid', it: 'Tempo' };
-        const elevLabel = { en: 'Elevation', sv: 'Höjdmeter', it: 'Dislivello' };
-        return `
-          <a href="https://www.strava.com/activities/${activity.id}" target="_blank" style="text-decoration:none; display:block;">
-          <div class="activity-card" style="cursor:pointer;">
-            <div class="activity-header">
-              <div class="activity-color-dot" style="background:${colour}"></div>
-              <span class="activity-date">${date}</span>
-            </div>
-            <h3 class="activity-title">${activity.name}</h3>
-            <div class="activity-stats">
-              <div class="activity-stat">
-                <span class="activity-stat-value">${activity.distance} km</span>
-                <span class="activity-stat-label">${distLabel[lang]}</span>
-              </div>
-              <div class="activity-stat">
-                <span class="activity-stat-value">${time}</span>
-                <span class="activity-stat-label">${timeLabel[lang]}</span>
-              </div>
-              <div class="activity-stat">
-                <span class="activity-stat-value">${activity.elevation} m</span>
-                <span class="activity-stat-label">${elevLabel[lang]}</span>
-              </div>
-            </div>
-          </div>
-       </a>`;
-      }).join('');}
+      moreGrid.innerHTML = more.map((activity, i) => buildActivityCardHTML(activity, i + 3)).join('');
+  }
   
       // ── Init map immediately — independent of activities ──
     if (typeof L !== 'undefined') {
@@ -2193,6 +2307,16 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
           if (tEl) tEl.textContent = totalH + 'h ' + totalM + 'm';
           if (hEl) hEl.textContent = totalBeats > 0
             ? (totalBeats / 1000).toFixed(0) + 'k'
+            : '—';
+
+          // ── Hero stats (mirror the real totals above) ──
+          const heroElevEl  = document.getElementById('hero-stat-elevation');
+          const heroKmEl    = document.getElementById('hero-stat-km');
+          const heroBeatsEl = document.getElementById('hero-stat-beats');
+          if (heroElevEl)  heroElevEl.textContent  = totalElev.toLocaleString('sv-SE');
+          if (heroKmEl)    heroKmEl.textContent    = totalDist.toFixed(0);
+          if (heroBeatsEl) heroBeatsEl.textContent = totalBeats > 0
+            ? (totalBeats / 1000000).toFixed(1)
             : '—';
           console.log('[Map] Drew', drawn, 'routes. Total coord points:', allCoords.length);
           if (allCoords.length > 0) {
@@ -2320,6 +2444,18 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
   </script>
 
   <script>
+  // ── FOOTER ATTRIBUTION — index.html only ──
+  (function() {
+    const el = document.getElementById('footer-attribution');
+    if (!el) return;
+    el.innerHTML =
+      'Pizza illustration by <a href="https://www.freepik.com" target="_blank" rel="noopener">Freepik</a><br>' +
+      'Sun illustration by <a href="https://www.freepik.com" target="_blank" rel="noopener">Freepik</a>';
+  })();
+  </script>
+
+
+  <script>
   // ── ROUTE PROGRESS BAR ──
   // Reads CURRENT_LOC and LOC_POINTS from manuals.js
   (function() {
@@ -2330,11 +2466,15 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
 
     const loc = Math.min(100, Math.max(0, CURRENT_LOC));
 
+    // LOC_POINTS from manuals.js: array of {pos, label} objects
+    // Falls back to plain numbers for backwards compatibility
     const rawPoints = (typeof LOC_POINTS !== 'undefined') ? LOC_POINTS : [10, 33, 45, 48, 88, 92];
     const points = rawPoints.map(p => typeof p === 'object' ? p : { pos: p, label: '' });
 
+    // Fill bar
     fill.style.width = loc + '%';
 
+    // Draw dots with optional labels — alternate label row to avoid overlap
     points.forEach((p, i) => {
       const dot = document.createElement('div');
       dot.className = 'route-progress-dot'
@@ -2350,18 +2490,141 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
       dots.appendChild(dot);
     });
 
+    // Position avatar
     if (avatar) avatar.style.left = loc + '%';
   })();
   </script>
 
+
+
   <script>
-  // ── FOOTER ATTRIBUTION — index.html only ──
+  // ── HERO WIDGET: pre / during / post trip ──
   (function() {
-    const el = document.getElementById('footer-attribution');
-    if (!el) return;
-    el.innerHTML =
-      'Pizza illustration by <a href="https://www.freepik.com" target="_blank" rel="noopener">Freepik</a><br>' +
-      'Sun illustration by <a href="https://www.freepik.com" target="_blank" rel="noopener">Freepik</a>';
+    var TRIP_START = new Date('2026-05-10T12:00:00');
+    var TRIP_END   = new Date('2026-06-20T00:00:00');
+    var now        = new Date();
+
+    var prEl  = document.getElementById('widget-pre');
+    var durEl = document.getElementById('widget-during');
+    var poEl  = document.getElementById('widget-post');
+
+    if (now < TRIP_START) {
+      // ── STATE 1: COUNTDOWN ──
+      if (prEl) prEl.style.display = 'block';
+
+      var timer = setInterval(function() {
+        var diff = TRIP_START - new Date();
+        if (diff <= 0) {
+          clearInterval(timer);
+          if (prEl)  prEl.style.display  = 'none';
+          if (durEl) durEl.style.display = 'block';
+          return;
+        }
+        var days  = Math.floor(diff / 86400000);
+        var hours = Math.floor((diff % 86400000) / 3600000);
+        var mins  = Math.floor((diff % 3600000)  / 60000);
+        var secs  = Math.floor((diff % 60000)    / 1000);
+        var dEl = document.getElementById('countdown-days');
+        var hEl = document.getElementById('countdown-hms');
+        if (dEl) dEl.textContent = days;
+        if (hEl) hEl.textContent =
+          String(hours).padStart(2,'0') + ':' +
+          String(mins).padStart(2,'0')  + ':' +
+          String(secs).padStart(2,'0');
+      }, 1000);
+
+    } else if (now <= TRIP_END) {
+      // ── STATE 2: DURING TRIP ──
+      if (durEl) durEl.style.display = 'block';
+
+      var tripDay = Math.floor((now - TRIP_START) / 86400000) + 1;
+      var dayEl = document.getElementById('trip-day-number');
+      if (dayEl) dayEl.textContent = tripDay;
+
+      // Load last Strava activity
+      fetch('/italy26/strava/activities.json')
+        .then(function(r) {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.json();
+        })
+        .then(function(data) {
+          if (!Array.isArray(data) || data.length === 0) return;
+          var last    = data[0];
+          var summEl  = document.getElementById('last-ride-summary');
+          var linkEl  = document.getElementById('last-ride-link');
+          var km      = last.distance ? (last.distance / 1000).toFixed(1) : '—';
+          var elev    = last.total_elevation_gain ? Math.round(last.total_elevation_gain) : '—';
+          var name    = last.name || '—';
+          if (summEl) summEl.textContent = name + ' · ' + km + ' km · ' + elev + ' m↑';
+          if (linkEl && last.id)
+            linkEl.href = 'https://www.strava.com/activities/' + last.id;
+        })
+        .catch(function() {});
+
+    } else {
+      // ── STATE 3: POST TRIP ──
+      if (poEl) poEl.style.display = 'block';
+      var totalDays = Math.round((TRIP_END - TRIP_START) / 86400000);
+      var pdEl = document.getElementById('post-days');
+      if (pdEl) pdEl.textContent = totalDays;
+    }
+  })();
+  </script>
+
+  <script>
+  // ── MOBILE STRIP WIDGET ──
+  (function() {
+    var TRIP_START = new Date('2026-05-10T12:00:00');
+    var TRIP_END   = new Date('2026-06-20T00:00:00');
+    var now        = new Date();
+
+    var mPre    = document.getElementById('m-pre');
+    var mDuring = document.getElementById('m-during');
+    var mPost   = document.getElementById('m-post');
+
+    if (now < TRIP_START) {
+      if (mPre) mPre.style.display = 'block';
+      var t = setInterval(function() {
+        var diff = TRIP_START - new Date();
+        if (diff <= 0) { clearInterval(t); return; }
+        var d = Math.floor(diff / 86400000);
+        var h = Math.floor((diff % 86400000) / 3600000);
+        var m = Math.floor((diff % 3600000)  / 60000);
+        var s = Math.floor((diff % 60000)    / 1000);
+        var dEl = document.getElementById('m-days');
+        var hEl = document.getElementById('m-hms');
+        if (dEl) dEl.textContent = d;
+        if (hEl) hEl.textContent =
+          String(h).padStart(2,'0') + ':' +
+          String(m).padStart(2,'0') + ':' +
+          String(s).padStart(2,'0');
+      }, 1000);
+
+    } else if (now <= TRIP_END) {
+      if (mDuring) mDuring.style.display = 'block';
+      var tripDay = Math.floor((now - TRIP_START) / 86400000) + 1;
+      var tdEl = document.getElementById('m-tripday');
+      if (tdEl) tdEl.textContent = tripDay;
+
+      fetch('/italy26/strava/activities.json')
+        .then(function(r) { if (!r.ok) throw 0; return r.json(); })
+        .then(function(data) {
+          if (!Array.isArray(data) || !data.length) return;
+          var last   = data[0];
+          var rideEl = document.getElementById('m-ride');
+          var linkEl = document.getElementById('m-stravalink');
+          var km     = last.distance ? (last.distance).toFixed(1) : '—';
+          if (rideEl) rideEl.textContent = (last.name || '—') + ' · ' + km + ' km ';
+          if (linkEl && last.id) linkEl.href = 'https://www.strava.com/activities/' + last.id;
+        })
+        .catch(function() {});
+
+    } else {
+      if (mPost) mPost.style.display = 'block';
+      var totalDays = Math.round((TRIP_END - TRIP_START) / 86400000);
+      var pdEl = document.getElementById('m-postdays');
+      if (pdEl) pdEl.textContent = totalDays;
+    }
   })();
   </script>
 
