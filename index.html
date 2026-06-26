@@ -10,7 +10,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Edvard Appelberg | Bikepacking Italy 2026">
   <meta property="og:description" content="Edvard Appelberg bikes 40 days through Southern Italy, raising money for brain research. Follow the journey and read the blog.">
-  <meta property="og:image" content="https://biketoured.github.io/italy26/assets/images/profilepic.jpg">
+  <meta property="og:image" content="https://biketoured.github.io/italy26/assets/images/profilepic2.jpg">
   <meta property="og:url" content="https://biketoured.github.io/italy26/">
   <title>Bikepacking Italy 2026 | Edvard Appelberg</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1545,12 +1545,12 @@
 
       <div class="hero-stats">
         <div class="stat">
-          <div class="stat-number" id="hero-stat-days">—</div>
+          <div class="stat-number" id="hero-stat-elevation">—</div>
           <div class="stat-label"
-               data-en="days on the road"
-               data-sv="dagar på vägen"
-               data-it="giorni in viaggio">
-            days on the road
+               data-en="meters climbed"
+               data-sv="höjdmeter"
+               data-it="metri di dislivello">
+            meters climbed
           </div>
         </div>
         <div class="stat">
@@ -2326,11 +2326,10 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
             : '—';
 
           // ── Hero stats (mirror the real totals above) ──
-          const heroDaysEl  = document.getElementById('hero-stat-days');
+          const heroElevEl  = document.getElementById('hero-stat-elevation');
           const heroKmEl    = document.getElementById('hero-stat-km');
           const heroBeatsEl = document.getElementById('hero-stat-beats');
-          const tripDayCount = new Set(activities.map(a => a.date)).size;
-          if (heroDaysEl)  heroDaysEl.textContent  = tripDayCount > 0 ? tripDayCount : activities.length;
+          if (heroElevEl)  heroElevEl.textContent  = totalElev.toLocaleString('sv-SE');
           if (heroKmEl)    heroKmEl.textContent    = totalDist.toFixed(0);
           if (heroBeatsEl) heroBeatsEl.textContent = totalBeats > 0
             ? (totalBeats / 1000000).toFixed(1)
