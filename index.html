@@ -2309,9 +2309,9 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
           // ── FERRY CROSSINGS ──
           // Drawn after all activity routes, as dashed blue lines
           const ferries = [
-            { from: [43.5485, 10.3106], to: [42.6976, 9.4500] },   // Livorno → Bastia
+            { from: [43.5511, 10.3247], to: [42.6976, 9.4500] },   // Livorno → Bastia
             { from: [41.3900, 9.1595],  to: [41.2378, 9.1896] },   // Bonifacio → Santa Teresa Gallura
-            { from: [39.2095, 9.1085],  to: [38.1232, 13.3636], zigzag: true }, // Cagliari → Palermo
+            { from: [39.2305, 9.1192],  to: [38.1232, 13.3636], zigzag: true }, // Cagliari → Palermo
             { from: [38.1938, 15.5540], to: [38.2197, 15.6403] }   // Messina → Villa San Giovanni
           ];
 
@@ -2338,8 +2338,9 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
 
           // ── TRAIN TRACKS ── (grey, dash-dot style)
           const trainTracks = [
-            { from: [44.2716, 9.3962],  to: [44.1024, 9.8244] },  // Sestri Levante → La Spezia
-            { from: [43.7762, 11.4364], to: [43.7696, 11.2558] }  // Pontassieve → Florence
+            { from: [44.2727, 9.3958],  to: [44.1067, 9.8281] },  // Sestri Levante → La Spezia
+            { from: [43.7762, 11.4364], to: [43.7764, 11.2486] }, // Pontassieve → Florence
+            { from: [43.8739, 10.2526], to: [43.5511, 10.3247] }  // Viareggio → Livorno
           ];
           trainTracks.forEach(t => {
             L.polyline([t.from, t.to], {
@@ -2355,7 +2356,8 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
 
           // ── CAR TRACK ── (grey, solid style to distinguish from train)
           const carTracks = [
-            { from: [42.5093, 14.1488], to: [42.5258, 13.7714] } // Montesilvano → Arsita
+            { from: [42.5093, 14.1488], to: [42.5258, 13.7714] }, // Montesilvano → Arsita
+            { from: [39.6933, 9.2503],  to: [39.2305, 9.1192] }   // Orroli → Cagliari
           ];
           carTracks.forEach(c => {
             L.polyline([c.from, c.to], {
@@ -2387,7 +2389,7 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
             }
             if (lastWithCoords) {
               // End marker placed in Florence — final leg of the trip was by train
-              const florenceCoord = [43.7696, 11.2558];
+              const florenceCoord = [43.7764, 11.2486];
               allCoords.push(florenceCoord);
               L.circleMarker(florenceCoord, {
                 radius: 7,
