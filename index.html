@@ -2311,17 +2311,17 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
           const ferries = [
             { from: [43.5485, 10.3106], to: [42.6976, 9.4500] },   // Livorno → Bastia
             { from: [41.3900, 9.1595],  to: [41.2378, 9.1896] },   // Bonifacio → Santa Teresa Gallura
-            { from: [39.2095, 9.1085],  to: [38.1232, 13.3636], curve: true }, // Cagliari → Palermo
+            { from: [39.2095, 9.1085],  to: [38.1232, 13.3636], zigzag: true }, // Cagliari → Palermo
             { from: [38.1938, 15.5540], to: [38.2197, 15.6403] }   // Messina → Villa San Giovanni
           ];
 
           ferries.forEach(f => {
             let path;
-            if (f.curve) {
-              // Bow the line outward (south/west) so it doesn't cross over Sardinia/Sicily land
-              const midLat = (f.from[0] + f.to[0]) / 2 - 1.3; // pull south
-              const midLng = (f.from[1] + f.to[1]) / 2 - 0.8; // pull west
-              path = [f.from, [midLat, midLng], f.to];
+            if (f.zigzag) {
+              // Z-shape turned onto its right side: SE from Cagliari, then NE, then S into Palermo
+              const p1 = [38.55, 10.4];   // southeast of Cagliari
+              const p2 = [39.1,  12.0];   // northeast leg
+              path = [f.from, p1, p2, f.to];
             } else {
               path = [f.from, f.to];
             }
@@ -2333,11 +2333,41 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
               smoothFactor: 1,
               lineCap:  'round'
             }).addTo(map);
-            if (f.curve) {
-              ferryLine.setLatLngs(path);
-            }
-            allCoords.push(f.from, f.to);
+            path.forEach(c => allCoords.push(c));
           });
+
+          // ── TRAIN TRACKS ── (grey, dash-dot style)
+          const trainTracks = [
+            { from: [44.2716, 9.3962],  to: [44.1024, 9.8244] },  // Sestri Levante → La Spezia
+            { from: [43.7762, 11.4364], to: [43.7696, 11.2558] }  // Pontassieve → Florence
+          ];
+          trainTracks.forEach(t => {
+            L.polyline([t.from, t.to], {
+              color:    '#4A4A4A',
+              weight:   3,
+              opacity:  0.85,
+              dashArray: '2, 6',
+              smoothFactor: 1,
+              lineCap:  'round'
+            }).addTo(map);
+            allCoords.push(t.from, t.to);
+          });
+
+          // ── CAR TRACK ── (grey, solid style to distinguish from train)
+          const carTracks = [
+            { from: [42.5093, 14.1488], to: [42.5258, 13.7714] } // Montesilvano → Arsita
+          ];
+          carTracks.forEach(c => {
+            L.polyline([c.from, c.to], {
+              color:    '#4A4A4A',
+              weight:   3,
+              opacity:  0.85,
+              smoothFactor: 1,
+              lineCap:  'round'
+            }).addTo(map);
+            allCoords.push(c.from, c.to);
+          });
+
 
           // ── START / END MARKERS ──
           if (activities.length > 0) {
