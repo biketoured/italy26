@@ -1804,6 +1804,12 @@
         const moreOpen = g.style.display !== 'none';
         g.style.display = moreOpen ? 'none' : 'grid';
         this.textContent = moreOpen ? 'Show more' : 'Show less';
+        // Close 'Show all' if it's open, to avoid duplicate cards
+        const gAll = document.getElementById('strava-grid-all');
+        if (!moreOpen && gAll.style.display !== 'none') {
+          gAll.style.display = 'none';
+          document.getElementById('toggle-all').textContent = 'Show all';
+        }
       " style="
         background: none;
         border: 1px solid rgba(253,250,244,0.3);
@@ -1820,10 +1826,16 @@
         const g = document.getElementById('strava-grid-all');
         const allOpen = g.style.display !== 'none';
         if (!allOpen && g.innerHTML.trim() === '' && typeof allRemainingActivities !== 'undefined') {
-          g.innerHTML = allRemainingActivities.map((activity, i) => buildActivityCardHTML(activity, i + 15)).join('');
+          g.innerHTML = allRemainingActivities.map((activity, i) => buildActivityCardHTML(activity, i + 3)).join('');
         }
         g.style.display = allOpen ? 'none' : 'grid';
         this.textContent = allOpen ? 'Show all' : 'Show less';
+        // Close 'Show more' if it's open, to avoid duplicate cards
+        const gMore = document.getElementById('strava-grid-more');
+        if (!allOpen && gMore.style.display !== 'none') {
+          gMore.style.display = 'none';
+          document.getElementById('toggle-more').textContent = 'Show more';
+        }
       " style="
         background: none;
         border: 1px solid rgba(253,250,244,0.3);
@@ -2149,8 +2161,8 @@
     const isMobile = window.innerWidth < 768;
     const latest = activities.slice(0, isMobile ? 1 : 3);
     const more = activities.slice(isMobile ? 1 : 3, isMobile ? 6 : 15);
-    // Everything beyond the "more" cap — used by the "Show all" button
-    allRemainingActivities = activities.slice(isMobile ? 6 : 15);
+    // Everything from "latest" onward — used by the "Show all" button, no gap, no cap
+    allRemainingActivities = activities.slice(isMobile ? 1 : 3);
   
     if (latest.length === 0) {
       grid.innerHTML = `
@@ -2354,7 +2366,7 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
             }).addTo(map);
             allCoords.push(t.from, t.to);
           });
-
+          
 
           // ── START / END MARKERS ──
           if (activities.length > 0) {
