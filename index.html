@@ -2336,38 +2336,23 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
             path.forEach(c => allCoords.push(c));
           });
 
-          // ── TRAIN TRACKS ── (grey, dash-dot style)
-          const trainTracks = [
-            { from: [44.2727, 9.3958],  to: [44.1067, 9.8281] },  // Sestri Levante → La Spezia
-            { from: [43.7762, 11.4364], to: [43.7764, 11.2486] }, // Pontassieve → Florence
-            { from: [43.8739, 10.2526], to: [43.5511, 10.3247] }  // Viareggio → Livorno
+          // ── TRAIN & CAR TRACKS ── (unified light grey, slightly transparent)
+          const greyTracks = [
+            { from: [44.2727, 9.3958],  to: [44.1067, 9.8281] },  // Sestri Levante → La Spezia (train)
+            { from: [43.7762, 11.4364], to: [43.7764, 11.2486] }, // Pontassieve → Florence (train)
+            { from: [43.8739, 10.2526], to: [43.5511, 10.3247] }, // Viareggio → Livorno (train)
+            { from: [42.5093, 14.1488], to: [42.5258, 13.7714] }, // Montesilvano → Arsita (car)
+            { from: [39.6933, 9.2503],  to: [39.2305, 9.1192] }   // Orroli → Cagliari (car)
           ];
-          trainTracks.forEach(t => {
+          greyTracks.forEach(t => {
             L.polyline([t.from, t.to], {
-              color:    '#4A4A4A',
-              weight:   3,
-              opacity:  0.85,
-              dashArray: '2, 6',
+              color:    '#8C8C8C',
+              weight:   4,
+              opacity:  0.7,
               smoothFactor: 1,
               lineCap:  'round'
             }).addTo(map);
             allCoords.push(t.from, t.to);
-          });
-
-          // ── CAR TRACK ── (grey, solid style to distinguish from train)
-          const carTracks = [
-            { from: [42.5093, 14.1488], to: [42.5258, 13.7714] }, // Montesilvano → Arsita
-            { from: [39.6933, 9.2503],  to: [39.2305, 9.1192] }   // Orroli → Cagliari
-          ];
-          carTracks.forEach(c => {
-            L.polyline([c.from, c.to], {
-              color:    '#4A4A4A',
-              weight:   3,
-              opacity:  0.85,
-              smoothFactor: 1,
-              lineCap:  'round'
-            }).addTo(map);
-            allCoords.push(c.from, c.to);
           });
 
 
