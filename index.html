@@ -1801,9 +1801,9 @@
     <div style="text-align:center; margin-top:1.5rem; display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap;">
       <button id="toggle-more" onclick="
         const g = document.getElementById('strava-grid-more');
-        const open = g.style.display !== 'none';
-        g.style.display = open ? 'none' : 'grid';
-        this.textContent = open ? 'Show more' : 'Show less';
+        const moreOpen = g.style.display !== 'none';
+        g.style.display = moreOpen ? 'none' : 'grid';
+        this.textContent = moreOpen ? 'Show more' : 'Show less';
       " style="
         background: none;
         border: 1px solid rgba(253,250,244,0.3);
@@ -1818,12 +1818,12 @@
       ">Show more</button>
       <button id="toggle-all" onclick="
         const g = document.getElementById('strava-grid-all');
-        const open = g.style.display !== 'none';
-        if (!open && g.innerHTML.trim() === '' && typeof allRemainingActivities !== 'undefined') {
+        const allOpen = g.style.display !== 'none';
+        if (!allOpen && g.innerHTML.trim() === '' && typeof allRemainingActivities !== 'undefined') {
           g.innerHTML = allRemainingActivities.map((activity, i) => buildActivityCardHTML(activity, i + 15)).join('');
         }
-        g.style.display = open ? 'none' : 'grid';
-        this.textContent = open ? 'Show all' : 'Show less';
+        g.style.display = allOpen ? 'none' : 'grid';
+        this.textContent = allOpen ? 'Show all' : 'Show less';
       " style="
         background: none;
         border: 1px solid rgba(253,250,244,0.3);
@@ -2592,7 +2592,7 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
   // ── MOBILE STRIP WIDGET ──
   (function() {
     var TRIP_START = new Date('2026-05-10T12:00:00');
-    var TRIP_END   = new Date('2026-06-24T00:00:00');
+    var TRIP_END   = new Date('2026-06-20T00:00:00');
     var now        = new Date();
 
     var mPre    = document.getElementById('m-pre');
