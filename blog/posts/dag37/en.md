@@ -10,7 +10,7 @@ title:
   sv: Dag 37 - Upp å hoppa!
   it: Giorno 37 - Le salite grande
 captions:
-  photo1: Bildtext för andra bilden (valfri)
+  photo1: One of the best tent spots on the adventure. I woke up watching the donkeys graze and the sun rise over the mountain tops. What a place! I would probably never see places like this if I travelled by train or car.
   photo2: Bildtext för tredje bilden (valfri)
 ---
 
