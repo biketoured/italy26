@@ -1627,16 +1627,16 @@
 
     <div class="strip-right">
       <div class="strip-stat">
-        <div class="strip-stat-num" id="hero-stat-elevation">—</div>
+        <div class="strip-stat-num" id="hero-stat-elevation-m">—</div>
         <div class="strip-stat-lbl"
              data-en="elevation gain" data-sv="höjdmeter" data-it="metri dislivello">elevation gain</div>
       </div>
       <div class="strip-stat">
-        <div class="strip-stat-num" id="hero-stat-km">—</div>
+        <div class="strip-stat-num" id="hero-stat-km-m">—</div>
         <div class="strip-stat-lbl">km</div>
       </div>
       <div class="strip-stat">
-          <div class="strip-stat-num" id="hero-stat-beats">—</div>
+          <div class="strip-stat-num" id="hero-stat-beats-m">—</div>
           <div class="strip-stat-lbl"
                data-en="million heartbeats"
                data-sv="miljoner hjärtslag"
@@ -2416,15 +2416,22 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
             ? (totalBeats / 1000).toFixed(0) + 'k'
             : '—';
 
-          // ── Hero stats (mirror the real totals above) ──
-          const heroElevEl  = document.getElementById('hero-stat-elevation');
-          const heroKmEl    = document.getElementById('hero-stat-km');
-          const heroBeatsEl = document.getElementById('hero-stat-beats');
-          if (heroElevEl)  heroElevEl.textContent  = totalElev.toLocaleString('sv-SE');
-          if (heroKmEl)    heroKmEl.textContent    = totalDist.toFixed(0);
-          if (heroBeatsEl) heroBeatsEl.textContent = totalBeats > 0
-            ? (totalBeats / 1000000).toFixed(1)
-            : '—';
+          // ── Hero stats (mirror the real totals above) — desktop + mobile ──
+          const heroElevEl    = document.getElementById('hero-stat-elevation');
+          const heroKmEl      = document.getElementById('hero-stat-km');
+          const heroBeatsEl   = document.getElementById('hero-stat-beats');
+          const heroElevElM   = document.getElementById('hero-stat-elevation-m');
+          const heroKmElM     = document.getElementById('hero-stat-km-m');
+          const heroBeatsElM  = document.getElementById('hero-stat-beats-m');
+          const elevText  = totalElev.toLocaleString('sv-SE');
+          const kmText    = totalDist.toFixed(0);
+          const beatsText = totalBeats > 0 ? (totalBeats / 1000000).toFixed(1) : '—';
+          if (heroElevEl)   heroElevEl.textContent   = elevText;
+          if (heroKmEl)     heroKmEl.textContent     = kmText;
+          if (heroBeatsEl)  heroBeatsEl.textContent  = beatsText;
+          if (heroElevElM)  heroElevElM.textContent  = elevText;
+          if (heroKmElM)    heroKmElM.textContent    = kmText;
+          if (heroBeatsElM) heroBeatsElM.textContent = beatsText;
           console.log('[Map] Drew', drawn, 'routes. Total coord points:', allCoords.length);
           if (allCoords.length > 0) {
             map.fitBounds(allCoords, { padding: [20, 20] });
