@@ -1434,10 +1434,6 @@
   <!-- ══ HERO ══ -->
   <div class="hero">
     <div class="hero-left">
-      <img class="italy-outline"
-           src="assets/images/italymap.svg"
-           alt=""
-           aria-hidden="true">
       <h1 class="hero-title"
           data-en="Bikepacked the <br> regions of <em>Italy</em> for a good cause.<br>"
           data-sv="Cyklade genom <br> hela <em>Italien</em> för välgörenhet.<br>"
@@ -1473,7 +1469,6 @@
           <svg class="hero-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
         </a>
       </div>
-
 
       <div class="donation-meter">
         <div class="donation-meter-labels">
@@ -1809,6 +1804,11 @@
         const moreOpen = g.style.display !== 'none';
         g.style.display = moreOpen ? 'none' : 'grid';
         this.textContent = moreOpen ? 'Show more' : 'Show less';
+        const gAll = document.getElementById('strava-grid-all');
+        if (!moreOpen && gAll.style.display !== 'none') {
+          gAll.style.display = 'none';
+          document.getElementById('toggle-all').textContent = 'Show all';
+        }
       " style="
         background: none;
         border: 1px solid rgba(253,250,244,0.3);
@@ -1825,10 +1825,15 @@
         const g = document.getElementById('strava-grid-all');
         const allOpen = g.style.display !== 'none';
         if (!allOpen && g.innerHTML.trim() === '' && typeof allRemainingActivities !== 'undefined') {
-          g.innerHTML = allRemainingActivities.map((activity, i) => buildActivityCardHTML(activity, i + 15)).join('');
+          g.innerHTML = allRemainingActivities.map((activity, i) => buildActivityCardHTML(activity, i + 3)).join('');
         }
         g.style.display = allOpen ? 'none' : 'grid';
         this.textContent = allOpen ? 'Show all' : 'Show less';
+        const gMore = document.getElementById('strava-grid-more');
+        if (!allOpen && gMore.style.display !== 'none') {
+          gMore.style.display = 'none';
+          document.getElementById('toggle-more').textContent = 'Show more';
+        }
       " style="
         background: none;
         border: 1px solid rgba(253,250,244,0.3);
@@ -2134,7 +2139,7 @@
     const latest = activities.slice(0, isMobile ? 1 : 3);
     const more = activities.slice(isMobile ? 1 : 3, isMobile ? 6 : 15);
     // Everything beyond the "more" cap — used by the "Show all" button
-    allRemainingActivities = activities.slice(isMobile ? 6 : 15);
+    allRemainingActivities = activities.slice(isMobile ? 1 : 3);
   
     if (latest.length === 0) {
       grid.innerHTML = `
@@ -2289,6 +2294,85 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
             line.getElement()?.style.setProperty('cursor', 'pointer');
             drawn++;
           });
+
+          // ── FERRY CROSSINGS ──
+          // Drawn after all activity routes, as dashed blue lines
+          const ferries = [
+            { from: [43.5511, 10.3247], to: [42.6976, 9.4500] },   // Livorno → Bastia
+            { from: [41.3900, 9.1595],  to: [41.2378, 9.1896] },   // Bonifacio → Santa Teresa Gallura
+            { from: [39.2305, 9.1192],  to: [38.1232, 13.3636], zigzag: true }, // Cagliari → Palermo
+            { from: [38.1938, 15.5540], to: [38.2197, 15.6403] }   // Messina → Villa San Giovanni
+          ];
+
+          ferries.forEach(f => {
+            let path;
+            if (f.zigzag) {
+              // Z-shape turned onto its right side: SE from Cagliari, then NE, then S into Palermo
+              const p1 = [38.55, 10.4];   // southeast of Cagliari
+              const p2 = [39.1,  12.0];   // northeast leg
+              path = [f.from, p1, p2, f.to];
+            } else {
+              path = [f.from, f.to];
+            }
+            const ferryLine = L.polyline(path, {
+              color:    '#2E5FA8',
+              weight:   3,
+              opacity:  0.85,
+              dashArray: '6, 8',
+              smoothFactor: 1,
+              lineCap:  'round'
+            }).addTo(map);
+            path.forEach(c => allCoords.push(c));
+          });
+
+          // ── TRAIN & CAR TRACKS ── (unified light grey, slightly transparent)
+          const greyTracks = [
+            { from: [44.2727, 9.3958],  to: [44.1067, 9.8281] },  // Sestri Levante → La Spezia (train)
+            { from: [43.7762, 11.4364], to: [43.7764, 11.2486] }, // Pontassieve → Florence (train)
+            { from: [43.8739, 10.2526], to: [43.5511, 10.3247] }, // Viareggio → Livorno (train)
+            { from: [42.5093, 14.1488], to: [42.5258, 13.7714] }, // Montesilvano → Arsita (car)
+            { from: [39.6933, 9.2503],  to: [39.2305, 9.1192] }   // Orroli → Cagliari (car)
+          ];
+          greyTracks.forEach(t => {
+            L.polyline([t.from, t.to], {
+              color:    '#8C8C8C',
+              weight:   4,
+              opacity:  0.7,
+              smoothFactor: 1,
+              lineCap:  'round'
+            }).addTo(map);
+            allCoords.push(t.from, t.to);
+          });
+
+          // ── START / END MARKERS ──
+          if (activities.length > 0) {
+            const sortedByDate = [...activities].slice().sort((a, b) => new Date(a.date) - new Date(b.date));
+            const firstWithCoords = sortedByDate.find(a => a.polyline && decodePolyline(a.polyline).length > 0);
+            const lastWithCoords  = [...sortedByDate].reverse().find(a => a.polyline && decodePolyline(a.polyline).length > 0);
+
+            if (firstWithCoords) {
+              const startCoord = decodePolyline(firstWithCoords.polyline)[0];
+              L.circleMarker(startCoord, {
+                radius: 7,
+                color: '#fff',
+                weight: 2,
+                fillColor: '#3A6B4A',
+                fillOpacity: 1
+              }).addTo(map).bindTooltip('Start', { permanent: false });
+            }
+            if (lastWithCoords) {
+              // End marker placed in Florence — final leg of the trip was by train
+              const florenceCoord = [43.7764, 11.2486];
+              allCoords.push(florenceCoord);
+              L.circleMarker(florenceCoord, {
+                radius: 7,
+                color: '#fff',
+                weight: 2,
+                fillColor: '#a0503b',
+                fillOpacity: 1
+              }).addTo(map).bindTooltip('End — Florence', { permanent: false });
+            }
+          }
 
           // ── Trip stats ──
           const totalDist   = activities.reduce((s, a) => s + (a.distance || 0), 0);
