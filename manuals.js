@@ -7,7 +7,7 @@
 // ══════════════════════════════════════════════════════════════
 
 // ── DONATIONS ──
-const SEK = 21967;
+const SEK = 23287;
 const EUR = 0;
 const DONATION_TOTAL = Math.round(SEK + (EUR * 11));  // SEK total (EUR*11 ≈ conversion)
 const DONATION_GOAL  = 25000;                          // SEK goal
@@ -15,7 +15,7 @@ const DONATION_GOAL  = 25000;                          // SEK goal
 // ── LIVE TRACKING ──
 // Set LIVE_TRACKING to true and update LIVE_URL when actively tracking
 const LIVE_TRACKING = false;
-const LIVE_URL      = 'https://gar.mn/49OVG9R7k';
+const LIVE_URL      = '';
 
 // ── ROUTE PROGRESS ──
 // CURRENT_LOC: a number 0–100 for how far along the route you are.
@@ -28,12 +28,13 @@ const LOC_POINTS = [
   { pos:  12, label: 'Corsica' },
   { pos:  20, label: 'Sardinia' },
   { pos:  32, label: 'Sicily' },
-  { pos:  47, label: 'Calabria' },
-  { pos:  60, label: 'Apulia' },
-  { pos:  70, label: 'Campania' },
-  { pos:  78, label: 'Abruzzo' },
-  { pos:  90, label: 'Umbria' },
-  { pos:  100, label: 'Firenze' },
+  { pos:  43, label: 'Calabria' },
+  { pos:  56, label: 'Apulia' },
+  { pos:  68, label: 'Campania' },
+  { pos:  77, label: 'Abruzzo' },
+  { pos:  89, label: 'Umbria' },
+  { pos:  97, label: 'Toscana' },
+  { pos:  100, label: 'Hem' },
 ];
 
 // ── WORD OF THE DAY ──
