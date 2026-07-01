@@ -7,7 +7,7 @@
 // ══════════════════════════════════════════════════════════════
 
 // ── DONATIONS ──
-const SEK = 26487;
+const SEK = 27587;
 const EUR = 0;
 const DONATION_TOTAL = Math.round(SEK + (EUR * 11));  // SEK total (EUR*11 ≈ conversion)
 const DONATION_GOAL  = 25000;                          // SEK goal
@@ -27,9 +27,9 @@ const LOC_POINTS = [
   { pos:  2, label: 'Liguria' },
   { pos:  12, label: 'Corsica' },
   { pos:  20, label: 'Sardinia' },
-  { pos:  32, label: 'Sicily' },
+  { pos:  32, label: 'Sicilia' },
   { pos:  43, label: 'Calabria' },
-  { pos:  56, label: 'Apulia' },
+  { pos:  56, label: 'Puglia' },
   { pos:  68, label: 'Campania' },
   { pos:  77, label: 'Abruzzo' },
   { pos:  89, label: 'Umbria' },
@@ -44,7 +44,7 @@ const MEANING = 'In Italian, they dont say I miss you, but instead they say mi m
 
 // ── NOTE FROM THE ROAD ──
 // Leave NOTE empty ('') to hide it.
-const NOTE      = 'Finally home! What a journey!! I Will create a blog post for every day when I have time.';
+const NOTE      = 'Finally home! What a journey!! I will create a blog post for every day when I have time.';
 const NOTE_DATE = '21 june';
 
 

@@ -1,9 +1,15 @@
 [
   {
     "name": "Edvard A",
-    "amount": 4000,
+    "amount": 4270,
     "currency": "kr",
     "message": "Jag binder mig vid att donera en krona för varje kilometer.  <br> I pledge to donate 1 SEK for each kilometer. <br> Mi impegno a donare 1 SEK per ogni chilometro."
+  },
+  {
+    "name": "Roger B",
+    "amount": 300,
+    "currency": "kr",
+    "message": "Fantastisk resa du gjort i Italien för ett gott syfte, även för oss som följt dig på instagram"
   },
   {
     "name": "Håkan E",
@@ -12,10 +18,52 @@
     "message": "Hejja Edvard!! Bra initiativ å ha en bra resa!"
   },
   {
+    "name": "Martin L",
+    "amount": 1000,
+    "currency": "kr",
+    "message": ""
+  },
+  {
+    "name": "Roger V",
+    "amount": 500,
+    "currency": "kr",
+    "message": "Bra kört i backen!"
+  },
+  {
+    "name": "Peter F",
+    "amount": 314,
+    "currency": "kr",
+    "message": ""
+  },
+  {
+    "name": "Rose % Royce",
+    "amount": 300,
+    "currency": "kr",
+    "message": "Veldig goy å folge med på reisen din!"
+  },
+  {
+    "name": "Jan",
+    "amount": 1000,
+    "currency": "kr",
+    "message": "Det blir kul när du kommer tillbaka till jobbet och berättar om din resa"
+  },
+  {
     "name": "Kajsa",
     "amount": 100,
     "currency": "kr",
     "message": "Lycka till och njut av färden!"
+  },
+  {
+    "name": "Tilda T",
+    "amount": 50,
+    "currency": "kr",
+    "message": ""
+  },
+  {
+    "name": "Kenth S",
+    "amount": 1000,
+    "currency": "kr",
+    "message": ""
   },
   {
     "name": "Gösta",
@@ -24,10 +72,22 @@
     "message": "Edvard is a great guy. Great mission!"
   },
   {
+    "name": "Anonym 6",
+    "amount": 300,
+    "currency": "kr",
+    "message": "För en bra sak"
+  },
+  {
     "name": "Malin, Gabriel och lilla Rut",
     "amount": 1000,
     "currency": "kr",
     "message": "Tack för att du bidrar med underhållning till vår bäbisbubbla! 🇮🇹 Fortsätt att inspirera och njuta av livet. Din resa påminner oss om att livet är skört och hur viktigt det är att ta vara på den tid som var och en har ❤️‍🩹"
+  },
+  {
+    "name": "Linus K",
+    "amount": 300,
+    "currency": "kr",
+    "message": ""
   },
   {
     "name": "Anton",
@@ -36,7 +96,19 @@
     "message": ""
   },
   {
+    "name": "Katarina",
+    "amount": 300,
+    "currency": "kr",
+    "message": ""
+  },
+  {
     "name": "Ebba",
+    "amount": 100,
+    "currency": "kr",
+    "message": ""
+  },
+  {
+    "name": "Albin H",
     "amount": 100,
     "currency": "kr",
     "message": ""
@@ -54,8 +126,14 @@
     "message": ""
   },
   {
+    "name": "Erik G",
+    "amount": 200,
+    "currency": "kr",
+    "message": ""
+  },
+  {
     "name": "Britt-Marie A",
-    "amount": 300,
+    "amount": 800,
     "currency": "kr",
     "message": ""
   },
@@ -66,7 +144,61 @@
     "message": "Grattis på födelsedagen! Så kul att följa din resa!"
   },
   {
+    "name": "Anonym 3",
+    "amount": 500,
+    "currency": "kr",
+    "message": ""
+  },
+  {
+    "name": "Albin",
+    "amount": 500,
+    "currency": "kr",
+    "message": ""
+  },
+  {
+    "name": "Jonas",
+    "amount": 500,
+    "currency": "kr",
+    "message": ""
+  },
+  {
+    "name": "Stef & Maaike",
+    "amount": 500,
+    "currency": "kr",
+    "message": "It was lovely to meet you at Massaria Donna Oliva. Good luck on your journey & God bless!"
+  },
+  {
+    "name": "Sture",
+    "amount": 800,
+    "currency": "kr",
+    "message": ""
+  },
+  {
     "name": "Emil H",
+    "amount": 100,
+    "currency": "kr",
+    "message": ""
+  },
+  {
+    "name": "Claudia",
+    "amount": 100,
+    "currency": "kr",
+    "message": ""
+  },
+  {
+    "name": "Rune & Maj-Lis",
+    "amount": 500,
+    "currency": "kr",
+    "message": "Vi tänker på Micke. Och hejar på dej på din resa"
+  },
+  {
+    "name": "Tina R",
+    "amount": 500,
+    "currency": "kr",
+    "message": "Micke var min specielle vän. Från Alnarp sen tappade vi bort varandra men fann varandra igen"
+  },
+  {
+    "name": "Anna",
     "amount": 100,
     "currency": "kr",
     "message": ""
@@ -84,6 +216,12 @@
     "message": ""
   },
   {
+    "name": "Louise F",
+    "amount": 100,
+    "currency": "kr",
+    "message": ""
+  },
+  {
     "name": "Johan A",
     "amount": 200,
     "currency": "kr",
@@ -96,8 +234,26 @@
     "message": ""
   },
   {
+    "name": "Chris",
+    "amount": 10,
+    "currency": "€",
+    "message": ""
+  },
+  {
     "name": "Inger J",
     "amount": 100,
+    "currency": "kr",
+    "message": ""
+  },
+  {
+    "name": "Lovisa",
+    "amount": 300,
+    "currency": "kr",
+    "message": ""
+  },
+  {
+    "name": "Anonym 4",
+    "amount": 500,
     "currency": "kr",
     "message": ""
   },
@@ -109,7 +265,7 @@
   },
   {
     "name": "Braxtorp",
-    "amount": 500,
+    "amount": 700,
     "currency": "kr",
     "message": ""
   },
@@ -120,7 +276,19 @@
     "message": ""
   },
   {
+    "name": "Stina E",
+    "amount": 100,
+    "currency": "kr",
+    "message": ""
+  },
+  {
     "name": "Anonym",
+    "amount": 500,
+    "currency": "kr",
+    "message": ""
+  },
+  {
+    "name": "Kickan",
     "amount": 500,
     "currency": "kr",
     "message": ""
@@ -128,6 +296,12 @@
   {
     "name": "Inger J",
     "amount": 300,
+    "currency": "kr",
+    "message": ""
+  },
+  {
+    "name": "Madelene",
+    "amount": 100,
     "currency": "kr",
     "message": ""
   },
@@ -144,14 +318,32 @@
     "message": ""
   },
   {
+    "name": "Oscar",
+    "amount": 300,
+    "currency": "kr",
+    "message": ""
+  },
+  {
     "name": "Erik N",
     "amount": 100,
     "currency": "kr",
     "message": ""
   },
   {
+    "name": "Anonym 7",
+    "amount": 50,
+    "currency": "kr",
+    "message": ""
+  },
+  {
     "name": "Karin A",
     "amount": 200,
+    "currency": "kr",
+    "message": ""
+  },
+  {
+    "name": "Mattias",
+    "amount": 100,
     "currency": "kr",
     "message": ""
   },
@@ -174,10 +366,22 @@
     "message": ""
   },
   {
+    "name": "Lotta S",
+    "amount": 300,
+    "currency": "kr",
+    "message": ""
+  },
+  {
     "name": "Samuel W",
     "amount": 133,
     "currency": "kr",
     "message": "It's a pleasure to support this project!"
+  },
+  {
+    "name": "Hild-Sophie",
+    "amount": 500,
+    "currency": "kr",
+    "message": ""
   },
   {
     "name": "DP",
@@ -186,7 +390,7 @@
     "message": ""
   },
   {
-    "name": "Anna-Karin J",
+    "name": "Anna-Carin J",
     "amount": 100,
     "currency": "kr",
     "message": ""
@@ -200,6 +404,12 @@
   {
     "name": "Anonym 2",
     "amount": 300,
+    "currency": "kr",
+    "message": ""
+  },
+  {
+    "name": "Anonym 5",
+    "amount": 50,
     "currency": "kr",
     "message": ""
   },
