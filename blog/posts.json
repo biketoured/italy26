@@ -75,6 +75,24 @@
     "photos": 1
   },
   {
+    "slug": "dag23",
+    "type": "journal",
+    "date": "2026-06-01",
+    "day": 23,
+    "location": "Fragagnano, Puglia",
+    "km": 135,
+    "elevation": 867,
+    "title": {
+      "en": "Day 23 - Southern Italy's most boring area",
+      "sv": "Dag 23 - Syditaliens tråkigaste område",
+      "it": "Giorno 23 - La parte piu noioso del Sud"
+    },
+    "captions": {
+      "photo1": "Bildtext för andra bilden (valfri)",
+      "photo2": "Bildtext för tredje bilden (valfri)"
+    }
+  },
+  {
     "slug": "dag22",
     "type": "journal",
     "date": "2026-05-31",
