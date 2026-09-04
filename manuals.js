@@ -8,8 +8,7 @@
 
 // ── DONATIONS ──
 const SEK = 28087;
-const EUR = 0;
-const DONATION_TOTAL = Math.round(SEK + (EUR * 11));  // SEK total (EUR*11 ≈ conversion)
+const DONATION_TOTAL = Math.round(SEK);  // SEK total (EUR*11 ≈ conversion)
 const DONATION_GOAL  = 25000;                          // SEK goal
 
 // ── LIVE TRACKING ──
@@ -24,7 +23,7 @@ const CURRENT_LOC = 100;
 // LOC_POINTS: the marked dots on the bar, each with a position (0–100) and a label.
 // Labels appear below the dot in small caps. Leave label as '' to show dot only.
 const LOC_POINTS = [
-  { pos:  2, label: 'Liguria' },
+  { pos:  2,  label: 'Liguria' },
   { pos:  12, label: 'Corsica' },
   { pos:  20, label: 'Sardinia' },
   { pos:  32, label: 'Sicilia' },
@@ -34,7 +33,7 @@ const LOC_POINTS = [
   { pos:  77, label: 'Abruzzo' },
   { pos:  89, label: 'Umbria' },
   { pos:  97, label: 'Toscana' },
-  { pos:  100, label: 'Hem' },
+  { pos:  100,label: 'Home' },
 ];
 
 // ── WORD OF THE DAY ──
@@ -44,19 +43,5 @@ const MEANING = 'In Italian, they dont say I miss you, but instead they say mi m
 
 // ── NOTE FROM THE ROAD ──
 // Leave NOTE empty ('') to hide it.
-const NOTE      = 'Finally home! What a journey!! I will create a blog post for every day when I have time.';
+const NOTE      = 'Finally home! What a journey!! I am so grateful that (almost) everything went my way, and for so many nice moments and meetings.';
 const NOTE_DATE = '21 june';
-
-
-// Utforska betalningssätt: Paypal och Revolut fixat. Behöver koppla konton bara...
-// Automatisera journal: Markdown plus bilder kan uppladdas via webben github
-
-// Skapa blogginlägg
-
-
-// Skapa klistermärken med QR
-// Skapa visitkort?
-// Se till att jag har all utrustning som krävs
-// Tidning
-// Social media exponering
-//

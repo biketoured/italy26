@@ -17,11 +17,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css">
-  <script src="https://unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-gesture-handling@1.2.2/dist/leaflet-gesture-handling.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/leaflet-gesture-handling@1.2.2/dist/leaflet-gesture-handling.min.js" defer></script>
   <link rel="stylesheet" href="/italy26/static/css/style.css">
   <script src="/italy26/static/js/main.js" defer></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G4WXL40L9E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-G4WXL40L9E');
+  </script>
   <style>
 
     body {
@@ -106,12 +115,6 @@
     .hero-title em {
       font-style: italic;
       color: var(--red-warm);
-    }
-
-    .hero-title bo {
-      font-style: normal;
-      color: var(--yellow);
-      -webkit-text-stroke: 0.5px var(--soil);
     }
 
     .hero-sub {
@@ -228,9 +231,6 @@
       .puzzle-br { order: 5; }
     }
 
-    .hero-btn-pair { display: none; }
-    .hero-donate   { display: none; }
-
     .hero-right {
       background: var(--green-mid);
       position: relative;
@@ -327,33 +327,6 @@
       opacity: 0.6;
     }
 
-    /* ── DONATE BUTTON ── */
-    .hero-donate {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-      background: var(--sky-deep);
-      color: var(--white);
-      text-decoration: none;
-      padding: 1.1rem 2rem;
-      font-family: 'DM Mono', monospace;
-      font-size: 1.25rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      transition: background 0.2s;
-      width: 100%;
-      max-width: 700px;
-      margin-top: 1.5rem;
-    }
-    .hero-donate:hover { background: var(--sky); }
-
-
-
-
-
-
-
     /* ── DONATION METER ── */
     .donation-meter {
       margin-top: 0.5rem;
@@ -427,7 +400,7 @@
       aspect-ratio: 1 / 1;
       overflow: hidden;
       position: relative;
-        background: var(--green);   /* ← add this line */
+      background: var(--green);
     }
 
     .blog-card-cover-wrap img {
@@ -594,13 +567,22 @@
     .blog-inner .section-title { color: var(--white); }
     .blog-inner .section-tag   { color: var(--white); }
 
+    .blog-intro {
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--white);
+      max-width: 700px;
+      margin-bottom: 1rem;
+    }
+
     .blog-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
       margin-top: 3rem;
     }
-    /* Show max 3 cards on desktop (first row only) */
+    /* Desktop: 3 across, so hide the 4th card the JS renders for mobile */
     .blog-grid .blog-card:nth-child(n+4) { display: none; }
 
     .blog-card {
@@ -1050,7 +1032,8 @@
       .trip-stat-tab:nth-child(2) { border-right: none; }
       .trip-stat-value { font-size: 1.1rem; }
     }
-    .trip-stat-icon[alt="Elevation"] {
+    /* The mountain glyph reads smaller than the others — size it up */
+    .trip-stat-icon-lg {
       width: 60px;
       height: 60px;
     }
@@ -1063,28 +1046,18 @@
       .live-banner { padding: 0.9rem 1.5rem; flex-direction: column; align-items: flex-start; }
       .strava-header-row { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
       .donation-meter { max-width: 100%; }
-      .hero-donate, .hero-flaskpost { width: 100%; justify-content: center; }
-      .hero-cta, .hero-map, .hero-flaskpost, .hero-gallery {
-        width: 100%;
-        justify-content: center;
-        text-align: center;
-      }
-
     }
-      to   { opacity: 1; transform: translateY(0); }
 
-    .hero-tag, .hero-title, .hero-sub, .hero-cta, .hero-map, .hero-donate, .hero-flaskpost, .hero-gallery, .donation-meter {
+    /* fadeUp keyframes live in /italy26/static/css/style.css */
+    .hero-tag, .hero-title, .hero-sub, .hero-btn-puzzle, .donation-meter {
       opacity: 0;
       animation: fadeUp 0.7s ease forwards;
     }
-    .hero-tag       { animation-delay: 0.1s; }
-    .hero-title     { animation-delay: 0.25s; }
-    .hero-sub       { animation-delay: 0.4s; }
-    .hero-cta       { animation-delay: 0.8s; }
-    .hero-donate    { animation-delay: 0.8s; }    
-    .hero-map       { animation-delay: 0.8s; }
-    .hero-flaskpost { animation-delay: 0.8s; }
-    .donation-meter { animation-delay: 1.5s; }
+    .hero-tag        { animation-delay: 0.1s; }
+    .hero-title      { animation-delay: 0.25s; }
+    .hero-sub        { animation-delay: 0.4s; }
+    .hero-btn-puzzle { animation-delay: 0.8s; }
+    .donation-meter  { animation-delay: 1.5s; }
 
     /* ── MOBILE HERO BANNER ──
        Shown only on screens where .hero-right (profile photo) is hidden.
@@ -1268,10 +1241,9 @@
       }
       .hero-left::after { display: none; }
       .hero-right { display: none; }
-      .about-grid { grid-template-columns: 1fr; }
+      /* Mobile: 2x2 — show all four cards the JS renders */
       .blog-grid  { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-      .blog-grid .blog-card:nth-child(n+4) { display: none; }
-      .blog-grid .blog-card:nth-child(n+5) { display: none; }
+      .blog-grid .blog-card:nth-child(n+4) { display: flex; }
       .activities-grid { grid-template-columns: 1fr; }
       .activities-inner { padding: 0 1.5rem; }
       .activities-header-row { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
@@ -1280,14 +1252,6 @@
       .hero-photo { width: 160px; height: 160px; top: 50%; left: 2rem; transform: translateY(-50%); }
       .about-image { width: 200px; height: 300px; }
       .donation-meter { max-width: 100%; }
-      .hero-donate, .hero-flaskpost { width: 100%; justify-content: center; }
-      .hero-cta, .hero-map, .hero-flaskpost, .hero-gallery {
-        width: 100%;
-        justify-content: center;
-        text-align: center;
-      }
-
-    .hero-left { padding: 2rem 1.5rem 3rem; }
       body { font-size: 0.9rem; }
       .hero-title { font-size: clamp(1.8rem, 6vw, 2.8rem); }
       .section-title { font-size: clamp(1.4rem, 5vw, 2rem); }
@@ -1396,18 +1360,8 @@
     }
 
   </style>
-  <script src="manuals.js"></script>
+  <script src="/italy26/manuals.js"></script>
 </head>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-G4WXL40L9E"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-G4WXL40L9E');
-</script>
 
 <body>
 
@@ -1418,11 +1372,11 @@
   <div class="hero-mobile-wrapper">
 
   <!-- ══ MOBILE HERO BANNER — hidden on desktop ══ -->
-  <img class="hero-mobile-banner" src="assets/images/medit2.jpg" alt="Edvard Appelberg">
+  <img class="hero-mobile-banner" src="/italy26/assets/images/medit2.jpg" alt="Edvard Appelberg">
 
   <!-- ══ MOBILE PROFILE PIC — straddles banner/hero seam, hidden on desktop ══ -->
   <img class="hero-mobile-profilepic"
-       src="assets/images/profilesquare2.jpg"
+       src="/italy26/assets/images/profilesquare2.jpg"
        alt="Edvard Appelberg"
        onerror="this.style.display='none'">
 
@@ -1447,19 +1401,19 @@
           <span data-en="Map" data-sv="Karta" data-it="Mappa">Map</span>
           <svg class="hero-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg>
         </a>
-        <a href="flaskpost.html" class="puzzle-bl">
-          <span data-en="Send a note" data-sv="Flaskpost" data-it="Messaggio">Send a note</span>
-          <svg class="hero-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <a href="#about" class="puzzle-bl">
+          <span data-en="About me" data-sv="Om mig" data-it="Chi sono">About me</span>
+          <svg class="hero-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         </a>
-        <a href="donate.html" class="puzzle-centre">
+        <a href="/italy26/donate.html" class="puzzle-centre">
           <span data-en="Donate" data-sv="Donera" data-it="Dona">Donate</span>
           <svg class="hero-btn-icon" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z"/></svg>
         </a>
-        <a href="blog/index.html" class="puzzle-tr">
+        <a href="/italy26/blog/index.html" class="puzzle-tr">
           <span data-en="Journal" data-sv="Dagbok" data-it="Diario">Journal</span>
           <svg class="hero-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
         </a>
-        <a href="https://photos.app.goo.gl/MUjNRLtrS28wbmdr7" class="puzzle-br">
+        <a href="https://photos.app.goo.gl/MUjNRLtrS28wbmdr7" class="puzzle-br" target="_blank" rel="noopener">
           <span data-en="Gallery" data-sv="Galleri" data-it="Galleria">Gallery</span>
           <svg class="hero-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
         </a>
@@ -1482,7 +1436,7 @@
           <div class="route-progress-fill" id="route-progress-fill"></div>
           <div class="route-progress-dots" id="route-progress-dots"></div>
           <img class="route-progress-avatar" id="route-progress-avatar"
-               src="assets/images/profilepic.jpg" alt=""
+               src="/italy26/assets/images/profilepic.jpg" alt=""
                onerror="this.style.display='none'">
         </div>
       </div>
@@ -1494,8 +1448,10 @@
         <path d="M0,450 Q150,350 250,380 Q350,410 450,280 Q550,150 600,250 L600,600 L0,600 Z" fill="none" stroke="#C4B49A" stroke-width="1"/>
         <path d="M0,500 Q100,420 200,440 Q300,460 420,340 Q520,220 600,300 L600,600 L0,600 Z" fill="none" stroke="#C4B49A" stroke-width="0.5"/>
       </svg>
-      <img src="assets/images/profilesquare2.jpg" alt="Profile photo" class="hero-photo" />      <!-- COUNTDOWN / LAST RIDE -->
-            <!-- COUNTDOWN / LAST RIDE -->
+      <img src="/italy26/assets/images/profilesquare2.jpg" alt="Profile photo" class="hero-photo"
+           width="500" height="500" />
+
+      <!-- COUNTDOWN / LAST RIDE -->
 
       <!-- STATE 1: pre-trip countdown -->
       <div class="hero-countdown" id="widget-pre" style="display:none;">
@@ -1696,7 +1652,7 @@
       <!-- Trip stats bar — values filled by JS from activities.json -->
       <div class="trip-stats" id="trip-stats">
         <div class="trip-stat-tab">
-          <img src="assets/images/road.png" alt="Distance" class="trip-stat-icon"
+          <img src="/italy26/assets/images/road.png" alt="Distance" class="trip-stat-icon"
                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <div class="trip-stat-icon-placeholder" style="display:none;">km</div>
           <div class="trip-stat-text">
@@ -1708,7 +1664,7 @@
           </div>
         </div>
         <div class="trip-stat-tab">
-          <img src="assets/images/mountain.png" alt="Elevation" class="trip-stat-icon"
+          <img src="/italy26/assets/images/mountain.png" alt="Elevation" class="trip-stat-icon trip-stat-icon-lg"
                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <div class="trip-stat-icon-placeholder" style="display:none;">elev</div>
           <div class="trip-stat-text">
@@ -1720,7 +1676,7 @@
           </div>
         </div>
         <div class="trip-stat-tab">
-          <img src="assets/images/time.png" alt="Moving time" class="trip-stat-icon"
+          <img src="/italy26/assets/images/time.png" alt="Moving time" class="trip-stat-icon"
                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <div class="trip-stat-icon-placeholder" style="display:none;">time</div>
           <div class="trip-stat-text">
@@ -1732,7 +1688,7 @@
           </div>
         </div>
         <div class="trip-stat-tab">
-          <img src="assets/images/heart.png" alt="Heartbeats" class="trip-stat-icon"
+          <img src="/italy26/assets/images/heart.png" alt="Heartbeats" class="trip-stat-icon"
                onerror="this.style.display='none'">
           <div class="trip-stat-text">
             <div class="trip-stat-value" id="stat-extra">—</div>
@@ -1794,7 +1750,8 @@
         const g = document.getElementById('strava-grid-all');
         const allOpen = g.style.display !== 'none';
         if (!allOpen && g.innerHTML.trim() === '' && typeof allRemainingActivities !== 'undefined') {
-          g.innerHTML = allRemainingActivities.map((activity, i) => buildActivityCardHTML(activity, i + 3)).join('');
+          const offset = window.activityColourOffset || 3;
+          g.innerHTML = allRemainingActivities.map((activity, i) => buildActivityCardHTML(activity, i + offset)).join('');
         }
         g.style.display = allOpen ? 'none' : 'grid';
         this.textContent = allOpen ? 'Show all' : 'Show less';
@@ -1847,11 +1804,20 @@
           data-it="Dal diario">
         From the journal
       </h2>
-      <a>
-       The blog posts are short, 3 minutes each with some of my thoughts and experiences from each day. <br>
-       However, adding posts takes time for me so I didn't have time to do them most days on the adventure... <br>
-       I will write and add the missing ones once I see more people reading the posts.
-      </a>
+      <p class="blog-intro"
+         data-en="The blog posts are short, 3 minutes each with some of my thoughts and experiences from each day. <br>
+         However, adding posts takes time for me so I didn't have time to do them most days on the adventure... <br>
+         I will write and add the missing ones once I see more people reading the posts."
+         data-sv="Inläggen är korta, ungefär 3 minuter var, med några av mina tankar och upplevelser från varje dag. <br>
+         Att lägga upp inlägg tar dock tid, så jag hann inte skriva dem de flesta dagarna under äventyret... <br>
+         Jag skriver och lägger upp de som saknas när jag ser att fler läser inläggen."
+         data-it="Gli articoli sono brevi, circa 3 minuti ciascuno, con alcuni dei miei pensieri ed esperienze di ogni giorno. <br>
+         Scrivere gli articoli però richiede tempo, quindi non sono riuscito a farlo quasi nessun giorno durante l'avventura... <br>
+         Scriverò e pubblicherò quelli mancanti quando vedrò più persone leggere gli articoli.">
+        The blog posts are short, 3 minutes each with some of my thoughts and experiences from each day. <br>
+        However, adding posts takes time for me so I didn't have time to do them most days on the adventure... <br>
+        I will write and add the missing ones once I see more people reading the posts.
+      </p>
       <div class="section-divider" style="background: var(--red);"></div>
             <!-- Filled dynamically from /blog/posts.json -->
       <div class="blog-grid" id="blog-grid">
@@ -1928,7 +1894,7 @@
 
       <a href="https://www.strava.com/athletes/33737566" target="_blank" class="link-card">
         <div class="link-icon">
-          <img src="assets/images/strava.png" alt="Strava">
+          <img src="/italy26/assets/images/strava.png" alt="Strava">
         </div>
         <div>
           <p class="link-card-title">Strava</p>
@@ -2013,7 +1979,7 @@
     </h2>
     <div class="section-divider"></div>
     <div class="about-grid">
-      <img src="assets/images/profile2.jpg" alt="Profile photo" class="about-image"/>
+      <img src="/italy26/assets/images/profile2.jpg" alt="Profile photo" class="about-image"/>
       <div class="about-text">
         <p data-en="Welcome to my homebuilt website! I am a Swedish 24 year-old with great passion for sports and adventuring in new places, preferrably in combination. When I am not working or training I like to learn new stuff, for example learning a new language, reading something, or building this particular website!
            Currently based in <strong>Skellefteå, Sweden</strong>, I spend my days analysing electricity markets and much of my spare time planning and preparing for this passion project: Bikepacking across Italy 2026."
@@ -2119,6 +2085,7 @@
   // Shows the 3 most recent activities
   // ══════════════════════════════════════════
   let allRemainingActivities = []; // populated below, used by "Show all" button
+  let allActivities          = []; // kept so the cards can be re-rendered on language change
 
   function buildActivityCardHTML(activity, colourIndex) {
     if (!activity) return `<div class="activity-card placeholder"><p>—</p></div>`;
@@ -2130,10 +2097,11 @@
     const timeLabel = { en: 'Moving time', sv: 'Rörlig tid', it: 'Tempo' };
     const elevLabel = { en: 'Elevation', sv: 'Höjdmeter', it: 'Dislivello' };
     return `
-      <a href="https://www.strava.com/activities/${activity.id}" target="_blank" style="text-decoration:none; display:block;">
+      <a href="https://www.strava.com/activities/${activity.id}" target="_blank" rel="noopener" style="text-decoration:none; display:block;">
       <div class="activity-card" style="cursor:pointer;">
         <div class="activity-header">
           <div class="activity-color-dot" style="background:${colour}"></div>
+          <img src="/italy26/assets/images/strava.png" alt="Strava" width="14" height="14" style="object-fit:contain; opacity:0.7;">
           <span class="activity-date">${date}</span>
         </div>
         <h3 class="activity-title">${activity.name}</h3>
@@ -2156,13 +2124,19 @@
   }
 
   function renderCards(activities) {
+    allActivities = activities;
     const grid = document.getElementById('strava-grid');
     const isMobile = window.innerWidth < 768;
-    const latest = activities.slice(0, isMobile ? 1 : 3);
-    const more = activities.slice(isMobile ? 1 : 3, isMobile ? 6 : 15);
+    // How many cards fill the first row — also the colour offset for every
+    // card after it, so the "Show more"/"Show all" grids stay in step with
+    // the route colours on the map.
+    const shown  = isMobile ? 1 : 3;
+    const latest = activities.slice(0, shown);
+    const more   = activities.slice(shown, isMobile ? 6 : 15);
     // Everything from "latest" onward — used by the "Show all" button, no gap, no cap
-    allRemainingActivities = activities.slice(isMobile ? 1 : 3);
-  
+    allRemainingActivities = activities.slice(shown);
+    window.activityColourOffset = shown;
+
     if (latest.length === 0) {
       grid.innerHTML = `
         <div class="activity-card placeholder">
@@ -2176,62 +2150,34 @@
     }
 
     // Pad to fill the row (3 on desktop, 1 on mobile)
-    const padTo = isMobile ? 1 : 3;
-    while (latest.length < padTo) {
-    latest.push(null);
+    while (latest.length < shown) {
+      latest.push(null);
     }
-  
-    grid.innerHTML = latest.map((activity, i) => {
-      if (!activity) {
-        return `<div class="activity-card placeholder"><p>—</p></div>`;
-      }
-  
-      const colour  = routeColour(i);
-      const date    = formatDate(activity.date);
-      const time    = formatMovingTime(activity.moving_time);
-  
-      const lang = localStorage.getItem('preferred-lang') || 'en';
-      const distLabel = { en: 'Distance', sv: 'Distans',    it: 'Distanza' };
-      const timeLabel = { en: 'Moving time', sv: 'Rörlig tid', it: 'Tempo' };
-      const elevLabel = { en: 'Elevation', sv: 'Höjdmeter', it: 'Dislivello' };
-  
-      return `
-        <a href="https://www.strava.com/activities/${activity.id}" target="_blank" style="text-decoration:none; display:block;">
-        <div class="activity-card" style="cursor:pointer;">
-          <div class="activity-header">
-            <div class="activity-color-dot" style="background: ${colour};"></div>
-            <img src="assets/images/strava.png" alt="Strava" width="14" height="14" style="object-fit:contain; opacity:0.7;">
-            <span class="activity-date">${date}</span>
-          </div>
-          <h3 class="activity-title">${activity.name}</h3>
-          <div class="activity-stats">
-            <div class="activity-stat">
-              <span class="activity-stat-value">${activity.distance} km</span>
-              <span class="activity-stat-label">${distLabel[lang] || distLabel.en}</span>
-            </div>
-            <div class="activity-stat">
-              <span class="activity-stat-value">${time}</span>
-              <span class="activity-stat-label">${timeLabel[lang] || timeLabel.en}</span>
-            </div>
-            <div class="activity-stat">
-              <span class="activity-stat-value">${activity.elevation} m</span>
-              <span class="activity-stat-label">${elevLabel[lang] || elevLabel.en}</span>
-            </div>
-          </div>
-        </div>
-     </a>`;
-    }).join('');
-  if (more.length === 0) return;
 
-      const moreGrid = document.getElementById('strava-grid-more');
-      moreGrid.innerHTML = more.map((activity, i) => buildActivityCardHTML(activity, i + 3)).join('');
+    grid.innerHTML = latest.map((activity, i) => buildActivityCardHTML(activity, i)).join('');
+
+    const moreGrid = document.getElementById('strava-grid-more');
+    if (moreGrid) {
+      moreGrid.innerHTML = more.map((activity, i) => buildActivityCardHTML(activity, i + shown)).join('');
+    }
+    // Rebuilt lazily by the "Show all" button — drop any stale markup
+    const allGrid = document.getElementById('strava-grid-all');
+    if (allGrid && allGrid.innerHTML.trim() !== '') {
+      allGrid.innerHTML = allRemainingActivities
+        .map((activity, i) => buildActivityCardHTML(activity, i + shown)).join('');
+    }
   }
-  
-      // ── Init map immediately — independent of activities ──
+
+  // Card labels and dates are baked in at render time, so rebuild them when
+  // the visitor switches language.
+  document.addEventListener('langchange', function () {
+    if (allActivities.length) renderCards(allActivities);
+  });
+
+  // Leaflet is deferred, so wait for the document before touching L or the DOM.
+  document.addEventListener('DOMContentLoaded', function () {
     if (typeof L !== 'undefined') {
-      const ITALY_BOUNDS = L.latLngBounds([35.5, 6.5], [47.1, 18.5]);
-      const EUROPE_BOUNDS = L.latLngBounds([34.0, -12.0], [72.0, 45.0]);      
-      const SWEDEN_BOUNDS = L.latLngBounds([30.0, 0.0], [75.0, 45.0]);
+      const EUROPE_BOUNDS = L.latLngBounds([34.0, -12.0], [72.0, 45.0]);
       const map = L.map('strava-map', {
         zoomControl: true,
         scrollWheelZoom: false,
@@ -2239,7 +2185,7 @@
       });
       map.fitBounds(EUROPE_BOUNDS);
 
-const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+      const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenTopoMap contributors',
         maxZoom: 20,
         opacity: 0.85
@@ -2274,8 +2220,8 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
         isBW = !isBW;
       });
 
+      // Kept visible until the activities actually arrive.
       const loadingEl = document.getElementById('map-loading');
-      if (loadingEl) loadingEl.remove();
 
       console.log('[Map] Fetching activities from /italy26/strava/activities.json');
       fetch('/italy26/strava/activities.json')
@@ -2286,8 +2232,10 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
         })
         .then(activities => {
           console.log('[Map] Loaded', activities.length, 'activities');
+          if (loadingEl) loadingEl.remove();
           renderCards(activities);
           const allCoords = [];
+          const decoded   = new Map();  // activity -> coords, so we decode each polyline once
           let drawn = 0;
           activities.forEach((activity, index) => {
             if (!activity.polyline) {
@@ -2299,6 +2247,7 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
               console.log('[Map] Skipping (empty decode):', activity.name);
               return;
             }
+            decoded.set(activity, coords);
             coords.forEach(c => allCoords.push(c));
             L.polyline(coords, {
               color:   '#111',
@@ -2336,7 +2285,7 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
             } else {
               path = [f.from, f.to];
             }
-            const ferryLine = L.polyline(path, {
+            L.polyline(path, {
               color:    '#2E5FA8',
               weight:   3,
               opacity:  0.85,
@@ -2368,14 +2317,12 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
 
 
           // ── START / END MARKERS ──
-          if (activities.length > 0) {
-            const sortedByDate = [...activities].slice().sort((a, b) => new Date(a.date) - new Date(b.date));
-            const firstWithCoords = sortedByDate.find(a => a.polyline && decodePolyline(a.polyline).length > 0);
-            const lastWithCoords  = [...sortedByDate].reverse().find(a => a.polyline && decodePolyline(a.polyline).length > 0);
+          if (decoded.size > 0) {
+            const sortedByDate = [...activities].sort((a, b) => new Date(a.date) - new Date(b.date));
+            const firstWithCoords = sortedByDate.find(a => decoded.has(a));
 
             if (firstWithCoords) {
-              const startCoord = decodePolyline(firstWithCoords.polyline)[0];
-              L.circleMarker(startCoord, {
+              L.circleMarker(decoded.get(firstWithCoords)[0], {
                 radius: 7,
                 color: '#fff',
                 weight: 2,
@@ -2383,18 +2330,17 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
                 fillOpacity: 1
               }).addTo(map).bindTooltip('Start', { permanent: false });
             }
-            if (lastWithCoords) {
-              // End marker placed in Florence — final leg of the trip was by train
-              const florenceCoord = [43.7764, 11.2486];
-              allCoords.push(florenceCoord);
-              L.circleMarker(florenceCoord, {
-                radius: 7,
-                color: '#fff',
-                weight: 2,
-                fillColor: '#a0503b',
-                fillOpacity: 1
-              }).addTo(map).bindTooltip('End — Florence', { permanent: false });
-            }
+
+            // End marker is fixed on Florence — the final leg of the trip was by train
+            const florenceCoord = [43.7764, 11.2486];
+            allCoords.push(florenceCoord);
+            L.circleMarker(florenceCoord, {
+              radius: 7,
+              color: '#fff',
+              weight: 2,
+              fillColor: '#a0503b',
+              fillOpacity: 1
+            }).addTo(map).bindTooltip('End — Florence', { permanent: false });
           }
 
           // ── Trip stats ──
@@ -2442,12 +2388,14 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
         })
         .catch(err => {
           console.error('[Map] Failed to load activities:', err);
+          if (loadingEl) loadingEl.remove();
           document.getElementById('strava-grid').innerHTML =
             '<div class="activity-card placeholder"><p>Could not load activities.</p></div>';
         });
     } else {
       document.getElementById('map-loading').textContent = 'Map could not load — Leaflet missing';
     }
+  });
   </script>
 
 
@@ -2456,21 +2404,19 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
   <script>
   // ══════════════════════════════════════════
   // BLOG GRID — loads from /blog/posts.json
-  // Shows the 3 most recently dated posts
+  // Renders the 4 most recent posts: CSS shows 3 on desktop, 2x2 on mobile.
   // ══════════════════════════════════════════
   (function() {
     const grid = document.getElementById('blog-grid');
     if (!grid) return;
 
-    fetch('/italy26/blog/posts.json')
-      .then(r => r.json())
-      .then(posts => {
-        const lang = localStorage.getItem('preferred-lang') || 'en';
+    function render(posts) {
+      const lang = localStorage.getItem('preferred-lang') || 'en';
 
-        const latest = posts
-          .slice()
-          .sort((a, b) => new Date(b.date) - new Date(a.date))
-          .slice(0, 3);
+      const latest = posts
+        .slice()
+        .sort((a, b) => new Date(b.date) - new Date(a.date))
+        .slice(0, 4);
 
         if (latest.length === 0) {
           grid.innerHTML = '<div class="blog-card" style="opacity:0.4;"><p class="blog-card-tag">No posts yet</p></div>';
@@ -2497,7 +2443,7 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
             excerpt = '<p class="blog-card-excerpt">' + (labels[lang] || labels.en) + '</p>';
           }
 
-          const href = 'blog/post.html?slug=' + post.slug;
+          const href = '/italy26/blog/post.html?slug=' + post.slug;
 
           // Try thumb first (small), fall back to full cover, then placeholder
           const thumbUrl = '/italy26/blog/posts/' + post.slug + '/cover_thumb.jpg';
@@ -2529,6 +2475,15 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
             + '</div>'
             + '</a>';
         }).join('');
+    }
+
+    fetch('/italy26/blog/posts.json')
+      .then(r => r.json())
+      .then(posts => {
+        render(posts);
+        // Titles and tags are picked per language at render time — redo them
+        // when the visitor switches language.
+        document.addEventListener('langchange', () => render(posts));
       })
       .catch(() => {
         grid.innerHTML = '<div class="blog-card" style="opacity:0.4;"><p class="blog-card-tag">Could not load posts</p></div>';
@@ -2559,13 +2514,19 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
 
   <script>
   // ── FOOTER ATTRIBUTION — index.html only ──
-  (function() {
-    const el = document.getElementById('footer-attribution');
-    if (!el) return;
-    el.innerHTML =
-      'Pizza illustration by <a href="https://www.freepik.com" target="_blank" rel="noopener">Freepik</a><br>' +
-      'Sun illustration by <a href="https://www.freepik.com" target="_blank" rel="noopener">Freepik</a>';
-  })();
+  // #footer-attribution is created by injectFooter() in main.js, which runs on
+  // its own DOMContentLoaded handler. main.js is deferred, so its handler is
+  // registered *after* this inline one and therefore fires after it — hence the
+  // extra tick, which puts this behind the footer injection.
+  document.addEventListener('DOMContentLoaded', function () {
+    setTimeout(function () {
+      const el = document.getElementById('footer-attribution');
+      if (!el) return;
+      el.innerHTML =
+        'Pizza illustration by <a href="https://www.freepik.com" target="_blank" rel="noopener">Freepik</a><br>' +
+        'Sun illustration by <a href="https://www.freepik.com" target="_blank" rel="noopener">Freepik</a>';
+    }, 0);
+  });
   </script>
 
 
@@ -2666,8 +2627,9 @@ const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
           var last    = data[0];
           var summEl  = document.getElementById('last-ride-summary');
           var linkEl  = document.getElementById('last-ride-link');
-          var km      = last.distance ? (last.distance / 1000).toFixed(1) : '—';
-          var elev    = last.total_elevation_gain ? Math.round(last.total_elevation_gain) : '—';
+          // activities.json stores distance in km and elevation as `elevation`
+          var km      = last.distance ? last.distance.toFixed(1) : '—';
+          var elev    = last.elevation ? Math.round(last.elevation) : '—';
           var name    = last.name || '—';
           if (summEl) summEl.textContent = name + ' · ' + km + ' km · ' + elev + ' m↑';
           if (linkEl && last.id)

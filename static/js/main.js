@@ -12,7 +12,6 @@ function getCurrentPage() {
   if (path.includes('italy2026'))                       return 'italy2026';
   if (path.includes('sweden2024'))                      return 'sweden2024';
   if (path.includes('donate'))                          return 'donate';
-  if (path.includes('flaskpost'))                       return 'flaskpost';
   if (path.includes('blog') && path.includes('post'))   return 'post';
   if (path.includes('blog'))                            return 'blog';
   if (path.includes('route'))                           return 'route';
@@ -45,12 +44,6 @@ const NAV_THEMES = {
     border:    'rgba(184,212,224,0.2)',
     link:      'rgba(184,212,224,0.7)',
     linkHover: '#FDFAF4',
-  },
-  'flaskpost': {
-    bg:        'rgba(42,31,18,0.96)',
-    border:    'rgba(200,169,126,0.2)',
-    link:      'rgba(200,169,126,0.65)',
-    linkHover: '#e0c49a',
   },
   'route': {
     bg:        'rgba(30,61,47,0.96)',
@@ -249,6 +242,10 @@ let currentLang = 'en';
 function applyLanguage(lang) {
   currentLang = lang;
 
+  // Keep <html lang> honest so screen readers and search engines know which
+  // language the page is actually in.
+  document.documentElement.lang = lang;
+
   document.querySelectorAll('[data-en]').forEach(el => {
     const translation = el.getAttribute('data-' + lang);
     if (translation) el.innerHTML = translation;
@@ -286,7 +283,6 @@ function injectPizzaScrollbar() {
     'post':       'sun.png',
     'sweden2024': 'mayflower.png',
     'route':     'tomato.png',
-    'flaskpost':  'flaskpost.png',
   };
   const thumbImage = PAGE_IMAGES[getCurrentPage()] || 'pizza.png';
 
