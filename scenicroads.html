@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Waymarker — mark the roads worth the detour</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+<style>
+  :root{
+    --ink:#20242b;
+    --paper:#f4f2ec;
+    --paper-line:#dcd8cc;
+    --text:#26241f;
+    --muted:#8a8577;
+    --purple:#7c3aed;
+    --amber:#e2963a;
+    --teal:#189a8a;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;height:100%;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--text);}
+  #app{display:flex;height:100vh;width:100vw;overflow:hidden;}
+
+  #sidebar{
+    width:320px;flex-shrink:0;background:var(--paper);
+    border-right:1px solid var(--paper-line);
+    display:flex;flex-direction:column;
+    padding:20px 18px;overflow-y:auto;
+  }
+  .brand h1{font-size:20px;margin:0 0 2px;letter-spacing:0.2px;}
+  .brand .tagline{margin:0 0 20px;font-size:12.5px;color:var(--muted);}
+
+  .section-label{
+    font-size:11px;text-transform:uppercase;letter-spacing:0.08em;
+    color:var(--muted);margin:18px 0 8px;font-weight:600;
+  }
+
+  .pens{display:flex;gap:8px;}
+  .pen{
+    flex:1;border:1.5px solid var(--paper-line);background:#fff;
+    border-radius:8px;padding:10px 6px 8px;cursor:pointer;
+    font-size:11px;color:var(--text);display:flex;flex-direction:column;
+    align-items:center;gap:6px;transition:transform .12s, box-shadow .12s;
+  }
+  .pen .tip{width:20px;height:8px;border-radius:3px;background:var(--c);display:block;}
+  .pen:hover{transform:translateY(-1px);}
+  .pen.active{border-color:var(--c);box-shadow:0 0 0 2px color-mix(in srgb, var(--c) 30%, transparent);font-weight:600;}
+
+  .controls{display:flex;flex-direction:column;gap:8px;margin-top:14px;}
+  button.ctrl{
+    border:1px solid var(--paper-line);background:#fff;border-radius:7px;
+    padding:9px 10px;font-size:13px;cursor:pointer;text-align:left;color:var(--text);
+  }
+  button.ctrl:hover{background:#fbfaf7;}
+  button.ctrl:disabled{opacity:0.4;cursor:default;}
+  button.primary{background:var(--ink);color:#fff;border-color:var(--ink);text-align:center;font-weight:600;}
+  button.primary:hover{background:#2f3440;}
+
+  .hint{font-size:12px;color:var(--muted);line-height:1.5;margin-top:14px;}
+
+  .save-row{margin-top:10px;display:flex;flex-direction:column;gap:8px;}
+  .save-row.hidden{display:none;}
+  .save-row input{
+    border:1px solid var(--paper-line);border-radius:7px;padding:8px 9px;font-size:13px;
+    font-family:inherit;
+  }
+
+  .log{margin-top:22px;border-top:1px dashed var(--paper-line);padding-top:14px;flex:1;}
+  .log h2{font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin:0 0 10px;font-weight:600;}
+  #logList{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;}
+  #logList li.empty{color:var(--muted);font-size:12.5px;}
+  .log-item{
+    display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--paper-line);
+    border-radius:7px;padding:8px 9px;
+  }
+  .log-item .swatch{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
+  .log-item .info{flex:1;min-width:0;}
+  .log-item .name{font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .log-item .dist{font-size:11px;color:var(--muted);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;}
+  .log-item .del{
+    border:none;background:none;color:var(--muted);cursor:pointer;font-size:15px;line-height:1;padding:2px 4px;
+  }
+  .log-item .del:hover{color:#b5453f;}
+
+  #map{flex:1;position:relative;}
+
+  .status{
+    position:absolute;top:14px;left:50%;transform:translateX(-50%);
+    background:var(--ink);color:#fff;font-size:12.5px;padding:7px 14px;
+    border-radius:20px;z-index:1000;box-shadow:0 3px 10px rgba(0,0,0,0.2);
+    transition:opacity .2s;
+  }
+  .status.hidden{opacity:0;pointer-events:none;}
+</style>
+</head>
+<body>
+<div id="app">
+  <aside id="sidebar">
+    <div class="brand">
+      <h1>Waymarker</h1>
+      <p class="tagline">Mark the roads worth the detour.</p>
+    </div>
+
+    <div class="section-label">Pick up a pen</div>
+    <div class="pens">
+      <button class="pen active" data-cat="purple" style="--c:var(--purple)"><span class="tip"></span>Must-ride</button>
+      <button class="pen" data-cat="amber" style="--c:var(--amber)"><span class="tip"></span>Good detour</button>
+      <button class="pen" data-cat="teal" style="--c:var(--teal)"><span class="tip"></span>Worth trying</button>
+    </div>
+
+    <div class="controls">
+      <button class="ctrl" id="undoBtn" disabled>← Undo last point</button>
+      <button class="ctrl" id="clearBtn" disabled>Clear current route</button>
+      <button class="ctrl primary" id="saveBtn" disabled>Save this stretch</button>
+    </div>
+
+    <div class="save-row hidden" id="saveRow">
+      <input id="nameInput" placeholder="Name this stretch…" />
+      <button class="ctrl primary" id="confirmSaveBtn">Add to log</button>
+    </div>
+
+    <p class="hint">Click the map to drop a point. Click again to extend the route — it'll stick to the same road rather than hopping to a shortcut and back.</p>
+
+    <div class="log">
+      <h2>Saved stretches</h2>
+      <ul id="logList"><li class="empty">Nothing saved yet.</li></ul>
+    </div>
+  </aside>
+
+  <div id="map"></div>
+  <div class="status hidden" id="status"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+// ---------- tunables ----------
+const ROAD_CONTINUITY_PENALTY = 0.6; // higher = stronger preference to stay on the current road
+const CATS = {
+  purple: { color: '#7c3aed', label: 'Must-ride' },
+  amber:  { color: '#e2963a', label: 'Good detour' },
+  teal:   { color: '#189a8a', label: 'Worth trying' },
+};
+let currentCat = 'purple';
+
+// ---------- map ----------
+const map = L.map('map', { zoomControl: true }).setView([64.7507, 20.9528], 13);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 19,
+  attribution: '&copy; OpenStreetMap contributors',
+}).addTo(map);
+
+const statusEl = document.getElementById('status');
+function setStatus(msg) {
+  if (!msg) { statusEl.classList.add('hidden'); return; }
+  statusEl.textContent = msg;
+  statusEl.classList.remove('hidden');
+}
+
+// ---------- road graph ----------
+const nodes = new Map();      // key -> {lat,lng}
+const adj = new Map();        // key -> [{to, dist, wayId, wayName}]
+const processedWays = new Set();
+
+function keyFor(lat, lng) { return lat.toFixed(5) + ',' + lng.toFixed(5); }
+
+function haversine(lat1, lon1, lat2, lon2) {
+  const R = 6371000;
+  const toRad = d => d * Math.PI / 180;
+  const dLat = toRad(lat2 - lat1), dLon = toRad(lon2 - lon1);
+  const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLon/2)**2;
+  return 2 * R * Math.asin(Math.sqrt(a));
+}
+
+function addNode(lat, lng) {
+  const key = keyFor(lat, lng);
+  if (!nodes.has(key)) nodes.set(key, { lat, lng });
+  return key;
+}
+
+function addEdgeBoth(keyA, keyB, dist, wayId, wayName) {
+  if (!adj.has(keyA)) adj.set(keyA, []);
+  if (!adj.has(keyB)) adj.set(keyB, []);
+  adj.get(keyA).push({ to: keyB, dist, wayId, wayName });
+  adj.get(keyB).push({ to: keyA, dist, wayId, wayName });
+}
+
+const OVERPASS_ENDPOINTS = [
+  'https://overpass-api.de/api/interpreter',
+  'https://overpass.kumi.systems/api/interpreter',
+  'https://lz4.overpass-api.de/api/interpreter',
+];
+
+function timeout(ms, label) {
+  return new Promise((_, reject) => setTimeout(() => reject(new Error(label + ' timed out')), ms));
+}
+
+async function fetchFromOverpass(query) {
+  let lastErr;
+  for (const url of OVERPASS_ENDPOINTS) {
+    const host = url.split('/')[2];
+    try {
+      const resp = await Promise.race([
+        fetch(url, { method: 'POST', body: 'data=' + encodeURIComponent(query) }),
+        timeout(8000, host),
+      ]);
+      if (!resp.ok) { lastErr = new Error(`${host} returned ${resp.status}`); continue; }
+      return await resp.json();
+    } catch (err) {
+      lastErr = err;
+    }
+  }
+  throw lastErr || new Error('all road data sources failed');
+}
+
+async function fetchRoads(bounds) {
+  const bbox = `${bounds.south},${bounds.west},${bounds.north},${bounds.east}`;
+  const query = `[out:json][timeout:15][maxsize:3000000];way["highway"~"^(secondary|tertiary|unclassified|residential|living_street|cycleway)$"](${bbox});out geom;`;
+  const data = await fetchFromOverpass(query);
+  for (const way of data.elements) {
+    if (way.type !== 'way' || !way.geometry || processedWays.has(way.id)) continue;
+    processedWays.add(way.id);
+    const name = (way.tags && (way.tags.name || way.tags.ref)) || ('way-' + way.id);
+    let prevKey = null;
+    for (const pt of way.geometry) {
+      const key = addNode(pt.lat, pt.lon);
+      if (prevKey && prevKey !== key) {
+        const a = nodes.get(prevKey), b = nodes.get(key);
+        const d = haversine(a.lat, a.lng, b.lat, b.lng);
+        if (d > 0) addEdgeBoth(prevKey, key, d, way.id, name);
+      }
+      prevKey = key;
+    }
+  }
+}
+
+function boundsForPoints(points) {
+  let south = 90, north = -90, west = 180, east = -180;
+  for (const p of points) {
+    south = Math.min(south, p.lat); north = Math.max(north, p.lat);
+    west = Math.min(west, p.lng); east = Math.max(east, p.lng);
+  }
+  const latSpan = Math.max(north - south, 0.0005);
+  const lngSpan = Math.max(east - west, 0.0005);
+  // small, fixed-feel margin — this app is for short one- or two-road
+  // stretches, not long multi-leg routes, so we don't need a big buffer
+  const marginLat = Math.max(latSpan * 0.3, 0.0025);
+  const marginLng = Math.max(lngSpan * 0.3, 0.0025);
+  return { south: south - marginLat, north: north + marginLat, west: west - marginLng, east: east + marginLng };
+}
+
+function nearestNode(lat, lng) {
+  let best = null, bestDist = Infinity;
+  for (const [key, pt] of nodes) {
+    const d = haversine(lat, lng, pt.lat, pt.lng);
+    if (d < bestDist) { bestDist = d; best = { key, lat: pt.lat, lng: pt.lng, dist: d }; }
+  }
+  return best;
+}
+
+// simple array-backed min-priority queue — fine at prototype graph sizes
+class MinHeap {
+  constructor() { this.arr = []; }
+  push(priority, item) {
+    this.arr.push({ priority, item });
+    this.arr.sort((a, b) => a.priority - b.priority);
+  }
+  pop() { return this.arr.shift(); }
+  isEmpty() { return this.arr.length === 0; }
+}
+
+// Dijkstra over state = (node, lastWayId) so the road-switch penalty is well-defined
+function findPath(startKey, endKey) {
+  const dist = new Map();
+  const prev = new Map();
+  const startState = startKey + '::__start__';
+  dist.set(startState, 0);
+  const heap = new MinHeap();
+  heap.push(0, { node: startKey, way: '__start__' });
+  const visited = new Set();
+  let goalState = null;
+
+  while (!heap.isEmpty()) {
+    const { priority: d, item: { node, way } } = heap.pop();
+    const state = node + '::' + way;
+    if (visited.has(state)) continue;
+    visited.add(state);
+    if (node === endKey) { goalState = state; break; }
+    const edges = adj.get(node) || [];
+    for (const e of edges) {
+      const switchCost = (way !== '__start__' && e.wayId !== way) ? ROAD_CONTINUITY_PENALTY : 0;
+      const cost = e.dist * (1 + switchCost);
+      const nd = d + cost;
+      const nstate = e.to + '::' + e.wayId;
+      if (!dist.has(nstate) || nd < dist.get(nstate)) {
+        dist.set(nstate, nd);
+        prev.set(nstate, state);
+        heap.push(nd, { node: e.to, way: e.wayId });
+      }
+    }
+  }
+  if (!goalState) return null;
+  const statePath = [];
+  let cur = goalState;
+  while (cur) { statePath.push(cur); cur = prev.get(cur); }
+  statePath.reverse();
+  return statePath.map(s => nodes.get(s.split('::')[0]));
+}
+
+function storageSet(key, value) {
+  try { localStorage.setItem(key, value); return true; } catch (e) { return false; }
+}
+function storageGetValue(key) {
+  const v = localStorage.getItem(key);
+  return v === null ? null : v;
+}
+function storageDelete(key) {
+  try { localStorage.removeItem(key); } catch (e) { /* ignore */ }
+}
+function storageListKeys(prefix) {
+  const keys = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    const k = localStorage.key(i);
+    if (k && k.startsWith(prefix)) keys.push(k);
+  }
+  return keys;
+}
+
+// ---------- route-building state ----------
+let waypoints = [];       // {lat,lng,key}
+let waypointMarkers = [];
+let routeSegments = [];   // array of [lat,lng] arrays, one per leg
+let legLayers = [];       // L.Polyline per leg
+const savedLayers = new Map(); // id -> L.Polyline
+
+function totalDistanceMeters(segments) {
+  let total = 0;
+  for (const seg of segments) {
+    for (let i = 1; i < seg.length; i++) {
+      total += haversine(seg[i-1][0], seg[i-1][1], seg[i][0], seg[i][1]);
+    }
+  }
+  return total;
+}
+
+function updateControlsState() {
+  document.getElementById('undoBtn').disabled = waypoints.length === 0;
+  document.getElementById('clearBtn').disabled = waypoints.length === 0;
+  document.getElementById('saveBtn').disabled = routeSegments.length === 0;
+}
+
+function resetCurrentRoute() {
+  waypointMarkers.forEach(m => map.removeLayer(m));
+  legLayers.forEach(l => map.removeLayer(l));
+  waypoints = []; waypointMarkers = []; routeSegments = []; legLayers = [];
+  updateControlsState();
+}
+
+map.on('click', async (e) => {
+  const { lat, lng } = e.latlng;
+
+  // First point: just drop it. No road data needed yet — we only need
+  // the graph once there's a second point to route to.
+  if (waypoints.length === 0) {
+    const wp = { lat, lng, key: null };
+    const marker = L.circleMarker([lat, lng], {
+      radius: 5, color: '#20242b', weight: 2, fillColor: '#fff', fillOpacity: 1,
+    }).addTo(map);
+    waypointMarkers.push(marker);
+    waypoints.push(wp);
+    updateControlsState();
+    return;
+  }
+
+  setStatus('Fetching roads…');
+  const prevWp = waypoints[waypoints.length - 1];
+  const b = boundsForPoints([prevWp, { lat, lng }]);
+  try {
+    await fetchRoads(b);
+  } catch (err) {
+    console.error('Waymarker: road fetch failed', err);
+    setStatus('Could not reach road data (' + err.message + ') — try again.');
+    setTimeout(() => setStatus(''), 3500);
+    return;
+  }
+
+  // Snap the previous point now, if it hasn't been snapped yet.
+  if (!prevWp.key) {
+    const prevSnap = nearestNode(prevWp.lat, prevWp.lng);
+    if (!prevSnap || prevSnap.dist > 300) {
+      setStatus('No mapped road found near your start point.');
+      setTimeout(() => setStatus(''), 2800);
+      return;
+    }
+    prevWp.lat = prevSnap.lat; prevWp.lng = prevSnap.lng; prevWp.key = prevSnap.key;
+    waypointMarkers[waypointMarkers.length - 1].setLatLng([prevWp.lat, prevWp.lng]);
+  }
+
+  const snap = nearestNode(lat, lng);
+  if (!snap || snap.dist > 300) {
+    setStatus('No mapped road found nearby — try clicking closer to a road.');
+    setTimeout(() => setStatus(''), 2800);
+    return;
+  }
+  const newWp = { lat: snap.lat, lng: snap.lng, key: snap.key };
+  if (prevWp.key === newWp.key) { setStatus(''); return; }
+
+  const pathNodes = findPath(prevWp.key, newWp.key);
+  if (!pathNodes) {
+    setStatus('No connected route found between those points.');
+    setTimeout(() => setStatus(''), 2800);
+    return;
+  }
+  const latlngs = pathNodes.map(n => [n.lat, n.lng]);
+  const leg = L.polyline(latlngs, { color: CATS[currentCat].color, weight: 5, opacity: 0.9 }).addTo(map);
+  legLayers.push(leg);
+  routeSegments.push(latlngs);
+
+  const marker = L.circleMarker([newWp.lat, newWp.lng], {
+    radius: 5, color: '#20242b', weight: 2, fillColor: '#fff', fillOpacity: 1,
+  }).addTo(map);
+  waypointMarkers.push(marker);
+  waypoints.push(newWp);
+  setStatus('');
+  updateControlsState();
+});
+
+document.getElementById('undoBtn').addEventListener('click', () => {
+  if (waypoints.length === 0) return;
+  waypoints.pop();
+  const m = waypointMarkers.pop();
+  if (m) map.removeLayer(m);
+  if (legLayers.length) {
+    const l = legLayers.pop();
+    map.removeLayer(l);
+    routeSegments.pop();
+  }
+  updateControlsState();
+});
+
+document.getElementById('clearBtn').addEventListener('click', resetCurrentRoute);
+
+// pen selection — recolors the in-progress route too
+document.querySelectorAll('.pen').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.pen').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentCat = btn.dataset.cat;
+    legLayers.forEach(l => l.setStyle({ color: CATS[currentCat].color }));
+  });
+});
+
+// ---------- saving ----------
+const saveBtn = document.getElementById('saveBtn');
+const saveRow = document.getElementById('saveRow');
+const nameInput = document.getElementById('nameInput');
+
+saveBtn.addEventListener('click', () => {
+  saveRow.classList.remove('hidden');
+  nameInput.focus();
+});
+
+document.getElementById('confirmSaveBtn').addEventListener('click', async () => {
+  const name = nameInput.value.trim() || 'Untitled stretch';
+  const latlngs = routeSegments.flat();
+  const distanceKm = +(totalDistanceMeters(routeSegments) / 1000).toFixed(1);
+  const id = 'stretch_' + Date.now();
+  const record = { id, name, category: currentCat, latlngs, distanceKm, createdAt: Date.now() };
+  const ok = storageSet(id, JSON.stringify(record));
+  if (!ok) {
+    setStatus('Could not save — try again.');
+    setTimeout(() => setStatus(''), 2500);
+    return;
+  }
+  drawSavedStretch(record);
+  addLogItem(record);
+  resetCurrentRoute();
+  saveRow.classList.add('hidden');
+  nameInput.value = '';
+});
+
+function drawSavedStretch(record) {
+  const layer = L.polyline(record.latlngs, {
+    color: CATS[record.category].color, weight: 4, opacity: 0.85,
+  }).bindTooltip(`${record.name} · ${record.distanceKm} km`).addTo(map);
+  savedLayers.set(record.id, layer);
+}
+
+function addLogItem(record) {
+  const list = document.getElementById('logList');
+  const empty = list.querySelector('.empty');
+  if (empty) empty.remove();
+  const li = document.createElement('li');
+  li.className = 'log-item';
+  li.dataset.id = record.id;
+  li.innerHTML = `
+    <span class="swatch" style="background:${CATS[record.category].color}"></span>
+    <span class="info">
+      <div class="name">${escapeHtml(record.name)}</div>
+      <div class="dist">${record.distanceKm} km · ${CATS[record.category].label}</div>
+    </span>
+    <button class="del" title="Delete">×</button>
+  `;
+  li.querySelector('.del').addEventListener('click', () => deleteStretch(record.id));
+  list.appendChild(li);
+}
+
+async function deleteStretch(id) {
+  storageDelete(id);
+  const layer = savedLayers.get(id);
+  if (layer) { map.removeLayer(layer); savedLayers.delete(id); }
+  const li = document.querySelector(`.log-item[data-id="${id}"]`);
+  if (li) li.remove();
+  const list = document.getElementById('logList');
+  if (!list.querySelector('.log-item')) {
+    list.innerHTML = '<li class="empty">Nothing saved yet.</li>';
+  }
+}
+
+function escapeHtml(s) {
+  return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+async function loadSaved() {
+  const keys = storageListKeys('stretch_');
+  for (const key of keys) {
+    try {
+      const value = storageGetValue(key);
+      if (value) {
+        const record = JSON.parse(value);
+        drawSavedStretch(record);
+        addLogItem(record);
+      }
+    } catch (err) { /* skip broken entries */ }
+  }
+}
+loadSaved();
+</script>
+</body>
+</html>
