@@ -1,46 +1,61 @@
 ---
 type: journal
-date: 2026-MM-DD
-day: X
-location: Stad, Region
-km: 0
-elevation: 0
+date: 2026-06-01
+day: 23
+location: Fragagnano, Puglia
+km: 135
+elevation: 867
 title:
-  en: Day X
-  sv: Dag X
-  it: Giorno X
+  en: Day 23 - Southern Italy's most boring area
+  sv: Dag 23 - Syditaliens tråkigaste område
+  it: Giorno 23 - La parte piu noioso del Sud
 captions:
   photo1: Bildtext för andra bilden (valfri)
   photo2: Bildtext för tredje bilden (valfri)
 ---
 
 # The day in short
-Guess what!? This day also began with an absurd amount of pastries. To be able to eat such good pastries for such a humble price is a dream come true. The rest of the day was not very dreamy though... Aftre just a few kilometers I had taken the wrong road three times and the amount of alternative roads along the large highwway were lacklustre. When I reached Policoro I went into town to see one of the famous ancient Greek temples. The temples are remnants of some greek people from the border to Albania, who probably sought new land and ventured overseas to settle in the southern tip of italy in modern day Calabria, Basilicata and Puglia. The rest of the day was pretty much about following the highway towards Taranto, in Puglia, without actually going on the highway itself. This was the most boring stretch of the entire trip and apart from pinching a few oranges and sipping a cold ice tea in a highway service station there was not much to cheer for until I reached Taranto. I rushed to reach Taranto and when I finally did, I enjoyed a large pizza. The restaurant's wide umbrella gave shade but helped little against the heat which came reflected on me by the bright yellow stone pavement. The entire city was rather beautiful but I felt the need to get out. As a large port city, going along the coast was not the easiest and there were few obvious routes for bikers like me. When I finally came out I was schocked by the flatness of Puglia, I have not had many days with less than 1000m climbed. As evening approached I felt the need to find housing for hte night; the land in Puglia is open and mostly cultivated and I didn't feel keen on fining a spot to wildcamp. I needed a safe and good night's sleep. I found a B&B in Fragagnano, one of literally countless smaller settlements on the Puglian peninsula. Towns the size of my hometown Götene are scattered across the peninsula, with olive plantations and vineyards in between. The shores are mostly engulfed, not by beach resorts but by villages. Southwest Puglia seems like a popular destination for Italians, in contrast to the trulli-dense Northern Puglia. I got informed that Festa della Reppublica is tomorrow, and tonight, all teenagers and kids across Italy arrange their own parties, often at the beach. Such a nice tradition! I actually witnessed one of them myself, as I asked some young kids for water. I was surprised to see about 20 kids play football, eat dinner, and being mixed in all ages from ages 8-20 without any parents nearby. At the B&B, I was given fresh lemons from the hosts' garden. They had sooo many lemons coming form just one tree, amazing. Super intense flavour! Buona notte.
+Let me be dramatic about this, because I would have never guessed this would ever happen:
+
+<q> I was woken up 03:45 in the night by a cat jumping straight onto my face. </q> <br> <br>
+
+Yes. It is true. I was mid-slumber, in the deepest of deep sleep. Suddenly I felt the tent crash/bend inwards all the way to my face and chest. It felt like someone punched me with a pillow, not a soft pillow but one of the more solid kind. I woke up in a split-second, kickstarted by some kind of ancient instinct. I felt an adrenaline rush, scanning the surroundings for danger. But there was no big animal, no man or clown with a chainsaw. 
+I took another round looking through the tent's netted windows. On the flat beach I didn't see anything except for some shrubs and patches of tall grass. THen I saw it. A cat. After thinking for a while I concluded that the cat must have jumped on top of my tent for whatever reason, thinking it was a solid object. Then, it must have fallen through straight on my face. What an incredible way to wake up... 
+After sleeping for a couple more hours I packed up and left around 9. I felt like I was being watched by someone just before I left, while refilling my water bottles. It was the red cat, lurking in the tall grass inside the forest.
+
+<br> <br>
+Out of all 40 days, this was the only day I didn't enjoy, and it is not only the rogue cat's fault. There was just not much to enjoy.
+The day was spent alongside the E90 highway. The alternative roads were randomly drawn along the highway and at some points I made some bad road choices. I accidentally went onto the highway ramps twice, but kind italian drivers honked at meto tell me it was the wrong way. I neglected buying food before the pausa (Italian siesta) once again, leading me to be without food from 10 to 16. These hours were spent beneath a blue-sky blazing sun at 29 degrees.
+Understandably, I never met a single cyclist along this road because it is not very scenic nor bike-friendly. Took a swim to cool myself down midday, saw a couple of Greek temples (very cool!) and some castles, but also some industruous areas. When I finally reached Taranto I treated myself with a nice pizza with mozzarella di bufala. 10/10. The evening was spent on trying to get out of the bustling city, making even more wrong turns and getting frustrated at the infrastructure... When I finally got out I biked through a couple pretty villages. <br>
+I met a group of teens celebrating an interesting tradition. Tomorrow, 2 june, is a holiday, festa della Reppublica, celebrating Italy's independence after the WW2. The night before teens all over Italy gather at the beached to socialise and have fun. They offered me some water and were impressed by my Italian. I've mostly spoken to elder people during the journey so it was fun to speak to some of the younger. <br> 
+They were brimming with energy, in all ages from 8-19. For a Swede, it is unusual to see this age range coming together in such a way. I don't know if it was representative but deifinitively interesting. At the B&B I was welcomed warmly and offered to take lemons fresh out of the lemon tree on the miniscule courtyard. The best lemons I've ever had, likely because I had spent the entire day in the southern heat. After tenting two nights in a row, I slept very well this night.
+
+<br> I would say this particular area of Italy is mostly like a transit between east and west of the appenine mountains. Everything is kind of adapted to the highway, cutting through along the ionian coast. Beaches are nice but I didn't enjoy it a lot otherwise. People told me this yesterday and I get it now.
 
 ## Weather
-Hot and fairly dry, 28 degrees.
+Sunny, about 27-31 degrees.
 
 ## How did my body feel?
-Fresh but severely slowed down by the heat... I don't want to become fatigued so I was taking it easy.
+Fairly okay but I really longed for a good night's sleep.
 
 ## Best moment of the day
-Pastry breakfast!
+I forgot to write this but I had only cookies and pastries for breakfast once again and it was amazing!
 
 [photo:1]
 
 ## People I met
-Today may have been the first day I didn't talk particularly much with anyone.
+The bakers of the pasticcieria, the staff at the gas station, and the teenagers. But overall I spent much time alone, struggling with the heat.
 
 ## What did I eat?
-Pastries and cookies for breakfast, a panino for lunch and a large pizza early afternoon. For the evening I had some salami, bread and fresh lemon juice.
+Lots of pastries and cookies for breakfast, a pizza for dinner and the last bit of the calabrian salami. And of course some ice cream!
 
 ## Landscape & nature
-A very ugly highway strips through the relatively flat jonian coast. I liked the orange, lemon, olive, and apricot orchards. Many small villages along the coast 
+Landscape shifted from lemon trees and beaches along the ionian coast to olive trees and dry grassy hills in Puglia.
 
 [photo:2]
 
 ## Smells & details
-Exhaust and pollution outside Taranto, reminded me of the area outside Catania.
+Don't remember anything special.
 
 ## How do I feel overall?
-Feeling a tired but happy.
+Felt a bit disappointed from today's experiences, but hopeful for what the coming weeks has to offer! I realised somehow that this might be the worst stretch of the adventure and I was right in hindsight.
