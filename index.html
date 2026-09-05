@@ -363,6 +363,30 @@
     /* Keep the copy above the wash. */
     .journey-card.italy .journey-body > * { position: relative; z-index: 1; }
 
+    /* Sweden flies its own flag, but permanently and very faint: a Nordic cross
+       drawn with two gradient bands over the blue field. Official proportions,
+       5:2:9 across and 4:2:4 down. It lifts a little on hover so the card
+       answers the pointer the way the Italy one does. */
+    .journey-card.sweden .journey-body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background:
+        linear-gradient(to right,
+          transparent 0 31.25%, #FECC00 31.25% 43.75%, transparent 43.75% 100%),
+        linear-gradient(to bottom,
+          transparent 0 40%, #FECC00 40% 60%, transparent 60% 100%),
+        #006AA7;
+      opacity: 0.10;
+      transition: opacity 0.4s ease;
+    }
+    .journey-card.sweden:hover .journey-body::before,
+    .journey-card.sweden:focus-visible .journey-body::before {
+      opacity: 0.22;
+    }
+    .journey-card.sweden .journey-body > * { position: relative; z-index: 1; }
+
     .journey-year {
       font-family: 'DM Mono', monospace;
       font-size: 0.63rem;
@@ -431,13 +455,13 @@
       margin: 0 auto;
       padding: 5.5rem 3rem;
       display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 3rem;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
       align-items: center;
     }
 
-    /* Centre the donate button inside its column, and inside the full width
-       once the grid stacks on mobile. */
+    /* The button gets its own full-width row so it centres against the section
+       rather than sitting in a shrink-to-fit column at the right edge. */
     .support-action {
       display: flex;
       justify-content: center;
@@ -595,9 +619,9 @@
       </h1>
 
       <p class="hero-sub"
-         data-en="I like to explore new locations by bicycle and write down what happens along the road. So far that adds up to <strong data-total="km-unit"></strong> across Italy, Sweden and Lofoten: a tent, more climbing than planned, and a lot of people I would never have met through a car or train window.<br><br>Check out my adventures!"
-         data-sv="Jag tycker om att utforska nya platser på cykel och skriva ner det som händer längs vägen. Hittills har det blivit <strong data-total="km-unit"></strong> genom Italien, Sverige och Lofoten: ett tält, fler höjdmeter än planerat, och en massa människor jag aldrig hade mött genom en bil- eller tågruta.<br><br>Kom och se mina äventyr!"
-         data-it="Mi piace esplorare posti nuovi in bicicletta e scrivere ciò che accade lungo la strada. Finora fanno <strong data-total="km-unit"></strong> tra Italia, Svezia e Lofoten: una tenda, più dislivello del previsto, e tantissime persone che non avrei mai incontrato dal finestrino di un'auto o di un treno.<br><br>Dai un'occhiata alle mie avventure!">
+         data-en="I like to explore new locations by bicycle and write down what happens along the road. So far that adds up to <strong data-total=&quot;km-unit&quot;></strong> across Italy, Sweden and Lofoten: a tent, more climbing than planned, and a lot of people I would never have met through a car or train window.<br><br>Check out my adventures!"
+         data-sv="Jag tycker om att utforska nya platser på cykel och skriva ner det som händer längs vägen. Hittills har det blivit <strong data-total=&quot;km-unit&quot;></strong> genom Italien, Sverige och Lofoten: ett tält, fler höjdmeter än planerat, och en massa människor jag aldrig hade mött genom en bil- eller tågruta.<br><br>Kom och se mina äventyr!"
+         data-it="Mi piace esplorare posti nuovi in bicicletta e scrivere ciò che accade lungo la strada. Finora fanno <strong data-total=&quot;km-unit&quot;></strong> tra Italia, Svezia e Lofoten: una tenda, più dislivello del previsto, e tantissime persone che non avrei mai incontrato dal finestrino di un'auto o di un treno.<br><br>Dai un'occhiata alle mie avventure!">
         I like to explore new locations by bicycle and write down what happens along the road. So far that adds up to <strong data-total="km-unit"></strong> across Italy, Sweden and Lofoten: a tent, more climbing than planned, and a lot of people I would never have met through a car or train window.<br><br>Check out my adventures!
       </p>
 
