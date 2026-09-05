@@ -281,6 +281,12 @@
       margin-bottom: 1.2rem;
     }
 
+    /* Opt-in centred section heading: used by Journeys. */
+    .section-centred .section-tag,
+    .section-centred .section-title { text-align: center; }
+    .section-centred .section-divider { margin-left: auto; margin-right: auto; }
+    .section-centred .section-intro  { margin-left: auto; margin-right: auto; text-align: center; }
+
     .section-divider {
       width: 220px;
       height: 1px;
@@ -458,7 +464,10 @@
       grid-template-columns: 1fr;
       gap: 2.5rem;
       align-items: center;
+      text-align: center;
     }
+    /* The copy is capped for readability, so centre the block itself too. */
+    .support-inner .support-text { margin-left: auto; margin-right: auto; }
 
     /* The button gets its own full-width row so it centres against the section
        rather than sitting in a shrink-to-fit column at the right edge. */
@@ -713,7 +722,7 @@
   </div>
 
   <!-- ══ JOURNEYS ══ -->
-  <section id="journeys">
+  <section id="journeys" class="section-centred">
     <p class="section-tag"
        data-en="// The trips" data-sv="// Resorna" data-it="// I viaggi">// The trips</p>
     <h2 class="section-title"
