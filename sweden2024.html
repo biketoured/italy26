@@ -154,6 +154,43 @@
       z-index: 2;
     }
 
+    /* ── DAYS ON THE ROAD ──
+       Sits bottom-left, opposite the stat column, the way the post-trip
+       counter does on italy2026.html. Colours are the page's existing hero
+       tokens, so nothing new is introduced. */
+    .hero-days {
+      position: absolute;
+      bottom: 3rem; left: 3rem;
+      text-align: left;
+      z-index: 3;
+    }
+
+    .hero-days-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--yellow-soft);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-days-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .hero-days-unit {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--yellow-soft);
+      margin-top: 0.3rem;
+    }
+
     .stat { text-align: right; }
 
     .stat-number {
@@ -171,12 +208,14 @@
       color: var(--yellow-soft);
     }
 
+    /* Lifted and trimmed a little from the old centred 500px so the bottom of
+       the panel is free for the days counter and the stat column. */
     .hero-photo {
       position: absolute;
-      top: 50%; left: 50%;
+      top: 42%; left: 50%;
       transform: translate(-50%, -50%);
-      width: 500px;
-      height: 500px;
+      width: 420px;
+      height: 420px;
       object-fit: cover;
       border-radius: 50%;
     }
@@ -556,7 +595,39 @@
       .strava-inner { padding: 0 1.5rem; }
       .strava-grid { grid-template-columns: 1fr; }
       .activities-grid { grid-template-columns: 1fr; }
-      .hero-photo { width: 160px; height: 160px; top: 50%; left: 2rem; transform: translateY(-50%); }
+      /* ── MOBILE HERO PANEL ──
+         Absolute positioning has nowhere to go at this width, so the panel
+         becomes an ordinary stacked column: photo, days counter, then the
+         three figures in a single row underneath. */
+      .hero-right {
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.75rem;
+        padding: 2.5rem 1.5rem 3rem;
+      }
+      .hero-photo {
+        position: static;
+        transform: none;
+        width: 190px; height: 190px;
+      }
+      .hero-days { position: static; text-align: center; }
+      .hero-days-number { font-size: 3.6rem; }
+
+      .hero-stats {
+        position: static;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 1.5rem 2rem;
+        width: 100%;
+      }
+      .stat { text-align: center; }
+      .stat-number { font-size: 1.9rem; }
+      .stat-label  { font-size: 0.62rem; letter-spacing: 0.1em; }
+
       footer { flex-direction: column; gap: 1rem; text-align: center; }
       .trip-stats {
         display: grid;
@@ -631,30 +702,48 @@
         <path d="M0,500 Q100,420 200,440 Q300,460 420,340 Q520,220 600,300 L600,600 L0,600 Z" fill="none" stroke="#B8D4E0" stroke-width="0.5"/>
       </svg>
       <img src="assets/images/heroswe.jpg" alt="Profile photo" class="hero-photo" />
+
+      <!-- Days on the road, sitting to the left of the stat column. Mirrors the
+           post-trip widget on italy2026.html. -->
+      <div class="hero-days">
+        <div class="hero-days-label"
+             data-en="Trip completed"
+             data-sv="Resan avslutad"
+             data-it="Viaggio completato">Trip completed</div>
+        <div class="hero-days-number" id="hero-stat-days">&nbsp;</div>
+        <div class="hero-days-unit"
+             data-en="days of adventure"
+             data-sv="äventyrsdagar"
+             data-it="giorni di avventura">days of adventure</div>
+      </div>
+
+      <!-- Same three figures, in the same order, as the Italy 2026 hero. -->
       <div class="hero-stats">
         <div class="stat">
-          <div class="stat-number" id="hero-stat-dist">—</div>
+          <div class="stat-number" id="hero-stat-elev">&nbsp;</div>
           <div class="stat-label"
-               data-en="km ridden"
-               data-sv="km cyklade"
-               data-it="km percorsi">
-               km ridden</div>
+               data-en="meters climbed"
+               data-sv="höjdmeter"
+               data-it="metri di dislivello">
+               meters climbed</div>
         </div>
         <div class="stat">
-          <div class="stat-number" id="hero-stat-elev">—</div>
+          <div class="stat-number" id="hero-stat-dist">&nbsp;</div>
           <div class="stat-label"
-               data-en="m elevation"
-               data-sv="m höjdmeter"
-               data-it="m dislivello">
-               m elevation</div>
+               data-en="km"
+               data-sv="km"
+               data-it="km">
+               km</div>
         </div>
-        <div class="stat">
-          <div class="stat-number" id="hero-stat-rides">—</div>
+        <!-- Hidden until the Strava export for this trip carries heart-rate
+             data; the script below unhides it as soon as it does. -->
+        <div class="stat" id="hero-stat-beats-box" hidden>
+          <div class="stat-number" id="hero-stat-beats">&nbsp;</div>
           <div class="stat-label"
-               data-en="rides"
-               data-sv="etapper"
-               data-it="tappe">
-               rides</div>
+               data-en="million heartbeats"
+               data-sv="miljoner hjärtslag"
+               data-it="millioni battiti cardiaci">
+               million heartbeats</div>
         </div>
       </div>
     </div>
@@ -982,13 +1071,40 @@
         if (eEl) eEl.textContent = totalElev.toLocaleString('sv-SE') + ' m';
         if (tEl) tEl.textContent = totalH + 'h ' + totalM + 'm';
 
-        // Hero stats
+        // ── Hero stats: elevation, km and heartbeats, matching italy2026.html,
+        //    with the number of days on the road alongside them.
         const hd = document.getElementById('hero-stat-dist');
         const he = document.getElementById('hero-stat-elev');
-        const hr = document.getElementById('hero-stat-rides');
         if (hd) hd.textContent = totalDist.toFixed(0);
         if (he) he.textContent = totalElev.toLocaleString('sv-SE');
-        if (hr) hr.textContent = activities.length;
+
+        // Days on the road: first ride to last ride, both ends counted.
+        const days = document.getElementById('hero-stat-days');
+        if (days) {
+          const stamps = activities
+            .map(a => Date.parse(a.date))
+            .filter(t => !isNaN(t));
+          if (stamps.length) {
+            const span = Math.max(...stamps) - Math.min(...stamps);
+            days.textContent = Math.round(span / 86400000) + 1;
+          }
+        }
+
+        // Heartbeats. fetch_strava.py stores this per activity; where an older
+        // export only has avg_hr, derive it the same way the script does. If
+        // neither is present the whole stat stays hidden rather than showing an
+        // empty slot.
+        const totalBeats = activities.reduce((s, a) => {
+          if (a.heartbeats) return s + a.heartbeats;
+          if (a.avg_hr && a.moving_time) return s + a.avg_hr * (a.moving_time / 60);
+          return s;
+        }, 0);
+        const hb    = document.getElementById('hero-stat-beats');
+        const hbBox = document.getElementById('hero-stat-beats-box');
+        if (hb && hbBox && totalBeats > 0) {
+          hb.textContent = (totalBeats / 1000000).toFixed(1);
+          hbBox.hidden = false;
+        }
 
         const allCoords = [];
         activities.forEach((activity, index) => {

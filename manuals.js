@@ -6,6 +6,17 @@
 //  Loaded in <head> of index.html and donate.html before other scripts.
 // ══════════════════════════════════════════════════════════════
 
+// ── TRIPS ──
+// One entry per finished journey. index.html reads these for the cards in the
+// Journeys section and adds them up for the totals strip and the hero line, so
+// this is the only place the numbers need editing. Add a new trip here when it
+// is done and every figure on the front page follows.
+// km and elevation are whole numbers; days is the length of the trip.
+const TRIPS = {
+  italy2026:  { km: 4270, elevation: 60337, days: 40 },
+  sweden2024: { km: 3518, elevation: 28896, days: 32 },
+};
+
 // ── DONATIONS ──
 const SEK = 28087;
 const DONATION_TOTAL = Math.round(SEK);  // SEK total (EUR*11 ≈ conversion)

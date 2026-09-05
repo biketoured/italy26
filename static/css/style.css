@@ -256,6 +256,24 @@ footer p {
   text-transform: uppercase;
 }
 
+/* Stacks the credit line and the AI disclosure so the footer keeps its
+   three-across layout instead of spreading into four columns. */
+.footer-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  align-items: center;
+  text-align: center;
+}
+
+/* Set as a sentence rather than in caps: it is a disclosure, not a label. */
+footer p.footer-ai {
+  text-transform: none;
+  letter-spacing: 0.04em;
+  font-size: 0.62rem;
+  opacity: 0.72;
+}
+
 /* ── ANIMATION ── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(40px); }

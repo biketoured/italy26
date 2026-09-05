@@ -5,13 +5,13 @@
   <link rel="icon" href="/italy26/assets/images/wheel.png" type="image/png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Edvard Appelberg, Swedish cyclist and adventurer. Long-distance bikepacking journeys across Italy, Sweden and Lofoten, with route maps, photos and a journal from the road.">
+  <meta name="description" content="Edvard Appelberg Bikepacking adventures.">
   <meta name="author" content="Edvard Appelberg">
   <!-- Let Google show a full-size photo preview rather than a cropped thumbnail -->
   <meta name="robots" content="max-image-preview:large">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Edvard Appelberg | Bikepacking &amp; Adventures">
-  <meta property="og:description" content="Swedish cyclist and adventurer. Long-distance bikepacking journeys across Italy, Sweden and Lofoten, with route maps, photos and a journal from the road.">
+  <meta property="og:description" content="Swedish cyclist and adventurer. Long-distance bikepacking journeys with route maps, photos and a journal from the road.">
   <meta property="og:image" content="https://biketoured.github.io/italy26/assets/images/profilesquare2.jpg">
   <meta property="og:url" content="https://biketoured.github.io/italy26/">
   <link rel="canonical" href="https://biketoured.github.io/italy26/">
@@ -63,8 +63,6 @@
        Deliberately quieter and airier than the trip pages: soft
        bands of colour from the shared palette, cream and stone
        type on top, and a lot of room around everything.
-       No Italy-specific ornament lives here any more; that moved
-       to italy2026.html along with the rest of the trip page.
        ══════════════════════════════════════════════════════════ */
 
     /* Page-local creams. The shared --white (#FDFAF4) was reading as a flat
@@ -167,6 +165,23 @@
 
     .btn-stone  { color: var(--stone); }
     .btn-stone:hover  { background: var(--stone); color: var(--green); }
+
+    /* Italy raises its own flag on hover. The tricolour is laid over the stone
+       fill rather than used at full strength, so all three bands stay light
+       enough for the dark green label to read across them. Declared after
+       .btn-stone:hover so it wins on source order. */
+    .btn-tricolore:hover {
+      background:
+        linear-gradient(90deg,
+          rgba(0,140,69,0.38)   0      33.33%,
+          rgba(255,255,255,0.38) 33.33% 66.66%,
+          rgba(205,33,42,0.38)  66.66% 100%),
+        var(--stone);
+      color: var(--green);
+      border-color: var(--stone);
+    }
+
+    .btn-red:hover { background: var(--red); color: var(--white); border-color: var(--red); }
 
     .btn-cream  { color: var(--white); }
     .btn-cream:hover  { background: var(--white); color: var(--sky-deep); }
@@ -325,27 +340,28 @@
       position: relative;
     }
 
-    /* Italy raises its own flag when the card is highlighted: a tricolour
-       rule that wipes in across the top of the text box. */
+    /* Italy raises its own flag when the card is highlighted: the tricolour
+       fades in behind the whole text box. It is laid over the card cream at
+       low strength so all three bands stay light and the text keeps reading
+       across them. */
     .journey-card.italy .journey-body::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 1.75rem;
-      right: 1.75rem;
-      height: 3px;
+      inset: 0;
+      z-index: 0;
       background: linear-gradient(90deg,
-        #008C45 0 33.33%,
-        #F4F5F0 33.33% 66.66%,
-        #CD212A 66.66% 100%);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s ease;
+        rgba(0,140,69,0.22)    0      33.33%,
+        rgba(255,255,255,0.22) 33.33% 66.66%,
+        rgba(205,33,42,0.22)   66.66% 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
     }
     .journey-card.italy:hover .journey-body::before,
     .journey-card.italy:focus-visible .journey-body::before {
-      transform: scaleX(1);
+      opacity: 1;
     }
+    /* Keep the copy above the wash. */
+    .journey-card.italy .journey-body > * { position: relative; z-index: 1; }
 
     .journey-year {
       font-family: 'DM Mono', monospace;
@@ -418,6 +434,13 @@
       grid-template-columns: 1fr auto;
       gap: 3rem;
       align-items: center;
+    }
+
+    /* Centre the donate button inside its column, and inside the full width
+       once the grid stacks on mobile. */
+    .support-action {
+      display: flex;
+      justify-content: center;
     }
 
     .support-title {
@@ -572,16 +595,16 @@
       </h1>
 
       <p class="hero-sub"
-         data-en="I ride bicycles a very long way and write down what happens along the road. So far that adds up to <strong>7,788 km</strong> across Italy, Sweden and Lofoten: a tent, more climbing than planned, and a lot of people I would never have met through a train window.<br><br>This is where the routes, the numbers and the journal live."
-         data-sv="Jag cyklar väldigt långt och skriver ner det som händer längs vägen. Hittills har det blivit <strong>7 788 km</strong> genom Italien, Sverige och Lofoten: ett tält, fler höjdmeter än planerat, och en massa människor jag aldrig hade mött genom ett tågfönster.<br><br>Här samlar jag rutterna, siffrorna och dagboken."
-         data-it="Pedalo per distanze molto lunghe e scrivo ciò che accade lungo la strada. Finora fanno <strong>7.788 km</strong> tra Italia, Svezia e Lofoten: una tenda, più dislivello del previsto, e tantissime persone che non avrei mai incontrato dal finestrino di un treno.<br><br>Qui trovi i percorsi, i numeri e il diario.">
-        I ride bicycles a very long way and write down what happens along the road. So far that adds up to <strong>7,788 km</strong> across Italy, Sweden and Lofoten: a tent, more climbing than planned, and a lot of people I would never have met through a train window.<br><br>This is where the routes, the numbers and the journal live.
+         data-en="I like to explore new locations by bicycle and write down what happens along the road. So far that adds up to <strong data-total="km-unit"></strong> across Italy, Sweden and Lofoten: a tent, more climbing than planned, and a lot of people I would never have met through a car or train window.<br><br>Check out my adventures!"
+         data-sv="Jag tycker om att utforska nya platser på cykel och skriva ner det som händer längs vägen. Hittills har det blivit <strong data-total="km-unit"></strong> genom Italien, Sverige och Lofoten: ett tält, fler höjdmeter än planerat, och en massa människor jag aldrig hade mött genom en bil- eller tågruta.<br><br>Kom och se mina äventyr!"
+         data-it="Mi piace esplorare posti nuovi in bicicletta e scrivere ciò che accade lungo la strada. Finora fanno <strong data-total="km-unit"></strong> tra Italia, Svezia e Lofoten: una tenda, più dislivello del previsto, e tantissime persone che non avrei mai incontrato dal finestrino di un'auto o di un treno.<br><br>Dai un'occhiata alle mie avventure!">
+        I like to explore new locations by bicycle and write down what happens along the road. So far that adds up to <strong data-total="km-unit"></strong> across Italy, Sweden and Lofoten: a tent, more climbing than planned, and a lot of people I would never have met through a car or train window.<br><br>Check out my adventures!
       </p>
 
       <div class="hero-cta">
-        <a href="italy2026.html" class="btn btn-stone"
+        <a href="italy2026.html" class="btn btn-stone btn-tricolore"
            data-en="Italy 2026" data-sv="Italien 2026" data-it="Italia 2026">Italy 2026</a>
-        <a href="blog/index.html" class="btn btn-stone"
+        <a href="blog/index.html" class="btn btn-stone btn-red"
            data-en="Read the journal" data-sv="Läs dagboken" data-it="Leggi il diario">Read the journal</a>
         <a href="contact.html" class="btn btn-stone"
            data-en="Get in touch" data-sv="Hör av dig" data-it="Contattami">Get in touch</a>
@@ -589,9 +612,9 @@
     </div>
 
     <div class="hero-right">
-      <img src="/italy26/assets/images/profilesquare2.jpg"
-           alt="Edvard Appelberg with a loaded bikepacking bike above Florence"
-           width="750" height="1000">
+      <img src="/italy26/assets/images/profilepic.jpg"
+           alt="Edvard Appelberg with his bike at Niagara Falls"
+           width="1000" height="1000">
     </div>
   </header>
 
@@ -601,27 +624,56 @@
   <div class="band band-stone">
     <div class="totals-inner">
       <div>
-        <div class="total-value">7,788</div>
+        <div class="total-value" data-total="km"></div>
         <div class="total-label"
              data-en="km ridden" data-sv="km cyklade" data-it="km percorsi">km ridden</div>
       </div>
       <div>
-        <div class="total-value">89,233</div>
+        <div class="total-value" data-total="elevation"></div>
         <div class="total-label"
              data-en="metres climbed" data-sv="höjdmeter" data-it="metri di dislivello">metres climbed</div>
       </div>
       <div>
-        <div class="total-value">72</div>
+        <div class="total-value" data-total="days"></div>
         <div class="total-label"
-             data-en="days on the road" data-sv="dagar på vägen" data-it="giorni in viaggio">days on the road</div>
+             data-en="days spent on the road" data-sv="dagar på vägen" data-it="giorni in viaggio">days spent on the road</div>
       </div>
       <div>
-        <div class="total-value">2</div>
+        <div class="total-value" data-total="trips"></div>
         <div class="total-label"
              data-en="journeys, so far" data-sv="resor, hittills" data-it="viaggi, finora">journeys, so far</div>
       </div>
     </div>
   </div>
+
+  <!-- ══ ABOUT ══ -->
+  <section id="about">
+    <p class="section-tag"
+       data-en="// About me" data-sv="// Om mig" data-it="// Chi sono">// About me</p>
+    <h2 class="section-title"
+        data-en="Curious. Analytic. Adventurous."
+        data-sv="Nyfiken. Målinriktad. Äventyrslysten."
+        data-it="Curioso. Determinato. Avventuroso.">
+      Curious. Analytic. Adventurous.
+    </h2>
+    <div class="section-divider"></div>
+    <div class="about-grid">
+      <img src="/italy26/assets/images/profile2.jpg" alt="Portrait of Edvard Appelberg" class="about-image"/>
+      <div class="about-text">
+        <p data-en="Welcome to my homebuilt website. I am a Swede in my mid-twenties with an appetite for sports and exploring places I have not seen yet, preferably both at once. I live in <strong>Skellefteå, Sweden</strong>, where I spend my working days analysing electricity markets. The rest of the time goes to training, to learning something new (a language, a dish, or how to build a site like this one), and to working out where to ride next."
+           data-sv="Välkommen till hemsidan jag byggt själv. Jag är en svensk i 25-årsåldern med aptit på träning och på att utforska platser jag inte sett ännu, gärna i kombination. Jag bor i <strong>Skellefteå</strong>, där jag ägnar arbetsdagarna åt att analysera elmarknader. Resten av tiden går till träning, till att lära mig något nytt (ett språk, en maträtt, eller hur man bygger en sida som den här), och till att fundera ut vart nästa tur ska gå."
+           data-it="Benvenuti nel sito che ho costruito da solo. Sono uno svedese di venticinque anni con appetito per lo sport e per esplorare posti che non ho ancora visto, possibilmente insieme. Vivo a <strong>Skellefteå, in Svezia</strong>, dove passo le giornate lavorative ad analizzare i mercati elettrici. Il resto del tempo va all'allenamento, a imparare qualcosa di nuovo (una lingua, un piatto, o come si costruisce un sito come questo), e a capire dove andare la prossima volta.">
+          Welcome to my homebuilt website. I am a Swede in my mid-twenties with an appetite for sports and exploring places I have not seen yet, preferably both at once. I live in <strong>Skellefteå, Sweden</strong>, where I spend my working days analysing electricity markets. The rest of the time goes to training, to learning something new (a language, a dish, or how to build a site like this one), and to working out where to ride next.
+        </p>
+        <p data-en="I ride because a bicycle moves at exactly the right speed: fast enough to cross a country, slow enough to feel it. There are no sponsors behind any of this and no predetermined goal: the journeys run on curiosity alone… and on gelato. If you want the long version, each trip has its own page, and the <em>journal</em> has it day by day."
+           data-sv="Jag cyklar för att cykeln rör sig i precis rätt hastighet: snabbt nog för att ta sig genom ett land, långsamt nog för att hinna leva i det. Det finns inga sponsorer bakom det här och inget förutbestämt mål: resorna drivs av ren nyfikenhet… och av gelato. Vill du ha den långa versionen har varje resa en egen sida, och <em>dagboken</em> tar det dag för dag."
+           data-it="Pedalo perché la bicicletta va esattamente alla velocità giusta: abbastanza veloce da attraversare un paese, abbastanza lenta da riuscire a conoscerlo. Dietro tutto questo non ci sono sponsor né un obiettivo prestabilito: i viaggi vanno avanti a pura curiosità… e a gelato. Se vuoi la versione lunga, ogni viaggio ha la sua pagina e il <em>diario</em> racconta giorno per giorno.">
+          I ride because a bicycle moves at exactly the right speed: fast enough to cross a country, slow enough to feel it. There are no sponsors behind any of this and no predetermined goal: the journeys run on curiosity alone… and on gelato. If you want the long version, each trip has its own page, and the <em>journal</em> has it day by day.
+        </p>
+      </div>
+    </div>
+  </section>
+
 
   <!-- ══ QUOTE ══ -->
   <div class="band band-green">
@@ -643,12 +695,6 @@
     <h2 class="section-title"
         data-en="Journeys" data-sv="Resor" data-it="Viaggi">Journeys</h2>
     <div class="section-divider"></div>
-    <p class="section-intro"
-       data-en="Every trip keeps its own page: the whole route, the daily numbers, the maps and the photographs."
-       data-sv="Varje resa har en egen sida: hela rutten, dagsstatistiken, kartorna och bilderna."
-       data-it="Ogni viaggio ha la sua pagina: il percorso completo, i numeri giornalieri, le mappe e le fotografie.">
-      Every trip keeps its own page: the whole route, the daily numbers, the maps and the photographs.
-    </p>
 
     <div class="journeys-grid">
 
@@ -661,15 +707,15 @@
           <h3 class="journey-name"
               data-en="Italy 2026" data-sv="Italien 2026" data-it="Italia 2026">Italy 2026</h3>
           <p class="journey-desc"
-             data-en="Forty days from Liguria back to Tuscany, by way of Corsica, Sardinia, Sicily and the whole length of the mainland, ridden to raise money for Swedish brain research."
-             data-sv="Fyrtio dagar från Ligurien tillbaka till Toscana, via Korsika, Sardinien, Sicilien och hela fastlandet, cyklade till förmån för Hjärnfonden."
-             data-it="Quaranta giorni dalla Liguria fino alla Toscana, passando per Corsica, Sardegna, Sicilia e tutta la penisola, pedalando per la ricerca svedese sul cervello.">
-            Forty days from Liguria back to Tuscany, by way of Corsica, Sardinia, Sicily and the whole length of the mainland, ridden to raise money for Swedish brain research.
+             data-en="Forty day loop across Southern Italy, by way of Liguria, Corsica, Sardinia, Sicily and the whole length of the mainland, ridden to raise money for Swedish brain research."
+             data-sv="Ett fyrtio dagar långt varv genom södra Italien, via Ligurien, Korsika, Sardinien, Sicilien och hela fastlandet, cyklat till förmån för Hjärnfonden."
+             data-it="Un giro di quaranta giorni attraverso l'Italia meridionale, passando per Liguria, Corsica, Sardegna, Sicilia e tutta la penisola, pedalando per la ricerca svedese sul cervello.">
+            Forty day loop across Southern Italy, by way of Liguria, Corsica, Sardinia, Sicily and the whole length of the mainland, ridden to raise money for Swedish brain research.
           </p>
-          <div class="journey-stats">
-            <span>4,270 km</span>
-            <span>60,337 m</span>
-            <span data-en="40 days" data-sv="40 dagar" data-it="40 giorni">40 days</span>
+          <div class="journey-stats" data-trip="italy2026">
+            <span data-stat="km"></span>
+            <span data-stat="elevation"></span>
+            <span data-stat="days"></span>
           </div>
         </div>
       </a>
@@ -683,15 +729,15 @@
           <h3 class="journey-name"
               data-en="Sweden 2024" data-sv="Sverige 2024" data-it="Svezia 2024">Sweden 2024</h3>
           <p class="journey-desc"
-             data-en="The length of Sweden and onward into Lofoten, from the southern tip at Smygehuk to the Arctic islands. A month of west coast, forest and fjord."
-             data-sv="Sverige på längden och vidare ut i Lofoten, från Smygehuk i söder till öarna ovanför polcirkeln. En månad av västkust, skog och fjord."
-             data-it="La Svezia in tutta la sua lunghezza e poi fino alle Lofoten, dalla punta meridionale di Smygehuk alle isole artiche. Un mese di costa, foreste e fiordi.">
-            The length of Sweden and onward into Lofoten, from the southern tip at Smygehuk to the Arctic islands. A month of west coast, forest and fjord.
+             data-en="The entire length of Sweden and onward into Lofoten, from the southern tip at Smygehuk to the Arctic islands. A month of west coast, forests and mountains."
+             data-sv="Sverige på längden och vidare ut i Lofoten, från Smygehuk i söder till öarna ovanför polcirkeln. En månad av västkust, skog och berg."
+             data-it="La Svezia in tutta la sua lunghezza e poi fino alle Lofoten, dalla punta meridionale di Smygehuk alle isole artiche. Un mese di costa, foreste e montagne.">
+            The entire length of Sweden and onward into Lofoten, from the southern tip at Smygehuk to the Arctic islands. A month of west coast, forests and mountains.
           </p>
-          <div class="journey-stats">
-            <span>3,518 km</span>
-            <span>28,896 m</span>
-            <span data-en="32 days" data-sv="32 dagar" data-it="32 giorni">32 days</span>
+          <div class="journey-stats" data-trip="sweden2024">
+            <span data-stat="km"></span>
+            <span data-stat="elevation"></span>
+            <span data-stat="days"></span>
           </div>
         </div>
       </a>
@@ -704,10 +750,10 @@
           <h3 class="journey-name"
               data-en="The next one" data-sv="Nästa resa" data-it="Il prossimo">The next one</h3>
           <p class="journey-desc"
-             data-en="The Balkans to Istanbul, a race down Patagonia, Greece in Greek, all of France, or the Atlas in the middle of the Swedish winter. Five candidates, nothing booked."
-             data-sv="Balkan till Istanbul, ett lopp genom Patagonien, Grekland på grekiska, hela Frankrike, eller Atlasbergen mitt i den svenska vintern. Fem kandidater, inget bokat."
-             data-it="I Balcani fino a Istanbul, una gara lungo la Patagonia, la Grecia in greco, tutta la Francia, o l'Atlante nel pieno dell'inverno svedese. Cinque candidati, niente prenotato.">
-            The Balkans to Istanbul, a race down Patagonia, Greece in Greek, all of France, or the Atlas in the middle of the Swedish winter. Five candidates, nothing booked.
+             data-en="The Balkans to Istanbul, a race down Patagonia, Greece in Greek, all in on France, or the Atlas in the middle of the Swedish winter. Five candidates, nothing booked."
+             data-sv="Balkan till Istanbul, ett lopp genom Patagonien, Grekland på grekiska, allt in på Frankrike, eller Atlasbergen mitt i den svenska vintern. Fem kandidater, inget bokat."
+             data-it="I Balcani fino a Istanbul, una gara lungo la Patagonia, la Grecia in greco, tutto sulla Francia, o l'Atlante nel pieno dell'inverno svedese. Cinque candidati, niente prenotato.">
+            The Balkans to Istanbul, a race down Patagonia, Greece in Greek, all in on France, or the Atlas in the middle of the Swedish winter. Five candidates, nothing booked.
           </p>
           <div class="journey-stats">
             <span data-en="See the shortlist →" data-sv="Se listan →" data-it="Vedi la lista →">See the shortlist →</span>
@@ -724,10 +770,10 @@
       <!-- Unattributed on purpose: this one is Edvard's own line, so there is
            nobody to credit under it. -->
       <p class="quote-text"
-         data-en="&ldquo;Travelling by bicycle is slow enough that you become part of your surroundings and can stop wherever you like, and at the same time fast enough that you can get a very long way in a couple of days.&rdquo;"
-         data-sv="&rdquo;Att resa på cykel är långsamt nog för att vara en del av omgivningen och stanna var man vill, samtidigt som det går snabbt nog att man kan ta sig riktigt långt på ett par dagar.&rdquo;"
-         data-it="&laquo;Viaggiare in bicicletta è abbastanza lento da farti diventare parte di ciò che ti circonda e fermarti dove vuoi, e allo stesso tempo abbastanza veloce da portarti davvero lontano in un paio di giorni.&raquo;">
-        &ldquo;Travelling by bicycle is slow enough that you become part of your surroundings and can stop wherever you like, and at the same time fast enough that you can get a very long way in a couple of days.&rdquo;
+         data-en="&ldquo;Travelling by bicycle is slow enough that you're immersed in your surroundings and can stop wherever you like, and at the same time fast enough that you can get a very long way in a couple of days. It is the most immersive way to travel.&rdquo;"
+         data-sv="&rdquo;Att resa på cykel är långsamt nog för att vara en del av omgivningen och stanna var man vill, samtidigt som det går snabbt nog att man kan ta sig riktigt långt på ett par dagar. Det är det mest närvarande sättet att resa.&rdquo;"
+         data-it="&laquo;Viaggiare in bicicletta è abbastanza lento da farti diventare parte di ciò che ti circonda e fermarti dove vuoi, e allo stesso tempo abbastanza veloce da portarti davvero lontano in un paio di giorni. È il modo di viaggiare che ti immerge di più.&raquo;">
+        &ldquo;Travelling by bicycle is slow enough that you're immersed in your surroundings and can stop wherever you like, and at the same time fast enough that you can get a very long way in a couple of days. It is the most immersive way to travel.&rdquo;
       </p>
     </div>
   </div>
@@ -745,7 +791,7 @@
         <p class="support-text"
            data-en="The Italy 2026 ride collected money for <strong>Hjärnfonden</strong>, the Swedish Brain Research Fund. The collection is still open, and every krona goes straight to the fund."
            data-sv="Resan genom Italien 2026 samlade in pengar till <strong>Hjärnfonden</strong>. Insamlingen är fortfarande öppen, och varje krona går direkt till fonden."
-           data-it="Il viaggio in Italia 2026 ha raccolto fondi per <strong>Hjärnfonden</strong>, la fondazione svedese per la ricerca sul cervello. La raccolta è ancora aperta e ogni corona va direttamente alla fondazione.">
+           data-it="Il viaggio in Italia 2026 ha raccolto fondi per <strong>Hjärnfonden</strong>, la fondazione svedese per la ricerca sul cervello. La raccolta è ancora aperta e ogni corona svedese va direttamente alla ricerca su cervello.">
           The Italy 2026 ride collected money for <strong>Hjärnfonden</strong>, the Swedish Brain Research Fund. The collection is still open, and every krona goes straight to the fund.
         </p>
         <p class="support-total">
@@ -753,41 +799,12 @@
           <span data-en="Raised" data-sv="Insamlade" data-it="Raccolti">Raised</span>
         </p>
       </div>
-      <div>
+      <div class="support-action">
         <a href="donate.html" class="btn btn-cream"
            data-en="Donate" data-sv="Donera" data-it="Dona">Donate</a>
       </div>
     </div>
   </div>
-
-  <!-- ══ ABOUT ══ -->
-  <section id="about">
-    <p class="section-tag"
-       data-en="// About me" data-sv="// Om mig" data-it="// Chi sono">// About me</p>
-    <h2 class="section-title"
-        data-en="Curious. Analytic. Adventurous."
-        data-sv="Nyfiken. Målinriktad. Äventyrslysten."
-        data-it="Curioso. Determinato. Avventuroso.">
-      Curious. Analytic. Adventurous.
-    </h2>
-    <div class="section-divider"></div>
-    <div class="about-grid">
-      <img src="/italy26/assets/images/profile2.jpg" alt="Portrait of Edvard Appelberg" class="about-image"/>
-      <div class="about-text">
-        <p data-en="Welcome to my homebuilt website. I am a Swede in my mid-twenties with a large appetite for sport and for places I have not seen yet, preferably both at once. I live in <strong>Skellefteå, Sweden</strong>, where I spend my working days analysing electricity markets. The rest of the time goes to training, to learning something new (a language, a dish, or how to build a site like this one), and to working out where to ride next."
-           data-sv="Välkommen till hemsidan jag byggt själv. Jag är en svensk i 25-årsåldern med stor aptit på träning och på platser jag inte sett ännu, gärna båda samtidigt. Jag bor i <strong>Skellefteå</strong>, där jag ägnar arbetsdagarna åt att analysera elmarknader. Resten av tiden går till träning, till att lära mig något nytt (ett språk, en maträtt, eller hur man bygger en sida som den här), och till att fundera ut vart nästa tur ska gå."
-           data-it="Benvenuti nel sito che ho costruito da solo. Sono uno svedese di venticinque anni con un grande appetito per lo sport e per i posti che non ho ancora visto, possibilmente insieme. Vivo a <strong>Skellefteå, in Svezia</strong>, dove passo le giornate lavorative ad analizzare i mercati elettrici. Il resto del tempo va all'allenamento, a imparare qualcosa di nuovo (una lingua, un piatto, o come si costruisce un sito come questo), e a capire dove andare la prossima volta.">
-          Welcome to my homebuilt website. I am a Swede in my mid-twenties with a large appetite for sport and for places I have not seen yet, preferably both at once. I live in <strong>Skellefteå, Sweden</strong>, where I spend my working days analysing electricity markets. The rest of the time goes to training, to learning something new (a language, a dish, or how to build a site like this one), and to working out where to ride next.
-        </p>
-        <p data-en="I ride because a bicycle moves at exactly the right speed: fast enough to cross a country, slow enough to notice it. There are no sponsors behind any of this and no predetermined goal: the journeys run on curiosity alone… and on gelato. If you want the long version, each trip has its own page, and the <em>journal</em> has it day by day."
-           data-sv="Jag cyklar för att cykeln rör sig i precis rätt hastighet: snabbt nog för att ta sig genom ett land, långsamt nog för att hinna se det. Det finns inga sponsorer bakom det här och inget förutbestämt mål: resorna drivs av ren nyfikenhet… och av gelato. Vill du ha den långa versionen har varje resa en egen sida, och <em>dagboken</em> tar det dag för dag."
-           data-it="Pedalo perché la bicicletta va esattamente alla velocità giusta: abbastanza veloce da attraversare un paese, abbastanza lenta da riuscire a vederlo. Dietro tutto questo non ci sono sponsor né un obiettivo prestabilito: i viaggi vanno avanti a pura curiosità… e a gelato. Se vuoi la versione lunga, ogni viaggio ha la sua pagina e il <em>diario</em> racconta giorno per giorno.">
-          I ride because a bicycle moves at exactly the right speed: fast enough to cross a country, slow enough to notice it. There are no sponsors behind any of this and no predetermined goal: the journeys run on curiosity alone… and on gelato. If you want the long version, each trip has its own page, and the <em>journal</em> has it day by day.
-        </p>
-      </div>
-    </div>
-  </section>
-
   <!-- ══ LINKS ══ -->
   <section id="links">
     <p class="section-tag"
@@ -914,6 +931,71 @@
 
   <!-- ══ FOOTER ══ -->
   <footer id="shared-footer"></footer>
+
+  <script>
+  // ══════════════════════════════════════════
+  // TRIP FIGURES: every number on this page comes from TRIPS in manuals.js.
+  // Edit a trip there, or add a new one, and the journey cards, the totals
+  // strip and the hero line all follow. Nothing here is hardcoded.
+  //
+  //   [data-trip="<key>"] [data-stat="km|elevation|days"]  one trip's figures
+  //   [data-total="km|km-unit|elevation|days|trips"]       all trips added up
+  //
+  // Thousands separators differ per language, so this re-renders whenever the
+  // visitor switches flag.
+  // ══════════════════════════════════════════
+  (function() {
+    if (typeof TRIPS === 'undefined') return;
+
+    const LOCALES = { en: 'en-GB', sv: 'sv-SE', it: 'it-IT' };
+    const DAYS    = { en: 'days',  sv: 'dagar', it: 'giorni' };
+
+    function currentLangCode() {
+      return (typeof currentLang !== 'undefined' ? currentLang : null)
+          || localStorage.getItem('preferred-lang')
+          || 'en';
+    }
+
+    function render() {
+      const lang   = currentLangCode();
+      const locale = LOCALES[lang] || LOCALES.en;
+      const num    = n => n.toLocaleString(locale);
+
+      // Per-trip figures on the journey cards.
+      document.querySelectorAll('[data-trip]').forEach(box => {
+        const trip = TRIPS[box.dataset.trip];
+        if (!trip) return;
+        box.querySelectorAll('[data-stat]').forEach(el => {
+          switch (el.dataset.stat) {
+            case 'km':        el.textContent = num(trip.km) + ' km';                 break;
+            case 'elevation': el.textContent = num(trip.elevation) + ' m';           break;
+            case 'days':      el.textContent = trip.days + ' ' + (DAYS[lang] || DAYS.en); break;
+          }
+        });
+      });
+
+      // Totals across every trip.
+      const all = Object.values(TRIPS);
+      const sum = key => all.reduce((t, trip) => t + (trip[key] || 0), 0);
+      const totals = {
+        'km':        num(sum('km')),
+        'km-unit':   num(sum('km')) + ' km',
+        'elevation': num(sum('elevation')),
+        'days':      num(sum('days')),
+        'trips':     num(all.length),
+      };
+      document.querySelectorAll('[data-total]').forEach(el => {
+        const value = totals[el.dataset.total];
+        if (value !== undefined) el.textContent = value;
+      });
+    }
+
+    render();
+    // applyLanguage() rewrites innerHTML from the data-* attributes, which wipes
+    // the slots inside the hero sentence, so fill them again afterwards.
+    document.addEventListener('langchange', render);
+  })();
+  </script>
 
   <script>
   // ── DONATION TOTAL: the figure itself lives in manuals.js ──

@@ -235,11 +235,19 @@ function injectFooter() {
   if (!footer) return;
   footer.innerHTML = `
     <span class="logo">Edvard Appelberg</span>
-    <p data-en="Skellefteå, Sweden. Built with HTML &amp; CSS"
-       data-sv="Skellefteå, Sverige. Byggd med HTML &amp; CSS"
-       data-it="Skellefteå, Svezia. Costruito con HTML &amp; CSS">
-      Skellefteå, Sweden. Built with HTML &amp; CSS
-    </p>
+    <div class="footer-text">
+      <p data-en="Skellefteå, Sweden. Built with HTML &amp; CSS"
+         data-sv="Skellefteå, Sverige. Byggd med HTML &amp; CSS"
+         data-it="Skellefteå, Svezia. Costruito con HTML &amp; CSS">
+        Skellefteå, Sweden. Built with HTML &amp; CSS
+      </p>
+      <p class="footer-ai"
+         data-en="Some texts on this site were generated with an AI tool."
+         data-sv="Vissa texter på den här sidan är genererade med ett AI-verktyg."
+         data-it="Alcuni testi di questo sito sono stati generati con uno strumento di IA.">
+        Some texts on this site were generated with an AI tool.
+      </p>
+    </div>
     <div id="footer-attribution"></div>`;
 }
 
