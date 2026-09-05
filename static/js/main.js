@@ -283,7 +283,7 @@ function initLanguage() {
 function injectPizzaScrollbar() {
   // ── Per-page thumb image ──
   const PAGE_IMAGES = {
-    'index':      'road.png',
+    'index':      null,   // plain cream disc, see #pizza-thumb .sb-dot
     'italy2026':  'pizza.png',
     'donate':     'heart.png',
     'blog':       'wheel.png',
@@ -292,13 +292,18 @@ function injectPizzaScrollbar() {
     'route':     'tomato.png',
     'wherenext': 'mountain.png',
   };
-  const thumbImage = PAGE_IMAGES[getCurrentPage()] || 'pizza.png';
+  const thumbPage  = getCurrentPage();
+  const thumbImage = thumbPage in PAGE_IMAGES ? PAGE_IMAGES[thumbPage] : 'pizza.png';
+  // A null entry above means the page wants no icon at all, just a plain disc.
+  const thumbInner = thumbImage
+    ? `<img src="${getPrefix()}assets/images/${thumbImage}" alt="scroll position">`
+    : '<span class="sb-dot" aria-hidden="true"></span>';
 
   const html = `
     <div id="pizza-scrollbar">
       <div class="sb-track"></div>
       <div id="pizza-thumb">
-        <img src="${getPrefix()}assets/images/${thumbImage}" alt="scroll position">
+        ${thumbInner}
       </div>
     </div>`;
 
@@ -312,7 +317,7 @@ function injectPizzaScrollbar() {
 
   const scrollbar  = document.getElementById('pizza-scrollbar');
   const thumb      = document.getElementById('pizza-thumb');
-  const img        = thumb.querySelector('img');
+  const img        = thumb.firstElementChild;   // the <img>, or the plain .sb-dot
   const TRACK_PAD  = 26;   // half of thumb height so pizza stays within viewport
 
   // ── Spin physics (rAF-based — no CSS animation, no snapping) ──

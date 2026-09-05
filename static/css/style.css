@@ -324,6 +324,18 @@ body::-webkit-scrollbar { display: none; }
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
 }
 
+/* Plain cream disc, for pages that want no icon riding the scrollbar.
+   Set the page's PAGE_IMAGES entry to null in main.js to get this. */
+#pizza-thumb .sb-dot {
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  display: block;
+  background: var(--white);
+  border: 1px solid var(--stone-dark);
+  pointer-events: none;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
 @keyframes pizzaSpin {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
