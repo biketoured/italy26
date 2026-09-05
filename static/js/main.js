@@ -10,6 +10,7 @@
 function getCurrentPage() {
   const path = window.location.pathname;
   if (path.includes('italy2026'))                       return 'italy2026';
+  if (path.includes('wherenext'))                       return 'wherenext';
   if (path.includes('sweden2024'))                      return 'sweden2024';
   if (path.includes('donate'))                          return 'donate';
   if (path.includes('blog') && path.includes('post'))   return 'post';
@@ -32,6 +33,12 @@ const NAV_THEMES = {
     border:    'rgba(196,180,154,0.15)',
     link:      '#C4B49A',
     linkHover: '#E8DCC8',
+  },
+  'wherenext': {
+    bg:        'rgba(160,80,59,0.96)',
+    border:    'rgba(184,212,224,0.2)',
+    link:      'rgba(212,197,172,0.85)',
+    linkHover: '#FDFAF4',
   },
   'sweden2024': {
     bg:        'rgba(74,122,150,0.97)',
@@ -276,13 +283,14 @@ function initLanguage() {
 function injectPizzaScrollbar() {
   // ── Per-page thumb image ──
   const PAGE_IMAGES = {
-    'index':      'pizza.png',
+    'index':      'road.png',
     'italy2026':  'pizza.png',
     'donate':     'heart.png',
     'blog':       'wheel.png',
     'post':       'sun.png',
     'sweden2024': 'mayflower.png',
     'route':     'tomato.png',
+    'wherenext': 'mountain.png',
   };
   const thumbImage = PAGE_IMAGES[getCurrentPage()] || 'pizza.png';
 
