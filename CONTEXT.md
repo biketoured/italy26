@@ -1,15 +1,25 @@
 # italy26 — AI Assistant Context Document
 # Paste this at the start of a new chat to resume development.
-# Last updated: April 2026
+# Last updated: September 2026
 
 ## OWNER & PROJECT
-- Edvard Appelberg, 24, Swedish elite track & field athlete
-- Solo bikepacking Italy May 10 – ~June 20 2026
-- Route: Sardinia → Sicily → Calabria → Puglia → Umbria → Veneto (~30-40 days)
-- Goals: (1) live travel journal + charity fundraising (2) memoir source material
-- Charity: Hjärnfonden (Sweden) + AITC Italy — 100% of donations go directly
-- Live URL: https://bikepack.ed.github.io/italy26
-- Repo: github.com/bikepack.ed/italy26 (username: biketoured)
+- Edvard Appelberg, 25, Swedish cyclist, based in Skellefteå
+- Italy 2026 is COMPLETE: rode 10 May – 18 June 2026
+  Final figures: 4,270 km / 60,337 m climbed / 40 days / 43 rides
+- Sweden 2024 (earlier trip): 3,518 km / 28,896 m / 32 days / 36 rides
+- Next trip undecided. Five candidates for 2027-2028 live on wherenext.html.
+- Charity: Hjärnfonden (Sweden) ONLY. AITC was dropped in September 2026;
+  do not reintroduce it anywhere. 100% of donations go directly to the fund
+  via Hjärnfonden's own page, so no money passes through Edvard at all.
+- Live URL: https://biketoured.github.io/italy26
+- Repo: github.com/biketoured/italy26
+
+## SITE SHAPE (changed September 2026)
+The site is no longer an Italy-only site. index.html used to BE the Italy trip
+page; that content now lives at italy2026.html, and index.html was rebuilt from
+scratch as a general personal homepage that routes on to the individual trips.
+Anything describing index.html as "the Italy page" below is out of date if it
+survived this edit.
 
 ---
 
@@ -31,15 +41,17 @@
 
 ```
 italy26/                          ← repo root
-├── index.html                    ← main landing page
-├── donate.html                   ← charity donation page
+├── index.html                    ← GENERAL homepage (hero, totals, about, journeys, donate, links)
+├── italy2026.html                ← Italy 2026 trip page (this is the OLD index.html)
+├── sweden2024.html               ← Sweden/Lofoten 2024 trip page (blue theme)
+├── wherenext.html                ← 2027-2028 shortlist, five candidates (red/blue theme)
+├── donate.html                   ← Hjärnfonden donation page
 ├── route.html                    ← Italy 2026 route map
-├── sweden2024.html               ← past trip page (Lofoten 2024, blue theme)
-├── flaskpost.html                ← "message in a bottle" form + wall
+├── scenicroads.html              ← scenic roads page
 ├── contact.html                  ← contact page with drifting banner
 ├── donated.html                  ← thank-you page after donation (was thankyou.html)
-├── manuals.js                    ← manually updated donation globals (loaded in <head>)
-├── flaskpost.json                ← public messages wall data (manual approval)
+├── google74d5d25a8faa102b.html   ← Google Search Console verification
+├── manuals.js                    ← hand-edited globals: TRIPS + donation totals (loaded in <head>)
 ├── donors.json                   ← donor wall data (manual)
 ├── sitemap.xml                   ← SEO sitemap
 ├── .nojekyll                     ← prevents Jekyll processing on GitHub Pages
@@ -49,18 +61,22 @@ italy26/                          ← repo root
 │   ├── flagse.png                ← SV language button
 │   ├── flagit.png                ← IT language button + favicon
 │   ├── placehold.png             ← Italian flag placeholder (used as post banner)
-│   ├── pizza.png                 ← scrollbar thumb on index
+│   ├── pizza.png                 ← scrollbar thumb on italy2026
 │   ├── heart.png                 ← scrollbar thumb on donate
-│   ├── wheel.png                 ← scrollbar thumb on blog
-│   ├── cheese.png                ← scrollbar thumb on post
+│   ├── wheel.png                 ← scrollbar thumb on blog + favicon on index
+│   ├── sun.png                   ← scrollbar thumb on post
 │   ├── mayflower.png             ← scrollbar thumb on sweden2024
 │   ├── tomato.png                ← scrollbar thumb on route
-│   ├── flaskpost.png             ← scrollbar thumb on flaskpost
+│   ├── mountain.png              ← scrollbar thumb + favicon on wherenext
+│   ├── profilesquare2.jpg        ← Edvard + bike above Florence (og:image on index)
+│   ├── medit2.jpg                ← Italy journey card cover on index
+│   ├── heroswe.jpg               ← Sweden hero photo + journey card cover on index
+│   (index.html itself uses NO thumb image: see PAGE_IMAGES null entry below)
 │   ├── profilepic.jpg            ← Edvard's profile photo (used in contact + og:image)
 │   ├── contact-banner.jpg        ← contact page banner photo 1
 │   ├── contact-banner2.jpg       ← contact page banner photo 2 (optional, add more)
-│   ├── flower.png                ← flower decoration on contact page
-│   └── swish.png                 ← Swish QR code (TODO: add this file)
+│   └── flower.png                ← flower decoration on contact page
+│   (swish.png is now unused: Swish was removed from donate.html)
 │
 ├── static/
 │   ├── css/style.css             ← SHARED — loaded by every page
@@ -87,7 +103,8 @@ italy26/                          ← repo root
 │   └── fetch_routes.py           ← Strava API → strava/routes.json (filters by name containing "italy26")
 │
 ├── strava/
-│   ├── activities.json           ← cycling activities during trip window (auto-synced)
+│   ├── activities.json           ← Italy 2026 rides (auto-synced). HAS avg_hr + heartbeats.
+│   ├── activitiesswe.json        ← Sweden 2024 rides. NO avg_hr, NO heartbeats (see below).
 │   └── routes.json               ← planned route segments (manual trigger)
 │
 └── .github/workflows/
@@ -154,8 +171,8 @@ Loaded by every page. Contains everything below. Page-specific CSS goes in inlin
 Loaded with `defer` on every page. Exports globals: currentLang.
 
 ### getCurrentPage() → string
-Returns: 'index' | 'donate' | 'flaskpost' | 'post' | 'blog' | 'route' | 'sweden2024'
-NOTE: contact page not yet added to getCurrentPage() — add if needed.
+Returns: 'index' | 'italy2026' | 'wherenext' | 'sweden2024' | 'donate'
+         | 'post' | 'blog' | 'route' | 'contact'
 Detection order matters: 'post' checked before 'blog' (path includes both).
 
 ### getPrefix() → string
@@ -166,18 +183,22 @@ If this function is missing or broken, nav injection crashes silently on ALL pag
 
 ### NAV_THEMES{} — nav colours per page
 ```
-index/route/blog/post: rgba(30,61,47,0.96) green, stone links
-sweden2024/donate:     rgba(74,122,150,0.97) blue, pale blue links
-flaskpost:             rgba(42,31,18,0.96) dark brown, sand links
+index/italy2026/route/blog/post: rgba(30,61,47,0.96) green, stone links
+sweden2024/donate:               rgba(74,122,150,0.97) blue, pale blue links
+wherenext:                       rgba(160,80,59,0.96) red, stone links
+contact:                         rgba(30,61,47,0.96) green, #d4c5ac links
 ```
-Edit here to change nav colours — never in HTML files.
+Edit here to change nav colours, never in HTML files.
 
 ### PAGE_IMAGES{} — scrollbar thumb per page
 ```
-index→pizza.png, donate→heart.png, blog→wheel.png,
-post→cheese.png, sweden2024→mayflower.png,
-route→tomato.png, flaskpost→flaskpost.png
+index→null (plain cream disc), italy2026→pizza.png, donate→heart.png,
+blog→wheel.png, post→sun.png, sweden2024→mayflower.png,
+route→tomato.png, wherenext→mountain.png
 ```
+A null entry means the page renders `<span class="sb-dot">` instead of an
+`<img>`: a plain cream circle, styled in style.css. The spin loop reads
+`thumb.firstElementChild`, so it works with either element.
 
 ### injectNav(page)
 Builds 3-slot grid nav:
@@ -188,12 +209,21 @@ Builds 3-slot grid nav:
 - Hamburger toggle: closes on link click, outside click, and X click
 
 ### Nav link order
-Donate → Blog → Route → Sweden 2024 → Links → Contact
-Mobile menu: same minus Links. Current page link is hidden (li.hidden = display:none).
+Donate → Blog → Route → Italy 2026 → Sweden 2024 → Contact
+Current page link is hidden (li.hidden = display:none).
 Each li has min-width:6rem so nav doesn't shift width between pages.
+wherenext.html is deliberately NOT in the nav: six links already fill the row
+at the 1024px hamburger breakpoint. It is reached from the index journey card.
 
 ### injectFooter()
-Fills #shared-footer: "Edvard Appelberg" logo + "Skellefteå, Sweden — Built with HTML & CSS"
+Fills #shared-footer with three parts:
+- "Edvard Appelberg" logo
+- .footer-text column holding two lines:
+  1. "Skellefteå, Sweden. Built with HTML & CSS"
+  2. .footer-ai — "Some texts on this site were generated with an AI tool."
+     Required AI disclosure, trilingual, appears on ALL 10 pages. Set in
+     sentence case (not the footer's usual caps) via footer p.footer-ai.
+- #footer-attribution (filled per page; only italy2026.html uses it)
 
 ### applyLanguage(lang)
 - Swaps innerHTML of all [data-en] elements to data-{lang}
@@ -234,47 +264,116 @@ document.addEventListener('langchange', myFunction);
 
 ## manuals.js — MANUAL DONATION GLOBALS
 
-Loaded in <head> of index.html and donate.html BEFORE other scripts.
+Loaded in <head> of index.html, italy2026.html and donate.html BEFORE other
+scripts. Two things live here now: trip figures and donation totals.
+
 ```js
-const SEK = 0;
-const EUR = 0;
-const DONATION_TOTAL = Math.round(SEK + (EUR*11));  // SEK total
-const DONATION_GOAL  = 40000;                        // SEK goal
-const LIVE = ".";
+const TRIPS = {
+  italy2026:  { km: 4270, elevation: 60337, days: 40 },
+  sweden2024: { km: 3518, elevation: 28896, days: 32 },
+};
+
+const SEK = 28087;
+const DONATION_TOTAL = Math.round(SEK);
+const DONATION_GOAL  = 25000;
 ```
-Edit during trip to update donation meter. EUR*11 is approximate conversion.
+
+TRIPS is the SINGLE SOURCE for every number on index.html: the journey cards,
+the totals strip and the km figure inside the hero sentence. Nothing on that
+page is hardcoded. Add a trip here and the totals follow automatically; you
+only hand-write the new card's markup and give its stats box a matching
+`data-trip` key. See "index.html" below for the slot attributes.
+
+manuals.js also still holds LIVE_TRACKING, CURRENT_LOC, LOC_POINTS, WORD and
+NOTE, all consumed by italy2026.html.
 
 ---
 
-## index.html — MAIN PAGE
+## index.html — GENERAL HOMEPAGE
 
-Sections: Hero → Map → Blog grid → Links → About
+Rebuilt September 2026. This is NOT the Italy page any more (see italy2026.html).
+Cream ground, soft palette bands, cream/stone type on the coloured ones.
+
+Section order: Hero → Totals → About → Quote (Hemingway) → Journeys
+             → Quote (Edvard's own, unattributed) → Donate → Links → Footer
+
+### Page-local colour tokens
+```css
+--cream:      #F3EBDD   /* page ground */
+--cream-card: #FBF6EC   /* cards and other lifted surfaces */
+```
+Added because whole sections of the shared --white (#FDFAF4) read as a flat
+white sheet. Cards sit on --cream-card so they lift off --cream.
 
 ### Hero
-- Title, subtitle, 3 buttons (Journal/Blog/Route), large Donate button
-- Donate button: full width max-width:700px, centered, sky-deep bg
-- Donation meter: #meter-fill (bar), #meter-current, #meter-goal
-  - IMPORTANT: #meter-goal has NO data-* attributes
-  - Translation handled entirely in JS via labels object + langchange listener
-  - manuals.js must load before meter script
+- Green panel, portrait is assets/images/profilepic.jpg
+- Three CTAs, each with its own hover:
+  .btn-tricolore → Italian flag laid at 38% over the stone fill (all three
+                   bands stay light enough for the dark green label to read)
+  .btn-red       → solid --red fill, white label
+  plain .btn-stone for "Get in touch"
 
-### Map
-- Leaflet, B&W CartoDB as DEFAULT (isBW=true on init)
-- Toggle button switches to OpenTopoMap and back
-- Activities from strava/activities.json drawn as polylines
-- B&W toggle button: larger padding (0.65rem 1.2rem)
+### Numbers come from TRIPS in manuals.js — nothing is hardcoded
+Slot attributes, filled by the inline script at the bottom of the page:
+```
+[data-trip="<key>"] with [data-stat="km|elevation|days"]   one trip's figures
+[data-total="km|km-unit|elevation|days|trips"]             all trips summed
+```
+Thousands separators are per-language (en-GB / sv-SE / it-IT), so the script
+re-runs on the `langchange` event. It MUST: applyLanguage() rewrites the hero
+paragraph's innerHTML from its data-* attribute, which wipes the slot inside it.
 
-### Blog grid
-- Loads /italy26/blog/posts.json
-- Cards: tag → title → square cover (object-fit:cover) → stats/excerpt
-- Cover in aspect-ratio:1/1 square .blog-card-cover-wrap
-- Desktop: 3 cols, max 3 cards shown (nth-child(n+4) hidden)
-- Mobile: 2 cols, max 4 cards (2x2)
-- Cover probes: cover.jpg → cover.jpeg → cover.png → placehold.png via onerror
+### Journeys section
+- `<section id="journeys" class="section-centred">` — .section-centred is an
+  opt-in class that centres tag/title/divider/intro. About and Links stay left.
+- Each card carries its trip's theme colour in a --card custom property, which
+  drives the top border, year, title and stats: Italy green, Sweden #3C6579
+  (a shade deeper than --sky-deep so small mono type holds up on cream),
+  wherenext --red.
+- .journey-card.italy  → Italian tricolour fades in behind the text box on hover
+- .journey-card.sweden → Swedish flag (Nordic cross, official 5:2:9 / 4:2:4
+  proportions, drawn with gradients) sits at 0.10 opacity permanently and
+  lifts to 0.22 on hover
+- Both keep copy above the wash with `.journey-body > * { position: relative; z-index: 1 }`
 
-### SEO meta tags (all 4 main pages have these)
-- description, author, og:title/description/image/url
-- og:image → assets/images/profilepic.jpg across all pages
+### Donate band
+Fully centred (.support-inner has text-align:center). Single-column grid so the
+button gets its own full-width row: a `1fr auto` grid puts it in a shrink-to-fit
+column at the right edge, where centring inside it does nothing.
+
+### There is NO blog grid on index.html
+It was not carried over in the rebuild. The journal is reached from the nav and
+the hero CTA. The blog-grid script still lives on italy2026.html.
+
+---
+
+## italy2026.html — ITALY 2026 TRIP PAGE
+
+This file IS the old index.html, moved wholesale in September 2026. Everything
+the pre-rebuild index did lives here: countdown/live/post-trip hero widgets,
+route progress bar, live banner, Leaflet map, Strava activity grid, donation
+meter, blog grid, links and about. og:url and canonical point at itself; the
+JSON-LD Person url still points at the site root.
+
+Everything under the old "## index.html — MAIN PAGE" notes (hero meter, map,
+blog grid) applies to THIS file now.
+
+---
+
+## wherenext.html — 2027-2028 SHORTLIST
+
+New September 2026. Red-and-blue theme, cream type. Deliberately reads as a
+proposal, not a plan: carries a "Preliminary, subject to change" stamp.
+
+- Body ground #33586E, a deeper --sky-deep so cream small text clears contrast
+- Hero graded red → blue; footer tokens overridden to --sky-deep in :root
+- Five candidates, each with a pitch, four facts and an honest "the catch":
+  01 Balkans to Istanbul (3 wks) · 02 Final Frontier Patagonia (race, 21-day
+  limit, 2,700 km, March) · 03 Greece in Greek (3 wks, autumn 2027)
+  · 04 All in on France (5-6 wks, 2028) · 05 The green Atlas (3 wks, Nov-Feb)
+- Distances and climbing are estimates marked with ~, except Patagonia, which
+  comes from the event listing. Replace with real numbers once GPX exists.
+- Not in the shared nav (see main.js notes). Reached from the index card.
 
 ---
 
@@ -296,10 +395,28 @@ Page bg: --green. Content .page wrapper: --green-mid. Payment cards: --green.
 - .goal-current: 2.8rem white (dominant)
 - .goal-target: 1.5rem muted stone (secondary)
 
-### Payment cards
-- Card 1 (Swedish): Swish number + QR image (centred, square) → assets/images/swish.png
-- Card 2 (International): Revolut (Recommended badge, sky-deep) → PayPal → IBAN+BIC
-  - INSERT_REVOLUT, INSERT_PAYPAL, INSERT IBAN, INSERT BIC = still placeholder
+### Payment — ONE route only (rewritten September 2026)
+The direct Hjärnfonden fundraiser link is the ONLY way to give. Swish (and its
+QR), Revolut, PayPal and the IBAN were all removed, along with the second
+"International donors" card and the blurb pointing at them. The remaining card
+is titled "Hjärnfonden's fundraiser page"; the "Recommended" badge went too,
+since there is nothing left to recommend it over.
+
+Do not reinstate a payment route that passes money through Edvard: the page now
+states plainly that nothing passes through his hands at all.
+
+### Removed with it
+- The AITC organisation card. Hjärnfonden is the only org.
+- The whole diagnoses section (nine expandable symptom cards).
+- CSS for .diagnoses-grid, .diagnosis-card, .swish-row, .donation-info is still
+  in the file but unused, as are the toggleDiagnosis() and copyText() functions.
+  Inert; delete when you are sure nothing else wants them.
+
+### Wording: the ride is over but the collection is open
+Every donate.html string was retensed in September 2026. The top banner reads
+"The journey is over, but the collection is still open", the goal note reads
+"The ride is finished. The collection is still open.", and the transparency
+commitment no longer promises future receipts for "both organisations"
 
 ### Donor wall
 - Loads /italy26/donors.json
@@ -325,37 +442,25 @@ Nav/footer: stone/sand bg, green text (set via inline :root override)
 ## sweden2024.html — SWEDEN 2024 TRIP
 
 Blue sky theme (rgba(74,122,150) nav).
-Standalone page — not connected to blog/posts system.
-Activity cards hover: translateY(-6px), same as index.
+Standalone page, not connected to blog/posts system.
 Own Leaflet map with blue polylines.
 
----
+### Hero stats (reworked September 2026 to mirror italy2026.html)
+Desktop: days counter bottom-left (.hero-days), stat column bottom-right
+(metres climbed, km, million heartbeats). The circular photo was lifted to
+top:42% and trimmed 500px → 420px so the bottom row is clear on short screens.
+Mobile (≤768px): the panel drops absolute positioning entirely and becomes a
+stacked column — photo, days counter, then the figures in one centred row.
 
-## flaskpost.html — MESSAGE IN A BOTTLE
+Days on the road are computed from the Strava file itself: first ride to last,
+both ends counted. That formula reproduces 32 for Sweden and 40 for Italy.
 
-Completely different palette from main site:
-```
---ocean:       #1a2f3f   (dark teal-blue bg)
---ocean-mid:   #243d52
---ocean-light: #4a7a96
---sand:        #e8d5b0   (warm cream text)
---sand-dark:   #c8a97a
-```
-
-### Form
-- Name + message + public/private visibility toggle
-- Public: goes to web wall (with approval). Private: email/ntfy only.
-- Submit: Web3Forms + ntfy push
-
-### Message wall (below form)
-- Loads /italy26/flaskpost.json
-- Only shows entries where approved:true
-- Manual approval workflow: get ntfy ping → add to JSON with approved:false → flip to true
-
-### flaskpost.json format
-```json
-[{ "name": "Anna", "message": "Ciao!", "date": "2026-05-12", "approved": false }]
-```
+### KNOWN GAP — heartbeats show nothing
+strava/activitiesswe.json has no `heartbeats` and no `avg_hr` field, so the
+heartbeats stat is rendered but stays `hidden`. It unhides itself the moment
+the data carries either field (it falls back to avg_hr × moving_time / 60, the
+same formula fetch_strava.py uses). To populate it, point fetch_strava.py at
+the 2024 date range with activitiesswe.json as its output.
 
 ---
 
@@ -385,7 +490,7 @@ Layout: left sidebar + right form (stacks on mobile <860px)
 
 ### Form
 - Name, Email, Subject, Message → Web3Forms + ntfy ping
-- Same Web3Forms key as flaskpost
+- Same Web3Forms key as the route.html recommend form
 - Fully translated EN/SV/IT
 
 ---
@@ -395,8 +500,9 @@ Layout: left sidebar + right form (stacks on mobile <860px)
 Simple centred card with:
 - Animated heart (uses assets/images/heart.png, 80px)
 - Translated thank-you text with //Edvard signature
-- Note about flaskpost wall
-- Buttons: "Back to journey" (sky-deep) → index.html, "Send a message" (stone) → flaskpost.html
+- Buttons back to the site
+NOTE: flaskpost.html was deleted before September 2026. If any button here
+still points at it, repoint it (contact.html is the natural target).
 
 ---
 
@@ -544,6 +650,32 @@ STRAVA_CLIENT_ID, STRAVA_CLIENT_SECRET, STRAVA_REFRESH_TOKEN
 
 ---
 
+## EDITORIAL CONVENTIONS — read before touching any copy
+
+1. NO EM DASHES. Edvard does not use them. Rewrite with a colon, comma, full
+   stop or parentheses instead. index.html and wherenext.html were fully
+   cleared in September 2026 (43 and 69 removed). italy2026.html still has
+   ~51 in Edvard's own older prose; leave those unless asked.
+   Numeric ranges (2027-2028, Sep-Oct, 5-6 weeks) keep their en dash: those
+   are ranges, not prose dashes.
+
+2. EVERY visible string is trilingual. An element carries data-en / data-sv /
+   data-it, and its visible fallback text must match data-en exactly.
+   Edvard edits the VISIBLE text directly and expects the three attributes to
+   be brought in line afterwards. Two things drift, and only one is findable
+   automatically:
+   - visible text vs data-en → diff the innerHTML against the attribute
+   - data-en edited together with the visible text, leaving sv/it stale →
+     only findable by diffing against a previous git revision
+   Check both. A parser is needed, not grep: many attributes contain HTML.
+
+3. AI disclosure sits in the shared footer (main.js injectFooter). Keep it.
+
+4. Numbers on index.html come from TRIPS in manuals.js. Never hardcode a
+   distance, elevation or day count into that page again.
+
+---
+
 ## SEO
 
 All four main pages have in <head>:
@@ -563,18 +695,18 @@ Google Search Console: register site + submit sitemap (TODO).
 
 ## PENDING TODOS
 
-- [ ] Fill INSERT_REVOLUT in donate.html (revolut.me/username)
-- [ ] Fill INSERT_PAYPAL in donate.html (paypal.me/username)
-- [ ] Fill INSERT IBAN + INSERT BIC in donate.html (Sparbanken)
-- [ ] Add assets/images/swish.png (Swish QR code image)
-- [ ] Add contact-banner.jpg (and optionally contact-banner2.jpg etc.)
-- [ ] Add assets/images/flower.png to contact page
-- [ ] Pre-create blog/posts/dag1/ through dag40/ (add .gitkeep to each)
-- [ ] Test full Markor → GitHub Chrome upload before May 10
-- [ ] Run routes-sync.yml manually to populate strava/routes.json
+- [ ] Re-fetch Sweden 2024 activities WITH heart-rate data so the heartbeats
+      stat on sweden2024.html can unhide (point fetch_strava.py at the 2024
+      window with activitiesswe.json as output)
+- [ ] Replace the ~ estimates on wherenext.html with real GPX figures once a
+      2027 route is actually drawn
+- [ ] Delete the dead CSS and JS left in donate.html (.diagnoses-*, .swish-row,
+      .donation-info, toggleDiagnosis(), copyText()) once confirmed unused
+- [ ] Decide whether wherenext.html should join the nav (would need the
+      1024px hamburger breakpoint revisited: six links already fill the row)
 - [ ] Register site in Google Search Console + submit sitemap.xml
-- [ ] Update TRIP_END_TIMESTAMP in fetch_strava.py to ~2026-06-30
-- [ ] Add contact page to getCurrentPage() in main.js if needed
+- [ ] Consider retensing the remaining present-tense trip copy on italy2026.html
+      now that the ride is finished
 
 ---
 
@@ -612,3 +744,22 @@ Google Search Console: register site + submit sitemap (TODO).
 
 13. Banner drift in contact.html: .banner-inner is 116% size (8% bleed).
     overflow:hidden on .contact-banner clips the drift. Never remove overflow:hidden.
+
+14. NEVER put a raw double quote inside a data-* attribute value. The attribute
+    is delimited by ", so an inner " closes it early and the browser renders the
+    rest of that language string AND the other two as visible page text.
+    This bit index.html hard: `data-en="... <strong data-total="km-unit"></strong> ..."`
+    showed all three languages at once. Use &quot; inside attribute values.
+    The visible fallback markup outside the attribute keeps real quotes.
+
+15. index.html gets its figures from TRIPS in manuals.js via data-trip /
+    data-stat / data-total slots, refilled on every langchange. applyLanguage()
+    rewrites innerHTML from data-*, so any slot INSIDE a translated element is
+    destroyed on language switch and must be refilled after.
+
+16. sitemap.xml must list italy2026.html and wherenext.html. Both were added
+    September 2026.
+
+17. The scrollbar thumb may be an <img> OR a <span class="sb-dot"> (null entry
+    in PAGE_IMAGES). The spin loop uses thumb.firstElementChild, not
+    querySelector('img'). Do not change it back.
