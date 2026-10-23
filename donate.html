@@ -271,6 +271,22 @@
       margin-bottom: 4rem;
     }
 
+    /* Org card (left) and fundraiser card (right) share one row; each
+       column keeps its own label above. Cards stretch to equal height. */
+    .donate-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+    .donate-col { display: flex; flex-direction: column; }
+    .donate-pair .orgs-grid,
+    .donate-pair .payment-grid {
+      grid-template-columns: 1fr;
+      margin-bottom: 0;
+      flex: 1;
+    }
+
     .org-card {
       background: rgba(74,122,150,0.07);
       border: 1px solid rgba(74,122,150,0.18);
@@ -499,10 +515,12 @@
       max-width: 700px;
       }
 
-    .transparency strong { 
-      color: var(--white); 
+    .transparency strong {
+      color: var(--white);
       font-size: larger;
     }
+
+    .transparency a { color: var(--yellow); }
 
     .story-expand-btn {
       font-family: 'DM Mono', monospace;
@@ -735,6 +753,8 @@
       .page { padding: 2rem 1rem 2rem; }
       .orgs-grid { grid-template-columns: 1fr; }
       .payment-grid { grid-template-columns: 1fr; }
+      .donate-pair { grid-template-columns: 1fr; gap: 0; }
+      .donate-pair .orgs-grid { margin-bottom: 2.5rem; }
       .story { padding-left: 1rem; }
       .goal-current { font-size: 1.8rem; }
       .donor-card { flex-direction: column; gap: 0.5rem; }
@@ -834,9 +854,12 @@
       <div class="goal-bar">
         <div class="goal-fill" id="donate-fill" style="width:0%"></div>
       </div>
-      <p class="goal-note" data-en="The ride is finished. The collection is still open." data-sv="Resan är avslutad. Insamlingen är fortfarande öppen." data-it="Il viaggio è concluso. La raccolta è ancora aperta.">The ride is finished. The collection is still open.</p>
+      <p class="goal-note" data-en="The ride is finished." data-sv="Resan är avslutad." data-it="Il viaggio è concluso.">The ride is finished.</p>
     </div>
 
+    <!-- ══ ORGANISATION + PAYMENT, side by side ══ -->
+    <div class="donate-pair">
+    <div class="donate-col">
     <!-- ══ ORGANISATIONS ══ -->
     <p class="orgs-label" data-en="// Where your money goes" data-sv="// Vart pengarna går" data-it="// Dove vanno i soldi">// Where your money goes</p>
     <div class="orgs-grid">
@@ -857,54 +880,43 @@
       </div>
     </div>
 
+    </div>
+    <div class="donate-col">
     <!-- ══ PAYMENT ══ -->
     <p class="payment-label" data-en="// How to donate" data-sv="// Hur du donerar" data-it="// Come donare">// How to donate</p>
     <div class="payment-grid">
-
-
       <div class="payment-card">
         <div class="payment-card-title">
           <img src="assets/images/flagse.png" alt="Swedish" width="30" height="30">
-          <span data-en="Hjärnfonden's fundraiser page" data-sv="Hjärnfondens insamlingssida" data-it="La pagina di raccolta di Hjärnfonden">Hjärnfonden's fundraiser page</span></div>
-
+          <span data-en="Hjärnfonden's fundraiser page" data-sv="Hjärnfondens insamlingssida" data-it="La pagina di raccolta di Hjärnfonden">Hjärnfonden's fundraiser page</span>
+        </div>
         <div class="payment-method">
           <div class="payment-method-name">Hjärnfonden Direkt</div>
           <p class="payment-note"
              data-en="Donate straight to Hjärnfonden with Visa or Mastercard. The page is theirs, so the money never passes through me."
              data-sv="Donera direkt till Hjärnfonden med Visa eller Mastercard. Sidan är deras, så pengarna passerar aldrig mig."
              data-it="Dona direttamente a Hjärnfonden con Visa o Mastercard. La pagina è la loro, quindi il denaro non passa mai da me.">
-             Donate straight to Hjärnfonden with Visa or Mastercard. The page is theirs, so the money never passes through me.</p>
+            Donate straight to Hjärnfonden with Visa or Mastercard. The page is theirs, so the money never passes through me.
+          </p>
           <div class="payment-detail">
-            <a href="https://insamling.hjarnfonden.se/en/fundraisers/italien-runt-2026"
-               target="_blank"
-               class="payment-link"
-               id="hjarnfonden-link">
-              Hjärnfonden.se →
-            </a>
+            <a href="https://insamling.hjarnfonden.se/en/fundraisers/italien-runt-2026" target="_blank" rel="noopener"
+               class="payment-link" id="hjarnfonden-link">Hjärnfonden.se →</a>
             <button class="copy-btn" onclick="copyLink('hjarnfonden-link')" title="Copy link">⧉</button>
           </div>
         </div>
       </div>
     </div>
+    </div>
+    </div>
 
     <!-- ══ TRANSPARENCY ══ -->
     <div class="transparency">
-      <p>
-        <span data-en='<strong>Transparency commitment:</strong><br> I personally covered every cost of the trip: equipment, transport, food and accommodation. No donation money was used for my expenses. Every donation goes straight to Hjärnfonden through their own fundraiser page, so nothing passes through my hands at all. Questions? Write to me at the <a href="contact.html" style="color:var(--yellow);">contact page</a>.'
-              data-sv='<strong>Transparenslöfte:</strong><br> Jag betalade själv alla resekostnader: utrustning, transport, mat och boende. Inga donationspengar användes till mina utgifter. Varje donation går direkt till Hjärnfonden via deras egen insamlingssida, så ingenting passerar mina händer. Frågor? Skriv till mig på <a href="contact.html" style="color:var(--yellow);">kontaktsidan</a>.'
-              data-it='<strong>Impegno per la trasparenza:</strong><br> Ho coperto personalmente tutti i costi del viaggio: attrezzatura, trasporto, cibo e alloggio. Nessun denaro donato è stato usato per le mie spese. Ogni donazione va direttamente a Hjärnfonden tramite la loro pagina di raccolta, quindi non passa mai dalle mie mani. Domande? Scrivimi alla <a href="contact.html" style="color:var(--yellow);">pagina per contatti</a>.'>
-              <strong>Transparency commitment:</strong><br> I personally covered every cost of the trip: equipment, transport, food and accommodation. No donation money was used for my expenses. Every donation goes straight to Hjärnfonden through their own fundraiser page, so nothing passes through my hands at all. Questions? Write to me at the <a href="contact.html" style="color:var(--yellow);">contact page</a>.
-
+      <p data-en="<strong>Transparency commitment:</strong><br>I personally covered every cost of the trip: equipment, transport, food and accommodation. No donation money was used for my expenses. Every donation goes straight to Hjärnfonden through their own fundraiser page, so nothing passes through my hands at all. Questions? Write to me at the <a href=&quot;contact.html&quot;>contact page</a>."
+         data-sv="<strong>Transparenslöfte:</strong><br>Jag betalade själv alla resekostnader: utrustning, transport, mat och boende. Inga donationspengar användes till mina utgifter. Varje donation går direkt till Hjärnfonden via deras egen insamlingssida, så ingenting passerar mina händer. Frågor? Skriv till mig på <a href=&quot;contact.html&quot;>kontaktsidan</a>."
+         data-it="<strong>Impegno per la trasparenza:</strong><br>Ho coperto personalmente tutti i costi del viaggio: attrezzatura, trasporto, cibo e alloggio. Nessun denaro donato è stato usato per le mie spese. Ogni donazione va direttamente a Hjärnfonden tramite la loro pagina di raccolta, quindi non passa mai dalle mie mani. Domande? Scrivimi alla <a href=&quot;contact.html&quot;>pagina per contatti</a>.">
+        <strong>Transparency commitment:</strong><br>I personally covered every cost of the trip: equipment, transport, food and accommodation. No donation money was used for my expenses. Every donation goes straight to Hjärnfonden through their own fundraiser page, so nothing passes through my hands at all. Questions? Write to me at the <a href="contact.html">contact page</a>.
       </p>
     </div>
-    <!-- https://insamling.hjarnfonden.se/fundraisers/italien-runt-2026 -->
-
-    <p class="payment-disclaimer"
-       data-en="Hjärnfonden keep the fundraiser page open after the ride, so a donation made today still counts towards the same collection."
-       data-sv="Hjärnfonden håller insamlingssidan öppen även efter resan, så en donation som görs idag räknas fortfarande till samma insamling."
-       data-it="Hjärnfonden tiene aperta la pagina di raccolta anche dopo il viaggio, quindi una donazione fatta oggi rientra ancora nella stessa raccolta.">
-      Hjärnfonden keep the fundraiser page open after the ride, so a donation made today still counts towards the same collection.
-    </p>
 
     <!-- ══ DONOR WALL ══ -->
     <p class="donor-label"

@@ -242,10 +242,10 @@ function injectFooter() {
         Skellefteå, Sweden. Built with HTML &amp; CSS
       </p>
       <p class="footer-ai"
-         data-en="Some texts on this site were generated with an AI tool."
-         data-sv="Vissa texter på den här sidan är genererade med ett AI-verktyg."
-         data-it="Alcuni testi di questo sito sono stati generati con uno strumento di IA.">
-        Some texts on this site were generated with an AI tool.
+         data-en="Some texts and elements on this site were generated with an AI tool."
+         data-sv="Vissa texter och element på den här sidan är genererade med ett AI-verktyg."
+         data-it="Alcuni testi e elementi di questo sito sono stati generati con uno strumento di IA.">
+        Some texts and elements on this site were generated with an AI tool.
       </p>
     </div>
     <div id="footer-attribution"></div>`;
