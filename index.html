@@ -189,14 +189,32 @@
     .btn-green  { color: var(--green); }
     .btn-green:hover  { background: var(--green); color: var(--white); }
 
-    .hero-right { position: relative; }
-    .hero-right img {
+    /* Round photo on a lighter green panel, as on italy2026.html.
+       juju.png is optional: if the file is missing the panel just stays green-mid. */
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+      background: var(--green-mid) url('/italy26/assets/images/juju.png') center / cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-right svg {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
+      opacity: 0.12;
+      pointer-events: none;
+    }
+    .hero-photo {
+      position: relative;
+      width: min(500px, 80%);
+      aspect-ratio: 1;
+      height: auto;
       object-fit: cover;
       object-position: center 30%;
+      border-radius: 50%;
     }
 
     /* ══ TOTALS STRIP ══ */
@@ -588,7 +606,8 @@
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; min-height: auto; }
       .hero-left  { order: 2; padding: 4rem 1.6rem 4.5rem; max-width: none; margin-left: 0; }
-      .hero-right { order: 1; height: 62vh; }
+      .hero-right { order: 1; padding: 7rem 1.6rem 2rem; }
+      .hero-photo { width: min(320px, 75vw); }
 
       .inner, section { padding: 4rem 1.6rem; }
       .totals-inner   { padding: 3rem 1.6rem; grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
@@ -629,7 +648,7 @@
 
       <p class="hero-sub"
          data-en="I like to explore new locations by bicycle and write down what happens along the road. So far that adds up to <strong data-total=&quot;km-unit&quot;></strong> across Italy, Sweden and Lofoten: a tent, more climbing than planned, and a lot of people I would never have met through a car or train window.<br><br>Check out my adventures!"
-         data-sv="Jag tycker om att utforska nya platser på cykel och skriva ner det som händer längs vägen. Hittills har det blivit <strong data-total=&quot;km-unit&quot;></strong> genom Italien, Sverige och Lofoten: ett tält, fler höjdmeter än planerat, och en massa människor jag aldrig hade mött genom en bil- eller tågruta.<br><br>Kom och se mina äventyr!"
+         data-sv="Välkommen till min hemsida där jag delar ögonblick från mina cykeläventyr. Hittills har det blivit <strong data-total=&quot;km-unit&quot;></strong> genom Italien, Sverige och Lofoten. Allting på en cykel med ett tält, fler höjdmeter än planerat, och en massa nya kompisar och berikande möten.<br><br> Kika gärna på mina äventyr!"
          data-it="Mi piace esplorare posti nuovi in bicicletta e scrivere ciò che accade lungo la strada. Finora fanno <strong data-total=&quot;km-unit&quot;></strong> tra Italia, Svezia e Lofoten: una tenda, più dislivello del previsto, e tantissime persone che non avrei mai incontrato dal finestrino di un'auto o di un treno.<br><br>Dai un'occhiata alle mie avventure!">
         I like to explore new locations by bicycle and write down what happens along the road. So far that adds up to <strong data-total="km-unit"></strong> across Italy, Sweden and Lofoten: a tent, more climbing than planned, and a lot of people I would never have met through a car or train window.<br><br>Check out my adventures!
       </p>
@@ -645,7 +664,12 @@
     </div>
 
     <div class="hero-right">
-      <img src="/italy26/assets/images/profilepic.jpg"
+      <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,400 Q100,300 200,350 Q300,400 400,250 Q500,100 600,200 L600,600 L0,600 Z" fill="none" stroke="#C4B49A" stroke-width="1.5"/>
+        <path d="M0,450 Q150,350 250,380 Q350,410 450,280 Q550,150 600,250 L600,600 L0,600 Z" fill="none" stroke="#C4B49A" stroke-width="1"/>
+        <path d="M0,500 Q100,420 200,440 Q300,460 420,340 Q520,220 600,300 L600,600 L0,600 Z" fill="none" stroke="#C4B49A" stroke-width="0.5"/>
+      </svg>
+      <img class="hero-photo" src="/italy26/assets/images/profilepic.jpg"
            alt="Edvard Appelberg with his bike at Niagara Falls"
            width="1000" height="1000">
     </div>
