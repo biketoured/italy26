@@ -24,6 +24,7 @@
   <link rel="stylesheet" href="/italy26/static/css/style.css">
   <link rel="canonical" href="https://biketoured.github.io/italy26/sweden2024.html">
   <script src="/italy26/static/js/main.js" defer></script>
+  <script src="/italy26/static/js/map-config.js"></script>
   <script src="manuals.js"></script>
 
   <style>
@@ -1021,11 +1022,7 @@
       opacity: 0.85
     });
 
-    const bwLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-      attribution: '© OpenStreetMap contributors, © CartoDB',
-      maxZoom: 20,
-      opacity: 1
-    });
+    const bwLayer = cartoLayer();
 
     let isBW = false;
     topoLayer.addTo(map);

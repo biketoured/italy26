@@ -291,7 +291,7 @@ function initLanguage() {
 function injectPizzaScrollbar() {
   // ── Per-page thumb image ──
   const PAGE_IMAGES = {
-    'index':      null,   // plain cream disc, see #pizza-thumb .sb-dot
+    'index':      'pizza.png',
     'italy2026':  'pizza.png',
     'donate':     'heart.png',
     'blog':       'wheel.png',

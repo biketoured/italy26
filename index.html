@@ -27,7 +27,7 @@
     "url": "https://biketoured.github.io/italy26/",
     "nationality": "Swedish",
     "homeLocation": { "@type": "Place", "name": "Skellefteå, Sweden" },
-    "description": "Swedish cyclist and adventurer who rides long-distance bikepacking journeys, roughly 4,000 km across Italy in 2026 and 3,500 km across Sweden and Lofoten in 2024.",
+    "description": "Swedish cyclist and adventurer who rides long-distance bikepacking journeys, roughly 4,000 km across Italy in 2026 and 3,500 km across Sweden 2024.",
     "image": [
       "https://biketoured.github.io/italy26/assets/images/profilesquare2.jpg",
       "https://biketoured.github.io/italy26/assets/images/profile2.jpg",
@@ -461,18 +461,37 @@
       border-color: var(--card);
     }
 
+    /* Purple-to-pink dusk with soft glows; the "?" stands upright in white
+       outline so it reads as a sign rather than as text. */
     .journey-placeholder {
       aspect-ratio: 4 / 3;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--stone);
-      color: var(--soil);
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 22% 28%, rgba(255, 170, 215, 0.55) 0, transparent 42%),
+        radial-gradient(circle at 80% 75%, rgba(150, 90, 230, 0.6) 0, transparent 48%),
+        linear-gradient(135deg, #4B2A7B 0%, #8E3FA8 50%, #E46FA6 100%);
+      color: transparent;
+      -webkit-text-stroke: 2px rgba(255, 255, 255, 0.92);
       font-family: 'Playfair Display', serif;
-      font-size: 3.5rem;
-      font-style: italic;
+      font-size: 7rem;
+      font-weight: 700;
+      font-style: normal;
+      line-height: 1;
+      text-shadow: 0 0 28px rgba(255, 190, 230, 0.55);
     }
-
+    /* Faint concentric rings behind the "?" */
+    .journey-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: -20%;
+      background: repeating-radial-gradient(circle at 50% 50%,
+        rgba(255, 255, 255, 0.10) 0 1px, transparent 1px 26px);
+      pointer-events: none;
+    }
     /* ══ SUPPORT ══ */
     .support-inner {
       max-width: 1120px;
@@ -647,11 +666,12 @@
       </h1>
 
       <p class="hero-sub"
-         data-en="I like to explore new locations by bicycle and write down what happens along the road. So far that adds up to <strong data-total=&quot;km-unit&quot;></strong> across Italy, Sweden and Lofoten: a tent, more climbing than planned, and a lot of people I would never have met through a car or train window.<br><br>Check out my adventures!"
-         data-sv="Välkommen till min hemsida där jag delar ögonblick från mina cykeläventyr. Hittills har det blivit <strong data-total=&quot;km-unit&quot;></strong> genom Italien, Sverige och Lofoten. Allting på en cykel med ett tält, fler höjdmeter än planerat, och en massa nya kompisar och berikande möten.<br><br> Kika gärna på mina äventyr!"
-         data-it="Mi piace esplorare posti nuovi in bicicletta e scrivere ciò che accade lungo la strada. Finora fanno <strong data-total=&quot;km-unit&quot;></strong> tra Italia, Svezia e Lofoten: una tenda, più dislivello del previsto, e tantissime persone che non avrei mai incontrato dal finestrino di un'auto o di un treno.<br><br>Dai un'occhiata alle mie avventure!">
-        I like to explore new locations by bicycle and write down what happens along the road. So far that adds up to <strong data-total="km-unit"></strong> across Italy, Sweden and Lofoten: a tent, more climbing than planned, and a lot of people I would never have met through a car or train window.<br><br>Check out my adventures!
+         data-en="Welcome to my website, where I share moments from my cycling adventures. So far that adds up to <strong data-total=&quot;km-unit&quot;></strong> across Italy, Sweden and Lofoten. All of it on a bike with a tent, more climbing than planned, and lots of new friends and rewarding encounters.<br><br>Have a look at my adventures!"
+         data-sv="Välkommen till min hemsida där jag delar ögonblick från mina cykeläventyr. Hittills har det blivit <strong data-total=&quot;km-unit&quot;></strong> genom Italien, Sverige och Lofoten. Allting på en cykel med ett tält, fler höjdmeter än planerat, och en massa nya kompisar och berikande möten.<br><br>Kika gärna på mina äventyr!"
+         data-it="Benvenuti sul mio sito, dove condivido momenti delle mie avventure in bicicletta. Finora sono <strong data-total=&quot;km-unit&quot;></strong> tra Italia, Svezia e Lofoten. Tutto in bici con una tenda, più dislivello del previsto e tanti nuovi amici e incontri arricchenti.<br><br>Dai un'occhiata alle mie avventure!">
+        Welcome to my website, where I share moments from my cycling adventures. So far that adds up to <strong data-total="km-unit"></strong> across Italy, Sweden and Lofoten. All of it on a bike with a tent, more climbing than planned, and lots of new friends and rewarding encounters.<br><br>Have a look at my adventures!
       </p>
+
 
       <div class="hero-cta">
         <a href="italy2026.html" class="btn btn-stone btn-tricolore"
@@ -698,7 +718,7 @@
       <div>
         <div class="total-value" data-total="trips"></div>
         <div class="total-label"
-             data-en="journeys, so far" data-sv="resor, hittills" data-it="viaggi, finora">journeys, so far</div>
+             data-en="journeys so far" data-sv="resor hittills" data-it="viaggi, finora">journeys, so far</div>
       </div>
     </div>
   </div>
@@ -708,24 +728,24 @@
     <p class="section-tag"
        data-en="// About me" data-sv="// Om mig" data-it="// Chi sono">// About me</p>
     <h2 class="section-title"
-        data-en="Curious. Analytic. Adventurous."
+        data-en="Curious. Determined. Adventurous."
         data-sv="Nyfiken. Målinriktad. Äventyrslysten."
         data-it="Curioso. Determinato. Avventuroso.">
-      Curious. Analytic. Adventurous.
+      Curious. Determined. Adventurous.
     </h2>
     <div class="section-divider"></div>
     <div class="about-grid">
       <img src="/italy26/assets/images/profile2.jpg" alt="Portrait of Edvard Appelberg" class="about-image"/>
       <div class="about-text">
-        <p data-en="Welcome to my homebuilt website. I am a Swede in my mid-twenties with an appetite for sports and exploring places I have not seen yet, preferably both at once. I live in <strong>Skellefteå, Sweden</strong>, where I spend my working days analysing electricity markets. The rest of the time goes to training, to learning something new (a language, a dish, or how to build a site like this one), and to working out where to ride next."
-           data-sv="Välkommen till hemsidan jag byggt själv. Jag är en svensk i 25-årsåldern med aptit på träning och på att utforska platser jag inte sett ännu, gärna i kombination. Jag bor i <strong>Skellefteå</strong>, där jag ägnar arbetsdagarna åt att analysera elmarknader. Resten av tiden går till träning, till att lära mig något nytt (ett språk, en maträtt, eller hur man bygger en sida som den här), och till att fundera ut vart nästa tur ska gå."
-           data-it="Benvenuti nel sito che ho costruito da solo. Sono uno svedese di venticinque anni con appetito per lo sport e per esplorare posti che non ho ancora visto, possibilmente insieme. Vivo a <strong>Skellefteå, in Svezia</strong>, dove passo le giornate lavorative ad analizzare i mercati elettrici. Il resto del tempo va all'allenamento, a imparare qualcosa di nuovo (una lingua, un piatto, o come si costruisce un sito come questo), e a capire dove andare la prossima volta.">
+        <p data-en="Welcome to my homebuilt website. I am a Swede in my mid-twenties with an appetite for sports and exploring places I have not seen yet, preferably both at once. I live in <strong>Skellefteå, Sweden</strong>, where I spend my working days analysing electricity markets. The rest of the time goes to training, to learning something new (a language, a dish, or how to build a site like this one), and to working out what's my next adventure."
+           data-sv="Välkommen till hemsidan jag byggt själv. Jag är en svensk 25-åring med aptit på träning och på att utforska platser jag inte sett ännu, gärna i kombination. Jag bor i <strong>Skellefteå</strong>, där jag ägnar arbetsdagarna åt att analysera elmarknader. Resten av tiden går till träning, till att lära mig något nytt (ett språk, en maträtt, eller hur man bygger en sida som den här), och till att fundera ut vart nästa äventyr blir av."
+           data-it="Benvenuti nel sito che ho costruito da solo. Sono uno svedese di venticinque anni con appetito per lo sport e per esplorare posti che non ho ancora visto, possibilmente insieme. Vivo a <strong>Skellefteå, in Svezia</strong>, dove passo le giornate lavorative ad analizzare i mercati elettrici. Il resto del tempo va all'allenamento, a imparare qualcosa di nuovo (una lingua, un piatto, o come si costruisce un sito come questo), e a capire che cosa la prossima avventura sará.">
           Welcome to my homebuilt website. I am a Swede in my mid-twenties with an appetite for sports and exploring places I have not seen yet, preferably both at once. I live in <strong>Skellefteå, Sweden</strong>, where I spend my working days analysing electricity markets. The rest of the time goes to training, to learning something new (a language, a dish, or how to build a site like this one), and to working out where to ride next.
         </p>
-        <p data-en="I ride because a bicycle moves at exactly the right speed: fast enough to cross a country, slow enough to feel it. There are no sponsors behind any of this and no predetermined goal: the journeys run on curiosity alone… and on gelato. If you want the long version, each trip has its own page, and the <em>journal</em> has it day by day."
-           data-sv="Jag cyklar för att cykeln rör sig i precis rätt hastighet: snabbt nog för att ta sig genom ett land, långsamt nog för att hinna leva i det. Det finns inga sponsorer bakom det här och inget förutbestämt mål: resorna drivs av ren nyfikenhet… och av gelato. Vill du ha den långa versionen har varje resa en egen sida, och <em>dagboken</em> tar det dag för dag."
-           data-it="Pedalo perché la bicicletta va esattamente alla velocità giusta: abbastanza veloce da attraversare un paese, abbastanza lenta da riuscire a conoscerlo. Dietro tutto questo non ci sono sponsor né un obiettivo prestabilito: i viaggi vanno avanti a pura curiosità… e a gelato. Se vuoi la versione lunga, ogni viaggio ha la sua pagina e il <em>diario</em> racconta giorno per giorno.">
-          I ride because a bicycle moves at exactly the right speed: fast enough to cross a country, slow enough to feel it. There are no sponsors behind any of this and no predetermined goal: the journeys run on curiosity alone… and on gelato. If you want the long version, each trip has its own page, and the <em>journal</em> has it day by day.
+        <p data-en="I ride because a bicycle moves at exactly the right speed: fast enough to cross a country, slow enough to experience all its colours. Moreover, bikepacking has an immersive feeling of freedom, problem-solving, and self-development. There are no sponsors behind any of this and no predetermined goal: the journeys run on curiosity alone… and on gelato. If you are looking for inspiration, each trip has its own page, and the <em>journal</em> has it day by day."
+           data-sv="Jag cyklar för att cykeln rör sig i precis rätt hastighet: snabbt nog för att ta sig genom ett land, långsamt nog för att hinna uppleva det. Dessutom ger bikepacking en enorm frihetskänsla och är ett bra sätt att leva sitt sanna jag. Det finns inga sponsorer bakom det här och inget förutbestämt mål: resorna drivs av ren nyfikenhet… och av gelato. Vill du ha inspiration har varje resa en egen sida, och <em>dagboken</em> tar det dag för dag."
+           data-it="Pedalo perché la bicicletta va esattamente alla velocità giusta: abbastanza veloce da attraversare un paese, abbastanza lenta da riuscire a conoscerlo. Inoltre, bikepacking dá un sensazione di libertá fortissimo. Dietro tutto questo non ci sono sponsor né un obiettivo prestabilito: i viaggi vanno avanti a pura curiosità… e a gelato. Se vuoi un pochino di ispirazione, ogni viaggio ha la sua pagina e il <em>diario</em> racconta giorno per giorno.">
+          I ride because a bicycle moves at exactly the right speed: fast enough to cross a country, slow enough to experience all its colours. Moreover, bikepacking has an immersive feeling of freedom, problem-solving, and self-development. There are no sponsors behind any of this and no predetermined goal: the journeys run on curiosity alone… and on gelato. If you are looking for inspiration, each trip has its own page, and the <em>journal</em> has it day by day.
         </p>
       </div>
     </div>
@@ -736,19 +756,17 @@
   <div class="band band-green">
     <div class="quote-inner">
       <p class="quote-text"
-         data-en="&ldquo;It is by riding a bicycle that you learn the contours of a country best, since you have to sweat up the hills and coast down them.&rdquo;"
-         data-sv="&rdquo;Det är genom att cykla man lär känna ett lands konturer bäst, eftersom man måste svettas uppför backarna och rulla nedför dem.&rdquo;"
-         data-it="&laquo;È andando in bicicletta che si imparano meglio i contorni di un paese, perché bisogna sudare in salita e lasciarsi andare in discesa.&raquo;">
-        &ldquo;It is by riding a bicycle that you learn the contours of a country best, since you have to sweat up the hills and coast down them.&rdquo;
+         data-en="&ldquo;It is the possibility to make a dream reality that makes life exciting.&rdquo;"
+         data-sv="&rdquo;Det är möjligheten att förverkliga en dröm som gör livet spännande.&rdquo;"
+         data-it="&laquo;È la possibilitá di realizzare un sogno che rende la vita cara.&raquo;">
+        &ldquo;It is the possibility to make a dream reality that makes life exciting.&rdquo;
       </p>
-      <p class="quote-attr">Ernest Hemingway</p>
+      <p class="quote-attr">Paul Coelho</p>
     </div>
   </div>
 
   <!-- ══ JOURNEYS ══ -->
   <section id="journeys" class="section-centred">
-    <p class="section-tag"
-       data-en="// The trips" data-sv="// Resorna" data-it="// I viaggi">// The trips</p>
     <h2 class="section-title"
         data-en="Journeys" data-sv="Resor" data-it="Viaggi">Journeys</h2>
     <div class="section-divider"></div>
@@ -787,7 +805,7 @@
               data-en="Sweden 2024" data-sv="Sverige 2024" data-it="Svezia 2024">Sweden 2024</h3>
           <p class="journey-desc"
              data-en="The entire length of Sweden and onward into Lofoten, from the southern tip at Smygehuk to the Arctic islands. A month of west coast, forests and mountains."
-             data-sv="Sverige på längden och vidare ut i Lofoten, från Smygehuk i söder till öarna ovanför polcirkeln. En månad av västkust, skog och berg."
+             data-sv="Sverige på längden och vidare ut i Lofoten, från Smygehuk i söder till öarna ovanför polcirkeln. En månad av hav, skog och berg."
              data-it="La Svezia in tutta la sua lunghezza e poi fino alle Lofoten, dalla punta meridionale di Smygehuk alle isole artiche. Un mese di costa, foreste e montagne.">
             The entire length of Sweden and onward into Lofoten, from the southern tip at Smygehuk to the Arctic islands. A month of west coast, forests and mountains.
           </p>
@@ -808,7 +826,7 @@
               data-en="The next one" data-sv="Nästa resa" data-it="Il prossimo">The next one</h3>
           <p class="journey-desc"
              data-en="The Balkans to Istanbul, a race down Patagonia, Greece in Greek, all in on France, or the Atlas in the middle of the Swedish winter. Five candidates, nothing booked."
-             data-sv="Balkan till Istanbul, ett lopp genom Patagonien, Grekland på grekiska, allt in på Frankrike, eller Atlasbergen mitt i den svenska vintern. Fem kandidater, inget bokat."
+             data-sv="Balkan till Istanbul, ett lopp genom Patagonien, Grekland på grekiska, all in på Frankrike, eller Atlasbergen mitt i den svenska vintern. Fem kandidater, inget bestämt."
              data-it="I Balcani fino a Istanbul, una gara lungo la Patagonia, la Grecia in greco, tutto sulla Francia, o l'Atlante nel pieno dell'inverno svedese. Cinque candidati, niente prenotato.">
             The Balkans to Istanbul, a race down Patagonia, Greece in Greek, all in on France, or the Atlas in the middle of the Swedish winter. Five candidates, nothing booked.
           </p>
@@ -846,7 +864,7 @@
           Riding for brain research
         </h2>
         <p class="support-text"
-           data-en="The Italy 2026 ride collected money for <strong>Hjärnfonden</strong>, the Swedish Brain Research Fund. The collection is still open, and every krona goes straight to the fund."
+           data-en="The Italy 2026 ride collected money for <strong>Hjärnfonden</strong>, the Swedish Brain Research Fund."
            data-sv="Resan genom Italien 2026 samlade in pengar till <strong>Hjärnfonden</strong>. Insamlingen är fortfarande öppen, och varje krona går direkt till fonden."
            data-it="Il viaggio in Italia 2026 ha raccolto fondi per <strong>Hjärnfonden</strong>, la fondazione svedese per la ricerca sul cervello. La raccolta è ancora aperta e ogni corona svedese va direttamente alla ricerca su cervello.">
           The Italy 2026 ride collected money for <strong>Hjärnfonden</strong>, the Swedish Brain Research Fund. The collection is still open, and every krona goes straight to the fund.
@@ -856,16 +874,16 @@
           <span data-en="Raised" data-sv="Insamlade" data-it="Raccolti">Raised</span>
         </p>
       </div>
+      <!--
       <div class="support-action">
         <a href="donate.html" class="btn btn-cream"
            data-en="Donate" data-sv="Donera" data-it="Dona">Donate</a>
       </div>
+      -->
     </div>
   </div>
   <!-- ══ LINKS ══ -->
   <section id="links">
-    <p class="section-tag"
-       data-en="// Around the web" data-sv="// En runda på nätet" data-it="// In giro per il web">// Around the web</p>
     <h2 class="section-title"
         data-en="Links" data-sv="Länkar" data-it="Links">Links</h2>
     <div class="section-divider"></div>
