@@ -1089,28 +1089,35 @@
 
     /* ── MOBILE HERO BANNER ──
        Shown only on screens where .hero-right (profile photo) is hidden.
-       Matches the 340px height of the post.html cover banner.
+       On phones the banner + text fill exactly one screen: the text takes
+       what it needs and the banner grows into the height that is left.
     ── */
     .hero-mobile-banner {
       display: none;
       width: 100%;
-      height: 300px;
       object-fit: cover;
       object-position: right top;
     }
     @media (max-width: 768px) {
-      .hero-mobile-banner { display: block; }
+      .hero-mobile-wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100svh;
+      }
+      .hero-mobile-banner { display: block; flex: 1 0 300px; height: 0; }
     }
     @media (max-width: 480px) {
-      .hero-mobile-banner { height: 250px; }
+      .hero-mobile-banner { flex-basis: 250px; }
     }
 
     /* ── MOBILE HERO WRAPPER ── */
     .hero-mobile-wrapper {
-      position: relative;  /* positioning context for the profile pic */
+      position: relative;
     }
 
-    /* ── MOBILE PROFILE PIC — straddles banner/hero seam ── */
+    /* ── MOBILE PROFILE PIC — straddles banner/hero seam ──
+       Lives inside .hero and hangs half above its top edge, so it stays on
+       the seam whatever height the banner ends up with. */
     .hero-mobile-profilepic {
       display: none;  /* hidden on desktop */
     }
@@ -1118,8 +1125,7 @@
       .hero-mobile-profilepic {
         display: block;
         position: absolute;
-        /* Banner is 280px tall — centre pic on that seam */
-        top: calc(280px - 48px);   /* banner height minus half of pic height */
+        top: -63px;               /* half the photo height */
         right: 1.5rem;
         width: 126px;
         height: 126px;
@@ -1129,21 +1135,13 @@
         border: 2.5px solid rgba(196,180,154,0.35);
         z-index: 10;
       }
-      /* Minimal right clearance — just enough not to overlap the pic */
-      .hero-title {
-        padding-right: 115px;
-      }
     }
     @media (max-width: 480px) {
       .hero-mobile-profilepic {
-        /* Banner is 220px tall at phone size */
-        top: calc(220px - 40px);
+        top: -50px;
         right: 1.25rem;
         width: 100px;
         height: 100px;
-      }
-      .hero-title {
-        padding-right: 92px;
       }
     }
 
@@ -1402,20 +1400,20 @@
   <!-- ══ MOBILE HERO BANNER — hidden on desktop ══ -->
   <img class="hero-mobile-banner" src="/italy26/assets/images/medit2.jpg" alt="Edvard Appelberg">
 
-  <!-- ══ MOBILE PROFILE PIC — straddles banner/hero seam, hidden on desktop ══ -->
-  <img class="hero-mobile-profilepic"
-       src="/italy26/assets/images/profilesquare2.jpg"
-       alt="Edvard Appelberg"
-       onerror="this.style.display='none'">
-
   <!-- ══ HERO ══ -->
   <div class="hero">
+    <!-- MOBILE PROFILE PIC: straddles the banner/text seam, hidden on desktop.
+         Anchored to the top of .hero so it follows the banner whatever its height. -->
+    <img class="hero-mobile-profilepic"
+         src="/italy26/assets/images/profilesquare2.jpg"
+         alt="Edvard Appelberg"
+         onerror="this.style.display='none'">
     <div class="hero-left">
       <h1 class="hero-title"
-          data-en="Explored the <br> regions of <em>Italy</em> for a good cause.<br>"
-          data-sv="Cyklade genom <br> hela <em>Italien</em> för välgörenhet.<br>"
-          data-it="Esplorato le <br> regioni <em>d'Italia</em> per una buona causa.<br>">
-        Explored the regions of <em>Italy</em><br> for a good cause.<br>
+          data-en="Explored the regions of <em>Italy</em> for a good cause.<br>"
+          data-sv="Cyklade genom hela <em>Italien</em> för välgörenhet.<br>"
+          data-it="Esplorato le regioni <em>d'Italia</em> per una buona causa.<br>">
+        Explored the regions of <em>Italy</em> for a good cause.<br>
       </h1>
       <p class="hero-sub"
          data-en="My goal with the trip was to explore how the Italian regions differ from one another and to experience the real Italy. Along the way, I raised money for the Swedish Brain Foundation. Come along!"

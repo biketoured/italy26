@@ -112,21 +112,12 @@
       margin-left: auto;
     }
 
-    .hero-tag {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.68rem;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: var(--green-light);
-      margin-bottom: 2rem;
-    }
-
     .hero-title {
       font-family: 'Playfair Display', serif;
       font-weight: 400;
-      font-size: clamp(2.7rem, 5.6vw, 4.4rem);
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
       line-height: 1.06;
-      color: var(--white);
+      color: var(--green-light);
       margin-bottom: 1.75rem;
     }
 
@@ -650,7 +641,10 @@
       .hero-left  { order: 2; padding: 4rem 1.6rem 4.5rem; max-width: none; margin-left: 0; }
       /* Same as italy2026.html on mobile: picture banner on top, round photo
          on the right straddling the seam between banner and text. */
-      .hero-right { order: 1; height: 58vh; min-height: 320px; display: block; overflow: visible; }
+      /* Hero fills exactly one phone screen: the text takes what it needs and
+         the background picture grows into whatever height is left. */
+      .hero { display: flex; flex-direction: column; min-height: 100svh; }
+      .hero-right { order: 1; flex: 1 0 320px; display: block; overflow: visible; }
       .hero-photo {
         position: absolute;
         right: 1.5rem;
@@ -659,7 +653,6 @@
         border: 2.5px solid rgba(196,180,154,0.35);
         z-index: 10;
       }
-      .hero-title { padding-right: 115px; }
 
       /* No hover on phones, so the flags and the purple wash show a bit stronger. */
       .journey-card.italy .journey-body::before,
@@ -677,7 +670,6 @@
 
     @media (max-width: 480px) {
       .hero-photo  { width: 100px; bottom: -50px; right: 1.25rem; }
-      .hero-title  { padding-right: 92px; }
     }
 
     @media (max-width: 520px) {
@@ -694,13 +686,7 @@
   <!-- ══ HERO ══ -->
   <header class="hero">
     <div class="hero-left">
-      <p class="hero-tag"
-         data-en="// Skellefteå, Sweden"
-         data-sv="// Skellefteå, Sverige"
-         data-it="// Skellefteå, Svezia">
-        // Skellefteå, Sweden
-      </p>
-
+      
       <h1 class="hero-title"
           data-en="Edvard Appelberg"
           data-sv="Edvard Appelberg"
@@ -770,8 +756,6 @@
 
   <!-- ══ ABOUT ══ -->
   <section id="about">
-    <p class="section-tag"
-       data-en="// About me" data-sv="// Om mig" data-it="// Chi sono">// About me</p>
     <h2 class="section-title"
         data-en="Curious. Determined. Adventurous."
         data-sv="Nyfiken. Målinriktad. Äventyrslysten."
@@ -890,11 +874,12 @@
       <!-- Unattributed on purpose: this one is Edvard's own line, so there is
            nobody to credit under it. -->
       <p class="quote-text"
-         data-en="&ldquo;Travelling by bicycle is slow enough that you're immersed in your surroundings and can stop wherever you like, and at the same time fast enough that you can get a very long way in a couple of days. It is the most immersive way to travel.&rdquo;"
-         data-sv="&rdquo;Att resa på cykel är långsamt nog för att vara en del av omgivningen och stanna var man vill, samtidigt som det går snabbt nog att man kan ta sig riktigt långt på ett par dagar. Det är det mest närvarande sättet att resa.&rdquo;"
-         data-it="&laquo;Viaggiare in bicicletta è abbastanza lento da farti diventare parte di ciò che ti circonda e fermarti dove vuoi, e allo stesso tempo abbastanza veloce da portarti davvero lontano in un paio di giorni. È il modo di viaggiare che ti immerge di più.&raquo;">
-        &ldquo;Travelling by bicycle is slow enough that you're immersed in your surroundings and can stop wherever you like, and at the same time fast enough that you can get a very long way in a couple of days. It is the most immersive way to travel.&rdquo;
+         data-en="&ldquo;Travelling by bicycle is slow enough that you get fully immersed in your surroundings and can stop wherever you like, but fast enough that you can get a very long way in a couple of days. It is the most immersive way to travel.&rdquo;"
+         data-sv="&rdquo;Att resa på cykel är långsamt nog för att vara en del av omgivningen och stanna var man vill, samtidigt som det går snabbt nog att man kan ta sig riktigt långt bara på ett par dagar. Det är det mest närvarande sättet att resa.&rdquo;"
+         data-it="&laquo;Viaggiare in bicicletta è abbastanza lento da farti diventare parte di ciò che ti circonda e fermarti dove vuoi, ma anche abbastanza veloce da portarti davvero lontano in solo un paio di giorni. È il modo di viaggiare che ti immerge di più.&raquo;">
+        &ldquo;Travelling by bicycle is slow enough that you get fully immersed in your surroundings and can stop wherever you like, but fast enough that you can get a very long way in a couple of days. It is the most immersive way to travel.&rdquo;
       </p>
+      <p class="quote-attr">My own reflections</p>
     </div>
   </div>
 
