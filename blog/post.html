@@ -170,7 +170,9 @@
 
     function loadPost() {
       const slug = getSlug();
-      if (!slug) {
+      // Only plain folder names (dag4, gear, ...). The slug ends up inside HTML,
+      // so anything else in the address bar could inject code.
+      if (!slug || !/^[a-z0-9_-]+$/i.test(slug)) {
         document.getElementById('post-wrapper').innerHTML = '<div class="error-state">No post specified.</div>';
         return;
       }

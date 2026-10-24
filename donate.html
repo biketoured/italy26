@@ -893,10 +893,10 @@
         <div class="payment-method">
           <div class="payment-method-name">Hjärnfonden Direkt</div>
           <p class="payment-note"
-             data-en="Donate straight to Hjärnfonden with Visa or Mastercard. The page is theirs, so the money never passes through me."
-             data-sv="Donera direkt till Hjärnfonden med Visa eller Mastercard. Sidan är deras, så pengarna passerar aldrig mig."
-             data-it="Dona direttamente a Hjärnfonden con Visa o Mastercard. La pagina è la loro, quindi il denaro non passa mai da me.">
-            Donate straight to Hjärnfonden with Visa or Mastercard. The page is theirs, so the money never passes through me.
+             data-en="Donate straight to Hjärnfonden with Visa or Mastercard."
+             data-sv="Donera direkt till Hjärnfonden med Visa eller Mastercard."
+             data-it="Dona direttamente a Hjärnfonden con Visa o Mastercard.">
+            Donate straight to Hjärnfonden with Visa or Mastercard.
           </p>
           <div class="payment-detail">
             <a href="https://insamling.hjarnfonden.se/en/fundraisers/italien-runt-2026" target="_blank" rel="noopener"
@@ -911,10 +911,10 @@
 
     <!-- ══ TRANSPARENCY ══ -->
     <div class="transparency">
-      <p data-en="<strong>Transparency commitment:</strong><br>I personally covered every cost of the trip: equipment, transport, food and accommodation. No donation money was used for my expenses. Every donation goes straight to Hjärnfonden through their own fundraiser page, so nothing passes through my hands at all. Questions? Write to me at the <a href=&quot;contact.html&quot;>contact page</a>."
-         data-sv="<strong>Transparenslöfte:</strong><br>Jag betalade själv alla resekostnader: utrustning, transport, mat och boende. Inga donationspengar användes till mina utgifter. Varje donation går direkt till Hjärnfonden via deras egen insamlingssida, så ingenting passerar mina händer. Frågor? Skriv till mig på <a href=&quot;contact.html&quot;>kontaktsidan</a>."
-         data-it="<strong>Impegno per la trasparenza:</strong><br>Ho coperto personalmente tutti i costi del viaggio: attrezzatura, trasporto, cibo e alloggio. Nessun denaro donato è stato usato per le mie spese. Ogni donazione va direttamente a Hjärnfonden tramite la loro pagina di raccolta, quindi non passa mai dalle mie mani. Domande? Scrivimi alla <a href=&quot;contact.html&quot;>pagina per contatti</a>.">
-        <strong>Transparency commitment:</strong><br>I personally covered every cost of the trip: equipment, transport, food and accommodation. No donation money was used for my expenses. Every donation goes straight to Hjärnfonden through their own fundraiser page, so nothing passes through my hands at all. Questions? Write to me at the <a href="contact.html">contact page</a>.
+      <p data-en="<strong>Transparency commitment:</strong><br>I personally covered every cost of the trip: equipment, transport, food and accommodation. No donation money was used for my expenses. Every donation goes straight to Hjärnfonden through their own fundraiser page. Questions? Write to me at the <a href=&quot;contact.html&quot;>contact page</a>."
+         data-sv="<strong>Transparenslöfte:</strong><br>Jag betalade själv alla resekostnader: utrustning, transport, mat och boende. Inga donationspengar användes till mina utgifter. Varje donation går direkt till Hjärnfonden via deras egen insamlingssida. Frågor? Skriv till mig på <a href=&quot;contact.html&quot;>kontaktsidan</a>."
+         data-it="<strong>Impegno per la trasparenza:</strong><br>Ho coperto personalmente tutti i costi del viaggio: attrezzatura, trasporto, cibo e alloggio. Nessun denaro donato è stato usato per le mie spese. Ogni donazione va direttamente a Hjärnfonden tramite la loro pagina di raccolta. Domande? Scrivimi alla <a href=&quot;contact.html&quot;>pagina per contatti</a>.">
+        <strong>Transparency commitment:</strong><br>I personally covered every cost of the trip: equipment, transport, food and accommodation. No donation money was used for my expenses. Every donation goes straight to Hjärnfonden through their own fundraiser page. Questions? Write to me at the <a href="contact.html">contact page</a>.
       </p>
     </div>
 
@@ -994,14 +994,19 @@
       .then(r => { if (!r.ok) throw new Error('no file'); return r.json(); })
       .then(donors => {
         if (!donors || donors.length === 0) return; // keep empty state
+        // Donor text is pasted in by hand, so show it as plain text.
+        // Only <br> is turned back into a line break.
+        const esc = s => String(s).replace(/[&<>"']/g, c =>
+          ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+        const escMsg = s => esc(s).replace(/&lt;br\s*\/?&gt;/gi, '<br>');
         grid.innerHTML = donors.map((d, i) => `
           <div class="donor-card" style="animation-delay:${i * 0.06}s">
             <div class="donor-card-left">
-              <div class="donor-name">${d.name || 'Anonymous'}</div>
-              ${d.message ? `<div class="donor-message">${d.message}</div>` : ''}
+              <div class="donor-name">${esc(d.name || 'Anonymous')}</div>
+              ${d.message ? `<div class="donor-message">${escMsg(d.message)}</div>` : ''}
             </div>
             <div class="donor-card-right">
-              ${d.amount ? `<div class="donor-amount">${d.amount.toLocaleString('sv-SE')} ${d.currency || 'kr'}</div>` : ''}
+              ${typeof d.amount === 'number' ? `<div class="donor-amount">${d.amount.toLocaleString('sv-SE')} ${esc(d.currency || 'kr')}</div>` : ''}
             </div>
           </div>`
         ).join('');

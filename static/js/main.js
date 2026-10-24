@@ -247,9 +247,49 @@ function injectFooter() {
          data-it="Alcuni testi e elementi di questo sito sono stati generati con uno strumento di IA.">
         Some texts and elements on this site were generated with an AI tool.
       </p>
+      <p class="footer-ai" id="footer-updated" hidden></p>
     </div>
     <div id="footer-attribution"></div>`;
+  loadLastUpdated();
 }
+
+// ── LAST UPDATED (footer) ────────────────────────────────────
+// Asks GitHub for the date of the latest commit that touched this page's file.
+// No key needed; GitHub allows 60 such requests per visitor per hour, and the
+// answer is cached for the browser session. If anything fails the line stays hidden.
+let lastUpdated = null;
+
+function renderLastUpdated() {
+  const el = document.getElementById('footer-updated');
+  if (!el || !lastUpdated) return;
+  const lang = typeof currentLang !== 'undefined' ? currentLang : 'en';
+  const locale = { en: 'en-GB', sv: 'sv-SE', it: 'it-IT' }[lang] || 'en-GB';
+  const label = { en: 'Last updated', sv: 'Senast uppdaterad', it: 'Ultimo aggiornamento' }[lang] || 'Last updated';
+  const date = new Date(lastUpdated).toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' });
+  el.textContent = `${label} ${date}`;
+  el.hidden = false;
+}
+
+function loadLastUpdated() {
+  let file = location.pathname.replace(/^\/italy26\//, '');
+  if (file === '' || file.endsWith('/')) file += 'index.html';
+  const cacheKey = 'last-updated:' + file;
+  try { lastUpdated = sessionStorage.getItem(cacheKey); } catch (e) {}
+  if (lastUpdated) { renderLastUpdated(); return; }
+
+  fetch('https://api.github.com/repos/biketoured/italy26/commits?per_page=1&path=' + encodeURIComponent(file))
+    .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+    .then(commits => {
+      const d = commits[0] && commits[0].commit && commits[0].commit.committer.date;
+      if (!d) return;
+      lastUpdated = d;
+      try { sessionStorage.setItem(cacheKey, d); } catch (e) {}
+      renderLastUpdated();
+    })
+    .catch(() => {});
+}
+
+document.addEventListener('langchange', renderLastUpdated);
 
 // ── LANGUAGE SWITCHER ────────────────────────────────────────
 let currentLang = 'en';

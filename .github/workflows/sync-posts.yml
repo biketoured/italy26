@@ -1,9 +1,10 @@
 name: Sync posts.json
 
 on:
+  # PAUSED after Italy 2026. To resume, delete the "# " in front of "schedule:" and "- cron" below.
   # Runs every night at midnight UTC
-  schedule:
-    - cron: '0 0 * * *'
+  # schedule:
+  #   - cron: '0 0 * * *'
 
   # Also runs whenever you push changes to blog/posts/
   push:
