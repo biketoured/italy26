@@ -1,5 +1,5 @@
 // CARTO basemap used by route.html, italy2026.html and sweden2024.html.
-// Replace XXXX with your key. Restrict the key to biketoured.github.io in the
+// estrict the key to biketoured.github.io in the
 // CARTO dashboard: anything in this file is public.
 window.CARTO_TILES = 'https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png?key=cb1_2x4a_1_e703911ee1e47da4098ddd6d';
 

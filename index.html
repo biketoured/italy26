@@ -189,16 +189,25 @@
     .btn-green  { color: var(--green); }
     .btn-green:hover  { background: var(--green); color: var(--white); }
 
-    /* Round photo on a lighter green panel, as on italy2026.html.
-       juju.png is optional: if the file is missing the panel just stays green-mid. */
+    /* Round photo on a rotating background (list in the HERO_BACKGROUNDS script
+       near the end of the page). Green-mid shows if a picture fails to load. */
     .hero-right {
       position: relative;
       overflow: hidden;
-      background: var(--green-mid) url('/italy26/assets/images/juju.png') center / cover no-repeat;
+      background: var(--green-mid);
       display: flex;
       align-items: center;
       justify-content: center;
     }
+    /* Two stacked layers: the new picture fades in on top, then they swap roles. */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: center / cover no-repeat;
+      opacity: 0;
+      transition: opacity 1.5s ease;
+    }
+    .hero-bg.is-visible { opacity: 1; }
     .hero-right svg {
       position: absolute;
       inset: 0;
@@ -684,6 +693,8 @@
     </div>
 
     <div class="hero-right">
+      <div class="hero-bg is-visible" style="background-image:url('/italy26/assets/images/medit6.jpg')"></div>
+      <div class="hero-bg"></div>
       <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true">
         <path d="M0,400 Q100,300 200,350 Q300,400 400,250 Q500,100 600,200 L600,600 L0,600 Z" fill="none" stroke="#C4B49A" stroke-width="1.5"/>
         <path d="M0,450 Q150,350 250,380 Q350,410 450,280 Q550,150 600,250 L600,600 L0,600 Z" fill="none" stroke="#C4B49A" stroke-width="1"/>
@@ -1078,6 +1089,43 @@
     const el = document.getElementById('support-total');
     if (!el || typeof DONATION_TOTAL === 'undefined') return;
     el.textContent = DONATION_TOTAL.toLocaleString('sv-SE') + ' kr';
+  })();
+  </script>
+
+  <script>
+  // ── HERO BACKGROUND SLIDESHOW ──
+  // Add or remove file names here; they live in /italy26/assets/images/.
+  // The first one is also set in the HTML so it shows even without JavaScript.
+  const HERO_BACKGROUNDS = ['medit6.jpg', 'medit2.jpg', 'medit8.jpg'];
+  const HERO_INTERVAL_MS = 7000;
+
+  (function() {
+    const layers = document.querySelectorAll('.hero-bg');
+    if (layers.length < 2 || HERO_BACKGROUNDS.length < 2) return;
+    // Respect visitors who ask their system for less motion: keep the first picture.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    let index = 0, front = 0;
+    function next() {
+      // Skip the switch while the tab is in the background.
+      if (document.hidden) return;
+      const nextIndex = (index + 1) % HERO_BACKGROUNDS.length;
+      const url = '/italy26/assets/images/' + HERO_BACKGROUNDS[nextIndex];
+      // Load the picture fully before fading, so it never pops in half-drawn.
+      // A missing file is skipped and the current picture stays.
+      const img = new Image();
+      img.onload = () => {
+        const back = 1 - front;
+        layers[back].style.backgroundImage = `url('${url}')`;
+        layers[back].classList.add('is-visible');
+        layers[front].classList.remove('is-visible');
+        front = back;
+        index = nextIndex;
+      };
+      img.onerror = () => { index = nextIndex; };
+      img.src = url;
+    }
+    setInterval(next, HERO_INTERVAL_MS);
   })();
   </script>
 
