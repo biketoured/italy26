@@ -1125,7 +1125,7 @@
       .hero-mobile-profilepic {
         display: block;
         position: absolute;
-        top: -63px;               /* half the photo height */
+        top: -88px;               /* 70% of the photo (126px) above the seam */
         right: 1.5rem;
         width: 126px;
         height: 126px;
@@ -1138,7 +1138,7 @@
     }
     @media (max-width: 480px) {
       .hero-mobile-profilepic {
-        top: -50px;
+        top: -70px;               /* 70% of 100px */
         right: 1.25rem;
         width: 100px;
         height: 100px;
@@ -1262,7 +1262,7 @@
       nav { padding: 1rem 1.5rem; }
       .hero { grid-template-columns: 1fr; min-height: unset; }
       .hero-left {
-        padding: 2rem 1.5rem 3rem;
+        padding: 2.75rem 1.5rem 3rem;  /* clears the 30% of the photo that hangs below the seam */
         justify-content: flex-start;  /* text starts at top, no centering gap */
       }
       .hero-left::after { display: none; }
