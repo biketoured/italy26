@@ -51,175 +51,128 @@
 
     .nav-links a:hover { color: var(--white); }
 
-    /* ── HERO ── */
+    /* ── HERO ── same layout as italy2026.html, Sweden colours ── */
     .hero {
-      min-height: 100vh;
       display: grid;
       grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr auto;
+      min-height: min(calc(100svh - var(--nav-h) - 220px), 760px);
       position: relative;
-      overflow: hidden;
     }
-
     .hero-left {
       background: var(--sky-deep);
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 6rem 4rem 4rem 4rem;
-      position: relative;
+      padding: clamp(40px, 5vw, 72px) clamp(32px, 4vw, 64px) 0 clamp(20px, 4vw, 48px);
     }
-
-    .hero-left::after {
-      content: '';
-      position: absolute;
-      top: 0; right: -60px;
-      width: 120px; height: 100%;
-      background: var(--sky-deep);
-      clip-path: polygon(0 0, 0% 100%, 100% 100%);
-      z-index: 2;
-    }
-
     .hero-tag {
       font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
+      font-size: 12px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--sky-pale);
-      margin-bottom: 1.5rem;
+      color: var(--yellow-soft);
+      margin-bottom: 18px;
     }
-
     .hero-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-size: clamp(32px, 4.6vw, 60px);
       line-height: 1.1;
       color: var(--white);
-      margin-bottom: 1.5rem;
+      margin-bottom: 20px;
+      text-wrap: balance;
     }
-
-    .hero-title em {
-      font-style: italic;
-      color: var(--sky-pale);
-      text-shadow: 2px, 2px;
-    }
-
-    .hero-title bo {
-      font-style: normal;
-      color: var(--yellow);
-    }
-
+    .hero-title em { font-style: italic; color: var(--yellow-soft); }
     .hero-sub {
-      font-size: 1rem;
+      font-size: 17px;
       font-weight: 300;
-      color: var(--sky-pale);
-      line-height: 1.7;
-      max-width: 380px;
-      margin-bottom: 3rem;
+      line-height: 1.75;
+      color: var(--white);
+      max-width: 640px;
+      margin-bottom: 32px;
     }
 
-    .hero-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      background: var(--yellow);
-      color: var(--black);
-      text-decoration: none;
-      padding: 0.9rem 2rem;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      transition: background 0.2s, transform 0.2s;
-      width: fit-content;
-    }
-    .hero-cta:hover { background: var(--yellow-soft); transform: translateX(4px); }
-
-    .hero-right {
-      background: #3d6e87;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-right svg {
+    /* ── BUTTON PUZZLE ── geometry identical to italy2026.html */
+    .hero-btn-puzzle { position: relative; width: 100%; max-width: 640px; height: 116px; }
+    .hero-btn-puzzle a {
       position: absolute;
-      bottom: 0; left: 0;
-      width: 100%; height: 100%;
-      opacity: 0.15;
-    }
-
-    .hero-stats {
-      position: absolute;
-      bottom: 3rem; right: 3rem;
       display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      z-index: 2;
-    }
-
-    /* ── DAYS ON THE ROAD ──
-       Sits bottom-left, opposite the stat column, the way the post-trip
-       counter does on italy2026.html. Colours are the page's existing hero
-       tokens, so nothing new is introduced. */
-    .hero-days {
-      position: absolute;
-      bottom: 3rem; left: 3rem;
-      text-align: left;
-      z-index: 3;
-    }
-
-    .hero-days-label {
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
       font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
+      font-size: 12px;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--yellow-soft);
-      margin-bottom: 0.5rem;
+      text-decoration: none;
+      transition: filter 0.18s;
+    }
+    .hero-btn-puzzle a:hover { filter: brightness(1.1); }
+    .puzzle-tl { left: 0; width: 100%; top: 0; height: 50%; clip-path: polygon(0% 0%, 40% 0%, 28% 100%, 0% 100%); padding-right: 65%; background: var(--yellow); color: var(--black); }
+    .puzzle-bl { left: 0; width: 100%; top: 50%; height: 50%; clip-path: polygon(0% 0%, 28% 0%, 40% 100%, 0% 100%); padding-right: 65%; background: var(--sky-pale); color: #1F3A4A; }
+    .puzzle-centre { left: 28%; width: 44%; top: 0; bottom: 0; z-index: 2; clip-path: polygon(22% 0%, 78% 0%, 100% 50%, 78% 100%, 22% 100%, 0% 50%); background: #1F3A4A; color: var(--white); font-size: clamp(18px, 1.9vw, 25px) !important; }
+    .puzzle-centre:hover { filter: brightness(1.3) !important; }
+    .puzzle-tr { left: 0; width: 100%; top: 0; height: 50%; clip-path: polygon(60% 0%, 100% 0%, 100% 100%, 72% 100%); padding-left: 65%; background: var(--sky-pale); color: #1F3A4A; }
+    .puzzle-br { left: 0; width: 100%; top: 50%; height: 50%; clip-path: polygon(72% 0%, 100% 0%, 100% 100%, 60% 100%); padding-left: 65%; background: var(--yellow); color: var(--black); }
+    .hero-btn-icon { width: 16px; height: 16px; flex-shrink: 0; opacity: 0.8; }
+    @media (max-width: 900px) {
+      .hero-btn-puzzle { height: auto; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 52px 56px 52px; gap: 8px; }
+      .hero-btn-puzzle a { position: static; clip-path: none; width: auto; height: auto; padding: 0; font-size: 13px; }
+      .puzzle-centre { grid-column: 1 / -1; order: 3; font-size: 15px !important; }
+      .puzzle-tl { order: 1; } .puzzle-tr { order: 2; } .puzzle-bl { order: 4; } .puzzle-br { order: 5; }
     }
 
-    .hero-days-number {
-      font-family: 'Playfair Display', serif;
-      font-size: 5rem;
-      font-weight: 700;
-      color: var(--white);
-      line-height: 1;
-    }
-
-    .hero-days-unit {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--yellow-soft);
-      margin-top: 0.3rem;
-    }
-
-    .stat { text-align: right; }
-
-    .stat-number {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.7rem;
-      color: var(--white);
-      line-height: 1;
-    }
-
-    .stat-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.9rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--yellow-soft);
-    }
-
-    /* Lifted and trimmed a little from the old centred 500px so the bottom of
-       the panel is free for the days counter and the stat column. */
+    .hero-right { background: #3d6e87; position: relative; overflow: hidden; }
+    .hero-right svg { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.15; }
     .hero-photo {
       position: absolute;
-      top: 42%; left: 50%;
+      top: 50%; left: 50%;
       transform: translate(-50%, -50%);
-      width: 420px;
-      height: 420px;
+      width: clamp(260px, 32vw, 480px);
+      aspect-ratio: 1;
       object-fit: cover;
       border-radius: 50%;
     }
+
+    /* ── ROUTE PROGRESS ── spans both hero columns */
+    .route-progress { grid-column: 1 / -1; grid-row: 2; background: var(--sky-deep); padding: 38px clamp(28px, 5vw, 64px) 40px; }
+    .route-track { position: relative; max-width: 1104px; margin: 0 auto; height: 3px; background: rgba(184,212,224,0.25); }
+    .route-fill { position: absolute; inset: 0; background: var(--yellow); }
+    .route-dot { position: absolute; top: 50%; width: 8px; height: 8px; border-radius: 50%; transform: translate(-50%, -50%); background: var(--yellow); }
+    .route-dot-label {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--yellow-soft);
+      white-space: nowrap;
+    }
+    .route-dot-label.above { bottom: 18px; }
+    .route-dot-label.below { top: 18px; }
+    .route-avatar { position: absolute; top: 50%; left: 100%; width: 30px; height: 30px; border-radius: 50%; border: 1.5px solid var(--yellow); object-fit: cover; transform: translate(-50%, -50%); z-index: 2; }
+
+    /* ── PHONE HERO ── banner on top, portrait on the seam */
+    .hero-mobile-banner, .hero-mobile-profilepic { display: none; }
+
+    /* ── TRIP FIGURES ── */
+    .trip-figures { background: #2B4C5E; border-top: 1px solid rgba(184,212,224,0.18); border-bottom: 1px solid rgba(184,212,224,0.18); }
+    .trip-figures-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1px;
+      background: rgba(184,212,224,0.18);
+    }
+    .trip-figures-grid > div { background: #2B4C5E; padding: clamp(24px, 3.5vw, 36px) 12px; text-align: center; }
+    .trip-figures-grid > div[hidden] { display: none; }
+    .trip-figure-value { font-family: 'Playfair Display', serif; font-size: clamp(34px, 4vw, 46px); line-height: 1; color: var(--white); }
+    .trip-figure-value.strong { font-weight: 700; }
+    .trip-figure-label { margin-top: 10px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--yellow-soft); }
+    @media (max-width: 1200px) { .trip-figures-grid { margin: 0 clamp(20px, 5vw, 48px); } }
 
     /* ── SWEDEN BANNER (replaces Italy banner) ── */
     .sweden-banner {
@@ -525,44 +478,20 @@
     }
     .strava-more-link:hover { border-color: var(--yellow); }
 
-    /* ── FOOTER ── */
-    footer {
-      background: var(--sky-deep);
-      padding: 3rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-top: 1px solid rgba(184,212,224,0.15);
-    }
-
-    footer .logo {
-      font-family: 'Playfair Display', serif;
-      color: var(--white);
-      font-size: 1.1rem;
-    }
-
-    footer p {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      color: var(--sky-pale);
-      text-transform: uppercase;
-    }
-
     /* ── ANIMATIONS ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(40px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    .hero-tag, .hero-title, .hero-sub, .hero-cta {
+    .hero-tag, .hero-title, .hero-sub, .hero-btn-puzzle {
       opacity: 0;
       animation: fadeUp 0.7s ease forwards;
     }
     .hero-tag   { animation-delay: 0.1s; }
     .hero-title { animation-delay: 0.25s; }
     .hero-sub   { animation-delay: 0.4s; }
-    .hero-cta   { animation-delay: 0.8s; }
+    .hero-btn-puzzle { animation-delay: 0.8s; }
 
 
     .map-toggle-btn {
@@ -586,58 +515,36 @@
     }
 
     /* ── RESPONSIVE ── */
+    .sweden-banner { padding: clamp(48px, 7vw, 72px) clamp(20px, 5vw, 48px); }
+    .strava-section { padding: clamp(48px, 7vw, 80px) 0; }
+    .strava-inner { padding: 0 clamp(20px, 5vw, 48px); }
     @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { gap: 1.5rem; }
-      .hero { grid-template-columns: 1fr; }
-      .hero-left { padding: 7rem 2rem 3rem; }
-      .hero-left::after { display: none; }
-      .hero-right { min-height: 300px; }
-      .strava-inner { padding: 0 1.5rem; }
+      .hero { grid-template-columns: 1fr; min-height: 0; }
+      .hero-right { display: none; }
+      .hero-left { position: relative; padding: 44px 20px 28px; }
+      .hero-title { padding-right: 96px; }
+      .hero-wrap { position: relative; }
+      .hero-mobile-banner { display: block; width: 100%; height: 56vw; max-height: 320px; object-fit: cover; object-position: center 35%; }
+      .hero-mobile-profilepic {
+        display: block;
+        position: absolute;
+        top: -70px; right: 20px;
+        width: 100px; height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center 30%;
+        border: 2.5px solid rgba(184,212,224,0.5);
+        z-index: 10;
+      }
+      .route-dot-label { font-size: 8px; }
       .strava-grid { grid-template-columns: 1fr; }
       .activities-grid { grid-template-columns: 1fr; }
-      /* ── MOBILE HERO PANEL ──
-         Absolute positioning has nowhere to go at this width, so the panel
-         becomes an ordinary stacked column: photo, days counter, then the
-         three figures in a single row underneath. */
-      .hero-right {
-        min-height: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1.75rem;
-        padding: 2.5rem 1.5rem 3rem;
-      }
-      .hero-photo {
-        position: static;
-        transform: none;
-        width: 190px; height: 190px;
-      }
-      .hero-days { position: static; text-align: center; }
-      .hero-days-number { font-size: 3.6rem; }
-
-      .hero-stats {
-        position: static;
-        flex-direction: row;
-        justify-content: center;
-        align-items: flex-start;
-        flex-wrap: wrap;
-        gap: 1.5rem 2rem;
-        width: 100%;
-      }
-      .stat { text-align: center; }
-      .stat-number { font-size: 1.9rem; }
-      .stat-label  { font-size: 0.62rem; letter-spacing: 0.1em; }
-
-      footer { flex-direction: column; gap: 1rem; text-align: center; }
-      .trip-stats {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        border-radius: 8px 8px 0 0;
-      }
-      .trip-stat-tab { border-right: 1px solid rgba(184,212,224,0.1); border-bottom: 1px solid rgba(184,212,224,0.1); }
+      .strava-map { height: 300px; }
+      .trip-stats { display: grid; grid-template-columns: 1fr 1fr; border-radius: 8px 8px 0 0; }
+      .trip-stat-tab { border-right: 1px solid rgba(184,212,224,0.1); border-bottom: 1px solid rgba(184,212,224,0.1); padding: 14px 12px; gap: 8px; }
       .trip-stat-tab:nth-child(2) { border-right: none; }
       .trip-stat-value { font-size: 1.1rem; }
+      .trip-stat-icon { width: 26px; height: 26px; }
     }
   </style>
 
@@ -652,100 +559,102 @@
 </head>
 
 
-<body>
+<body class="has-nav-offset">
 
   <!-- ══ NAV ══ -->
   <nav id="shared-nav"></nav>
 
-  <!-- ══ HERO ══ -->
-  <div class="hero">
-    <div class="hero-left">
-      <p class="hero-tag"
-         data-en="// Bikepacking Journal"
-         data-sv="// Bikepacking Dagbok"
-         data-it="// Diario di Bikepacking">
-        // Bikepacking Journal
-      </p>
-      <h1 class="hero-title"
-          data-en="Biked all across<br><bo>Sweden</bo><br>Summer <em>2024</em>"
-          data-sv="Cyklade genom hela<br><bo>Sverige</bo><br>Sommaren <em>2024</em>"
-          data-it="In bici attraverso<br><bo>Svezia</bo><br>Estate di<em> 2024</em>">
-        Biked all across<br><em>Sweden</em><br>Summer<bo>2024</bo>
-      </h1>
-      <p class="hero-sub"
-         data-en="My first long-distance bikepacking adventure."
-         data-sv="Mitt första bikepacking-äventyr."
-         data-it="Il mio primo viaggio di bikepacking.">
-        My first long-distance bikepacking adventure.
-      </p>
-      <a href="#routes" class="hero-cta"
-         data-en="See the map →"
-         data-sv="Se karta →"
-         data-it="Vedi la mappa →">
-        See the map →
-      </a>
-      <a href="https://photos.app.goo.gl/Z1sPP3PSbFhQ5M6K8"
-         target="_blank"
-         rel="noopener"
-         class="hero-cta"
-         style="background:var(--sky-pale); color:var(--black); margin-top:0.5rem;"
-         data-en="Photo album ↗"
-         data-sv="Fotoalbum ↗"
-         data-it="Album fotografico ↗">
-        Photo album ↗
-      </a>
-    </div>
+  <!-- ══ HERO ══
+       Same layout as italy2026.html: text and button puzzle left, round photo
+       right. On phones the photo becomes a banner with the portrait on the seam. -->
+  <div class="hero-wrap">
+    <img class="hero-mobile-banner" src="assets/images/heroswe.jpg" alt="Edvard at Smygehuk, the southernmost point of Sweden">
+    <div class="hero" style="position:relative">
+      <img class="hero-mobile-profilepic" src="assets/images/profilepic.jpg" alt="Edvard Appelberg" onerror="this.style.display='none'">
+      <div class="hero-left">
+        <p class="hero-tag"
+           data-en="// Bikepacking Journal"
+           data-sv="// Bikepacking Dagbok"
+           data-it="// Diario di Bikepacking">
+          // Bikepacking Journal
+        </p>
+        <h1 class="hero-title"
+            data-en="Biked all across &lt;em&gt;Sweden&lt;/em&gt;, summer 2024."
+            data-sv="Cyklade genom hela &lt;em&gt;Sverige&lt;/em&gt;, sommaren 2024."
+            data-it="In bici attraverso la &lt;em&gt;Svezia&lt;/em&gt;, estate 2024.">
+          Biked all across <em>Sweden</em>, summer 2024.
+        </h1>
+        <p class="hero-sub"
+           data-en="My first long-distance bikepacking adventure."
+           data-sv="Mitt första bikepacking-äventyr."
+           data-it="Il mio primo viaggio di bikepacking.">
+          My first long-distance bikepacking adventure.
+        </p>
 
-    <div class="hero-right">
-      <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <path d="M0,400 Q100,300 200,350 Q300,400 400,250 Q500,100 600,200 L600,600 L0,600 Z" fill="none" stroke="#B8D4E0" stroke-width="1.5"/>
-        <path d="M0,450 Q150,350 250,380 Q350,410 450,280 Q550,150 600,250 L600,600 L0,600 Z" fill="none" stroke="#B8D4E0" stroke-width="1"/>
-        <path d="M0,500 Q100,420 200,440 Q300,460 420,340 Q520,220 600,300 L600,600 L0,600 Z" fill="none" stroke="#B8D4E0" stroke-width="0.5"/>
-      </svg>
-      <img src="assets/images/heroswe.jpg" alt="Profile photo" class="hero-photo" />
-
-      <!-- Days on the road, sitting to the left of the stat column. Mirrors the
-           post-trip widget on italy2026.html. -->
-      <div class="hero-days">
-        <div class="hero-days-label"
-             data-en="Trip completed"
-             data-sv="Resan avslutad"
-             data-it="Viaggio completato">Trip completed</div>
-        <div class="hero-days-number" id="hero-stat-days">&nbsp;</div>
-        <div class="hero-days-unit"
-             data-en="days of adventure"
-             data-sv="äventyrsdagar"
-             data-it="giorni di avventura">days of adventure</div>
+        <!-- ── BUTTON PUZZLE (yellow · pale blue · navy) ── -->
+        <div class="hero-btn-puzzle">
+          <a href="#routes" class="puzzle-tl"><span data-en="Map" data-sv="Karta" data-it="Mappa">Map</span></a>
+          <a href="#strava-grid" class="puzzle-bl"><span data-en="Rides" data-sv="Turer" data-it="Uscite">Rides</span></a>
+          <a href="/italy26/donate.html" class="puzzle-centre"><span data-en="Donate" data-sv="Donera" data-it="Dona">Donate</span><svg class="hero-btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z"/></svg></a>
+          <a href="https://www.strava.com/athletes/33737566" target="_blank" rel="noopener" class="puzzle-tr"><span>Strava ↗</span></a>
+          <a href="https://photos.app.goo.gl/Z1sPP3PSbFhQ5M6K8" target="_blank" rel="noopener" class="puzzle-br"><span data-en="Photos ↗" data-sv="Foton ↗" data-it="Foto ↗">Photos ↗</span></a>
+        </div>
       </div>
 
-      <!-- Same three figures, in the same order, as the Italy 2026 hero. -->
-      <div class="hero-stats">
-        <div class="stat">
-          <div class="stat-number" id="hero-stat-elev">&nbsp;</div>
-          <div class="stat-label"
-               data-en="meters climbed"
-               data-sv="höjdmeter"
-               data-it="metri di dislivello">
-               meters climbed</div>
+      <div class="hero-right">
+        <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0,400 Q100,300 200,350 Q300,400 400,250 Q500,100 600,200 L600,600 L0,600 Z" fill="none" stroke="#B8D4E0" stroke-width="1.5"/>
+          <path d="M0,450 Q150,350 250,380 Q350,410 450,280 Q550,150 600,250 L600,600 L0,600 Z" fill="none" stroke="#B8D4E0" stroke-width="1"/>
+          <path d="M0,500 Q100,420 200,440 Q300,460 420,340 Q520,220 600,300 L600,600 L0,600 Z" fill="none" stroke="#B8D4E0" stroke-width="0.5"/>
+        </svg>
+        <img src="assets/images/heroswe.jpg" alt="Edvard at Smygehuk, the southernmost point of Sweden" class="hero-photo">
+      </div>
+
+      <!-- ── ROUTE PROGRESS (complete). Positions are each stop's share of the
+           total distance, taken from the ride log. ── -->
+      <div class="route-progress">
+        <div class="route-track">
+          <div class="route-fill"></div>
+          <span class="route-dot" style="left:1%"><span class="route-dot-label above">Smygehuk</span></span>
+          <span class="route-dot" style="left:15%"><span class="route-dot-label below">Göteborg</span></span>
+          <span class="route-dot" style="left:30%"><span class="route-dot-label above">Hagfors</span></span>
+          <span class="route-dot" style="left:40%"><span class="route-dot-label below">Funäsdalen</span></span>
+          <span class="route-dot" style="left:52%"><span class="route-dot-label above">Stora Blåsjön</span></span>
+          <span class="route-dot" style="left:61%"><span class="route-dot-label below">Slagnäs</span></span>
+          <span class="route-dot" style="left:78%"><span class="route-dot-label above">Abisko</span></span>
+          <span class="route-dot" style="left:87%"><span class="route-dot-label below">Senja</span></span>
+          <span class="route-dot" style="left:95%"><span class="route-dot-label above">Svolvær</span></span>
+          <span class="route-dot" style="left:100%"><span class="route-dot-label below">Å</span></span>
+          <img class="route-avatar" src="assets/images/profilepic.jpg" alt="">
         </div>
-        <div class="stat">
-          <div class="stat-number" id="hero-stat-dist">&nbsp;</div>
-          <div class="stat-label"
-               data-en="km"
-               data-sv="km"
-               data-it="km">
-               km</div>
-        </div>
-        <!-- Hidden until the Strava export for this trip carries heart-rate
-             data; the script below unhides it as soon as it does. -->
-        <div class="stat" id="hero-stat-beats-box" hidden>
-          <div class="stat-number" id="hero-stat-beats">&nbsp;</div>
-          <div class="stat-label"
-               data-en="million heartbeats"
-               data-sv="miljoner hjärtslag"
-               data-it="millioni battiti cardiaci">
-               million heartbeats</div>
-        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ TRIP FIGURES ══ ids are filled by the map script below -->
+  <div class="trip-figures">
+    <div class="trip-figures-grid">
+      <div>
+        <div class="trip-figure-value strong" id="hero-stat-days">&nbsp;</div>
+        <div class="trip-figure-label" data-en="days of adventure" data-sv="äventyrsdagar" data-it="giorni di avventura">days of adventure</div>
+      </div>
+      <div>
+        <div class="trip-figure-value" id="hero-stat-dist">&nbsp;</div>
+        <div class="trip-figure-label" data-en="km" data-sv="km" data-it="km">km</div>
+      </div>
+      <div>
+        <div class="trip-figure-value" id="hero-stat-elev">&nbsp;</div>
+        <div class="trip-figure-label" data-en="metres climbed" data-sv="höjdmeter" data-it="metri di dislivello">metres climbed</div>
+      </div>
+      <!-- Heartbeats stay hidden until the Strava export carries heart rate;
+           rides show in their place until then. -->
+      <div id="hero-stat-beats-box" hidden>
+        <div class="trip-figure-value" id="hero-stat-beats">&nbsp;</div>
+        <div class="trip-figure-label" data-en="million heartbeats" data-sv="miljoner hjärtslag" data-it="milioni di battiti cardiaci">million heartbeats</div>
+      </div>
+      <div id="hero-stat-rides-box">
+        <div class="trip-figure-value" id="hero-stat-rides">&nbsp;</div>
+        <div class="trip-figure-label" data-en="rides" data-sv="turer" data-it="uscite">rides</div>
       </div>
     </div>
   </div>
@@ -757,10 +666,10 @@
         data-it="Svezia & Norvegia 2024 — da Scania alle isole di Lofoten">
       Sweden & Norway 2024 — From Scania to Lofoten
     </h2>
-    <p   data-en="A summer bikepacking trip through Scandinavia. I rode through the Swedish west coast up through the hilly inlands to Absiko, finishing the trip with a detour to the Lofoten archipelago."
+    <p   data-en="A summer bikepacking trip through Scandinavia. I rode through the Swedish west coast up through the hilly inlands to Abisko, finishing the trip with a detour to the Lofoten archipelago."
          data-sv="En sommartur på cykel genom västra Sverige, längs västkusten och norrut genom inlandet till Abisko. Därefter tio dagar i Nordnorge och Lofoten."
          data-it="Un viaggio estivo in bici attraverso la Svezia occidentale, che si è concluso con un giro fino alla punta delle isole Lofoten">
-        A summer bikepacking trip through Scandinavia. I rode through the Swedish west coast up through the hilly inlands to Absiko, finishing the trip with a detour to the Lofoten archipelago.
+        A summer bikepacking trip through Scandinavia. I rode through the Swedish west coast up through the hilly inlands to Abisko, finishing the trip with a detour to the Lofoten archipelago.
       </p>
 
     <a href="https://photos.app.goo.gl/Z1sPP3PSbFhQ5M6K8"
@@ -769,8 +678,7 @@
          class="strava-more-link"
          data-en="Photo gallery →"
          data-sv="Fotogalleri →"
-         data-it="Galleria foto →"
-         onclick="return false;">
+         data-it="Galleria foto →">
         Photo gallery →
     </a>
   </div>
@@ -1072,8 +980,10 @@
         //    with the number of days on the road alongside them.
         const hd = document.getElementById('hero-stat-dist');
         const he = document.getElementById('hero-stat-elev');
-        if (hd) hd.textContent = totalDist.toFixed(0);
+        if (hd) hd.textContent = Math.round(totalDist).toLocaleString('sv-SE');
         if (he) he.textContent = totalElev.toLocaleString('sv-SE');
+        const hr = document.getElementById('hero-stat-rides');
+        if (hr) hr.textContent = activities.length;
 
         // Days on the road: first ride to last ride, both ends counted.
         const days = document.getElementById('hero-stat-days');
@@ -1101,6 +1011,8 @@
         if (hb && hbBox && totalBeats > 0) {
           hb.textContent = (totalBeats / 1000000).toFixed(1);
           hbBox.hidden = false;
+          const rb = document.getElementById('hero-stat-rides-box');
+          if (rb) rb.hidden = true;
         }
 
         const allCoords = [];

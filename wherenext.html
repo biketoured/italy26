@@ -355,9 +355,51 @@
       .candidate-facts { grid-template-columns: 1fr 1fr; }
     }
   </style>
+  <style>
+    /* ══ v2 LAYOUT (November 2026) ══
+       Nav offset, hairline brief grid, consistent gutters, numeral beside
+       each candidate on laptops and above it on phones. */
+    :root { --gutter: clamp(20px, 5vw, 48px); }
+    .hero { min-height: 0; padding: clamp(64px, 12vw, 160px) var(--gutter) clamp(56px, 9vw, 120px); }
+    .hero-inner { max-width: 1104px; }
+    .hero-tag { font-size: 12px; letter-spacing: 0.24em; line-height: 1.7; margin-bottom: clamp(24px, 3vw, 32px); }
+    .hero-title { font-size: clamp(56px, 10vw, 112px); }
+    .hero-sub { font-size: clamp(17px, 1.6vw, 19px); line-height: 1.8; }
+    .stamp { font-size: 11px; padding: 0 18px; min-height: 40px; display: inline-flex; align-items: center; }
+
+    .brief { padding: 0 var(--gutter); }
+    .brief-inner { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: rgba(232,204,122,0.25); max-width: 1104px; }
+    .brief-inner > div { background: var(--red); padding: clamp(24px, 3.5vw, 40px) clamp(12px, 2vw, 24px); }
+    .brief-label { font-size: 11px; color: #EADFCB; }
+    .brief-value { font-size: clamp(22px, 2.4vw, 28px); line-height: 1.2; }
+
+    .intro { max-width: 760px; padding: clamp(64px, 9vw, 104px) var(--gutter) clamp(24px, 3vw, 32px); }
+    .intro p { font-size: 17px; line-height: 1.9; }
+
+    .candidates { max-width: 1200px; padding: clamp(24px, 3vw, 40px) var(--gutter) clamp(64px, 9vw, 112px); }
+    .candidate { grid-template-columns: 128px minmax(0, 1fr); gap: clamp(24px, 4vw, 48px); padding: clamp(40px, 5vw, 56px) 0; }
+    .candidate-num { font-size: clamp(44px, 6vw, 80px); }
+    .candidate-region { font-size: 12px; letter-spacing: 0.2em; line-height: 1.7; }
+    .candidate-name { font-size: clamp(28px, 3.6vw, 42px); text-wrap: balance; }
+    .candidate-pitch { font-size: 17px; line-height: 1.85; max-width: 720px; }
+    .candidate-facts { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 20px; padding: 20px 0; max-width: 720px; }
+    .fact-label { font-size: 11px; letter-spacing: 0.18em; }
+    .fact-value { font-size: 15px; }
+    .candidate-catch { font-size: 15px; max-width: 720px; padding-left: 18px; }
+    .candidate-catch strong { font-size: 11px; color: #EE9A78; }
+    .candidate.warm .candidate-num { color: #EE9A78; }
+
+    .closing { padding: clamp(64px, 9vw, 104px) var(--gutter); }
+    .closing-text { font-size: 17px; line-height: 1.8; }
+    .btn { font-size: 12px; min-height: 50px; display: inline-flex; align-items: center; padding: 0 28px; }
+
+    @media (max-width: 760px) {
+      .candidate { grid-template-columns: 1fr; gap: 16px; }
+    }
+  </style>
 </head>
 
-<body>
+<body class="has-nav-offset">
 
   <nav id="shared-nav"></nav>
 
@@ -401,12 +443,12 @@
         <p class="brief-label"
            data-en="Typical length" data-sv="Ungefärlig längd" data-it="Durata tipica">Typical length</p>
         <p class="brief-value"
-           data-en="Two-Three weeks" data-sv="Två-tre veckor" data-it="Due o tre settimane">Two or ithree weeks</p>
+           data-en="Two to three weeks" data-sv="Två till tre veckor" data-it="Due o tre settimane">Two to three weeks</p>
       </div>
       <div>
         <p class="brief-label"
            data-en="Years" data-sv="År" data-it="Anni">Years</p>
-        <p class="brief-value">2027</p>
+        <p class="brief-value">2027–2028</p>
       </div>
       <div>
         <p class="brief-label"

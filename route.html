@@ -411,10 +411,18 @@
     gtag('js', new Date());
     gtag('config', 'G-G4WXL40L9E');
   </script>
+  <style>
+    /* ══ v2 LAYOUT (November 2026) ══
+       Content now starts below the nav (body.has-nav-offset), so the old
+       extra top padding is gone and every page shares the same gutters. */
+    :root { --gutter: clamp(20px, 5vw, 48px); }
+    .page-header { padding: clamp(40px, 6vw, 72px) var(--gutter) clamp(20px, 3vw, 32px); max-width: 1200px; margin: 0 auto; }
+    @media (max-width: 900px) { .page-header { padding: 36px var(--gutter) 20px; } }
+  </style>
 </head>
 
 
-<body>
+<body class="has-nav-offset">
 
   <!-- ══ NAV ══ -->
   <nav id="shared-nav"></nav>

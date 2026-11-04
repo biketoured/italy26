@@ -1,52 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <link rel="icon" href="/italy26/assets/images/wheel.png" type="image/png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Hi, I'm Edvard Appelberg, 25, from Sweden. My passion for bikepacking comes from the mix of challenge, exploration and self-fulfilment. So far I have cycled almost 8,000 km. Take a look at my website and get inspired! Hej, jag heter Edvard Appelberg, 25 år, från Sverige. Min passion för bikepacking och cykling bottnar i kombinationen av utmaningar, utforskande och självförverkligande. Hittills har jag cyklat nästan 8 000 km. Kika in på min hemsida och bli inspirerad! Ciao, sono Edvard Appelberg, 25 anni, dalla Svezia. La mia passione per il bikepacking nasce dall'unione di sfida, esplorazione e realizzazione personale. Finora ho pedalato quasi 8.000 km. Dai un'occhiata al mio sito e lasciati ispirare!">
-  <meta name="author" content="Edvard Appelberg">
   <!-- Let Google show a full-size photo preview rather than a cropped thumbnail -->
   <meta name="robots" content="max-image-preview:large">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Edvard Appelberg | Bikepacking &amp; Adventures">
-  <meta property="og:description" content="Hi, I'm Edvard Appelberg, 25, from Sweden. My passion for bikepacking comes from the mix of challenge, exploration and self-fulfilment. So far I have cycled almost 8,000 km. Take a look at my website and get inspired!">
-  <meta property="og:image" content="https://biketoured.github.io/italy26/assets/images/profilesquare2.jpg">
-  <meta property="og:url" content="https://biketoured.github.io/italy26/index.html">
-  <link rel="canonical" href="https://biketoured.github.io/italy26/index.html">
-  <title>Edvard Appelberg | Bikepacking &amp; Adventures</title>
-
-  <!-- Tells Google which images represent this page and this person, instead of
-       leaving it to guess (which is how a road icon ended up in the results). -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Edvard Appelberg",
-    "url": "https://biketoured.github.io/italy26/",
-    "nationality": "Swedish",
-    "homeLocation": { "@type": "Place", "name": "Skellefteå, Sweden" },
-    "description": "Swedish cyclist and adventurer who rides long-distance bikepacking journeys, roughly 4,000 km across Italy in 2026 and 3,500 km across Sweden 2024.",
-    "image": [
-      "https://biketoured.github.io/italy26/assets/images/profilesquare2.jpg",
-      "https://biketoured.github.io/italy26/assets/images/profile2.jpg",
-      "https://biketoured.github.io/italy26/assets/images/profilepic.jpg",
-      "https://biketoured.github.io/italy26/assets/images/heroswe.jpg"
-    ],
-    "sameAs": [
-      "https://www.strava.com/athletes/33737566",
-      "https://www.instagram.com/bikepack.ed/"
-    ]
-  }
-  </script>
-
+  <title>Blog posts of bikepacking | Edvard A</title>
+  <meta name="description" content="Bikepacking blog by Edvard Appelberg: day-by-day journal from cycling through Italy in 2026, plus gear, preparation and Sweden. Cykelblogg från Italien och Sverige.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-
+  <script src="../manuals.js"></script>
   <link rel="stylesheet" href="/italy26/static/css/style.css">
-  <script src="/italy26/manuals.js"></script>
   <script src="/italy26/static/js/main.js" defer></script>
+  <link rel="canonical" href="https://biketoured.github.io/italy26/blog/index.html">
+  <style>
+    body { font-family: 'DM Sans', sans-serif; background: var(--stone); color: var(--text); min-height: 100vh; }
+
+    .page-header { padding: 8rem 3rem 2rem; max-width: 1200px; margin: 0 auto; }
+    .page-header .section-tag { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); margin-bottom: 0.75rem; }
+    .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4rem); color: var(--green); font-weight: 400; line-height: 1.1; }
+
+    .tabs-wrapper { max-width: 1200px; margin: 2rem auto 0; padding: 0 3rem; border-bottom: 2px solid var(--stone-dark); display: flex; }
+    .tab-btn { background: none; border: none; cursor: pointer; font-family: 'DM Mono', monospace; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--stone-dark); padding: 0.75rem 1.5rem; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: color 0.2s; }
+    .tab-btn:hover { color: var(--green); }
+    .tab-btn.active { background: var(--green); color: var(--stone); border-bottom-color: var(--green); outline: auto;}
+
+    .posts-container { max-width: 1200px; margin: 2.5rem auto; padding: 0 3rem 6rem; }
+    .posts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+
+    .post-card { background: var(--white); text-decoration: none; display: block; transition: transform 0.2s; border-top: 3px solid var(--red); }
+    .post-card.type-blog { border-top-color: var(--yellow); }
+    .post-card:hover { transform: translateY(-4px); }
+
+    .post-card-cover { width: 100%; height: 160px; object-fit: cover; display: block; background: var(--green-mid); }
+    .post-card-cover-placeholder { width: 100%; height: 160px; background: var(--green-mid); display: flex; align-items: center; justify-content: center; color: rgba(196,180,154,0.3); font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; }
+    .post-card-body { padding: 1.25rem; }
+    .post-card-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem; }
+    .post-badge { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 8px; }
+    .post-badge.journal { background: var(--green); color: var(--green-light); }
+    .post-badge.blog { background: var(--red); color: var(--white); }
+    .post-card-date { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: var(--stone-dark); letter-spacing: 0.05em; }
+    .post-card-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--text); line-height: 1.4; margin-bottom: 0.5rem; font-weight: 400; }
+    .post-card-stats { display: flex; gap: 1rem; margin-bottom: 0.6rem; }
+    .post-card-stats span { font-size: 0.8rem; color: var(--text-muted); }
+    .post-card-readtime { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.08em; color: var(--stone-dark); text-transform: uppercase; }
+    .empty-state { grid-column: 1 / -1; text-align: center; padding: 4rem 2rem; color: var(--text-muted); font-family: 'DM Mono', monospace; font-size: 0.8rem; letter-spacing: 0.1em; }
+
+    @media (max-width: 900px) { .posts-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) {
+      .page-header { padding: 7rem 1.5rem 1.5rem; } .tabs-wrapper { padding: 0 1.5rem; }
+      .posts-container { padding: 0 1.5rem 4rem; } .posts-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── WORD OF THE DAY ── */
+    .word-strip {
+      background: var(--green);
+      padding: 1rem 3rem;
+      display: flex;
+      align-items: baseline;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .word-strip.hidden { display: none; }
+    .word-strip-word {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--yellow);
+      white-space: nowrap;
+    }
+    .word-strip-sep {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--stone-dark);
+      letter-spacing: 0.1em;
+    }
+    .word-strip-meaning {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      color: var(--stone);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+    .word-strip-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--stone-dark);
+      white-space: nowrap;
+      margin-left: auto;
+      padding-left: 1rem;
+    }
+    @media (max-width: 768px) {
+      .word-strip { padding: 0.9rem 1.5rem; gap: 0.75rem; }
+      .word-strip-label { margin-left: 0; }
+    }
+
+    /* ── NOTE FROM THE ROAD ── */
+    .note-strip {
+      background: var(--red);
+      padding: 1rem 3rem;
+      display: flex;
+      align-items: baseline;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .note-strip.hidden { display: none; }
+    .note-strip-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(253,250,244,0.6);
+      white-space: nowrap;
+    }
+    .note-strip-date {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: var(--yellow);
+      white-space: nowrap;
+    }
+    .note-strip-text {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      color: var(--white);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+    @media (max-width: 768px) {
+      .note-strip { padding: 0.9rem 1.5rem; gap: 0.75rem; }
+    }
+  </style>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-G4WXL40L9E"></script>
@@ -56,1092 +142,186 @@
     gtag('js', new Date());
     gtag('config', 'G-G4WXL40L9E');
   </script>
-
   <style>
-    /* ══════════════════════════════════════════════════════════
-       HOME: the general front door.
-       Deliberately quieter and airier than the trip pages: soft
-       bands of colour from the shared palette, cream and stone
-       type on top, and a lot of room around everything.
-       ══════════════════════════════════════════════════════════ */
-
-    /* Page-local creams. The shared --white (#FDFAF4) was reading as a flat
-       white sheet once whole sections used it, so the ground is warmed a step
-       and lifted surfaces get their own lighter cream to sit on top of it. */
-    :root {
-      --cream:       #F3EBDD;   /* page ground */
-      --cream-card:  #FBF6EC;   /* cards and other lifted surfaces */
-    }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--cream);
-      color: var(--text);
-      overflow-x: hidden;
-    }
-
-    /* ── Soft colour bands. Each one is full-bleed; the inner
-          wrapper keeps the content narrow and centred. ── */
-    .band          { width: 100%; }
-    .band-green    { background: var(--green); }
-    .band-sky      { background: var(--sky-deep); }
-    .band-stone    { background: var(--stone); }
-    .band-sage     { background: var(--sage); }
-
-    .inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 6rem 3rem;
-    }
-
-    /* ══ HERO ══ */
-    /* Same layout on every screen: wide picture banner on top, text below,
-       round photo on the right with 70% of it above the seam. The hero fills
-       one screen: the text takes what it needs, the banner grows into the rest. */
-    .hero {
-      background: var(--green);
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      min-height: 100svh;
-    }
-
-    .hero-left {
-      order: 2;
-      display: flex;
-      flex-direction: column;
-      padding: 4.5rem 4rem 4.5rem;
-      width: 100%;
-      max-width: 1120px;
-      margin: 0 auto;
-    }
-    .hero-left > * { max-width: 46rem; }
-
-    .hero-title {
-      font-family: 'Playfair Display', serif;
-      font-weight: 400;
-      font-size: clamp(1.5rem, 4vw, 2.5rem);
-      line-height: 1.06;
-      color: var(--green-light);
-      margin-bottom: 1.75rem;
-    }
-
-    .hero-title em {
-      font-style: italic;
-      color: var(--stone);
-    }
-
-    .hero-sub {
-      font-size: 1.02rem;
-      font-weight: 300;
-      line-height: 1.9;
-      color: var(--stone);
-      margin-bottom: 3rem;
-    }
-    .hero-sub strong { color: var(--white); font-weight: 400; }
-
-    .hero-cta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.9rem;
-    }
-
-    /* ── Buttons ── */
-    .btn {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 0.95rem 1.7rem;
-      border: 1px solid currentColor;
-      transition: background 0.25s, color 0.25s, border-color 0.25s;
-      display: inline-block;
-    }
-
-    .btn-stone  { color: var(--stone); }
-    .btn-stone:hover  { background: var(--stone); color: var(--green); }
-
-    /* Italy raises its own flag on hover. The tricolour is laid over the stone
-       fill rather than used at full strength, so all three bands stay light
-       enough for the dark green label to read across them. Declared after
-       .btn-stone:hover so it wins on source order. */
-    .btn-tricolore:hover {
-      background:
-        linear-gradient(90deg,
-          rgba(0,140,69,0.38)   0      33.33%,
-          rgba(255,255,255,0.38) 33.33% 66.66%,
-          rgba(205,33,42,0.38)  66.66% 100%),
-        var(--stone);
-      color: var(--green);
-      border-color: var(--stone);
-    }
-
-    .btn-red:hover { background: var(--red); color: var(--white); border-color: var(--red); }
-
-    .btn-cream  { color: var(--white); }
-    .btn-cream:hover  { background: var(--white); color: var(--sky-deep); }
-
-    .btn-green  { color: var(--green); }
-    .btn-green:hover  { background: var(--green); color: var(--white); }
-
-    /* Round photo on a rotating background (list in the HERO_BACKGROUNDS script
-       near the end of the page). Green-mid shows if a picture fails to load. */
-    .hero-right {
-      order: 1;
-      position: relative;
-      flex: 1 0 380px;
-      background: var(--green-mid);
-    }
-    /* Two stacked layers: the new picture fades in on top, then they swap roles. */
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background: center / cover no-repeat;
-      opacity: 0;
-      transition: opacity 1.5s ease;
-    }
-    .hero-bg.is-visible { opacity: 1; }
-    .hero-right svg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0.12;
-      pointer-events: none;
-    }
-    /* --photo sets the size; 70% of the photo sits above the seam, 30% below.
-       On wide screens it lines up with the right edge of the text column. */
-    .hero-photo {
-      --photo: 200px;
-      position: absolute;
-      right: max(4rem, calc((100% - 1120px) / 2 + 4rem));
-      bottom: calc(var(--photo) * -0.3);
-      width: var(--photo);
-      aspect-ratio: 1;
-      height: auto;
-      object-fit: cover;
-      object-position: center 30%;
-      border-radius: 50%;
-      border: 2.5px solid rgba(196,180,154,0.35);
-      z-index: 10;
-    }
-
-    /* ══ TOTALS STRIP ══ */
-    .totals-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 4rem 3rem;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-      text-align: center;
-    }
-
-    .total-value {
-      font-family: 'Playfair Display', serif;
-      font-weight: 400;
-      font-size: clamp(1.8rem, 3.6vw, 2.9rem);
-      color: var(--green);
-      line-height: 1;
-    }
-
-    .total-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-top: 0.8rem;
-    }
-
-    /* ══ PULL QUOTES ══
-       Big airy quotation bands between sections. Cream type, lots
-       of air, no box or border, the colour band is the frame. ── */
-    .quote-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 6.5rem 3rem;
-      text-align: center;
-    }
-
-    .quote-text {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-weight: 400;
-      font-size: clamp(1.35rem, 2.8vw, 2.1rem);
-      line-height: 1.55;
-      color: var(--white);
-    }
-
-    .quote-attr {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      color: var(--stone);
-      margin-top: 2rem;
-    }
-
-    .band-sky .quote-attr { color: var(--sky-pale); }
-
-    /* ══ SHARED SECTION HEADINGS ══ */
-    section {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 6rem 3rem;
-    }
-
-    .section-tag {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.68rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--soil);
-      margin-bottom: 1.2rem;
-    }
-
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-weight: 400;
-      font-size: clamp(2rem, 4vw, 3rem);
-      color: var(--green);
-      margin-bottom: 1.2rem;
-    }
-
-    /* Opt-in centred section heading: used by Journeys. */
-    .section-centred .section-tag,
-    .section-centred .section-title { text-align: center; }
-    .section-centred .section-divider { margin-left: auto; margin-right: auto; }
-    .section-centred .section-intro  { margin-left: auto; margin-right: auto; text-align: center; }
-
-    .section-divider {
-      width: 220px;
-      height: 1px;
-      background: var(--stone-dark);
-      margin-bottom: 1.5rem;
-    }
-
-    .section-intro {
-      font-size: 0.98rem;
-      font-weight: 300;
-      line-height: 1.9;
-      color: var(--text-muted);
-      max-width: 620px;
-    }
-
-    /* ══ JOURNEYS ══ */
-    .journeys-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-      gap: 2rem;
-      margin-top: 3.5rem;
-    }
-
-    /* Each card carries its trip's own theme colour in --card, and the year,
-       the title, the stats and the borders all read from it. The values match
-       the per-page nav themes in main.js: Italy green, Sweden blue, the
-       undecided one red. */
-    .journey-card {
-      --card: var(--green);
-      text-decoration: none;
-      display: flex;
-      flex-direction: column;
-      background: var(--cream-card);
-      border: 1px solid var(--stone);
-      border-top: 3px solid var(--card);
-      transition: transform 0.25s, border-color 0.25s;
-    }
-    .journey-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--card);
-    }
-
-    /* Sweden's blue is a shade deeper than --sky-deep so the small mono type
-       still holds up against the cream. */
-    .journey-card.sweden   { --card: #3C6579; }
-    .journey-card.upcoming { --card: #6B3A9E; }
-
-    .journey-cover {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-      display: block;
-    }
-
-    .journey-body {
-      padding: 1.9rem 1.75rem 2rem;
-      position: relative;
-    }
-
-    /* Italy flies its tricolour the same way Sweden flies its cross: always
-       there, very faint, and a little stronger on hover. */
-    .journey-card.italy .journey-body::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      background: linear-gradient(90deg,
-        #008C45 0      33.33%,
-        #FFFFFF 33.33% 66.66%,
-        #CD212A 66.66% 100%);
-      opacity: 0.10;
-      transition: opacity 0.4s ease;
-    }
-    .journey-card.italy:hover .journey-body::before,
-    .journey-card.italy:focus-visible .journey-body::before {
-      opacity: 0.22;
-    }
-    /* Keep the copy above the wash. */
-    .journey-card.italy .journey-body > * { position: relative; z-index: 1; }
-
-    /* Sweden flies its own flag, but permanently and very faint: a Nordic cross
-       drawn with two gradient bands over the blue field. Official proportions,
-       5:2:9 across and 4:2:4 down. It lifts a little on hover so the card
-       answers the pointer the way the Italy one does. */
-    .journey-card.sweden .journey-body::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      background:
-        linear-gradient(to right,
-          transparent 0 31.25%, #FECC00 31.25% 43.75%, transparent 43.75% 100%),
-        linear-gradient(to bottom,
-          transparent 0 40%, #FECC00 40% 60%, transparent 60% 100%),
-        #006AA7;
-      opacity: 0.10;
-      transition: opacity 0.4s ease;
-    }
-    .journey-card.sweden:hover .journey-body::before,
-    .journey-card.sweden:focus-visible .journey-body::before {
-      opacity: 0.22;
-    }
-    .journey-card.sweden .journey-body > * { position: relative; z-index: 1; }
-
-    .journey-year {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.63rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--card);
-      margin-bottom: 0.6rem;
-    }
-
-    .journey-name {
-      font-family: 'Playfair Display', serif;
-      font-weight: 400;
-      font-size: 1.6rem;
-      color: var(--card);
-      margin-bottom: 0.9rem;
-    }
-
-    .journey-desc {
-      font-size: 0.87rem;
-      font-weight: 300;
-      line-height: 1.75;
-      color: var(--text-muted);
-      margin-bottom: 1.6rem;
-    }
-
-    .journey-stats {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem 1.4rem;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.66rem;
-      letter-spacing: 0.1em;
-      color: var(--card);
-      border-top: 1px solid var(--stone);
-      padding-top: 1.1rem;
-    }
-
-    /* The next-journey card is a real link, but visually held back:
-       dashed and unphotographed, because nothing is decided yet. */
-    .journey-card.upcoming {
-      background: transparent;
-      border-style: dashed;
-      border-top-style: solid;
-      border-color: var(--stone-dark);
-      border-top-color: var(--card);
-    }
-    .journey-card.upcoming:hover {
-      border-color: var(--card);
-    }
-    /* Purple for curiosity: deliberately outside the site's green/stone palette
-       so the open question stands out. A faint violet wash behind the text. */
-    .journey-card.upcoming .journey-body::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      background: linear-gradient(135deg, #6B3A9E 0%, #E46FA6 100%);
-      opacity: 0.08;
-      transition: opacity 0.4s ease;
-    }
-    .journey-card.upcoming:hover .journey-body::before,
-    .journey-card.upcoming:focus-visible .journey-body::before {
-      opacity: 0.16;
-    }
-    .journey-card.upcoming .journey-body > * { position: relative; z-index: 1; }
-
-    /* Purple-to-pink dusk with soft glows; the "?" stands upright in white
-       outline so it reads as a sign rather than as text. */
-    .journey-placeholder {
-      aspect-ratio: 4 / 3;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 22% 28%, rgba(255, 170, 215, 0.55) 0, transparent 42%),
-        radial-gradient(circle at 80% 75%, rgba(150, 90, 230, 0.6) 0, transparent 48%),
-        linear-gradient(135deg, #4B2A7B 0%, #8E3FA8 50%, #E46FA6 100%);
-      color: transparent;
-      -webkit-text-stroke: 2px rgba(255, 255, 255, 0.92);
-      font-family: 'Playfair Display', serif;
-      font-size: 7rem;
-      font-weight: 700;
-      font-style: normal;
-      line-height: 1;
-      text-shadow: 0 0 28px rgba(255, 190, 230, 0.55);
-    }
-    /* Faint concentric rings behind the "?" */
-    .journey-placeholder::before {
-      content: '';
-      position: absolute;
-      inset: -20%;
-      background: repeating-radial-gradient(circle at 50% 50%,
-        rgba(255, 255, 255, 0.10) 0 1px, transparent 1px 26px);
-      pointer-events: none;
-    }
-    /* ══ SUPPORT ══ */
-    .support-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 5.5rem 3rem;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-      align-items: center;
-      text-align: center;
-    }
-    /* The copy is capped for readability, so centre the block itself too. */
-    .support-inner .support-text { margin-left: auto; margin-right: auto; }
-
-    /* The button gets its own full-width row so it centres against the section
-       rather than sitting in a shrink-to-fit column at the right edge. */
-    .support-action {
-      display: flex;
-      justify-content: center;
-    }
-
-    .support-title {
-      font-family: 'Playfair Display', serif;
-      font-weight: 400;
-      font-size: clamp(1.7rem, 3vw, 2.4rem);
-      color: var(--white);
-      margin-bottom: 1rem;
-    }
-
-    .support-text {
-      font-size: 0.93rem;
-      font-weight: 300;
-      line-height: 1.85;
-      color: var(--sky-pale);
-      max-width: 44rem;
-    }
-    .support-text strong { color: var(--white); font-weight: 400; }
-
-    .support-total {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.9rem;
-      color: var(--white);
-      margin-top: 1.5rem;
-      line-height: 1.2;
-    }
-    .support-total span {
-      display: block;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.62rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--sky-pale);
-      margin-top: 0.5rem;
-    }
-
-    /* ══ ABOUT ══ */
-    .about-grid { display: block; }        /* float layout, not grid */
-    .about-grid::after { content: ""; display: table; clear: both; }
-
-    .about-image {
-      float: right;
-      width: 230px;
-      height: 310px;
-      object-fit: cover;
-      margin: 0.4rem 0 1.5rem 2.5rem;
-      display: block;
-    }
-
-    .about-text p {
-      font-size: 1rem;
-      font-weight: 300;
-      line-height: 1.95;
-      color: var(--text-muted);
-      margin-bottom: 1.4rem;
-    }
-    .about-text p strong { color: var(--green); font-weight: 500; }
-    .about-text p em     { color: var(--sky-deep); font-style: italic; }
-
-    /* ══ LINKS ══ */
-    .links-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 3.5rem;
-    }
-
-    .link-card {
-      background: var(--cream-card);
-      border: 1px solid var(--stone);
-      padding: 1.8rem;
-      text-decoration: none;
-      display: flex;
-      align-items: flex-start;
-      gap: 1.1rem;
-      transition: border-color 0.25s, transform 0.25s;
-    }
-    .link-card:hover { border-color: var(--sage); transform: translateY(-2px); }
-
-    .link-icon {
-      width: 40px; height: 40px;
-      background: var(--green);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: var(--stone);
-      font-size: 1rem;
-      overflow: hidden;
-    }
-    .link-icon img {
-      width: 24px; height: 24px;
-      object-fit: contain;
-      filter: brightness(0) invert(1);
-    }
-
-    .link-card-title {
-      font-weight: 500;
-      font-size: 0.95rem;
-      color: var(--green);
-      margin-bottom: 0.35rem;
-    }
-
-    .link-card-desc {
-      font-size: 0.8rem;
-      font-weight: 300;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    /* ══ RESPONSIVE ══ */
-    @media (max-width: 900px) {
-      .hero-left  { padding: 3rem 1.6rem 4.5rem; }
-      .hero-right { flex-basis: 320px; }
-      .hero-photo { --photo: 126px; right: 1.5rem; }
-
-      /* No hover on phones, so the flags and the purple wash show a bit stronger. */
-      .journey-card.italy .journey-body::before,
-      .journey-card.sweden .journey-body::before { opacity: 0.16; }
-      .journey-card.upcoming .journey-body::before { opacity: 0.14; }
-
-      .inner, section { padding: 4rem 1.6rem; }
-      .totals-inner   { padding: 3rem 1.6rem; grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
-      .quote-inner    { padding: 4.5rem 1.6rem; }
-      .support-inner  { padding: 4rem 1.6rem; grid-template-columns: 1fr; gap: 2rem; }
-
-      .about-image { width: 160px; height: 220px; margin-left: 1.4rem; }
-      .section-divider { width: 160px; }
-    }
-
-    @media (max-width: 480px) {
-      .hero-photo  { --photo: 100px; right: 1.25rem; }
-    }
-
-    @media (max-width: 520px) {
-      .about-image { float: none; width: 100%; height: 270px; margin: 0 0 1.5rem 0; }
-      .hero-cta .btn { flex: 1 1 100%; text-align: center; }
+    /* ══ v2 LAYOUT (November 2026) ══
+       Content now starts below the nav (body.has-nav-offset), so the old
+       extra top padding is gone and every page shares the same gutters. */
+    :root { --gutter: clamp(20px, 5vw, 48px); }
+    .page-header { padding: clamp(40px, 6vw, 72px) var(--gutter) clamp(20px, 3vw, 32px); }
+    .tabs-wrapper { padding: 0 var(--gutter); }
+    .posts-container { padding: 0 var(--gutter) clamp(48px, 7vw, 80px); }
+    /* Cards wrap by width instead of fixed 3/2/1 columns, so nothing gets squeezed */
+    .posts-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: clamp(16px, 2vw, 24px); }
+    .post-card { display: flex; flex-direction: column; transition: transform 0.25s, box-shadow 0.25s; }
+    .post-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,0.12); }
+    .post-card-cover { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; }
+    @media (max-width: 900px), (max-width: 600px) {
+      .page-header { padding: 36px var(--gutter) 20px; }
+      .tabs-wrapper { padding: 0 var(--gutter); }
+      .posts-container { padding: 0 var(--gutter) 48px; }
+      .posts-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
     }
   </style>
 </head>
 
-<body>
 
+<body class="has-nav-offset">
+
+  <!-- NAV -->
   <nav id="shared-nav"></nav>
 
-  <!-- ══ HERO ══ -->
-  <header class="hero">
-    <div class="hero-left">
-      
-      <h1 class="hero-title"
-          data-en="Edvard Appelberg"
-          data-sv="Edvard Appelberg"
-          data-it="Edvard Appelberg">
-        Edvard Appelberg
-      </h1>
 
-      <p class="hero-sub"
-         data-en="Welcome to my website, where I share moments from my cycling adventures. So far that adds up to <strong data-total=&quot;km-unit&quot;></strong> across Italy, Sweden and Lofoten. All of it on a bike with a tent, more climbing than planned, and lots of new friends and rewarding encounters.<br><br>Have a look at my adventures!"
-         data-sv="Välkommen till min hemsida där jag delar ögonblick från mina cykeläventyr. Hittills har det blivit <strong data-total=&quot;km-unit&quot;></strong> genom Italien, Sverige och Lofoten. Allting på en cykel med ett tält, fler höjdmeter än planerat, och en massa nya kompisar och berikande möten.<br><br>Kika gärna på mina äventyr!"
-         data-it="Benvenuti sul mio sito, dove condivido momenti delle mie avventure in bicicletta. Finora sono <strong data-total=&quot;km-unit&quot;></strong> tra Italia, Svezia e Lofoten. Tutto in bici con una tenda, più dislivello del previsto e tanti nuovi amici e incontri arricchenti.<br><br>Dai un'occhiata alle mie avventure!">
-        Welcome to my website, where I share moments from my cycling adventures. So far that adds up to <strong data-total="km-unit"></strong> across Italy, Sweden and Lofoten. All of it on a bike with a tent, more climbing than planned, and lots of new friends and rewarding encounters.<br><br>Have a look at my adventures!
-      </p>
-
-
-      <div class="hero-cta">
-        <a href="italy2026.html" class="btn btn-stone btn-tricolore"
-           data-en="Italy 2026" data-sv="Italien 2026" data-it="Italia 2026">Italy 2026</a>
-        <a href="blog/index.html" class="btn btn-stone btn-red"
-           data-en="Read the journal" data-sv="Läs dagboken" data-it="Leggi il diario">Read the journal</a>
-        <a href="contact.html" class="btn btn-stone"
-           data-en="Get in touch" data-sv="Hör av dig" data-it="Contattami">Get in touch</a>
-      </div>
-    </div>
-
-    <div class="hero-right">
-      <div class="hero-bg is-visible" style="background-image:url('/italy26/assets/images/medit6.jpg')"></div>
-      <div class="hero-bg"></div>
-      <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0,400 Q100,300 200,350 Q300,400 400,250 Q500,100 600,200 L600,600 L0,600 Z" fill="none" stroke="#C4B49A" stroke-width="1.5"/>
-        <path d="M0,450 Q150,350 250,380 Q350,410 450,280 Q550,150 600,250 L600,600 L0,600 Z" fill="none" stroke="#C4B49A" stroke-width="1"/>
-        <path d="M0,500 Q100,420 200,440 Q300,460 420,340 Q520,220 600,300 L600,600 L0,600 Z" fill="none" stroke="#C4B49A" stroke-width="0.5"/>
-      </svg>
-      <img class="hero-photo" src="/italy26/assets/images/profilepic.jpg"
-           alt="Me and my first bike"
-           width="1000" height="1000">
-    </div>
-  </header>
-
-  <!-- ══ TOTALS ══
-       Combined figures across the finished journeys. Recount these
-       from the Strava exports in /strava when a new trip lands. -->
-  <div class="band band-stone">
-    <div class="totals-inner">
-      <div>
-        <div class="total-value" data-total="km"></div>
-        <div class="total-label"
-             data-en="km ridden" data-sv="km cyklade" data-it="km percorsi">km ridden</div>
-      </div>
-      <div>
-        <div class="total-value" data-total="elevation"></div>
-        <div class="total-label"
-             data-en="metres climbed" data-sv="höjdmeter" data-it="metri di dislivello">metres climbed</div>
-      </div>
-      <div>
-        <div class="total-value" data-total="days"></div>
-        <div class="total-label"
-             data-en="days spent on the road" data-sv="dagar på vägen" data-it="giorni in viaggio">days spent on the road</div>
-      </div>
-      <div>
-        <div class="total-value" data-total="trips"></div>
-        <div class="total-label"
-             data-en="journeys so far" data-sv="resor hittills" data-it="viaggi, finora">journeys, so far</div>
-      </div>
-    </div>
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <p class="section-tag" data-en="// The blog" data-sv="// Bloggen" data-it="// Blog">// The journal</p>
+    <h1 data-en="Blog &amp; Journal" data-sv="Blogg &amp; Dagbok" data-it="Blog &amp; Diario">Blog &amp; Journal</h1>
   </div>
 
-  <!-- ══ ABOUT ══ -->
-  <section id="about">
-    <h2 class="section-title"
-        data-en="Curious. Determined. Adventurous."
-        data-sv="Nyfiken. Målinriktad. Äventyrslysten."
-        data-it="Curioso. Determinato. Avventuroso.">
-      Curious. Determined. Adventurous.
-    </h2>
-    <div class="section-divider"></div>
-    <div class="about-grid">
-      <img src="/italy26/assets/images/profile2.jpg" alt="Portrait of Edvard Appelberg" class="about-image"/>
-      <div class="about-text">
-        <p data-en="Welcome to my homebuilt website. I am a Swede in my mid-twenties with an appetite for sports and exploring places I have not seen yet, preferably both at once. I live in <strong>Skellefteå, Sweden</strong>, where I spend my working days analysing electricity markets. The rest of the time goes to training, to learning something new (a language, a dish, or how to build a site like this one), and to working out what's my next adventure."
-           data-sv="Välkommen till hemsidan jag byggt själv. Jag är en svensk 25-åring med aptit på träning och på att utforska platser jag inte sett ännu, gärna i kombination. Jag bor i <strong>Skellefteå</strong>, där jag ägnar arbetsdagarna åt att analysera elmarknader. Resten av tiden går till träning, till att lära mig något nytt (ett språk, en maträtt, eller hur man bygger en sida som den här), och till att fundera ut vart nästa äventyr blir av."
-           data-it="Benvenuti nel sito che ho costruito da solo. Sono uno svedese di venticinque anni con appetito per lo sport e per esplorare posti che non ho ancora visto, possibilmente insieme. Vivo a <strong>Skellefteå, in Svezia</strong>, dove passo le giornate lavorative ad analizzare i mercati elettrici. Il resto del tempo va all'allenamento, a imparare qualcosa di nuovo (una lingua, un piatto, o come si costruisce un sito come questo), e a capire che cosa la prossima avventura sará.">
-          Welcome to my homebuilt website. I am a Swede in my mid-twenties with an appetite for sports and exploring places I have not seen yet, preferably both at once. I live in <strong>Skellefteå, Sweden</strong>, where I spend my working days analysing electricity markets. The rest of the time goes to training, to learning something new (a language, a dish, or how to build a site like this one), and to working out where to ride next.
-        </p>
-        <p data-en="I ride because a bicycle moves at exactly the right speed: fast enough to cross a country, slow enough to experience all its colours. Moreover, bikepacking has an immersive feeling of freedom, problem-solving, and self-development. There are no sponsors behind any of this and no predetermined goal: the journeys run on curiosity alone… and on gelato. If you are looking for inspiration, each trip has its own page, and the <em>journal</em> has it day by day."
-           data-sv="Jag cyklar för att cykeln rör sig i precis rätt hastighet: snabbt nog för att ta sig genom ett land, långsamt nog för att hinna uppleva det. Dessutom ger bikepacking en enorm frihetskänsla och är ett bra sätt att leva sitt sanna jag. Det finns inga sponsorer bakom det här och inget förutbestämt mål: resorna drivs av ren nyfikenhet… och av gelato. Vill du ha inspiration har varje resa en egen sida, och <em>dagboken</em> tar det dag för dag."
-           data-it="Pedalo perché la bicicletta va esattamente alla velocità giusta: abbastanza veloce da attraversare un paese, abbastanza lenta da riuscire a conoscerlo. Inoltre, bikepacking dá un sensazione di libertá fortissimo. Dietro tutto questo non ci sono sponsor né un obiettivo prestabilito: i viaggi vanno avanti a pura curiosità… e a gelato. Se vuoi un pochino di ispirazione, ogni viaggio ha la sua pagina e il <em>diario</em> racconta giorno per giorno.">
-          I ride because a bicycle moves at exactly the right speed: fast enough to cross a country, slow enough to experience all its colours. Moreover, bikepacking has an immersive feeling of freedom, problem-solving, and self-development. There are no sponsors behind any of this and no predetermined goal: the journeys run on curiosity alone… and on gelato. If you are looking for inspiration, each trip has its own page, and the <em>journal</em> has it day by day.
-        </p>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ══ QUOTE ══ -->
-  <div class="band band-green">
-    <div class="quote-inner">
-      <p class="quote-text"
-         data-en="&ldquo;It is the possibility to make a dream reality that makes life exciting.&rdquo;"
-         data-sv="&rdquo;Det är möjligheten att förverkliga en dröm som gör livet spännande.&rdquo;"
-         data-it="&laquo;È la possibilitá di realizzare un sogno che rende la vita cara.&raquo;">
-        &ldquo;It is the possibility to make a dream reality that makes life exciting.&rdquo;
-      </p>
-      <p class="quote-attr">Paul Coelho</p>
-    </div>
+  <!-- WORD OF THE DAY -->
+  <div class="word-strip" id="word-strip">
+    <span class="word-strip-word" id="word-strip-word"></span>
+    <span class="word-strip-sep">—</span>
+    <span class="word-strip-meaning" id="word-strip-meaning"></span>
+    <span class="word-strip-label"
+          data-en="Word of the day"
+          data-sv="Dagens ord"
+          data-it="Parola del giorno">Word of the day</span>
   </div>
 
-  <!-- ══ JOURNEYS ══ -->
-  <section id="journeys" class="section-centred">
-    <h2 class="section-title"
-        data-en="Journeys" data-sv="Resor" data-it="Viaggi">Journeys</h2>
-    <div class="section-divider"></div>
-
-    <div class="journeys-grid">
-
-      <a href="italy2026.html" class="journey-card italy">
-        <img class="journey-cover" src="/italy26/assets/images/medit2.jpg"
-             alt="Mediterranean coastline along the Italy 2026 route"
-             loading="lazy" decoding="async">
-        <div class="journey-body">
-          <p class="journey-year">2026 · Italy</p>
-          <h3 class="journey-name"
-              data-en="Italy 2026" data-sv="Italien 2026" data-it="Italia 2026">Italy 2026</h3>
-          <p class="journey-desc"
-             data-en="Forty day loop across Southern Italy, by way of Liguria, Corsica, Sardinia, Sicily and the whole length of the mainland, ridden to raise money for Swedish brain research."
-             data-sv="Ett fyrtio dagar långt varv genom södra Italien, via Ligurien, Korsika, Sardinien, Sicilien och hela fastlandet, cyklat till förmån för Hjärnfonden."
-             data-it="Un giro di quaranta giorni attraverso l'Italia meridionale, passando per Liguria, Corsica, Sardegna, Sicilia e tutta la penisola, pedalando per la ricerca svedese sul cervello.">
-            Forty day loop across Southern Italy, by way of Liguria, Corsica, Sardinia, Sicily and the whole length of the mainland, ridden to raise money for Swedish brain research.
-          </p>
-          <div class="journey-stats" data-trip="italy2026">
-            <span data-stat="km"></span>
-            <span data-stat="elevation"></span>
-            <span data-stat="days"></span>
-          </div>
-        </div>
-      </a>
-
-      <a href="sweden2024.html" class="journey-card sweden">
-        <img class="journey-cover" src="/italy26/assets/images/heroswe.jpg"
-             alt="Edvard at Smygehuk, the southernmost point of Sweden"
-             loading="lazy" decoding="async">
-        <div class="journey-body">
-          <p class="journey-year">2024 · Sweden</p>
-          <h3 class="journey-name"
-              data-en="Sweden 2024" data-sv="Sverige 2024" data-it="Svezia 2024">Sweden 2024</h3>
-          <p class="journey-desc"
-             data-en="The entire length of Sweden and onward into Lofoten, from the southern tip at Smygehuk to the Arctic islands. A month of west coast, forests and mountains."
-             data-sv="Sverige på längden och vidare ut i Lofoten, från Smygehuk i söder till öarna ovanför polcirkeln. En månad av hav, skog och berg."
-             data-it="La Svezia in tutta la sua lunghezza e poi fino alle Lofoten, dalla punta meridionale di Smygehuk alle isole artiche. Un mese di costa, foreste e montagne.">
-            The entire length of Sweden and onward into Lofoten, from the southern tip at Smygehuk to the Arctic islands. A month of west coast, forests and mountains.
-          </p>
-          <div class="journey-stats" data-trip="sweden2024">
-            <span data-stat="km"></span>
-            <span data-stat="elevation"></span>
-            <span data-stat="days"></span>
-          </div>
-        </div>
-      </a>
-
-      <a href="wherenext.html" class="journey-card upcoming">
-        <div class="journey-placeholder">?</div>
-        <div class="journey-body">
-          <p class="journey-year"
-             data-en="2027–2028 · Undecided" data-sv="2027–2028 · Obestämt" data-it="2027–2028 · Da decidere">2027–2028 · Undecided</p>
-          <h3 class="journey-name"
-              data-en="The next one" data-sv="Nästa resa" data-it="Il prossimo">The next one</h3>
-          <p class="journey-desc"
-             data-en="The Balkans to Istanbul, all in on Slovenia, Greece in Greek, all in on France, the Atlas in the middle of the Swedish winter, or unexplored Bulgaria. Six candidates, nothing booked."
-             data-sv="Balkan till Istanbul, all in på Slovenien, Grekland på grekiska, all in på Frankrike, Atlasbergen mitt i den svenska vintern, eller outforskade Bulgarien. Sex kandidater, inget bestämt."
-             data-it="I Balcani fino a Istanbul, tutto sulla Slovenia, la Grecia in greco, tutto sulla Francia, l'Atlante nel pieno dell'inverno svedese, o la Bulgaria inesplorata. Sei candidati, niente prenotato.">
-            The Balkans to Istanbul, all in on Slovenia, Greece in Greek, all in on France, the Atlas in the middle of the Swedish winter, or unexplored Bulgaria. Six candidates, nothing booked.
-          </p>
-          <div class="journey-stats">
-            <span data-en="See the shortlist →" data-sv="Se listan →" data-it="Vedi la lista →">See the shortlist →</span>
-          </div>
-        </div>
-      </a>
-
-    </div>
-  </section>
-
-  <!-- ══ QUOTE ══ -->
-  <div class="band band-sage">
-    <div class="quote-inner">
-      <!-- Unattributed on purpose: this one is Edvard's own line, so there is
-           nobody to credit under it. -->
-      <p class="quote-text"
-         data-en="&ldquo;Travelling by bicycle is slow enough that you get fully immersed in your surroundings and can stop wherever you like, but fast enough that you can get a very long way in a couple of days. It is the most immersive way to travel.&rdquo;"
-         data-sv="&rdquo;Att resa på cykel är långsamt nog för att vara en del av omgivningen och stanna var man vill, samtidigt som det går snabbt nog att man kan ta sig riktigt långt bara på ett par dagar. Det är det mest närvarande sättet att resa.&rdquo;"
-         data-it="&laquo;Viaggiare in bicicletta è abbastanza lento da farti diventare parte di ciò che ti circonda e fermarti dove vuoi, ma anche abbastanza veloce da portarti davvero lontano in solo un paio di giorni. È il modo di viaggiare che ti immerge di più.&raquo;">
-        &ldquo;Travelling by bicycle is slow enough that you get fully immersed in your surroundings and can stop wherever you like, but fast enough that you can get a very long way in a couple of days. It is the most immersive way to travel.&rdquo;
-      </p>
-      <p class="quote-attr">My own reflections</p>
-    </div>
+  <!-- NOTE FROM THE ROAD -->
+  <div class="note-strip" id="note-strip">
+    <span class="note-strip-date" id="note-strip-date"></span>
+    <span class="note-strip-sep" style="font-family:'DM Mono',monospace;font-size:0.65rem;color:rgba(253,250,244,0.4);letter-spacing:0.1em;">—</span>
+    <span class="note-strip-text" id="note-strip-text"></span>
+    <span class="note-strip-label" 
+    data-en="Note from the road" 
+    data-sv="Notering från vägen" 
+    data-it="Nota dalla strada">Note from the road</span>
   </div>
 
-  <!-- ══ SUPPORT ══ -->
-  <div class="band band-sky">
-    <div class="support-inner">
-      <div>
-        <h2 class="support-title"
-            data-en="Riding for brain research"
-            data-sv="Cyklar för hjärnforskningen"
-            data-it="Pedalo per la ricerca sul cervello">
-          Riding for brain research
-        </h2>
-        <p class="support-text"
-           data-en="The Italy 2026 ride collected money for <strong>Hjärnfonden</strong>, the Swedish Brain Research Fund."
-           data-sv="Resan genom Italien 2026 samlade in pengar till <strong>Hjärnfonden</strong>. Insamlingen är fortfarande öppen, och varje krona går direkt till fonden."
-           data-it="Il viaggio in Italia 2026 ha raccolto fondi per <strong>Hjärnfonden</strong>, la fondazione svedese per la ricerca sul cervello. La raccolta è ancora aperta e ogni corona svedese va direttamente alla ricerca su cervello.">
-          The Italy 2026 ride collected money for <strong>Hjärnfonden</strong>, the Swedish Brain Research Fund. The collection is still open, and every krona goes straight to the fund.
-        </p>
-        <p class="support-total">
-          <strong id="support-total">&nbsp;</strong>
-          <span data-en="Raised" data-sv="Insamlade" data-it="Raccolti">Raised</span>
-        </p>
-      </div>
-      <!--
-      <div class="support-action">
-        <a href="donate.html" class="btn btn-cream"
-           data-en="Donate" data-sv="Donera" data-it="Dona">Donate</a>
-      </div>
-      -->
-    </div>
+  <!-- TABS -->
+  <div class="tabs-wrapper">
+    <button class="tab-btn active" data-tab="journal" data-en="Journal" data-sv="Dagbok" data-it="Diario">Journal</button>
+    <button class="tab-btn" data-tab="blog" data-en="Blog" data-sv="Blogg" data-it="Blog">Blog</button>
   </div>
-  <!-- ══ LINKS ══ -->
-  <section id="links">
-    <h2 class="section-title"
-        data-en="Links" data-sv="Länkar" data-it="Links">Links</h2>
-    <div class="section-divider"></div>
-    <div class="links-grid">
 
-      <a href="https://www.instagram.com/bikepack.ed/" target="_blank" rel="noopener" class="link-card">
-        <div class="link-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2"/>
-            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
-            <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
-          </svg>
-        </div>
-        <div>
-          <p class="link-card-title">Instagram</p>
-          <p class="link-card-desc"
-             data-en="Follow me on Instagram"
-             data-sv="Följ mig på Instagram"
-             data-it="Seguimi su Instagram">
-            Follow me on Instagram
-          </p>
-        </div>
-      </a>
+  <!-- POSTS GRID — filled by JS -->
+  <div class="posts-container">
+    <div class="posts-grid" id="posts-grid"></div>
+  </div>
 
-      <a href="https://www.strava.com/athletes/33737566" target="_blank" rel="noopener" class="link-card">
-        <div class="link-icon">
-          <img src="/italy26/assets/images/strava.png" alt="Strava">
-        </div>
-        <div>
-          <p class="link-card-title">Strava</p>
-          <p class="link-card-desc"
-             data-en="My activity feed and route archive"
-             data-sv="Mitt aktivitetsflöde och mitt ruttarkiv"
-             data-it="Il mio feed di attività e l'archivio percorsi">
-            My activity feed and route archive
-          </p>
-        </div>
-      </a>
-
-      <a href="https://www.hjarnfonden.se/om-hjarnan/diagnos/hjarntumor/vad-ar-hjarntumor/" target="_blank" rel="noopener" class="link-card">
-        <div class="link-icon">↗</div>
-        <div>
-          <p class="link-card-title">Hjärnfonden</p>
-          <p class="link-card-desc"
-             data-en="The Swedish Brain Research Fund"
-             data-sv="Hjärnfonden"
-             data-it="La fondazione svedese per la ricerca sulle malattie cerebrali">
-            The Swedish Brain Research Fund
-          </p>
-        </div>
-      </a>
-
-      <a href="https://www.norran.se/nyheter/skelleftea/artikel/edvard-appleberg-cyklar-genom-hela-italien/r1w7ge3l" target="_blank" rel="noopener" class="link-card">
-        <div class="link-icon">↗</div>
-        <div>
-          <p class="link-card-title">Norran</p>
-          <p class="link-card-desc"
-             data-en="A news article one week into the Italy trip"
-             data-sv="Ett reportage från resan genom Italien, en vecka in"
-             data-it="Un articolo dal viaggio in Italia, dopo una settimana">
-            A news article one week into the Italy trip
-          </p>
-        </div>
-      </a>
-
-      <a href="https://www.nlt.se/2026/05/04/gotenekillen-cyklar-italien-runt-samlar-in-pengar-till-forskning-b65b2/" target="_blank" rel="noopener" class="link-card">
-        <div class="link-icon">↗</div>
-        <div>
-          <p class="link-card-title">NLT.se</p>
-          <p class="link-card-desc"
-             data-en="A report from before the Italy journey started"
-             data-sv="Ett reportage inför Italienresan"
-             data-it="Un articolo prima della partenza per l'Italia">
-            A report from before the Italy journey started
-          </p>
-        </div>
-      </a>
-
-      <a href="https://www.nlt.se/2024/07/11/edvard-appelberg-fran-gotene-cyklar-genom-hela-sverige-man-kanner-sig-fri-056a2/" target="_blank" rel="noopener" class="link-card">
-        <div class="link-icon">↗</div>
-        <div>
-          <p class="link-card-title">NLT.se</p>
-          <p class="link-card-desc"
-             data-en="A news article from the ride across Sweden 2024"
-             data-sv="Ett reportage från resan genom Sverige 2024"
-             data-it="Un articolo dal viaggio attraverso la Svezia 2024">
-            A news article from the ride across Sweden 2024
-          </p>
-        </div>
-      </a>
-
-      <a href="https://open.spotify.com/playlist/4HdCefIPc45fqDac9w6dM4?si=-wnKd-5jSvyJBIwKNPlYEA" target="_blank" rel="noopener" class="link-card">
-        <div class="link-icon">↗</div>
-        <div>
-          <p class="link-card-title">Spotify</p>
-          <p class="link-card-desc"
-             data-en="The songs I listen to on the road"
-             data-sv="Låtarna jag lyssnar på undervägs"
-             data-it="Le canzoni che ascolto in viaggio">
-            The songs I listen to on the road
-          </p>
-        </div>
-      </a>
-
-      <a href="https://www.bikepacking.com" target="_blank" rel="noopener" class="link-card">
-        <div class="link-icon">↗</div>
-        <div>
-          <p class="link-card-title">Bikepacking.com</p>
-          <p class="link-card-desc"
-             data-en="Read more about bikepacking"
-             data-sv="Läs mer om bikepacking"
-             data-it="Leggi di più sul bikepacking">
-            Read more about bikepacking
-          </p>
-        </div>
-      </a>
-
-    </div>
-  </section>
-
-  <!-- ══ FOOTER ══ -->
+  <!-- FOOTER -->
   <footer id="shared-footer"></footer>
 
   <script>
-  // ══════════════════════════════════════════
-  // TRIP FIGURES: every number on this page comes from TRIPS in manuals.js.
-  // Edit a trip there, or add a new one, and the journey cards, the totals
-  // strip and the hero line all follow. Nothing here is hardcoded.
-  //
-  //   [data-trip="<key>"] [data-stat="km|elevation|days"]  one trip's figures
-  //   [data-total="km|km-unit|elevation|days|trips"]       all trips added up
-  //
-  // Thousands separators differ per language, so this re-renders whenever the
-  // visitor switches flag.
-  // ══════════════════════════════════════════
+    // Language handled by main.js — currentLang available globally
+
+    let activeTab = 'journal';
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        activeTab = btn.getAttribute('data-tab');
+        tabBtns.forEach(b => b.classList.toggle('active', b === btn));
+        renderCards(activeTab);
+      });
+    });
+
+    function readTime(post) { return post.type === 'journal' ? '3 min read' : '5 min read'; }
+
+    function formatDate(dateStr, lang) {
+      const d = new Date(dateStr);
+      const locales = { en: 'en-GB', sv: 'sv-SE', it: 'it-IT' };
+      return d.toLocaleDateString(locales[lang] || 'en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+    }
+
+    function renderCards(type) {
+      const grid     = document.getElementById('posts-grid');
+      const filtered = allPosts.filter(p => p.type === type);
+      if (filtered.length === 0) {
+        const labels = { en: 'No posts yet, check back soon.', sv: 'Inga inlägg ännu, kom tillbaka snart.', it: 'Nessun articolo ancora, torna presto.' };
+        grid.innerHTML = `<div class="empty-state">${labels[currentLang]}</div>`;
+        return;
+      }
+      grid.innerHTML = filtered.map(post => {
+        const title     = post.title[currentLang] || post.title.en;
+        const date      = formatDate(post.date, currentLang);
+        const rt        = readTime(post);
+        const coverSrc = '/italy26/blog/posts/' + post.slug + '/cover_thumb.jpg';
+        const coverHTML = `<img class="post-card-cover"
+          src="${coverSrc}"
+          alt="${title}"
+          loading="lazy"
+          onerror="
+            const t=['cover.jpg','cover.png','cover.webp','cover.jpeg'];
+            const i=parseInt(this.dataset.try||0);
+            if(i<t.length){this.dataset.try=i+1;this.src='/italy26/blog/posts/${post.slug}/'+t[i];}
+            else{this.onerror=null;this.src='/italy26/assets/images/placehold.png';}
+          ">`;
+        const badgeText = post.type === 'journal'
+          ? ({ en: 'Day', sv: 'Dag', it: 'Giorno' }[currentLang] + ' ' + post.day)
+          : post.tag;
+        const badgeClass = post.type === 'journal' ? 'journal' : 'blog';
+        const statsHTML  = post.type === 'journal'
+          ? `<div class="post-card-stats"><span>${post.km} km</span><span>${post.elevation} m ↑</span></div>`
+          : '';
+        return `
+          <a href="post.html?slug=${post.slug}" class="post-card type-${post.type}">
+            ${coverHTML}
+            <div class="post-card-body">
+              <div class="post-card-meta">
+                <span class="post-badge ${badgeClass}">${badgeText}</span>
+                <span class="post-card-date">${date}</span>
+              </div>
+              <p class="post-card-title">${title}</p>
+              ${statsHTML}
+              <p class="post-card-readtime">${rt}</p>
+            </div>
+          </a>`;
+      }).join('');
+    }
+    let allPosts = [];
+    fetch('/italy26/blog/posts.json')
+      .then(r => {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      })
+      .then(data => {
+        allPosts = data.sort((a, b) => new Date(b.date) - new Date(a.date));
+        renderCards(activeTab);
+      })
+      .catch(err => {
+        document.getElementById('posts-grid').innerHTML =
+          `<div class="empty-state">Fetch failed: ${err.message}</div>`;
+      });
+  </script>  <script>
+  // ── WORD OF THE DAY — reads WORD and MEANING from manuals.js ──
   (function() {
-    if (typeof TRIPS === 'undefined') return;
-
-    const LOCALES = { en: 'en-GB', sv: 'sv-SE', it: 'it-IT' };
-    const DAYS    = { en: 'days',  sv: 'dagar', it: 'giorni' };
-
-    function currentLangCode() {
-      return (typeof currentLang !== 'undefined' ? currentLang : null)
-          || localStorage.getItem('preferred-lang')
-          || 'en';
+    const strip     = document.getElementById('word-strip');
+    const wordEl    = document.getElementById('word-strip-word');
+    const meaningEl = document.getElementById('word-strip-meaning');
+    if (!strip) return;
+    if (typeof WORD === 'undefined' || !WORD) {
+      strip.classList.add('hidden');
+      return;
     }
-
-    function render() {
-      const lang   = currentLangCode();
-      const locale = LOCALES[lang] || LOCALES.en;
-      const num    = n => n.toLocaleString(locale);
-
-      // Per-trip figures on the journey cards.
-      document.querySelectorAll('[data-trip]').forEach(box => {
-        const trip = TRIPS[box.dataset.trip];
-        if (!trip) return;
-        box.querySelectorAll('[data-stat]').forEach(el => {
-          switch (el.dataset.stat) {
-            case 'km':        el.textContent = num(trip.km) + ' km';                 break;
-            case 'elevation': el.textContent = num(trip.elevation) + ' m';           break;
-            case 'days':      el.textContent = trip.days + ' ' + (DAYS[lang] || DAYS.en); break;
-          }
-        });
-      });
-
-      // Totals across every trip.
-      const all = Object.values(TRIPS);
-      const sum = key => all.reduce((t, trip) => t + (trip[key] || 0), 0);
-      const totals = {
-        'km':        num(sum('km')),
-        'km-unit':   num(sum('km')) + ' km',
-        'elevation': num(sum('elevation')),
-        'days':      num(sum('days')),
-        'trips':     num(all.length),
-      };
-      document.querySelectorAll('[data-total]').forEach(el => {
-        const value = totals[el.dataset.total];
-        if (value !== undefined) el.textContent = value;
-      });
-    }
-
-    render();
-    // applyLanguage() rewrites innerHTML from the data-* attributes, which wipes
-    // the slots inside the hero sentence, so fill them again afterwards.
-    document.addEventListener('langchange', render);
+    wordEl.textContent    = WORD;
+    meaningEl.textContent = MEANING || '';
   })();
   </script>
 
   <script>
-  // ── DONATION TOTAL: the figure itself lives in manuals.js ──
+  // ── NOTE FROM THE ROAD — reads NOTE and NOTE_DATE from manuals.js ──
   (function() {
-    const el = document.getElementById('support-total');
-    if (!el || typeof DONATION_TOTAL === 'undefined') return;
-    el.textContent = DONATION_TOTAL.toLocaleString('sv-SE') + ' kr';
-  })();
-  </script>
-
-  <script>
-  // ── HERO BACKGROUND SLIDESHOW ──
-  // Add or remove file names here; they live in /italy26/assets/images/.
-  // The first one is also set in the HTML so it shows even without JavaScript.
-  const HERO_BACKGROUNDS = ['medit6.jpg', 'medit2.jpg', 'medit8.jpg'];
-  const HERO_INTERVAL_MS = 7000;
-
-  (function() {
-    const layers = document.querySelectorAll('.hero-bg');
-    if (layers.length < 2 || HERO_BACKGROUNDS.length < 2) return;
-    // Respect visitors who ask their system for less motion: keep the first picture.
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-    let index = 0, front = 0;
-    function next() {
-      // Skip the switch while the tab is in the background.
-      if (document.hidden) return;
-      const nextIndex = (index + 1) % HERO_BACKGROUNDS.length;
-      const url = '/italy26/assets/images/' + HERO_BACKGROUNDS[nextIndex];
-      // Load the picture fully before fading, so it never pops in half-drawn.
-      // A missing file is skipped and the current picture stays.
-      const img = new Image();
-      img.onload = () => {
-        const back = 1 - front;
-        layers[back].style.backgroundImage = `url('${url}')`;
-        layers[back].classList.add('is-visible');
-        layers[front].classList.remove('is-visible');
-        front = back;
-        index = nextIndex;
-      };
-      img.onerror = () => { index = nextIndex; };
-      img.src = url;
+    const strip  = document.getElementById('note-strip');
+    const dateEl = document.getElementById('note-strip-date');
+    const textEl = document.getElementById('note-strip-text');
+    if (!strip) return;
+    if (typeof NOTE === 'undefined' || !NOTE) {
+      strip.classList.add('hidden');
+      return;
     }
-    setInterval(next, HERO_INTERVAL_MS);
+    dateEl.textContent = (typeof NOTE_DATE !== 'undefined' && NOTE_DATE) ? NOTE_DATE : '';
+    textEl.textContent = NOTE;
   })();
   </script>
 

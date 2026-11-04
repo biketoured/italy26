@@ -355,17 +355,24 @@
     gtag('js', new Date());
     gtag('config', 'G-G4WXL40L9E');
   </script>
+  <style>
+    /* ══ v2 LAYOUT (November 2026) ══
+       Content now starts below the nav (body.has-nav-offset), so the old
+       extra top padding is gone and every page shares the same gutters. */
+    :root { --gutter: clamp(20px, 5vw, 48px); }
+    .contact-sidebar { top: calc(var(--nav-h) + 24px); }
+  </style>
 </head>
 
 
-<body>
+<body class="has-nav-offset">
 
   <nav id="shared-nav"></nav>
 
   <!-- ── BANNER ── -->
   <!-- Banner: add images to assets/images/ named contact-banner1.jpg, contact-banner2.jpg etc. -->
   <!-- The JS below rotates and drifts them automatically. -->
-  <div class="contact-banner" id="contact-banner" style="margin-top: 64px;">
+  <div class="contact-banner" id="contact-banner">
     <div class="banner-inner" id="banner-inner"></div>
   </div>
 

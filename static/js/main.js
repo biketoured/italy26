@@ -43,13 +43,13 @@ const NAV_THEMES = {
   'sweden2024': {
     bg:        'rgba(74,122,150,0.97)',
     border:    'rgba(184,212,224,0.2)',
-    link:      'rgba(184,212,224,0.7)',
+    link:      '#DCEAF0',
     linkHover: '#FDFAF4',
   },
   'donate': {
     bg:        'rgba(74,122,150,0.97)',
     border:    'rgba(184,212,224,0.2)',
-    link:      'rgba(184,212,224,0.7)',
+    link:      '#DCEAF0',
     linkHover: '#FDFAF4',
   },
   'route': {
@@ -109,63 +109,31 @@ function injectNav(page) {
   // Nav link definitions
   // Each entry: { id, href, en, sv, it }
   const links = [
-    { id: 'donate',     href: p + 'donate.html',       en: 'Donate',      sv: 'Donera',      it: 'Dona'        },
-    { id: 'blog',       href: p + 'blog/index.html',   en: 'Blog',        sv: 'Blogg',       it: 'Blog'        },
-    { id: 'route',      href: p + 'route.html',        en: 'Route',       sv: 'Färdplan',    it: 'Mappa'       },
     { id: 'italy2026',  href: p + 'italy2026.html',    en: 'Italy 2026',  sv: 'Italien 2026',it: 'Italia 2026' },
     { id: 'sweden2024', href: p + 'sweden2024.html',   en: 'Sweden 2024', sv: 'Sverige 2024',it: 'Svezia 2024' },
+    { id: 'donate',     href: p + 'donate.html',       en: 'Donate',      sv: 'Donera',      it: 'Dona'        },
+    { id: 'route',      href: p + 'route.html',        en: 'Route',       sv: 'Färdplan',    it: 'Mappa'       },
+    { id: 'blog',       href: p + 'blog/index.html',   en: 'Blog',        sv: 'Blogg',       it: 'Blog'        },
     { id: 'contact',    href: p + 'contact.html',      en: 'Contact',     sv: 'Kontakt',     it: 'Contatto'    },
   ];
 
   // Home link — hidden on index, points to index from everywhere else
-  const homeHidden = (page === 'index') ? 'hidden' : '';
   const homeHref   = p + 'index.html';
 
   // Mobile links — same as desktop minus current page (filtered below)
   const mobileLinks = links;
 
+  // Left slot: "Home" everywhere except the home page, where it stays empty.
+  const homeLink = page === 'index'
+    ? `<span class="nav-home" aria-hidden="true"></span>`
+    : `<a href="${homeHref}" class="nav-home" data-en="Home" data-sv="Hem" data-it="Home">Home</a>`;
+
   const navHTML = `
-    <a href="${homeHref}" class="nav-home ${homeHidden}"
-       data-en="Home" data-sv="Hem" data-it="Home">Home</a>
-
-    <a href="https://www.instagram.com/bikepack.ed/" target="_blank" rel="noopener" class="nav-instagram" title="Instagram" aria-label="Instagram">
-      <svg class="nav-instagram-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <defs>
-          <radialGradient id="ig-grad" cx="30%" cy="107%" r="150%">
-            <stop offset="0%"   stop-color="#fdf497"/>
-            <stop offset="10%"  stop-color="#fdf497"/>
-            <stop offset="50%"  stop-color="#fd5949"/>
-            <stop offset="68%"  stop-color="#d6249f"/>
-            <stop offset="100%" stop-color="#285AEB"/>
-          </radialGradient>
-          <clipPath id="ig-clip">
-            <rect width="24" height="24" rx="6" ry="6"/>
-          </clipPath>
-        </defs>
-        <rect width="24" height="24" rx="6" ry="6" fill="url(#ig-grad)"/>
-        <g clip-path="url(#ig-clip)">
-          <rect x="2.4" y="2.4" width="19.2" height="19.2" rx="4" ry="4" fill="none" stroke="white" stroke-width="1.6"/>
-          <circle cx="12" cy="12" r="4.2" fill="none" stroke="white" stroke-width="1.6"/>
-          <circle cx="17.5" cy="6.5" r="1.1" fill="white"/>
-        </g>
-      </svg>
-    </a>
-
-    <div class="lang-switcher">
-      <button class="lang-btn active" data-lang="en" title="English">
-        <img src="${p}assets/images/flaguk.png" alt="English" width="50" height="50">
-      </button>
-      <button class="lang-btn" data-lang="sv" title="Svenska">
-        <img src="${p}assets/images/flagse.png" alt="Svenska" width="50" height="50">
-      </button>
-      <button class="lang-btn" data-lang="it" title="Italiano">
-        <img src="${p}assets/images/flagit.png" alt="Italiano" width="50" height="50">
-      </button>
-    </div>
+    ${homeLink}
 
     <ul class="nav-links">
-      ${links.map(l => `
-        <li class="${l.id === page ? 'hidden' : ''}" style="min-width:6rem; text-align:center;">
+      ${links.filter(l => l.id !== page).map(l => `
+        <li>
           <a href="${l.href}"
              data-en="${l.en}"
              data-sv="${l.sv}"
@@ -173,9 +141,41 @@ function injectNav(page) {
         </li>`).join('')}
     </ul>
 
-    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav-tools">
+      <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="en" title="English">
+          <img src="${p}assets/images/flaguk.png" alt="English" width="26" height="26">
+        </button>
+        <button class="lang-btn" data-lang="sv" title="Svenska">
+          <img src="${p}assets/images/flagse.png" alt="Svenska" width="26" height="26">
+        </button>
+        <button class="lang-btn" data-lang="it" title="Italiano">
+          <img src="${p}assets/images/flagit.png" alt="Italiano" width="26" height="26">
+        </button>
+      </div>
+
+      <a href="https://www.instagram.com/bikepack.ed/" target="_blank" rel="noopener" class="nav-instagram" title="Instagram" aria-label="Instagram">
+        <svg class="nav-instagram-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <radialGradient id="ig-grad" cx="30%" cy="107%" r="150%">
+              <stop offset="0%"   stop-color="#fdf497"/>
+              <stop offset="10%"  stop-color="#fdf497"/>
+              <stop offset="50%"  stop-color="#fd5949"/>
+              <stop offset="68%"  stop-color="#d6249f"/>
+              <stop offset="100%" stop-color="#285AEB"/>
+            </radialGradient>
+          </defs>
+          <rect width="24" height="24" rx="6" ry="6" fill="url(#ig-grad)"/>
+          <rect x="4.4" y="4.4" width="15.2" height="15.2" rx="4" ry="4" fill="none" stroke="white" stroke-width="1.6"/>
+          <circle cx="12" cy="12" r="3.6" fill="none" stroke="white" stroke-width="1.6"/>
+          <circle cx="16.6" cy="7.4" r="1" fill="white"/>
+        </svg>
+      </a>
+
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
 
     <div class="nav-dropdown" id="nav-dropdown">
       <ul>
@@ -249,7 +249,11 @@ function injectFooter() {
       </p>
       <p class="footer-ai" id="footer-updated" hidden></p>
     </div>
-    <div id="footer-attribution"></div>`;
+    <div class="footer-end">
+      <div id="footer-attribution"></div>
+      <a href="#" class="footer-top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;"
+         data-en="Back to top ↑" data-sv="Till toppen ↑" data-it="Torna su ↑">Back to top ↑</a>
+    </div>`;
   loadLastUpdated();
 }
 

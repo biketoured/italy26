@@ -1387,9 +1387,106 @@
 
   </style>
   <script src="/italy26/manuals.js"></script>
+  <style>
+    /* ══════════════════════════════════════════════════════════
+       v2 LAYOUT (November 2026)
+       Overrides on top of the rules above: nav offset, recoloured
+       button puzzle, one stats bar for every screen, cream journal
+       cards and one shared vertical rhythm.
+       ══════════════════════════════════════════════════════════ */
+    :root { --gutter: clamp(20px, 5vw, 48px); --section-y: clamp(48px, 7vw, 80px); }
+
+    /* The nav no longer sits on top of the hero, so the hero only needs normal padding */
+    .hero { min-height: min(calc(100svh - var(--nav-h) - 220px), 760px); }
+    .hero-left { padding: clamp(40px, 5vw, 72px) clamp(32px, 4vw, 64px) 0 clamp(20px, 4vw, 48px); justify-content: center; }
+    .hero-photo { top: 50%; width: clamp(260px, 32vw, 480px); height: auto; aspect-ratio: 1; }
+
+    /* Button puzzle in the colours of the Italian flag: green · white · red */
+    .puzzle-tl, .puzzle-bl { background: var(--green-mid); color: var(--white); }
+    .puzzle-tr, .puzzle-br { background: var(--red); color: var(--white); }
+    .puzzle-centre { background: var(--white); color: var(--green); font-size: clamp(18px, 1.9vw, 25px); }
+    .puzzle-centre:hover { filter: brightness(0.94); }
+    @media (max-width: 900px) { .puzzle-centre { font-size: 15px; } }
+
+    /* Route progress labels: readable on laptops, still fit on phones */
+    .route-progress-dot-label { font-size: 10px; }
+    @media (max-width: 768px) { .route-progress-dot-label { font-size: 8px; } }
+
+    /* ── TRIP FIGURES ── */
+    .trip-figures { background: #152C21; border-top: 1px solid rgba(196,180,154,0.15); border-bottom: 1px solid rgba(196,180,154,0.15); }
+    .trip-figures-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1px;
+      background: rgba(196,180,154,0.15);
+    }
+    .trip-figures-grid > div { background: #152C21; padding: clamp(24px, 3.5vw, 36px) 12px; text-align: center; }
+    .trip-figure-value { font-family: 'Playfair Display', serif; font-size: clamp(34px, 4vw, 46px); line-height: 1; color: var(--white); }
+    .trip-figure-value.strong { font-weight: 700; }
+    .trip-figure-label { margin-top: 10px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--yellow-soft); }
+    @media (max-width: 1200px) { .trip-figures-grid { margin: 0 var(--gutter); } }
+
+    /* One vertical rhythm for every band */
+    .strava-section, .blog-section { padding: var(--section-y) 0; }
+    .strava-inner, .blog-inner { padding: 0 var(--gutter); }
+    section { padding: var(--section-y) var(--gutter); }
+
+    /* Smaller stat icons on phones so the numbers get the room */
+    @media (max-width: 640px) {
+      .trip-stat-tab { padding: 14px 12px; gap: 8px; }
+      .trip-stat-icon { width: 26px; height: 26px; }
+      .trip-stat-icon-lg { width: 30px; height: 30px; }
+    }
+
+    /* ── JOURNAL ── cream band, cards with the day number as the headline */
+    .blog-section { background: #F3EBDD; }
+    .blog-inner .section-title { color: var(--green); }
+    .blog-inner .section-tag   { color: var(--soil); }
+    .blog-intro { color: var(--text-muted); font-size: 17px; line-height: 1.8; max-width: 640px; }
+    .journal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+      gap: 16px;
+      margin-top: clamp(32px, 4vw, 48px);
+    }
+    .journal-card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 24px;
+      background: #FBF6EC;
+      border: 1px solid var(--stone);
+      text-decoration: none;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+    .journal-card:hover { transform: translateY(-3px); border-color: var(--red); }
+    .journal-card-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+    .journal-day   { font-family: 'Playfair Display', serif; font-size: 34px; line-height: 1; color: var(--red); }
+    .journal-date  { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--soil); }
+    .journal-title { font-family: 'Playfair Display', serif; font-size: 20px; line-height: 1.3; color: var(--green); }
+    .journal-place { font-size: 14px; color: var(--text-muted); }
+    .journal-stats { margin-top: 6px; padding-top: 12px; border-top: 1px solid var(--stone); font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: var(--green); }
+    .journal-empty { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text-muted); }
+    .journal-all {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      margin-top: 28px;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--red);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(160,80,59,0.4);
+    }
+    .journal-all:hover { color: var(--green); }
+  </style>
 </head>
 
-<body>
+<body class="has-nav-offset">
 
   <!-- ══ NAV ══ -->
   <nav id="shared-nav"></nav>
@@ -1477,159 +1574,34 @@
       <img src="/italy26/assets/images/profilesquare2.jpg" alt="Profile photo" class="hero-photo"
            width="500" height="500" />
 
-      <!-- COUNTDOWN / LAST RIDE -->
-
-      <!-- STATE 1: pre-trip countdown -->
-      <div class="hero-countdown" id="widget-pre" style="display:none;">
-        <div class="countdown-label"
-             data-en="Trip starts in"
-             data-sv="Resan börjar om"
-             data-it="Il viaggio inizia tra">Trip starts in</div>
-        <div class="countdown-number" id="countdown-days">--</div>
-        <div class="countdown-unit"
-             data-en="days"
-             data-sv="dagar"
-             data-it="giorni">days</div>
-        <div class="countdown-hms" id="countdown-hms">--:--:--</div>
-      </div>
-
-      <!-- STATE 2: during trip — day counter + last ride -->
-      <div class="hero-countdown" id="widget-during" style="display:none;">
-        <div class="countdown-number" id="trip-day-number">--</div>
-        <div class="countdown-unit"
-             data-en="days on the road"
-             data-sv="dagar på vägen"
-             data-it="giorni in viaggio">days on the road</div>
-        <div class="countdown-hms" id="last-ride-summary" style="font-size:0.6rem;margin-top:0.6rem;line-height:1.4;">—</div>
-        <a href="#" id="last-ride-link" target="_blank"
-           style="display:block;margin-top:0.5rem;font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.10em;text-transform:uppercase;color:var(--yellow);text-decoration:none;opacity:0.8;"
-           data-en="View on Strava →"
-           data-sv="Visa på Strava →"
-           data-it="Vedi su Strava →">View on Strava →</a>
-      </div>
-
-      <!-- STATE 3: post-trip -->
-      <div class="hero-countdown" id="widget-post" style="display:none;">
-        <div class="countdown-label"
-             data-en="Trip completed"
-             data-sv="Resan avslutad"
-             data-it="Viaggio completato">Trip completed</div>
-        <div class="countdown-number" id="post-days">41</div>
-        <div class="countdown-unit"
-             data-en="days of adventure"
-             data-sv="äventyrsdagar"
-             data-it="giorni di avventura">days of adventure</div>
-      </div>
-
-      <div class="hero-stats">
-        <div class="stat">
-          <div class="stat-number" id="hero-stat-elevation">—</div>
-          <div class="stat-label"
-               data-en="meters climbed"
-               data-sv="höjdmeter"
-               data-it="metri di dislivello">
-            meters climbed
-          </div>
-        </div>
-        <div class="stat">
-          <div class="stat-number" id="hero-stat-km">—</div>
-          <div class="stat-label"
-               data-en="km"
-               data-sv="km"
-               data-it="km">
-               km
-          </div>
-        </div>
-        <div class="stat">
-          <div class="stat-number" id="hero-stat-beats">—</div>
-          <div class="stat-label"
-               data-en="million heartbeats"
-               data-sv="miljoner hjärtslag"
-               data-it="millioni battiti cardiaci">
-            million heartbeats
-          </div>
-        </div>
-      </div>
+      
     </div>
   </div><!-- /.hero -->
   </div><!-- /.hero-mobile-wrapper -->
 
-  <!-- ══ MOBILE COUNTDOWN STRIP — hidden on desktop ══ -->
-  <div class="hero-mobile-strip">
-
-    <!-- Left col: countdown / day counter / post-trip -->
-    <div class="strip-left">
-
-      <!-- Pre-trip -->
-      <div id="m-pre" style="display:none">
-        <div class="strip-tag"
-             data-en="Trip starts in"
-             data-sv="Resan börjar om"
-             data-it="Il viaggio inizia tra">Trip starts in</div>
-        <div class="strip-number" id="m-days">--</div>
-        <div class="strip-unit"
-             data-en="days"
-             data-sv="dagar"
-             data-it="giorni">days</div>
-        <div class="strip-hms" id="m-hms">--:--:--</div>
+  <!-- ══ TRIP FIGURES ══
+       One dark bar under the hero on every screen size: 4 across on laptops,
+       2×2 on phones. The ids are the ones the map script already fills. -->
+  <div class="trip-figures">
+    <div class="trip-figures-grid">
+      <div>
+        <div class="trip-figure-value strong" id="trip-figure-days">&nbsp;</div>
+        <div class="trip-figure-label" data-en="days of adventure" data-sv="äventyrsdagar" data-it="giorni di avventura">days of adventure</div>
       </div>
-
-      <!-- During trip -->
-      <div id="m-during" style="display:none">
-        <div class="strip-tag"
-             data-en="Day"
-             data-sv="Dag"
-             data-it="Giorno">Day</div>
-        <div class="strip-number" id="m-tripday">--</div>
-        <div class="strip-unit"
-             data-en="on the road"
-             data-sv="på vägen"
-             data-it="in viaggio">on the road</div>
-        <div class="strip-ride" id="m-ride">—</div>
-        <a class="strip-strava" id="m-stravalink" href="#" target="_blank"
-           data-en="Strava →" data-sv="Strava →" data-it="Strava →">Strava →</a>
+      <div>
+        <div class="trip-figure-value" id="hero-stat-km">&nbsp;</div>
+        <div class="trip-figure-label" data-en="km" data-sv="km" data-it="km">km</div>
       </div>
-
-      <!-- Post-trip -->
-      <div id="m-post" style="display:none">
-        <div class="strip-tag"
-             data-en="Trip completed"
-             data-sv="Resan avslutad"
-             data-it="Viaggio completato">Trip completed</div>
-        <div class="strip-number" id="m-postdays">--</div>
-        <div class="strip-unit"
-             data-en="days of adventure"
-             data-sv="äventyrsdagar"
-             data-it="giorni d'avventura">days of adventure</div>
+      <div>
+        <div class="trip-figure-value" id="hero-stat-elevation">&nbsp;</div>
+        <div class="trip-figure-label" data-en="metres climbed" data-sv="höjdmeter" data-it="metri di dislivello">metres climbed</div>
       </div>
-
-    </div>
-
-    <!-- Right col: trip stats -->
-
-    <div class="strip-right">
-      <div class="strip-stat">
-        <div class="strip-stat-num" id="hero-stat-elevation-m">—</div>
-        <div class="strip-stat-lbl"
-             data-en="elevation gain" data-sv="höjdmeter" data-it="metri dislivello">elevation gain</div>
-      </div>
-      <div class="strip-stat">
-        <div class="strip-stat-num" id="hero-stat-km-m">—</div>
-        <div class="strip-stat-lbl">km</div>
-      </div>
-      <div class="strip-stat">
-          <div class="strip-stat-num" id="hero-stat-beats-m">—</div>
-          <div class="strip-stat-lbl"
-               data-en="million heartbeats"
-               data-sv="miljoner hjärtslag"
-               data-it="millioni battiti cardiaci">
-            million heartbeats
-          </div>
+      <div>
+        <div class="trip-figure-value" id="hero-stat-beats">&nbsp;</div>
+        <div class="trip-figure-label" data-en="million heartbeats" data-sv="miljoner hjärtslag" data-it="milioni di battiti cardiaci">million heartbeats</div>
       </div>
     </div>
   </div>
-
-  <!-- ══ END MOBILE STRIP ══ -->
 
   <!-- ══ LIVE TRACKING BANNER ══
       Set LIVE_TRACKING to true/false in the script below.
@@ -1846,11 +1818,9 @@
       </p>
       <div class="section-divider" style="background: var(--red);"></div>
             <!-- Filled dynamically from /blog/posts.json -->
-      <div class="blog-grid" id="blog-grid">
-        <div class="blog-card" style="opacity:0.35; pointer-events:none;">
-          <p class="blog-card-tag">Loading…</p>
-        </div>
-      </div>
+      <div class="journal-grid" id="blog-grid"></div>
+      <a href="/italy26/blog/index.html" class="journal-all"
+         data-en="Read the whole journal →" data-sv="Läs hela dagboken →" data-it="Leggi tutto il diario →">Read the whole journal →</a>
     </div>
   </div>
 
@@ -2396,65 +2366,30 @@
       const lang = localStorage.getItem('preferred-lang') || 'en';
 
       const latest = posts
-        .slice()
+        .filter(p => p.type === 'journal')
         .sort((a, b) => new Date(b.date) - new Date(a.date))
-        .slice(0, 4);
+        .slice(0, 6);
 
         if (latest.length === 0) {
-          grid.innerHTML = '<div class="blog-card" style="opacity:0.4;"><p class="blog-card-tag">No posts yet</p></div>';
+          grid.innerHTML = '<p class="journal-empty">No posts yet</p>';
           return;
         }
 
+        const locale   = { en: 'en-GB', sv: 'sv-SE', it: 'it-IT' }[lang] || 'en-GB';
+        const dayWord  = { en: 'Day', sv: 'Dag', it: 'Giorno' }[lang] || 'Day';
+        const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
         grid.innerHTML = latest.map(post => {
-          const title = post.title[lang] || post.title.en;
-
-          let tag = '';
-          if (post.type === 'journal') {
-            tag = post.location || ('Day ' + post.day);
-          } else {
-            tag = post.tag || 'Blog';
-          }
-
-          let excerpt = '';
-          if (post.type === 'journal' && post.km) {
-            const labels = {
-              en: post.km + ' km · ' + post.elevation + ' m elevation',
-              sv: post.km + ' km · ' + post.elevation + ' m höjdmeter',
-              it: post.km + ' km · ' + post.elevation + ' m dislivello'
-            };
-            excerpt = '<p class="blog-card-excerpt">' + (labels[lang] || labels.en) + '</p>';
-          }
-
-          const href = '/italy26/blog/post.html?slug=' + post.slug;
-
-          // Try thumb first (small), fall back to full cover, then placeholder
-          const thumbUrl = '/italy26/blog/posts/' + post.slug + '/cover_thumb.jpg';
-          const coverUrl = '/italy26/blog/posts/' + post.slug + '/cover.jpg';
-
-          const coverImg = '<div class="blog-card-cover-wrap"><img'
-            + ' data-slug="' + post.slug + '"'
-            + ' src="' + thumbUrl + '"'
-            + ' alt="' + title + '"'
-            + ' loading="lazy"'
-            + ' decoding="async"'
-            + ' width="400" height="400"'
-            + ' onerror="'
-            +   'var s=this,t=s.dataset.try||0;'
-            +   'var fallbacks=[\'cover.jpg\',\'cover.jpeg\',\'cover.png\'];'
-            +   'if(t<fallbacks.length){s.dataset.try=parseInt(t)+1;s.src=\'/italy26/blog/posts/' + post.slug + '/\'+fallbacks[t];}'
-            +   'else{s.onerror=null;s.src=\'/italy26/assets/images/placehold.png\';}'
-            + '"'
-            + '></div>';
-
-          return '<a href="' + href + '" class="blog-card">'
-            + '<div class="blog-card-body">'
-            +   '<p class="blog-card-tag">' + tag + '</p>'
-            +   '<h3 class="blog-card-title">' + title + '</h3>'
-            + '</div>'
-            + coverImg
-            + '<div class="blog-card-footer">'
-            +   excerpt
-            + '</div>'
+          // "Day 37 - Rise & Shine" → "Rise & Shine": the day number has its own slot
+          const title = (post.title[lang] || post.title.en || '').replace(/^(Day|Dag|Giorno)\s*\d+\s*[-:–]\s*/i, '');
+          const date  = new Date(post.date).toLocaleDateString(locale, { day: 'numeric', month: 'short' });
+          const elev  = post.elevation ? String(post.elevation).replace(/^(\d+)/, m => Number(m).toLocaleString('sv-SE') + ' m') : '';
+          const stats = [post.km ? post.km + ' km' : '', elev].filter(Boolean).join(' · ');
+          return '<a href="/italy26/blog/post.html?slug=' + post.slug + '" class="journal-card">'
+            + '<span class="journal-card-head"><span class="journal-day">' + dayWord + ' ' + post.day + '</span>'
+            + '<span class="journal-date">' + date + '</span></span>'
+            + '<span class="journal-title">' + esc(title) + '</span>'
+            + (post.location ? '<span class="journal-place">' + esc(post.location) + '</span>' : '')
+            + (stats ? '<span class="journal-stats">' + esc(stats) + '</span>' : '')
             + '</a>';
         }).join('');
     }
@@ -2629,60 +2564,13 @@
   })();
   </script>
 
-  <script>
-  // ── MOBILE STRIP WIDGET ──
+  
+
+<script>
+  // ── TRIP FIGURES: days on the road come from TRIPS in manuals.js ──
   (function() {
-    var TRIP_START = new Date('2026-05-10T12:00:00');
-    var TRIP_END   = new Date('2026-06-20T00:00:00');
-    var now        = new Date();
-
-    var mPre    = document.getElementById('m-pre');
-    var mDuring = document.getElementById('m-during');
-    var mPost   = document.getElementById('m-post');
-
-    if (now < TRIP_START) {
-      if (mPre) mPre.style.display = 'block';
-      var t = setInterval(function() {
-        var diff = TRIP_START - new Date();
-        if (diff <= 0) { clearInterval(t); return; }
-        var d = Math.floor(diff / 86400000);
-        var h = Math.floor((diff % 86400000) / 3600000);
-        var m = Math.floor((diff % 3600000)  / 60000);
-        var s = Math.floor((diff % 60000)    / 1000);
-        var dEl = document.getElementById('m-days');
-        var hEl = document.getElementById('m-hms');
-        if (dEl) dEl.textContent = d;
-        if (hEl) hEl.textContent =
-          String(h).padStart(2,'0') + ':' +
-          String(m).padStart(2,'0') + ':' +
-          String(s).padStart(2,'0');
-      }, 1000);
-
-    } else if (now <= TRIP_END) {
-      if (mDuring) mDuring.style.display = 'block';
-      var tripDay = Math.floor((now - TRIP_START) / 86400000) + 1;
-      var tdEl = document.getElementById('m-tripday');
-      if (tdEl) tdEl.textContent = tripDay;
-
-      fetch('/italy26/strava/activities.json')
-        .then(function(r) { if (!r.ok) throw 0; return r.json(); })
-        .then(function(data) {
-          if (!Array.isArray(data) || !data.length) return;
-          var last   = data[0];
-          var rideEl = document.getElementById('m-ride');
-          var linkEl = document.getElementById('m-stravalink');
-          var km     = last.distance ? (last.distance).toFixed(1) : '—';
-          if (rideEl) rideEl.textContent = (last.name || '—') + ' · ' + km + ' km ';
-          if (linkEl && last.id) linkEl.href = 'https://www.strava.com/activities/' + last.id;
-        })
-        .catch(function() {});
-
-    } else {
-      if (mPost) mPost.style.display = 'block';
-      var totalDays = Math.round((TRIP_END - TRIP_START) / 86400000);
-      var pdEl = document.getElementById('m-postdays');
-      if (pdEl) pdEl.textContent = totalDays;
-    }
+    const el = document.getElementById('trip-figure-days');
+    if (el && typeof TRIPS !== 'undefined' && TRIPS.italy2026) el.textContent = TRIPS.italy2026.days;
   })();
   </script>
 

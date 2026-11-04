@@ -25,7 +25,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 8rem 2rem 6rem;
+      padding: clamp(56px, 10vw, 112px) clamp(20px, 5vw, 48px);
     }
 
     .card {
@@ -148,7 +148,7 @@
 </head>
 
 
-<body>
+<body class="has-nav-offset">
 
   <nav id="shared-nav"></nav>
 
