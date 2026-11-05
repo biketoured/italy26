@@ -187,13 +187,13 @@
        the list keeps swinging between the red half and the blue. */
     .candidates {
       max-width: 1120px;
-      margin: 0 auto;
+      margin: auto;
       padding: 3rem 3rem 6rem;
     }
 
     .candidate {
       display: grid;
-      grid-template-columns: 8rem 1fr;
+      grid-template-columns: 8rem minmax(0, 1fr);  /* minmax(0,…) lets the text column shrink below its longest word */
       gap: 3rem;
       padding: 3.5rem 0;
       border-top: 1px solid rgba(184,212,224,0.25);
@@ -344,7 +344,7 @@
       .closing { padding: 4rem 1.6rem; }
 
       .candidate {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 1.2rem;
         padding: 2.75rem 0;
       }
@@ -394,7 +394,8 @@
     .btn { font-size: 12px; min-height: 50px; display: inline-flex; align-items: center; padding: 0 28px; }
 
     @media (max-width: 760px) {
-      .candidate { grid-template-columns: 1fr; gap: 16px; }
+      .candidate { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+      .candidate > div { min-width: 0; overflow-wrap: break-word; }
     }
   </style>
 </head>
